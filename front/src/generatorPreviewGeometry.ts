@@ -1,19 +1,36 @@
-export interface PreviewSize { width: number; height: number }
+import { MAX_CANVAS_ZOOM, MIN_CANVAS_ZOOM, type CanvasViewport } from './composables/useCanvasGestures'
 
-function positive(value: number, fallback: number): number {
-  return Number.isFinite(value) && value > 0 ? value : fallback
+interface Size { width: number; height: number }
+interface Rectangle { left: number; top: number; right: number; bottom: number }
+interface LowerLeftCorner { right: number; top: number }
+
+function fit(frame: Size, rect: Rectangle) {
+  const scale = Math.min((rect.right - rect.left) / frame.width, (rect.bottom - rect.top) / frame.height)
+  return Math.min(MAX_CANVAS_ZOOM, scale)
 }
 
-/** A transient preview uses real media proportions and visible screen space.
- * Returned dimensions are Vue Flow units; generation settings remain unchanged.
- */
-export function generatorPreviewSize(media: PreviewSize, viewport: PreviewSize, zoom = 1): PreviewSize {
-  const complete = Number.isFinite(media.width) && media.width > 0 && Number.isFinite(media.height) && media.height > 0
-  const width = complete ? media.width : 16
-  const height = complete ? media.height : 9
-  const scale = Math.min(
-    Math.max(160, Math.min(1280, positive(viewport.width, 1280) - 96)) / width,
-    Math.max(120, Math.min(900, positive(viewport.height, 800) - 140)) / height,
-  ) / positive(zoom, 1)
-  return { width: width * scale, height: height * scale }
+/** Fit the whole media inside the canvas, above or beside its bottom-left minimap. */
+export function frameMediaViewport(position: { x: number; y: number }, frame: Size, canvas: Size, corner?: LowerLeftCorner): CanvasViewport | null {
+  if (![frame.width, frame.height, canvas.width, canvas.height].every(value => Number.isFinite(value) && value > 0)
+    || !Number.isFinite(position.x) || !Number.isFinite(position.y)) return null
+  const side = Math.min(48, canvas.width * .035)
+  const top = Math.min(64, canvas.height * .17)
+  // Includes the collapsed minimap button and the centered canvas toolbar.
+  const bottom = canvas.height - Math.min(canvas.width < 540 ? 112 : 80, canvas.height * .25)
+  const available = { left: side, right: canvas.width - side, top, bottom }
+  const center = { x: canvas.width / 2, y: (top + bottom) / 2 }
+  let zoom = fit(frame, available)
+  let region = available
+  if (corner && center.x - frame.width * zoom / 2 < corner.right + 12
+    && center.y + frame.height * zoom / 2 > corner.top - 12) {
+    const above = { ...available, bottom: Math.min(bottom, corner.top - 12) }
+    const beside = { ...available, left: Math.max(side, corner.right + 12) }
+    region = fit(frame, above) > fit(frame, beside) ? above : beside
+    zoom = fit(frame, region)
+  }
+  zoom = Math.max(MIN_CANVAS_ZOOM, zoom)
+  const width = frame.width * zoom, height = frame.height * zoom
+  const left = Math.max(region.left, Math.min(center.x - width / 2, region.right - width))
+  const y = Math.max(region.top, Math.min(center.y - height / 2, region.bottom - height))
+  return { x: left - position.x * zoom, y: y - position.y * zoom, zoom }
 }

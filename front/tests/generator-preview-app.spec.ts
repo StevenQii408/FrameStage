@@ -17,7 +17,7 @@ vi.mock('@vue-flow/core', async () => {
     Handle: defineComponent({ setup: () => () => null }),
     useVueFlow: () => ({ ...flow, screenToFlowCoordinate: (point: unknown) => point }),
     VueFlow: defineComponent({ name: 'VueFlow', props: ['nodes', 'edges'], setup(props, { slots }) {
-      return () => h('div', { class: 'vue-flow__pane' }, (props.nodes || []).filter((node: any) => node.type === 'generator').map((node: any) => h('div', {
+      return () => h('div', { class: 'vue-flow vue-flow__pane' }, (props.nodes || []).filter((node: any) => node.type === 'generator').map((node: any) => h('div', {
         key: node.id, class: 'vue-flow__node', 'data-id': node.id,
       }, slots['node-generator']?.(node))))
     } }),
@@ -97,17 +97,39 @@ describe('generator preview canvas integration', () => {
     const originalPosition = { ...setup.nodes.find(node => node.id === 'gen-image').position }
     await wrapper.get('[data-id="gen-image"] .generator-card').trigger('dblclick')
     expect(setup.generatorPreviewId).toBe('gen-image')
-    expect(setup.viewport.zoom).toBe(1)
+    expect(setup.viewport.zoom).toBeGreaterThan(2)
+    expect(flow.setViewport).toHaveBeenLastCalledWith(setup.viewport, { duration: 0 })
+    expect(setup.nodes.find(node => node.id === 'gen-image').position).toEqual(originalPosition)
     expect(setup.nodes.find(node => node.id === 'gen-image').draggable).toBe(false)
     expect(wrapper.findAll('.generator-preview-open')).toHaveLength(1)
-    expect(wrapper.get('[data-id="gen-image"] .generator-card').attributes('style')).not.toContain('width: 268px')
+    expect(wrapper.get('[data-id="gen-image"] .generator-card').attributes('style')).toContain('width: 268px')
     expect(JSON.stringify(setup.generators)).toBe(saved)
     await wrapper.get('[data-id="gen-image"] .generator-card').trigger('dblclick')
     expect(setup.generatorPreviewId).toBe('')
     expect(setup.viewport).toEqual(originalViewport)
     expect(setup.nodes.find(node => node.id === 'gen-image').position).toEqual(originalPosition)
     expect(JSON.stringify(setup.generators)).toBe(saved)
-    expect(flow.updateNodeInternals).toHaveBeenCalled()
+    expect(flow.setViewport).toHaveBeenLastCalledWith(originalViewport, { duration: 0 })
+  })
+
+  it('allows further pinch and pan on the focused video, then restores the pre-preview viewport on Escape', async () => {
+    const { wrapper, setup } = await mounted()
+    await wrapper.get('[data-id="gen-video"] .generator-card').trigger('dblclick')
+    await vi.dynamicImportSettled()
+    await flushPromises()
+    const focused = { ...setup.viewport }
+    const media = wrapper.get('[data-testid="node-video-player"] video')
+    const pinch = new WheelEvent('wheel', { ctrlKey: true, deltaY: -20, clientX: 640, clientY: 450, bubbles: true, cancelable: true })
+    media.element.dispatchEvent(pinch)
+    expect(pinch.defaultPrevented).toBe(true)
+    const adjusted = flow.setViewport.mock.lastCall![0]
+    expect(adjusted.zoom).toBeGreaterThan(focused.zoom)
+    wrapper.findComponent({ name: 'VueFlow' }).vm.$emit('viewport-change', adjusted)
+    await media.trigger('wheel', { deltaX: 20, deltaY: 10 })
+    expect(flow.setViewport.mock.lastCall![0]).toEqual({ x: adjusted.x - 20, y: adjusted.y - 10, zoom: adjusted.zoom })
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
+    expect(setup.generatorPreviewId).toBe('')
+    expect(setup.viewport).toEqual(originalViewport)
   })
 
   it('shows one enlarged node at a time and closes its inline generation editor', async () => {

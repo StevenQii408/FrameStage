@@ -1,7 +1,7 @@
 import { defineComponent, h, nextTick, ref } from 'vue'
 import { mount } from '@vue/test-utils'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { canvasGestureSurface, canvasWheelPixels, canvasWheelViewport, useCanvasGestures, zoomCanvasAt, type CanvasViewport } from '../src/composables/useCanvasGestures'
+import { canvasGestureSurface, canvasWheelPixels, canvasWheelViewport, MAX_CANVAS_ZOOM, useCanvasGestures, zoomCanvasAt, type CanvasViewport } from '../src/composables/useCanvasGestures'
 
 const bounds = { left: 100, top: 50, width: 800, height: 600 }
 const start: CanvasViewport = { x: 20, y: -10, zoom: .8 }
@@ -55,7 +55,7 @@ describe('cross-platform canvas wheel geometry', () => {
     expect((300 - next.y) / next.zoom).toBeCloseTo((300 - start.y) / start.zoom, 10)
   })
   it('clamps zoom, retains the anchor at bounds, and rejects corrupt numeric inputs', () => {
-    expect(zoomCanvasAt(start, { x: 400, y: 300 }, 100)?.zoom).toBe(1.6)
+    expect(zoomCanvasAt(start, { x: 400, y: 300 }, 100)?.zoom).toBe(MAX_CANVAS_ZOOM)
     expect(zoomCanvasAt(start, { x: 400, y: 300 }, .001)?.zoom).toBe(.25)
     expect(canvasWheelViewport(start, { ...wheelInput, deltaY: NaN }, bounds)).toBeNull()
     expect(zoomCanvasAt({ ...start, zoom: 0 }, { x: 400, y: 300 }, 1)).toBeNull()

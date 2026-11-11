@@ -53,7 +53,7 @@ async def lifespan(app: FastAPI):
         app.state.job_service.executor.shutdown(wait=False, cancel_futures=True)
 
 
-app = FastAPI(title="FrameStage Backend", version="0.1.1", lifespan=lifespan)
+app = FastAPI(title="FrameStage Backend", version="0.1.2", lifespan=lifespan)
 app.middleware("http")(project_scope)
 app.add_middleware(LocalSecurityMiddleware)
 cors_origins = list(load_cors_origins())

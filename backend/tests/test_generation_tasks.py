@@ -607,6 +607,12 @@ def test_http_reference_upload_preflight_and_asset_integrity(client):
     asset = uploaded.json()
     retrieved = client.get(asset["url"])
     assert retrieved.status_code == 200 and retrieved.headers["content-type"] == "image/png"
+    assert "content-disposition" not in retrieved.headers
+    attachment = client.get(asset["url"], params={"download": "true"})
+    assert attachment.headers["content-disposition"] == f'attachment; filename="{asset["id"]}.png"'
+    assert attachment.content == retrieved.content
+    partial = client.get(asset["url"] + "?download=true", headers={"Range": "bytes=0-7"})
+    assert partial.status_code == 206 and partial.content == retrieved.content[:8]
     payload = {k: v for k, v in request(kind="video", reference_asset_id=asset["id"]).items() if k != "idempotency_key"}
     check = client.post("/api/generations/preflight", json=payload).json()
     assert check["valid"] and not check["can_submit"]

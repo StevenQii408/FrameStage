@@ -21,7 +21,7 @@ import { loadLocalImage } from './generatorStorage'
 import { useGeneratorAssets } from './composables/useGeneratorAssets'
 import { useGeneratorTasks } from './composables/useGeneratorTasks'
 import { useGeneratorEdits } from './composables/useGeneratorEdits'
-import { useCanvasGestures } from './composables/useCanvasGestures'
+import { MAX_CANVAS_ZOOM, MIN_CANVAS_ZOOM, useCanvasGestures, zoomCanvasAt } from './composables/useCanvasGestures'
 import { useCanvasUndo } from './composables/useCanvasUndo'
 import { useNodeDetails } from './composables/useNodeDetails'
 import TacticalMiniMap from './components/TacticalMiniMap.vue'
@@ -53,7 +53,7 @@ import { planCanvasDeletion } from './canvasSelection'
 import { visibleCanvasPrompts } from './promptVisibility'
 import { generatorPanelAnchor } from './generatorPanelGeometry'
 import { generatorFrameSize } from './generatorGeometry'
-import { generatorPreviewSize } from './generatorPreviewGeometry'
+import { frameMediaViewport } from './generatorPreviewGeometry'
 import { defaultGenerationSettings } from './api/generations'
 import { recoverCanvasDrafts } from './canvasRecovery'
 import { applyDarkTheme } from './theme'
@@ -134,7 +134,7 @@ const sceneUi = ref<Record<string, { open: boolean; page: number }>>({})
 const sequenceUi = ref<SequenceUi>({})
 const viewport = ref({ x: 0, y: 0, zoom: 1 })
 useCanvasGestures({ canvasWrap, getViewport: () => viewport.value, setViewport: view => setViewport?.(view, { duration: 0 }),
-  blocked: () => restoringCanvas.value || nodeDragInProgress || marqueeSelecting || styleStudioOpen.value || eventAgentOpen.value || Boolean(createMenu.value) || Boolean(generatorPreviewId.value) })
+  blocked: () => restoringCanvas.value || nodeDragInProgress || marqueeSelecting || styleStudioOpen.value || eventAgentOpen.value || Boolean(createMenu.value) })
 const activeEffectKeys = computed(() => store.tasks.filter((task) => task.jobId && ['processing', 'queued'].includes(task.status)).map((task) => task.key))
 const pageVisible = ref(!document.hidden)
 const canvasBounds = ref({ left: 0, top: 0, width: window.innerWidth, height: window.innerHeight })
@@ -396,50 +396,45 @@ function generatorNodeData(item: GeneratorDraft) {
   const mediaWidth = output?.width || resolved.ownImageWidth, mediaHeight = output?.height || resolved.ownImageHeight
   const baseFrame = generatorFrameSize(item, { width: mediaWidth, height: mediaHeight })
   const previewOpen = generatorPreviewId.value === item.id
-  const frame = previewOpen ? generatorPreviewSize(baseFrame, canvasBounds.value, viewport.value.zoom) : baseFrame
   const task = generationTasks.jobs.value[item.id], stale = generationTasks.isStale(item.id)
   const visualState = task && !stale && ['running', 'submitting', 'finalizing'].includes(task.status) ? 'rendering' : task?.status === 'failed' ? 'failed' : resolved.ownImageUrl ? 'reference-ready' : 'idle'
   return { generator: item, resolved, reduced: store.motionReduced, visualState, task, stale, output, historyOpen: generatorHistoryId.value === item.id,
-    previewOpen, previewSize: previewOpen ? frame : undefined, baseFrame,
-    layoutWidth: frame.width, layoutHeight: frame.height + 42 }
+    previewOpen, baseFrame,
+    layoutWidth: baseFrame.width, layoutHeight: baseFrame.height + 42 }
 }
 
 function closeGeneratorPreview(restoreViewport = true) {
   if (!generatorPreviewId.value) return
-  const id = generatorPreviewId.value
-  generatorPreviewId.value = ''
   const previous = generatorPreviewViewport
+  generatorPreviewId.value = ''
   generatorPreviewViewport = null
-  if (restoreViewport && previous) { viewport.value = previous; canvasZoom.value = previous.zoom; void setViewport?.(previous, { duration: 0 }) }
+  if (restoreViewport && previous) {
+    viewport.value = previous
+    void setViewport?.(previous, { duration: 0 })
+  }
+  canvasZoom.value = viewport.value.zoom
   buildGraph()
-  nextTick(() => vueFlow.updateNodeInternals?.([id]))
 }
-function fitGeneratorPreview() {
-  const id = generatorPreviewId.value
-  const item = generators.value.find(node => node.id === id)
-  if (!item) return
-  const base = generatorNodeData(item).baseFrame
-  const next = { x: canvasBounds.value.width / 2 - (item.position.x + base.width / 2),
-    y: canvasBounds.value.height / 2 - (item.position.y + base.height / 2), zoom: 1 }
-  viewport.value = next
-  void setViewport?.(next, { duration: 0 })
-  buildGraph()
-  nextTick(() => vueFlow.updateNodeInternals?.([id]))
-}
-watch(() => [canvasBounds.value.width, canvasBounds.value.height], () => {
-  if (generatorPreviewId.value) fitGeneratorPreview()
-})
 function toggleGeneratorPreview(id: string) {
   if (nodeDragInProgress || draggedClickIds.has(id)) return
   if (generatorPreviewId.value === id) { closeGeneratorPreview(); return }
   const item = generators.value.find(node => node.id === id)
   if (!item || !(generationTasks.outputFor(id) || resolvedGenerator(id).ownImageUrl)) return
+  measureCanvas()
+  const bounds = canvasBounds.value
+  const panel = canvasWrap.value?.querySelector<HTMLElement>('.tactical-minimap')?.getBoundingClientRect()
+  const corner = panel && panel.width > 0 && panel.height > 0
+    ? { right: panel.right - bounds.left, top: panel.top - bounds.top } : undefined
+  const next = frameMediaViewport(item.position, generatorNodeData(item).baseFrame, bounds, corner)
+  if (!next) return
   closeGeneratorPreview()
-  generatorPreviewViewport = { ...viewport.value }
   select(id)
+  generatorPreviewViewport = { ...viewport.value }
   generatorEditorId.value = ''; generatorHistoryId.value = ''; details.close()
   generatorPreviewId.value = id
-  fitGeneratorPreview()
+  viewport.value = next
+  void setViewport?.(next, { duration: 0 })
+  buildGraph()
 }
 async function captureGeneratorFrame(value: { nodeId: string; blob: Blob; width: number; height: number; timestamp: number; source: 'first' | 'current' | 'last' }) {
   const source = generators.value.find(item => item.id === value.nodeId)
@@ -677,14 +672,10 @@ function buildGraph(forceLayout = false) {
   })
   for (const item of generators.value) {
     const data = generatorNodeData(item)
-    nextNodes.push({ id: item.id, type: 'generator', position: data.previewOpen
-      ? { x: item.position.x - (data.layoutWidth - data.baseFrame.width) / 2, y: item.position.y - (data.previewSize!.height - data.baseFrame.height) / 2 }
-      : item.position, data, draggable: !data.previewOpen, zIndex: data.previewOpen ? 1000 : 0,
-      class: data.previewOpen ? 'generator-preview-node' : '' })
+    nextNodes.push({ id: item.id, type: 'generator', position: item.position, data,
+      draggable: !data.previewOpen, zIndex: data.previewOpen ? 1000 : 0, class: data.previewOpen ? 'generator-preview-node' : '' })
   }
-  const nodeRect = (node: Node) => node.type === 'generator' && node.data?.previewOpen
-    ? { ...node.data.generator.position, width: node.data.baseFrame.width, height: node.data.baseFrame.height + 42 }
-    : ({ ...node.position, width: Number(node.data?.layoutWidth) || 250, height: Number(node.data?.layoutHeight) || 230 })
+  const nodeRect = (node: Node) => ({ ...node.position, width: Number(node.data?.layoutWidth) || 250, height: Number(node.data?.layoutHeight) || 230 })
   const placedEventPrompts: ReturnType<typeof nodeRect>[] = []
   for (const pair of eventPromptPairs) {
     const shot = nextNodes.find(node => node.id === pair.shotId)!
@@ -824,10 +815,10 @@ function onMarqueeEnd() {
 }
 
 function zoomCanvas(factor: number) {
-  const { width, height } = canvasBounds.value, current = viewport.value
-  const zoom = Math.max(.25, Math.min(1.6, current.zoom * factor))
-  const scale = zoom / current.zoom
-  void setViewport?.({ x: width / 2 - (width / 2 - current.x) * scale, y: height / 2 - (height / 2 - current.y) * scale, zoom })
+  const { width, height } = canvasBounds.value
+  const current = viewport.value
+  const next = zoomCanvasAt(current, { x: width / 2, y: height / 2 }, current.zoom * factor)
+  if (next) void setViewport?.(next, { duration: 0 })
 }
 
 function handlePaneClick() {
@@ -894,7 +885,7 @@ function autoLayout() {
   persistCanvasState()
   focusedScene.value = ''
   buildGraph(true)
-  nextTick(() => fitView({ padding: 0.14, duration: 500 }))
+  nextTick(() => fitView({ maxZoom: 1.6, padding: 0.14, duration: 500 }))
 }
 function onNodeDragStart({ node, nodes: group }: { node: Node; nodes?: Node[] }) {
   closeGeneratorPreview(false)
@@ -1013,7 +1004,7 @@ function showWholeMovie() {
   clearCanvasSelection()
   persistCanvasState()
   buildGraph()
-  nextTick(() => fitView({ padding: 0.14, duration: 500 }))
+  nextTick(() => fitView({ maxZoom: 1.6, padding: 0.14, duration: 500 }))
 }
 
 function updateUrl() {
@@ -1460,11 +1451,11 @@ onMounted(async () => {
   nextTick(() => {
     observeCanvas()
     const view = raw.viewport
-    if (view && [view.x, view.y, view.zoom].every(Number.isFinite) && view.zoom >= .25 && view.zoom <= 1.6) {
+    if (view && [view.x, view.y, view.zoom].every(Number.isFinite) && view.zoom >= MIN_CANVAS_ZOOM && view.zoom <= MAX_CANVAS_ZOOM) {
       viewport.value = { x: view.x, y: view.y, zoom: view.zoom }; canvasZoom.value = view.zoom
       if (setViewport) void setViewport(viewport.value)
       buildGraph()
-    } else if (nodes.value.length) fitView({ padding: 0.14 })
+    } else if (nodes.value.length) fitView({ maxZoom: 1.6, padding: 0.14 })
     persistCanvasState()
   })
 })
@@ -1493,9 +1484,9 @@ onBeforeUnmount(() => {
       <section class="main-column">
         <div class="page-toolbar"><div class="toolbar-actions" aria-label="画布操作"><slot name="project-navigation" /><button class="cosmic-action undo-button" type="button" :disabled="!history.length" aria-label="撤回上一步画布操作" title="撤回操作" @click="undoCanvasAction"><Undo2 :size="17" /><span>撤回操作</span></button><button class="cosmic-action" type="button" aria-label="自动排版" title="自动排版" @click="autoLayout"><AlignJustify :size="17" /><span>自动排版</span></button><button class="cosmic-action" type="button" :disabled="!store.activeTask?.jobId" aria-label="全局画风" title="全局画风" @click="styleStudioShot = selected?.kind === 'shot' ? selected.shot?.id || '' : ''; styleStudioOpen = true"><Palette :size="17" /><span>全局画风</span></button><button class="cosmic-action cosmic-action-export" type="button" aria-label="导出 JSON" title="导出 JSON" @click="exportData"><Download :size="17" /><span>导出 JSON</span></button></div></div>
         <WorkflowRail v-if="topbarOpen" :task="store.activeTask" />
-        <div v-if="store.activeView === 'canvas'" ref="canvasWrap" tabindex="-1" role="region" aria-label="分镜画布" class="canvas-wrap" :class="[`canvas-tool-${handMode ? 'hand' : 'select'}`, { 'canvas-compact-tools': canvasBounds.width < 980 }]" :style="{ '--selection-padding': `${12 / Math.max(.25, viewport.zoom)}px` }" @pointerdown.capture="beginCanvasPointer" @click.capture="captureCanvasClick" @dblclick="openCreateMenu" @pointermove.capture="handleMagneticPointer" @pointerleave="resetMagnet">
+        <div v-if="store.activeView === 'canvas'" ref="canvasWrap" tabindex="-1" role="region" aria-label="分镜画布" class="canvas-wrap" :class="[`canvas-tool-${handMode ? 'hand' : 'select'}`, { 'canvas-compact-tools': canvasBounds.width < 980 }]" :style="{ '--selection-padding': `${12 / Math.max(MIN_CANVAS_ZOOM, viewport.zoom)}px`, '--preview-ui-scale': 1 / viewport.zoom }" @pointerdown.capture="beginCanvasPointer" @click.capture="captureCanvasClick" @dblclick="openCreateMenu" @pointermove.capture="handleMagneticPointer" @pointerleave="resetMagnet">
           <div v-if="restoringCanvas" class="canvas-restoring" role="status">正在恢复项目与节点…</div>
-          <VueFlow v-model:nodes="nodes" v-model:edges="edges" :delete-key-code="null" :nodes-draggable="!handMode" :elements-selectable="!handMode" :node-drag-threshold="4" :selection-key-code="handMode ? 'Shift' : true" :pan-on-drag="handMode ? true : [1, 2]" :selection-mode="SelectionMode.Full" :zoom-on-scroll="false" :pan-on-scroll="false" :zoom-on-pinch="false" :zoom-activation-key-code="null" :prevent-scrolling="false" :fit-view-on-init="false" :only-render-visible-elements="false" :zoom-on-double-click="false" :min-zoom="0.25" :max-zoom="1.6" :connection-radius="32" @selection-start="onMarqueeStart" @selection-end="onMarqueeEnd" @edge-click="handleEdgeClick" @node-click="handleNodeClick" @node-drag-start="onNodeDragStart" @node-drag-stop="onNodeDragStop" @nodes-change="onNodeDimensions" @viewport-change="onViewportChange" @pane-click="handlePaneClick" @connect="onConnect">
+          <VueFlow v-model:nodes="nodes" v-model:edges="edges" :delete-key-code="null" :nodes-draggable="!handMode" :elements-selectable="!handMode" :node-drag-threshold="4" :selection-key-code="handMode ? 'Shift' : true" :pan-on-drag="handMode ? true : [1, 2]" :selection-mode="SelectionMode.Full" :zoom-on-scroll="false" :pan-on-scroll="false" :zoom-on-pinch="false" :zoom-activation-key-code="null" :prevent-scrolling="false" :fit-view-on-init="false" :only-render-visible-elements="false" :zoom-on-double-click="false" :min-zoom="MIN_CANVAS_ZOOM" :max-zoom="MAX_CANVAS_ZOOM" :connection-radius="32" @selection-start="onMarqueeStart" @selection-end="onMarqueeEnd" @edge-click="handleEdgeClick" @node-click="handleNodeClick" @node-drag-start="onNodeDragStart" @node-drag-stop="onNodeDragStop" @nodes-change="onNodeDimensions" @viewport-change="onViewportChange" @pane-click="handlePaneClick" @connect="onConnect">
             <template #node-project="props"><ProjectNode v-bind="props" :snapshot-stale="staleSnapshots.has(props.data.jobId)" @sync-result="refreshTask(props.data.jobId, true)" @draft-change="(value) => { draftInputs[props.id] = value; persistCanvasState() }" @submit="(payload) => startJob(props.id, payload)" @cancel="cancelTask(props.id)" @resume="resumeTask(props.id)" @delete="deleteTask(props.id)" /></template>
             <template #node-scene="props"><SceneNode v-bind="props" @toggle="focusScene" /></template>
             <template #node-generator="props"><GeneratorNode v-bind="props" @history-toggle="toggleGeneratorHistory" @select-version="selectGeneratedVersion" @preview-toggle="toggleGeneratorPreview" @preview-close="id => { if (id === generatorPreviewId) closeGeneratorPreview() }" @capture="captureGeneratorFrame" /></template>
@@ -1518,7 +1509,7 @@ onBeforeUnmount(() => {
             <button type="button" aria-label="缩小画布" title="缩小；触控板捏合" @click="zoomCanvas(1 / 1.15)"><Minus :size="16" /></button>
             <span class="canvas-zoom" aria-label="当前画布缩放">{{ Math.round(viewport.zoom * 100) }}%</span>
             <button type="button" aria-label="放大画布" title="放大；触控板张开" @click="zoomCanvas(1.15)"><Plus :size="16" /></button>
-            <button type="button" aria-label="显示全部节点" title="适应全部节点" @click="fitView({ padding: .14, duration: store.motionReduced ? 0 : 240 })"><Scan :size="16" /></button>
+            <button type="button" aria-label="显示全部节点" title="适应全部节点" @click="fitView({ maxZoom: 1.6, padding: .14, duration: store.motionReduced ? 0 : 240 })"><Scan :size="16" /></button>
             <template v-if="selectedNodeIds.size > 1"><i /><span class="canvas-selection-count" role="status">{{ selectedNodeIds.size }} 个已选</span><button type="button" aria-label="删除选中节点" title="删除选中节点；⌘Z 整组撤回" @click="deleteSelectedNodes"><Trash2 :size="16" /></button></template>
             <button v-if="canvasHiddenNodeIds.length" type="button" class="canvas-restore-hidden" @click="restoreHiddenNodes">恢复隐藏 {{ canvasHiddenNodeIds.length }}</button>
           </div>
@@ -1577,7 +1568,8 @@ onBeforeUnmount(() => {
 .canvas-tools button{display:grid;place-items:center;flex-shrink:0;width:32px;height:32px;border:0;border-radius:7px;background:transparent;color:inherit;cursor:pointer}.canvas-tools button:hover{background:#334656}.canvas-tools button[aria-pressed=true]{color:#b5edff;background:#315061}.canvas-tools button:focus-visible{outline:2px solid #75d7ee;outline-offset:1px}.canvas-tools i{height:18px;width:1px;background:#60788b55;margin:0 3px}.canvas-zoom{min-width:38px;text-align:center;font:10px 'DM Mono',monospace;user-select:none}.canvas-selection-count{white-space:nowrap;font-size:10px}.canvas-tools .canvas-restore-hidden{width:auto;padding:0 8px;white-space:nowrap;font-size:10px}
 .canvas-tool-select :deep(.vue-flow__pane){cursor:crosshair}.canvas-tool-hand :deep(.vue-flow__pane){cursor:grab}.canvas-tool-hand :deep(.vue-flow__pane.dragging){cursor:grabbing}
 .canvas-tool-hand :deep(.vue-flow__node),.canvas-tool-hand :deep(.vue-flow__node *),.canvas-tool-hand :deep(.vue-flow__nodesselection),.canvas-tool-hand :deep(.vue-flow__nodesselection *){pointer-events:none!important}
-.canvas-compact-tools :deep(.tactical-minimap){bottom:110px}
+.canvas-compact-tools .canvas-tools{max-width:calc(100% - 120px)}
+.canvas-tool-hand :deep(.generator-preview-open :is(button, input, a[href])){pointer-events:auto!important}
 :deep(.vue-flow__selection){background:#6acde819;border:1px solid #75d7ee;border-radius:5px}
 :deep(.vue-flow__nodesselection-rect){box-sizing:content-box;padding:var(--selection-padding,12px);margin-left:calc(-1 * var(--selection-padding,12px));margin-top:calc(-1 * var(--selection-padding,12px));border:0;outline:calc(var(--selection-padding,12px) / 12) solid #75d7ee88;border-radius:calc(var(--selection-padding,12px) * .75);background:#6acde808}
 :deep(.vue-flow__node.selected .generation-sequence-node),:deep(.vue-flow__node.selected .scene-deck-node){outline:2px solid #75d7ee;outline-offset:4px}

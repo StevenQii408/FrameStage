@@ -250,11 +250,22 @@ try {
     assert.equal(await evaluate(`document.querySelectorAll('[data-id="${video}"] .generator-card video').length`),0,'collapsed video uses a static poster instead of decoding all videos')
     assert.equal(await evaluate(`getComputedStyle(document.querySelector('[data-id="${video}"] .generator-video-poster')).objectFit`),'contain')
     await shot('video-poster.png')
+    const videoCard = '[data-id="' + video + '"] .generator-card'
+    const mapToggle = '.minimap-toggle'
+    const initialCamera = await evaluate(`({...${setup}.viewport})`)
+    const initialWorldWidth = await evaluate(`document.querySelector(${JSON.stringify(videoCard)}).offsetWidth`)
+    const mapWasOpen = await evaluate(`document.querySelector(${JSON.stringify(mapToggle)}).getAttribute('aria-expanded')`)
     await click('[data-id="'+video+'"] [aria-label="播放生成视频"]')
     await until(`(()=>{const media=document.querySelector('[data-id="${video}"] .canvas-video-player video');return media?.readyState>=2&&media.videoWidth===1280&&media.videoHeight===720})()`)
+    const previewCamera = await evaluate(`({...${setup}.viewport})`)
+    assert.notDeepEqual(previewCamera, initialCamera, 'the camera frames the selected video')
+    assert.equal(await evaluate(`document.querySelector(${JSON.stringify(videoCard)}).offsetWidth`), initialWorldWidth, 'preview preserves node geometry')
+    assert.equal(await evaluate(`document.querySelector(${JSON.stringify(mapToggle)}).getAttribute('aria-expanded')`), mapWasOpen)
+    assert.equal(await evaluate(`Boolean(document.querySelector(${JSON.stringify(videoCard + ' a[download] + .generator-preview-close')}))`),true)
     await shot('video-inline-playback.png')
     await click('[data-id="'+video+'"] [aria-label="收起节点预览"]')
-    mediaChecks.push('concrete-model-label','wave-progress','video-poster-visible','collapsed-no-video-decoding','inline-playback')
+    assert.deepEqual(await evaluate(`({...${setup}.viewport})`), initialCamera)
+    mediaChecks.push('viewport-preview','minimap-preference','asset-download','concrete-model-label','wave-progress','video-poster-visible','collapsed-no-video-decoding','inline-playback')
   }
   const failureChecks=[]
   if(args.failures==='yes'){

@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import { computed, defineAsyncComponent, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { Handle, Position } from '@vue-flow/core'
-import { Image as ImageIcon, Images, Video, Sparkles, Play, RotateCcw, X, CircleAlert, CircleSlash } from 'lucide-vue-next'
+import { Image as ImageIcon, Images, Video, Sparkles, Play, RotateCcw, Download, X, CircleAlert, CircleSlash } from 'lucide-vue-next'
 import type { GeneratorDraft, ResolvedGenerator } from '../generatorGraph'
 import type { GenerationJob, GenerationAsset } from '../api/generations'
-import { generationAssetUrl } from '../api/generations'
+import { generationAssetDownloadUrl, generationAssetUrl } from '../api/generations'
 import GenerationWaveProgress from './GenerationWaveProgress.vue'
 import { generatorFrameSize } from '../generatorGeometry'
 import { activeGeneratorVersion, isReferenceAsset } from '../generatorVersions'
-import { generatorPreviewSize } from '../generatorPreviewGeometry'
 import { cloudCancellationLabel, generationFailureFeedback } from '../generationFailure'
 import type { CapturedVideoFrame } from '../mediaPlayback'
 
 const GeneratorHistory = defineAsyncComponent(() => import('./GeneratorHistory.vue'))
 const CanvasVideoPlayer = defineAsyncComponent(() => import('./CanvasVideoPlayer.vue'))
-const props = defineProps<{ data: { generator: GeneratorDraft; resolved: ResolvedGenerator; reduced: boolean; visualState?: 'idle' | 'reference-ready' | 'rendering' | 'completed' | 'failed'; task?: GenerationJob; stale?: boolean; output?: GenerationAsset | null; historyOpen?: boolean; previewOpen?: boolean; previewSize?: { width: number; height: number } } }>()
+const props = defineProps<{ selected?: boolean; data: { generator: GeneratorDraft; resolved: ResolvedGenerator; reduced: boolean; visualState?: 'idle' | 'reference-ready' | 'rendering' | 'completed' | 'failed'; task?: GenerationJob; stale?: boolean; output?: GenerationAsset | null; historyOpen?: boolean; previewOpen?: boolean; baseFrame?: { width: number; height: number } } }>()
 const emit = defineEmits<{ historyToggle: [nodeId: string]; selectVersion: [change: { nodeId: string; versionId: string }]; previewToggle: [nodeId: string]; previewClose: [nodeId: string]; capture: [change: CapturedVideoFrame & { nodeId: string }] }>()
 const surface = ref<HTMLElement>()
 const previewPlayer = ref<{ pause: () => void }>()
@@ -71,16 +70,13 @@ const failure = computed(() => {
   return generationFailureFeedback(task)
 })
 const previewOpen = computed(() => Boolean(props.data.previewOpen && mediaUrl.value))
-const frameSize = computed(() => {
-  const width = output.value?.width || props.data.resolved.ownImageWidth
-  const height = output.value?.height || props.data.resolved.ownImageHeight
-  if (previewOpen.value) {
-    const preview = props.data.previewSize
-    if (preview && Number.isFinite(preview.width) && preview.width > 0 && Number.isFinite(preview.height) && preview.height > 0) return preview
-    return generatorPreviewSize({ width, height }, { width: window.innerWidth, height: window.innerHeight })
-  }
-  return generatorFrameSize(props.data.generator, { width, height })
-})
+const downloadUrl = computed(() => output.value ? generationAssetDownloadUrl(output.value)
+  : referenceOnly.value && mediaUrl.value.startsWith('blob:') ? mediaUrl.value : '')
+const downloadLabel = computed(() => output.value?.mime_type.startsWith('video/') ? '下载视频' : '下载图片')
+const frameSize = computed(() => props.data.baseFrame || generatorFrameSize(props.data.generator, {
+  width: output.value?.width || props.data.resolved.ownImageWidth,
+  height: output.value?.height || props.data.resolved.ownImageHeight,
+}))
 const taskLabel = computed(() => referenceOnly.value ? '参考资产' : props.data.stale ? (output.value ? '输入已更改 · 保留置顶版本' : '输入已变化 · 旧任务待更新') : currentTask.value
   ? ({ blocked: '等待接入生成 API', queued: '等待执行', submitting: '正在提交', running: currentTask.value.progress == null ? '生成中' : `生成中 ${currentTask.value.progress}%`, finalizing: '正在保存产物', succeeded: '生成完成', failed: '生成失败', cancelled: cloudCancellationLabel(currentTask.value) || '任务已取消', interrupted: '执行已中断' }[currentTask.value.status]) : '')
 let frame = 0
@@ -110,7 +106,7 @@ function closePreview() {
   if (previewOpen.value && !closingRequested) { closingRequested = true; emit('previewClose', props.data.generator.id) }
 }
 function pointerDown(event: PointerEvent) {
-  if ((event.target as HTMLElement)?.closest('button,input,select,textarea,[role="menu"],[role="slider"]')) return
+  if ((event.target as HTMLElement)?.closest('a,button,input,select,textarea,[role="menu"],[role="slider"]')) return
   dragStart = { x: event.clientX, y: event.clientY }
   clearTilt()
 }
@@ -119,7 +115,7 @@ function pointerUp(event: PointerEvent) {
   dragStart = null
 }
 function doubleClick(event: MouseEvent) {
-  if ((event.target as HTMLElement)?.closest('button,input,select,textarea,[role="menu"],[role="slider"],[data-video-controls],.player-controls,.player-capture')) return
+  if ((event.target as HTMLElement)?.closest('a,button,input,select,textarea,[role="menu"],[role="slider"],[data-video-controls],.player-controls,.player-capture')) return
   event.stopPropagation()
   if (!mediaUrl.value || Date.now() < suppressPreviewUntil) return
   previewError.value = ''
@@ -154,7 +150,7 @@ function schedule() { if (!frame) frame = requestAnimationFrame(paint) }
 function pointerMove(event: PointerEvent) {
   if (dragStart && event.buttons && Math.hypot(event.clientX - dragStart.x, event.clientY - dragStart.y) > 5) suppressPreviewUntil = Date.now() + 350
   if (props.data.reduced || previewOpen.value || event.buttons || event.pointerType === 'touch' || !surface.value
-    || (event.target as HTMLElement)?.closest('button,input,select,textarea,[role="menu"],[role="slider"]')) return
+    || (event.target as HTMLElement)?.closest('a,button,input,select,textarea,[role="menu"],[role="slider"]')) return
   const rect = surface.value.getBoundingClientRect()
   if (!rect.width || !rect.height) return
   const x = Math.max(-1, Math.min(1, ((event.clientX - rect.left) / rect.width - .5) * 2))
@@ -206,7 +202,7 @@ onBeforeUnmount(() => { pauseMedia(); visibilityObserver?.disconnect(); if (fram
     <Handle v-if="!referenceOnly" id="input" type="target" :position="Position.Left" class="generator-handle magnetic-port generator-handle-input" :style="{ top: frameSize.height / 2 + 'px' }" title="输入：自动识别 Prompt 或参考图片" />
     <Handle id="output" type="source" :position="Position.Right" class="generator-handle magnetic-port generator-handle-output" :style="{ top: frameSize.height / 2 + 'px' }" :title="referenceOnly ? '参考图片输出' : data.generator.kind === 'image' ? '图片输出' : output ? '视频输出' : '视频输出（待接入）'" />
     <div v-for="(version, index) in albumLayers" :key="version.id" class="generator-album-layer" aria-hidden="true" :style="{ width: frameSize.width + 'px', height: frameSize.height + 'px', '--album-offset': albumLayers.length - index }"><img v-if="data.generator.kind === 'image' && version.asset.mime_type.startsWith('image/')" :src="assetUrl(version.asset.url)" alt="" loading="lazy" decoding="async" /><Video v-else :size="28" :stroke-width="1" /></div>
-    <div ref="surface" class="generator-card" :style="{ width: frameSize.width + 'px', height: frameSize.height + 'px', aspectRatio: frameSize.width + ' / ' + frameSize.height }" :class="{ 'nodrag nopan': previewOpen }" :tabindex="mediaUrl ? 0 : undefined" :title="mediaUrl ? previewOpen ? '双击收起预览' : '双击放大预览' : undefined" @pointerenter="pointerMove" @pointermove="pointerMove" @pointerleave="pointerLeave" @pointerdown="pointerDown" @pointerup="pointerUp" @dblclick.capture="doubleClick">
+    <div ref="surface" class="generator-card" :style="{ width: frameSize.width + 'px', height: frameSize.height + 'px', aspectRatio: frameSize.width + ' / ' + frameSize.height }" :class="{ 'nodrag nopan': previewOpen }" :tabindex="mediaUrl ? 0 : undefined" :title="mediaUrl ? previewOpen ? '双击收起预览' : '双击聚焦预览' : undefined" @pointerenter="pointerMove" @pointermove="pointerMove" @pointerleave="pointerLeave" @pointerdown="pointerDown" @pointerup="pointerUp" @dblclick.capture="doubleClick">
       <template v-if="output?.mime_type.startsWith('video/')">
         <CanvasVideoPlayer v-if="previewOpen" :key="mediaUrl" ref="previewPlayer" :src="mediaUrl" :capture-enabled="true" :autoplay="true" :muted="true" @capture="forwardCapture" @error="previewError = $event" />
         <template v-else>
@@ -229,7 +225,11 @@ onBeforeUnmount(() => { pauseMedia(); visibilityObserver?.disconnect(); if (fram
         <div><strong>{{ failure.title }}</strong><small>{{ failure.hint }}</small></div>
       </div>
       <div v-if="previewOpen" class="generator-preview-heading"><span>{{ output?.mime_type.startsWith('video/') ? '视频预览' : '图片预览' }}</span><small v-if="output?.width && output?.height">{{ output.width }} × {{ output.height }}</small></div>
-      <button v-if="previewOpen" type="button" class="generator-preview-close nodrag nopan" aria-label="收起节点预览" @pointerdown.stop @click.stop="closePreview" @dblclick.stop><X :size="18" /></button>
+      <div v-if="previewOpen || (selected && downloadUrl)" class="generator-media-actions">
+        <a v-if="downloadUrl" class="generator-download nodrag nopan" :href="downloadUrl" :download="output ? '' : 'FrameStage-reference'" target="_blank" rel="noopener"
+          :aria-label="downloadLabel" :title="downloadLabel" @pointerdown.stop @click.stop @dblclick.stop><Download :size="17" /></a>
+        <button v-if="previewOpen" type="button" class="generator-preview-close nodrag nopan" aria-label="收起节点预览" title="收起预览" @pointerdown.stop @click.stop="closePreview" @dblclick.stop><X :size="18" /></button>
+      </div>
       <span v-if="previewError" class="generator-preview-error" role="alert">{{ previewError }}<button v-if="!previewOpen" type="button" class="nodrag nopan" aria-label="重新加载媒体预览" @pointerdown.stop @click.stop="retryMedia" @dblclick.stop><RotateCcw :size="13" />重试</button></span>
     </div>
     <div class="generator-external-label"><span><Sparkles :size="11" /> {{ data.generator.kind === 'image' ? 'IMAGE' : 'VIDEO' }} / {{ referenceOnly ? 'REFERENCE' : output ? 'OUTPUT' : 'LOCAL' }}</span><b>{{ taskLabel || (hasImage ? '本地图已就绪' : (data.resolved.imageSource ? '参考输入已连接' : '待接入生成 API')) }}</b><button v-if="versions.length" ref="historyButton" type="button" class="generator-history-button nodrag nopan" aria-label="查看生成历史" :aria-expanded="Boolean(data.historyOpen)" @pointerdown.stop @click.stop="emit('historyToggle', data.generator.id)" @dblclick.stop><Images :size="11" />历史 {{ versions.length }}</button></div>
@@ -258,7 +258,7 @@ onBeforeUnmount(() => { pauseMedia(); visibilityObserver?.disconnect(); if (fram
 .generator-task-feedback.feedback-neutral.feedback-over-media { border-color: #9aaaba44; background: #17202bed; }
 .generator-thumbnail-play { position: absolute; bottom: 10px; right: 10px; z-index: 2; display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 1px solid #c3d6e34d; border-radius: 50%; background: #0b141dbd; color: #e2edf3; cursor: pointer; }
 .generator-thumbnail-play:focus-visible { outline: 2px solid #9bd7ed; outline-offset: 2px; }
-.generator-thumbnail-play.play-above-feedback { bottom: auto; top: 10px; }
+.generator-thumbnail-play.play-above-feedback { bottom: auto; right: auto; top: 10px; left: 10px; }
 .generator-media-loading { position: absolute; left: 12px; bottom: 12px; z-index: 2; color: #aec1ce; font-size: 10px; pointer-events: none; }
 .generator-preview-open .generator-card { transform: none; background: #080b10; border-color: #abc9db80; box-shadow: 0 20px 80px #0009, 0 0 0 1px #b7d3e414; cursor: default; }
 .generator-preview-open .generator-card::before,.generator-preview-open .generator-card::after { display: none; }
@@ -266,8 +266,29 @@ onBeforeUnmount(() => { pauseMedia(); visibilityObserver?.disconnect(); if (fram
 .generator-preview-open .generator-album-layer { opacity: .25; }
 .generator-preview-heading { position: absolute; top: 12px; left: 14px; z-index: 4; display: flex; align-items: center; gap: 10px; padding: 5px 8px; border-radius: 7px; background: #0c131bbb; color: #e4edf4; font-size: 12px; pointer-events: none; }
 .generator-preview-heading small { color: #9fb6c6; font-size: 10px; }
-.generator-preview-close { position: absolute; top: 12px; right: 12px; z-index: 5; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 1px solid #b3cede40; border-radius: 10px; background: #101924d9; color: #e6eff5; cursor: pointer; }
-.generator-preview-close:focus-visible { outline: 2px solid #a0d2e7; outline-offset: 3px; }
+/* Counter-scale the media chrome while the actual card follows the canvas camera. */
+.generator-shell { --media-ui-scale: min(1, var(--preview-ui-scale, 1)); }
+.generator-media-actions { position: absolute; top: calc(10px * var(--media-ui-scale)); right: calc(10px * var(--media-ui-scale)); z-index: 6; display: flex; gap: 6px; transform: scale(var(--media-ui-scale)); transform-origin: top right; }
+.generator-media-actions :is(a, button) { box-sizing: border-box; display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 1px solid #b3cede40; border-radius: 9px; background: #101924da; color: #e6eff5; cursor: pointer; }
+.generator-media-actions :is(a, button):hover { background: #243544; }
+.generator-media-actions :focus-visible { outline: 2px solid #a0d2e7; outline-offset: 2px; }
+.generator-preview-heading { top: calc(10px * var(--media-ui-scale)); left: calc(12px * var(--media-ui-scale)); transform: scale(var(--media-ui-scale)); transform-origin: top left; white-space: nowrap; }
+.generator-preview-open :deep(.player-controls) {
+  right: auto;
+  width: calc(100% / var(--media-ui-scale));
+  transform: scale(var(--media-ui-scale));
+  transform-origin: bottom left;
+  container: focused-controls / inline-size;
+  gap: min(2%, 12px);
+  padding-inline: min(4%, 18px);
+}
+@container focused-controls (max-width: 260px) {
+  .generator-preview-open :deep(.player-current-time),
+  .generator-preview-open :deep(.player-total-time),
+  .generator-preview-open :deep(.player-volume input) { display: none; }
+  .generator-preview-open :deep(.player-controls button) { min-width: 24px; }
+  .generator-preview-open :deep(.player-scrubber) { min-width: 0; }
+}
 .generator-preview-error { position: absolute; top: 58px; left: 14px; right: 14px; z-index: 5; color: #e1b8a4; background: #231714dd; border-radius: 7px; padding: 8px; font-size: 12px; }
 .generator-preview-error button { display: inline-flex; align-items: center; gap: 4px; margin-top: 5px; border: 1px solid #c4a08055; border-radius: 5px; background: #35271d; color: #e9c8b1; font: inherit; cursor: pointer; }
 .generator-placeholder { box-sizing: border-box; max-width: 100%; gap: 7px; padding: 12px; }

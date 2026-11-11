@@ -18,10 +18,10 @@ interface CanvasGestureOptions {
   now?: () => number
 }
 
-const MIN_ZOOM = .25
-const MAX_ZOOM = 1.6
+export const MIN_CANVAS_ZOOM = .25
+export const MAX_CANVAS_ZOOM = 8
 const NON_CANVAS_SCROLL = [
-  '.nowheel', 'input', 'textarea', 'select', '[contenteditable="true"]', 'video', 'audio',
+  '.nowheel', 'input', 'textarea', 'select', '[contenteditable="true"]', 'audio',
   '[role="dialog"]', '[role="listbox"]', '[role="menu"]', '[role="toolbar"]',
   '[data-canvas-gesture-lock]', '[data-canvas-overlay]', '.generator-inline-panel', '.generator-prompt-modal-backdrop',
   '.tactical-minimap', '.vue-flow__minimap', '.vue-flow__controls', '.vue-flow__panel', '.vue-flow__handle',
@@ -42,7 +42,7 @@ export function canvasWheelPixels(event: Pick<WheelInput, 'deltaX' | 'deltaY' | 
 /** Keep the same world point under a canvas-local cursor when zoom changes. */
 export function zoomCanvasAt(view: CanvasViewport, anchor: Point, requestedZoom: number): CanvasViewport | null {
   if (!validViewport(view) || ![anchor.x, anchor.y, requestedZoom].every(Number.isFinite) || requestedZoom <= 0) return null
-  const zoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, requestedZoom))
+  const zoom = Math.max(MIN_CANVAS_ZOOM, Math.min(MAX_CANVAS_ZOOM, requestedZoom))
   return { x: anchor.x - (anchor.x - view.x) / view.zoom * zoom, y: anchor.y - (anchor.y - view.y) / view.zoom * zoom, zoom }
 }
 
@@ -63,6 +63,7 @@ export function canvasWheelViewport(view: CanvasViewport, event: WheelInput, bou
 export function canvasGestureSurface(target: EventTarget | null, root: HTMLElement): HTMLElement | null {
   const element = target instanceof Element ? target : target instanceof Node ? target.parentElement : null
   if (!element || !root.contains(element) || element.closest(NON_CANVAS_SCROLL)) return null
+  if (element.closest('video') && !element.closest('.generator-preview-open')) return null
   const flow = element.closest<HTMLElement>('.vue-flow')
   return flow && root.contains(flow) ? flow : null
 }

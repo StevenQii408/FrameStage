@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
+import { setApiProjectId } from '../src/api/client'
 import GeneratorNode from '../src/components/GeneratorNode.vue'
 import type { GeneratorDraft, GeneratorVersion, ResolvedGenerator } from '../src/generatorGraph'
 import { generatorFrameSize } from '../src/generatorGeometry'
@@ -80,16 +81,16 @@ describe('generator media card', () => {
     expect(wrapper.find('[role="progressbar"]').exists()).toBe(false)
     wrapper.unmount()
   })
-  it('opens a real image in place and restores its frame without changing generation settings', async () => {
+  it('leaves the card and its ports in place throughout camera preview', async () => {
     const item: GeneratorDraft = { ...generator, nodeMode: 'reference', generationSettings: defaultGenerationSettings('image') }
     const before = JSON.stringify(item)
     const wrapper = mount(GeneratorNode, { props: { data: { generator: item, resolved, reduced: true } }, global: { stubs: { Handle: true } } })
     await wrapper.get('.generator-card').trigger('dblclick')
     expect(wrapper.emitted('previewToggle')).toEqual([[item.id]])
-    await wrapper.setProps({ data: { generator: item, resolved, reduced: true, previewOpen: true, previewSize: { width: 480, height: 854 } } })
+    await wrapper.setProps({ data: { generator: item, resolved, reduced: true, previewOpen: true } })
     expect(wrapper.classes()).toContain('generator-preview-open')
-    expect(wrapper.get('.generator-card').attributes('style')).toContain('width: 480px')
-    expect(wrapper.get('.generator-handle-output').attributes('style')).toContain('top: 427px')
+    expect(wrapper.get('.generator-card').attributes('style')).toContain('height: 268px')
+    expect(wrapper.get('.generator-handle-output').attributes('style')).toContain('top: 134px')
     expect(wrapper.find('.source-video-overlay').exists()).toBe(false)
     await wrapper.get('[aria-label="收起节点预览"]').trigger('click')
     expect(wrapper.emitted('previewClose')).toEqual([[item.id]])
@@ -99,11 +100,41 @@ describe('generator media card', () => {
     wrapper.unmount()
   })
 
+  it.each(['image', 'video'] as const)('downloads the selected %s version from both entry points', async kind => {
+    const versions: GeneratorVersion[] = ['a', 'b'].map((digit) => {
+      const id = 'genasset-' + digit.repeat(64)
+      return { id: digit, jobId: 'generation-' + digit, createdAt: '', prompt: '', settings: defaultGenerationSettings(kind),
+        asset: { id, mime_type: kind === 'video' ? 'video/mp4' : 'image/png', url: '/api/generation-assets/' + id,
+          width: 1920, height: 1080 } }
+    })
+    const item = { ...generator, nodeMode: 'generator' as const, kind, versions, activeVersionId: 'b' }
+    const data = { generator: item, resolved, reduced: true }
+    setApiProjectId('project-a')
+    const wrapper = mount(GeneratorNode, { props: { data }, global: { stubs: { Handle: true, CanvasVideoPlayer: { template: '<div />', methods: { pause: vi.fn() } } } } })
+    try {
+      expect(wrapper.find('.generator-download').exists()).toBe(false)
+      await wrapper.setProps({ selected: true })
+      const url = new URL(wrapper.get('.generator-download').attributes('href'))
+      expect(url.pathname).toBe('/api/generation-assets/' + versions[1].asset.id)
+      expect(url.searchParams.get('project_id')).toBe('project-a')
+      expect(url.searchParams.get('download')).toBe('true')
+      await wrapper.get('.generator-download').trigger('dblclick')
+      expect(wrapper.emitted('previewToggle')).toBeUndefined()
+      await wrapper.setProps({ selected: false, data: { ...data, previewOpen: true } })
+      expect(wrapper.get('.generator-download + .generator-preview-close').exists()).toBe(true)
+      expect(wrapper.get('.generator-download').attributes('href')).toBe(url.href)
+      await wrapper.setProps({ selected: true, data: { ...data, generator: { ...item, activeVersionId: 'a' } } })
+      expect(new URL(wrapper.get('.generator-download').attributes('href')).pathname).toBe('/api/generation-assets/' + versions[0].asset.id)
+    } finally { wrapper.unmount(); setApiProjectId('') }
+  })
+
   it('does not open an empty card or a connected input as a media result', async () => {
     const wrapper = mount(GeneratorNode, { props: { data: { generator: { ...generator, kind: 'video' }, resolved: { ...resolved, ownImageUrl: '', imageUrl: 'blob:connected' }, reduced: true } }, global: { stubs: { Handle: true } } })
     await wrapper.get('.generator-card').trigger('dblclick')
     expect(wrapper.emitted('previewToggle')).toBeUndefined()
     expect(wrapper.find('.generator-card img').exists()).toBe(false)
+    await wrapper.setProps({ selected: true })
+    expect(wrapper.find('.generator-download').exists()).toBe(false)
     wrapper.unmount()
   })
 
@@ -128,7 +159,7 @@ describe('generator media card', () => {
     expect(wrapper.find('.canvas-video-player').exists()).toBe(false)
     await wrapper.get('.generator-card').trigger('dblclick')
     expect(wrapper.emitted('previewToggle')).toEqual([[generator.id]])
-    await wrapper.setProps({ data: { ...data, previewOpen: true, previewSize: { width: 960, height: 540 } } })
+    await wrapper.setProps({ data: { ...data, previewOpen: true } })
     await vi.dynamicImportSettled()
     await flushPromises()
     const player = wrapper.findComponent({ name: 'CanvasVideoPlayer' })
@@ -150,7 +181,7 @@ describe('generator media card', () => {
   it('stops tilt and explicitly closes a preview when the active media changes', async () => {
     const raf = vi.fn()
     vi.stubGlobal('requestAnimationFrame', raf)
-    const wrapper = mount(GeneratorNode, { props: { data: { generator, resolved, reduced: false, previewOpen: true, previewSize: { width: 480, height: 854 } } }, global: { stubs: { Handle: true } } })
+    const wrapper = mount(GeneratorNode, { props: { data: { generator, resolved, reduced: false, previewOpen: true } }, global: { stubs: { Handle: true } } })
     await wrapper.get('.generator-card').trigger('pointermove', { clientX: 30, clientY: 40 })
     expect(raf).not.toHaveBeenCalled()
     await wrapper.setProps({ data: { generator, resolved: { ...resolved, ownImageUrl: 'blob:replacement' }, reduced: false, previewOpen: true } })

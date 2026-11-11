@@ -111,9 +111,10 @@ async def upload_asset(request: Request, image: UploadFile = File(...), project_
 
 
 @router.get("/generation-assets/{asset_id}")
-def get_asset(request: Request, asset_id: str):
+def get_asset(request: Request, asset_id: str, download: bool = False):
     asset, path = _invoke(lambda: _service(request).assets.path(asset_id))
-    return FileResponse(path, media_type=asset["mime_type"], headers={"X-Content-Type-Options": "nosniff"})
+    return FileResponse(path, media_type=asset["mime_type"], filename=path.name if download else None,
+                        headers={"X-Content-Type-Options": "nosniff"})
 
 
 @router.get("/generation-assets/{asset_id}/poster")

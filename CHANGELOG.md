@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.2 — canvas media preview
+
+- Double-click an image or video to frame it with the canvas camera. Pan or zoom while inspecting the asset and close the preview to return to the previous view.
+- Toggle the minimap from the bottom left. The minimap starts open, stays above the canvas and keeps the visibility you choose while previewing media.
+- Download the displayed image or video version from the selected card or its preview.
+
 ## v0.1.1 — FrameStage
 
 - Renamed FrameForge Studio to FrameStage. The video creation workbench supports AI-assisted storyboarding from reference videos and scripts.

@@ -108,6 +108,19 @@ export function generationAssetUrl(path: string): string {
   return value.origin === base.origin && value.pathname.startsWith('/api/generation-assets/') ? value.href : ''
 }
 
+/** Use a native attachment link so Safari can stream full-size video from the API origin. */
+export function generationAssetDownloadUrl(asset: GenerationAsset): string {
+  const source = generationAssetUrl(asset.url)
+  if (!source || !/^genasset-[a-f0-9]{64}$/.test(asset.id)) return ''
+  const url = new URL(source)
+  if (url.pathname !== '/api/generation-assets/' + asset.id) return ''
+  const scoped = new URL(apiUrl('/generation-assets/' + asset.id), window.location.href)
+  const project = url.searchParams.get('project_id') || scoped.searchParams.get('project_id')
+  if (project) url.searchParams.set('project_id', project)
+  url.searchParams.set('download', 'true')
+  return url.href
+}
+
 export const generationTerminal = (status: GenerationStatus) => ['blocked', 'succeeded', 'failed', 'cancelled', 'interrupted'].includes(status)
 export function defaultGenerationSettings(kind: GenerationKind): GenerationSettings {
   return { aspect_ratio: '16:9', resolution: '1080p', duration_seconds: kind === 'video' ? 5 : null }
