@@ -132,7 +132,7 @@ class GenerationAssets:
         asset, source = self.path(asset_id)
         if asset["mime_type"] != "video/mp4":
             raise GenerationError(404, "该资产不是视频", "poster_unavailable")
-        destination = self.root / (asset_id + ".poster.jpg")
+        destination = self.root / (asset_id + ".first-frame.jpg")
         if destination.is_file() and destination.resolve().parent == self.root:
             return destination
         with self._poster_gate:
@@ -142,7 +142,7 @@ class GenerationAssets:
             os.close(fd)
             try:
                 subprocess.run(["ffmpeg", "-v", "error", "-nostdin", "-y", "-threads", "1",
-                    "-i", str(source), "-ss", "0.04", "-frames:v", "1", "-vf",
+                    "-i", str(source), "-map", "0:V:0", "-frames:v", "1", "-vf",
                     "scale=640:640:force_original_aspect_ratio=decrease,setsar=1", "-q:v", "3", temporary],
                     check=True, capture_output=True, timeout=8)
                 with Image.open(temporary) as poster:

@@ -250,21 +250,29 @@ try {
     assert.equal(await evaluate(`document.querySelectorAll('[data-id="${video}"] .generator-card video').length`),0,'collapsed video uses a static poster instead of decoding all videos')
     assert.equal(await evaluate(`getComputedStyle(document.querySelector('[data-id="${video}"] .generator-video-poster')).objectFit`),'contain')
     await shot('video-poster.png')
-    const videoCard = '[data-id="' + video + '"] .generator-card'
+    const videoShell = '[data-id="' + video + '"] .generator-shell'
+    const previewSurface = '[data-preview-node="' + video + '"]'
     const mapToggle = '.minimap-toggle'
     const initialCamera = await evaluate(`({...${setup}.viewport})`)
-    const initialWorldWidth = await evaluate(`document.querySelector(${JSON.stringify(videoCard)}).offsetWidth`)
+    const initialWorldWidth = await evaluate(`document.querySelector(${JSON.stringify(videoShell)}).offsetWidth`)
     const mapWasOpen = await evaluate(`document.querySelector(${JSON.stringify(mapToggle)}).getAttribute('aria-expanded')`)
     await click('[data-id="'+video+'"] [aria-label="播放生成视频"]')
-    await until(`(()=>{const media=document.querySelector('[data-id="${video}"] .canvas-video-player video');return media?.readyState>=2&&media.videoWidth===1280&&media.videoHeight===720})()`)
+    await until(`(()=>{const media=document.querySelector(${JSON.stringify(previewSurface + ' video')});return media?.readyState>=2&&media.videoWidth===1280&&media.videoHeight===720})()`)
     const previewCamera = await evaluate(`({...${setup}.viewport})`)
     assert.notDeepEqual(previewCamera, initialCamera, 'the camera frames the selected video')
-    assert.equal(await evaluate(`document.querySelector(${JSON.stringify(videoCard)}).offsetWidth`), initialWorldWidth, 'preview preserves node geometry')
+    assert.equal(await evaluate(`document.querySelector(${JSON.stringify(videoShell)}).offsetWidth`), initialWorldWidth, 'preview preserves node geometry')
     assert.equal(await evaluate(`document.querySelector(${JSON.stringify(mapToggle)}).getAttribute('aria-expanded')`), mapWasOpen)
-    assert.equal(await evaluate(`Boolean(document.querySelector(${JSON.stringify(videoCard + ' a[download] + .generator-preview-close')}))`),true)
+    const cornerActions = previewSurface + ' .generator-media-actions'
+    assert.deepEqual(await evaluate(`[...document.querySelector(${JSON.stringify(cornerActions)}).children].map(el => [el.getAttribute('aria-label'), el.matches('a[download]')])`), [['下载视频', true]], 'download is the only action in the preview corner')
     await shot('video-inline-playback.png')
-    await click('[data-id="'+video+'"] [aria-label="收起节点预览"]')
-    assert.deepEqual(await evaluate(`({...${setup}.viewport})`), initialCamera)
+    await evaluate(`document.querySelector(${JSON.stringify(previewSurface)}).focus({ preventScroll: true })`)
+    await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 })
+    await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 })
+    await until(`!document.querySelector(${JSON.stringify(previewSurface)})`)
+    assert.deepEqual(await evaluate(`({...${setup}.viewport})`), previewCamera, 'closing media preserves the current camera')
+    await click('[data-id="'+video+'"] [aria-label="查看生成历史"]')
+    await until(`[...document.querySelectorAll('[data-generator-history] .history-media img')].some(img => img.complete && img.naturalWidth > 0)`)
+    await click('[aria-label="关闭生成历史"]')
     mediaChecks.push('viewport-preview','minimap-preference','asset-download','concrete-model-label','wave-progress','video-poster-visible','collapsed-no-video-decoding','inline-playback')
   }
   const failureChecks=[]

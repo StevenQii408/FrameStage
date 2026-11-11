@@ -108,15 +108,35 @@ export function generationAssetUrl(path: string): string {
   return value.origin === base.origin && value.pathname.startsWith('/api/generation-assets/') ? value.href : ''
 }
 
+function scopedMediaUrl(path: string): URL | null {
+  const source = generationAssetUrl(path)
+  if (!source) return null
+  const url = new URL(source)
+  if (!/^\/api\/generation-assets\/genasset-[a-f0-9]{64}$/.test(url.pathname)) return null
+  if (!url.searchParams.has('project_id')) {
+    const scoped = new URL(apiUrl(url.pathname.slice('/api'.length)), window.location.href)
+    const project = scoped.searchParams.get('project_id')
+    if (project) url.searchParams.set('project_id', project)
+  }
+  return url
+}
+
+/** Resolve a first-frame JPEG on the source asset's API origin and project scope. */
+export function generationVideoPosterUrl(path: string): string {
+  const url = scopedMediaUrl(path)
+  if (!url) return ''
+  url.pathname += '/poster'
+  url.hash = ''
+  url.searchParams.delete('download')
+  // Previously cached previews used a seek offset instead of the first frame.
+  url.searchParams.set('frame', 'first')
+  return url.href
+}
+
 /** Use a native attachment link so Safari can stream full-size video from the API origin. */
 export function generationAssetDownloadUrl(asset: GenerationAsset): string {
-  const source = generationAssetUrl(asset.url)
-  if (!source || !/^genasset-[a-f0-9]{64}$/.test(asset.id)) return ''
-  const url = new URL(source)
-  if (url.pathname !== '/api/generation-assets/' + asset.id) return ''
-  const scoped = new URL(apiUrl('/generation-assets/' + asset.id), window.location.href)
-  const project = url.searchParams.get('project_id') || scoped.searchParams.get('project_id')
-  if (project) url.searchParams.set('project_id', project)
+  const url = scopedMediaUrl(asset.url)
+  if (!url || url.pathname !== '/api/generation-assets/' + asset.id) return ''
   url.searchParams.set('download', 'true')
   return url.href
 }

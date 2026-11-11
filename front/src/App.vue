@@ -173,7 +173,6 @@ let nodeDragInProgress = false
 const generatorEditorId = ref('')
 const generatorHistoryId = ref('')
 const generatorPreviewId = ref('')
-let generatorPreviewViewport: { x: number; y: number; zoom: number } | null = null
 const details = useNodeDetails({ projectId: () => props.projectId, tasks: () => store.tasks,
   scene: (id, taskKey) => {
     const node = nodes.value.find(item => item.id === id && item.type === 'scene' && item.data?.taskKey === taskKey)
@@ -403,16 +402,9 @@ function generatorNodeData(item: GeneratorDraft) {
     layoutWidth: baseFrame.width, layoutHeight: baseFrame.height + 42 }
 }
 
-function closeGeneratorPreview(restoreViewport = true) {
+function closeGeneratorPreview() {
   if (!generatorPreviewId.value) return
-  const previous = generatorPreviewViewport
   generatorPreviewId.value = ''
-  generatorPreviewViewport = null
-  if (restoreViewport && previous) {
-    viewport.value = previous
-    void setViewport?.(previous, { duration: 0 })
-  }
-  canvasZoom.value = viewport.value.zoom
   buildGraph()
 }
 function toggleGeneratorPreview(id: string) {
@@ -429,12 +421,13 @@ function toggleGeneratorPreview(id: string) {
   if (!next) return
   closeGeneratorPreview()
   select(id)
-  generatorPreviewViewport = { ...viewport.value }
   generatorEditorId.value = ''; generatorHistoryId.value = ''; details.close()
   generatorPreviewId.value = id
   viewport.value = next
+  canvasZoom.value = next.zoom
   void setViewport?.(next, { duration: 0 })
   buildGraph()
+  persistCanvasState()
 }
 async function captureGeneratorFrame(value: { nodeId: string; blob: Blob; width: number; height: number; timestamp: number; source: 'first' | 'current' | 'last' }) {
   const source = generators.value.find(item => item.id === value.nodeId)
@@ -888,7 +881,7 @@ function autoLayout() {
   nextTick(() => fitView({ maxZoom: 1.6, padding: 0.14, duration: 500 }))
 }
 function onNodeDragStart({ node, nodes: group }: { node: Node; nodes?: Node[] }) {
-  closeGeneratorPreview(false)
+  closeGeneratorPreview()
   nodeDragInProgress = true
   details.close()
   generatorHistoryId.value = ''
@@ -927,13 +920,19 @@ function onNodeDragStop({ node, nodes: group }: { node: Node; nodes?: Node[] }) 
 }
 
 function onViewportChange(next: { x: number; y: number; zoom: number }) {
-  if (generatorPreviewId.value) { viewport.value = next; return }
   const before = zoomLevel()
   viewport.value = next
   canvasZoom.value = next.zoom
   if (before !== zoomLevel()) buildGraph()
   clearTimeout(viewportSaveTimer)
-  viewportSaveTimer = setTimeout(persistCanvasState, 300)
+  viewportSaveTimer = setTimeout(flushViewportSave, 300)
+}
+
+function flushViewportSave() {
+  if (viewportSaveTimer === undefined) return
+  clearTimeout(viewportSaveTimer)
+  viewportSaveTimer = undefined
+  persistCanvasState()
 }
 
 function persistCanvasState() {
@@ -958,7 +957,7 @@ function persistCanvasState() {
       layoutVersion: 'project-canvas.v2',
       hiddenJobIds: hiddenJobIds.value,
       hiddenNodeIds: canvasHiddenNodeIds.value,
-      viewport: generatorPreviewViewport || viewport.value,
+      viewport: viewport.value,
       activeView: store.activeView,
       drafts: recoverCanvasDrafts(store.tasks.filter(task => !task.jobId).map(task => ({ key: task.key, inputType: task.inputType, position: task.position, scriptText: draftInputs.value[task.key] || '' }))).drafts,
     }
@@ -1394,6 +1393,7 @@ onMounted(async () => {
   window.addEventListener('blur', releasePanKey)
   document.addEventListener('visibilitychange', onPageVisibility)
   window.addEventListener('resize', measureCanvas)
+  window.addEventListener('pagehide', flushViewportSave)
   const raw = props.initialCanvas || (() => { try { return JSON.parse(localStorage.getItem('frameforge-canvas-v1') || '{}') } catch { return {} } })()
   const saved = readCanvasState(JSON.stringify(raw))
   hiddenJobIds.value = Array.isArray(raw.hiddenJobIds) ? raw.hiddenJobIds.filter((id: unknown): id is string => typeof id === 'string') : []
@@ -1466,7 +1466,8 @@ onBeforeUnmount(() => {
   clearTimeout(viewportSaveTimer); window.removeEventListener('keydown', onGlobalKeydown)
   window.removeEventListener('keydown', onPanKeydown, true)
   window.removeEventListener('keyup', releasePanKey); window.removeEventListener('blur', releasePanKey)
-  window.removeEventListener('resize', measureCanvas); document.removeEventListener('visibilitychange', onPageVisibility)
+  window.removeEventListener('resize', measureCanvas)
+  window.removeEventListener('pagehide', flushViewportSave); document.removeEventListener('visibilitychange', onPageVisibility)
   setApiProjectId('')
 })
 </script>
@@ -1486,10 +1487,10 @@ onBeforeUnmount(() => {
         <WorkflowRail v-if="topbarOpen" :task="store.activeTask" />
         <div v-if="store.activeView === 'canvas'" ref="canvasWrap" tabindex="-1" role="region" aria-label="分镜画布" class="canvas-wrap" :class="[`canvas-tool-${handMode ? 'hand' : 'select'}`, { 'canvas-compact-tools': canvasBounds.width < 980 }]" :style="{ '--selection-padding': `${12 / Math.max(MIN_CANVAS_ZOOM, viewport.zoom)}px`, '--preview-ui-scale': 1 / viewport.zoom }" @pointerdown.capture="beginCanvasPointer" @click.capture="captureCanvasClick" @dblclick="openCreateMenu" @pointermove.capture="handleMagneticPointer" @pointerleave="resetMagnet">
           <div v-if="restoringCanvas" class="canvas-restoring" role="status">正在恢复项目与节点…</div>
-          <VueFlow v-model:nodes="nodes" v-model:edges="edges" :delete-key-code="null" :nodes-draggable="!handMode" :elements-selectable="!handMode" :node-drag-threshold="4" :selection-key-code="handMode ? 'Shift' : true" :pan-on-drag="handMode ? true : [1, 2]" :selection-mode="SelectionMode.Full" :zoom-on-scroll="false" :pan-on-scroll="false" :zoom-on-pinch="false" :zoom-activation-key-code="null" :prevent-scrolling="false" :fit-view-on-init="false" :only-render-visible-elements="false" :zoom-on-double-click="false" :min-zoom="MIN_CANVAS_ZOOM" :max-zoom="MAX_CANVAS_ZOOM" :connection-radius="32" @selection-start="onMarqueeStart" @selection-end="onMarqueeEnd" @edge-click="handleEdgeClick" @node-click="handleNodeClick" @node-drag-start="onNodeDragStart" @node-drag-stop="onNodeDragStop" @nodes-change="onNodeDimensions" @viewport-change="onViewportChange" @pane-click="handlePaneClick" @connect="onConnect">
+          <VueFlow v-model:nodes="nodes" v-model:edges="edges" :delete-key-code="null" :nodes-draggable="!handMode" :elements-selectable="!handMode" :node-drag-threshold="4" :selection-key-code="handMode ? 'Shift' : true" :pan-on-drag="handMode ? true : [1, 2]" :selection-mode="SelectionMode.Full" :zoom-on-scroll="false" :pan-on-scroll="false" :zoom-on-pinch="false" :zoom-activation-key-code="null" :prevent-scrolling="false" :default-viewport="viewport" :fit-view-on-init="false" :only-render-visible-elements="false" :zoom-on-double-click="false" :min-zoom="MIN_CANVAS_ZOOM" :max-zoom="MAX_CANVAS_ZOOM" :connection-radius="32" @selection-start="onMarqueeStart" @selection-end="onMarqueeEnd" @edge-click="handleEdgeClick" @node-click="handleNodeClick" @node-drag-start="onNodeDragStart" @node-drag-stop="onNodeDragStop" @nodes-change="onNodeDimensions" @viewport-change="onViewportChange" @pane-click="handlePaneClick" @connect="onConnect">
             <template #node-project="props"><ProjectNode v-bind="props" :snapshot-stale="staleSnapshots.has(props.data.jobId)" @sync-result="refreshTask(props.data.jobId, true)" @draft-change="(value) => { draftInputs[props.id] = value; persistCanvasState() }" @submit="(payload) => startJob(props.id, payload)" @cancel="cancelTask(props.id)" @resume="resumeTask(props.id)" @delete="deleteTask(props.id)" /></template>
             <template #node-scene="props"><SceneNode v-bind="props" @toggle="focusScene" /></template>
-            <template #node-generator="props"><GeneratorNode v-bind="props" @history-toggle="toggleGeneratorHistory" @select-version="selectGeneratedVersion" @preview-toggle="toggleGeneratorPreview" @preview-close="id => { if (id === generatorPreviewId) closeGeneratorPreview() }" @capture="captureGeneratorFrame" /></template>
+            <template #node-generator="props"><GeneratorNode v-bind="props" :preview-viewport="props.data.previewOpen ? viewport : undefined" @history-toggle="toggleGeneratorHistory" @select-version="selectGeneratedVersion" @preview-toggle="toggleGeneratorPreview" @preview-close="id => { if (id === generatorPreviewId) closeGeneratorPreview() }" @capture="captureGeneratorFrame" /></template>
             <template #edge-energy="props"><EnergyEdge v-bind="props" :flow-enabled="animatedEdgeIds.has(props.id)" /></template>
             <template #node-shot="props"><ShotNode v-bind="props" @select="select" /></template>
             <template #node-sequence="props"><GenerationSequenceNode v-bind="props" @select="select" @toggle="toggleSequence" /></template>

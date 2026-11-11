@@ -22,7 +22,8 @@ def video_service(tmp_path):
     service = GenerationService(SimpleNamespace(data_dir=tmp_path), Database(tmp_path / "jobs.db"), EventBus())
     source = tmp_path / "source.mp4"
     subprocess.run(["ffmpeg", "-v", "error", "-nostdin", "-y", "-f", "lavfi", "-i",
-        "color=c=0x3167a2:s=1280x720:r=5:d=5", "-c:v", "libx264", "-threads", "1",
+        "color=c=red:s=1280x720:r=25:d=5", "-vf",
+        "drawbox=color=0x3167a2:t=fill:enable='eq(n,0)'", "-c:v", "libx264", "-threads", "1",
         "-preset", "ultrafast", "-pix_fmt", "yuv420p", str(source)], check=True, capture_output=True, timeout=15)
     reference = service.assets.image(image_bytes())
     _, executor = configured(service, [ProviderResult("succeeded", assets=[GeneratedAsset(source.read_bytes(), "video/mp4")])])
@@ -36,6 +37,9 @@ def video_service(tmp_path):
 
 def test_generated_and_historical_video_poster_is_real_jpeg_and_cached(video_service, monkeypatch):
     service, asset = video_service
+    # Previous releases cached an offset frame. The first source frame is blue;
+    # the frame at 0.04 seconds and every subsequent frame are red.
+    Image.new("RGB", (640, 360), "red").save(service.assets.root / (asset["id"] + ".poster.jpg"))
     path = service.assets.video_poster(asset["id"])
     with Image.open(path) as image:
         assert image.format == "JPEG" and image.size == (640, 360)

@@ -61,11 +61,11 @@ function generated(id: string, kind: 'image' | 'video', digit: string, x: number
     activeVersionId: id + '-version' }
 }
 
-async function mounted() {
+async function mounted(savedCanvas: Record<string, unknown> = {}) {
   const originals = [generated('gen-image', 'image', 'a', 120), generated('gen-video', 'video', 'b', 540)]
   const wrapper = mount(App, { props: { projectId: 'preview-project', initialCanvas: {
     jobKeys: {}, positions: {}, sceneUi: {}, generators: originals, generatorConnections: [], selectedId: '', activeTaskKey: '',
-    viewport: originalViewport, activeView: 'canvas', layoutVersion: 'project-canvas.v2',
+    viewport: originalViewport, activeView: 'canvas', layoutVersion: 'project-canvas.v2', ...savedCanvas,
   } }, global: { plugins: [createPinia()], stubs: { Background: true, TacticalMiniMap: true, WorkflowRail: true,
     ProjectNode: true, ShotNode: true, SceneNode: true, GeneratorInlinePanel: InlineEditorStub, Teleport: true } } })
   wrappers.push(wrapper)
@@ -91,28 +91,29 @@ beforeEach(() => {
 afterEach(() => { wrappers.splice(0).forEach(wrapper => wrapper.unmount()); vi.unstubAllGlobals(); vi.restoreAllMocks(); localStorage.clear() })
 
 describe('generator preview canvas integration', () => {
-  it('double-clicks a real node open and shut while restoring its original viewport and authoring data', async () => {
+  it('double-clicks a real node open and shut and stays focused without changing its world geometry or authoring data', async () => {
     const { wrapper, setup } = await mounted()
     const saved = JSON.stringify(setup.generators)
     const originalPosition = { ...setup.nodes.find(node => node.id === 'gen-image').position }
     await wrapper.get('[data-id="gen-image"] .generator-card').trigger('dblclick')
     expect(setup.generatorPreviewId).toBe('gen-image')
-    expect(setup.viewport.zoom).toBeGreaterThan(2)
+    const focused = { ...setup.viewport }
+    expect(focused.zoom).toBeGreaterThan(2)
     expect(flow.setViewport).toHaveBeenLastCalledWith(setup.viewport, { duration: 0 })
     expect(setup.nodes.find(node => node.id === 'gen-image').position).toEqual(originalPosition)
     expect(setup.nodes.find(node => node.id === 'gen-image').draggable).toBe(false)
     expect(wrapper.findAll('.generator-preview-open')).toHaveLength(1)
-    expect(wrapper.get('[data-id="gen-image"] .generator-card').attributes('style')).toContain('width: 268px')
+    expect(wrapper.get('[data-id="gen-image"] .generator-shell').attributes('style')).toContain('width: 268px')
     expect(JSON.stringify(setup.generators)).toBe(saved)
-    await wrapper.get('[data-id="gen-image"] .generator-card').trigger('dblclick')
+    await wrapper.get('.generator-preview-surface, .generator-preview-open .generator-card').trigger('dblclick')
     expect(setup.generatorPreviewId).toBe('')
-    expect(setup.viewport).toEqual(originalViewport)
+    expect(setup.viewport).toEqual(focused)
     expect(setup.nodes.find(node => node.id === 'gen-image').position).toEqual(originalPosition)
     expect(JSON.stringify(setup.generators)).toBe(saved)
-    expect(flow.setViewport).toHaveBeenLastCalledWith(originalViewport, { duration: 0 })
+    expect(flow.setViewport).toHaveBeenLastCalledWith(focused, { duration: 0 })
   })
 
-  it('allows further pinch and pan on the focused video, then restores the pre-preview viewport on Escape', async () => {
+  it('allows further pinch and pan on the focused video, and keeps the final manual viewport on Escape', async () => {
     const { wrapper, setup } = await mounted()
     await wrapper.get('[data-id="gen-video"] .generator-card').trigger('dblclick')
     await vi.dynamicImportSettled()
@@ -127,9 +128,11 @@ describe('generator preview canvas integration', () => {
     wrapper.findComponent({ name: 'VueFlow' }).vm.$emit('viewport-change', adjusted)
     await media.trigger('wheel', { deltaX: 20, deltaY: 10 })
     expect(flow.setViewport.mock.lastCall![0]).toEqual({ x: adjusted.x - 20, y: adjusted.y - 10, zoom: adjusted.zoom })
+    const panned = flow.setViewport.mock.lastCall![0]
+    wrapper.findComponent({ name: 'VueFlow' }).vm.$emit('viewport-change', panned)
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
     expect(setup.generatorPreviewId).toBe('')
-    expect(setup.viewport).toEqual(originalViewport)
+    expect(setup.viewport).toEqual(panned)
   })
 
   it('shows one enlarged node at a time and closes its inline generation editor', async () => {
@@ -144,20 +147,43 @@ describe('generator preview canvas integration', () => {
     expect(wrapper.findAll('.generator-preview-open')).toHaveLength(1)
     expect(wrapper.get('[data-id="gen-video"]').find('[data-testid="node-video-player"]').exists()).toBe(true)
     expect(wrapper.get('[data-id="gen-image"]').find('.generator-preview-open').exists()).toBe(false)
-    await wrapper.get('[aria-label="收起节点预览"]').trigger('click')
+    const focused = { ...setup.viewport }
+    const actions = wrapper.get('.generator-preview-surface .generator-media-actions, .generator-preview-open .generator-media-actions')
+    expect(Array.from(actions.element.children).map(control => [control.getAttribute('aria-label'), control.matches('a[download]')]))
+      .toEqual([['下载视频', true]])
+    await wrapper.get('.generator-preview-surface, .generator-preview-open .generator-card').trigger('dblclick')
     expect(setup.generatorPreviewId).toBe('')
-    expect(setup.viewport).toEqual(originalViewport)
+    expect(setup.viewport).toEqual(focused)
   })
 
-  it('saves the original viewport and dimensions during a transient preview', async () => {
+  it('restores the latest navigation from a saved canvas even when refreshed during video preview', async () => {
     const { wrapper, setup } = await mounted()
     const original = JSON.parse(JSON.stringify(setup.generators))
     await wrapper.get('[data-id="gen-image"] .generator-card').trigger('dblclick')
-    setup.persistCanvasState()
+    const moved = { x: -335, y: 93, zoom: 3.4 }
+    wrapper.findComponent({ name: 'VueFlow' }).vm.$emit('viewport-change', moved)
+    window.dispatchEvent(new Event('pagehide'))
     const state = wrapper.emitted('canvasChange')!.at(-1)![0] as any
-    expect(state.viewport).toEqual(originalViewport)
+    expect(state.viewport).toEqual(moved)
+    const { setup: reloaded } = await mounted(state)
+    expect(reloaded.viewport).toEqual(moved)
+    expect(reloaded.generatorPreviewId).toBe('')
     expect(state.generators).toEqual(original)
     expect(state.generators.every((node: any) => node.previewOpen === undefined && node.previewSize === undefined)).toBe(true)
+  })
+
+  it('keeps the viewport on a blank click and subsequent double-click to create at the current position', async () => {
+    const { wrapper, setup } = await mounted()
+    await wrapper.get('[data-id="gen-image"] .generator-card').trigger('dblclick')
+    const view = { ...setup.viewport }
+    const flowCalls = flow.setViewport.mock.calls.length
+    wrapper.findComponent({ name: 'VueFlow' }).vm.$emit('pane-click')
+    expect(setup.generatorPreviewId).toBe('')
+    expect(setup.viewport).toEqual(view)
+    await wrapper.get('.vue-flow__pane').trigger('dblclick', { clientX: 38, clientY: 58 })
+    expect(wrapper.find('.create-node-menu').exists()).toBe(true)
+    expect(setup.viewport).toEqual(view)
+    expect(flow.setViewport).toHaveBeenCalledTimes(flowCalls)
   })
 
   it('creates one image reference from the node capture event and removes only that new node on undo', async () => {

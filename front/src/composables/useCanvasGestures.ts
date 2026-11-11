@@ -63,7 +63,7 @@ export function canvasWheelViewport(view: CanvasViewport, event: WheelInput, bou
 export function canvasGestureSurface(target: EventTarget | null, root: HTMLElement): HTMLElement | null {
   const element = target instanceof Element ? target : target instanceof Node ? target.parentElement : null
   if (!element || !root.contains(element) || element.closest(NON_CANVAS_SCROLL)) return null
-  if (element.closest('video') && !element.closest('.generator-preview-open')) return null
+  if (element.closest('video') && !element.closest('.generator-preview-open, .generator-preview-surface')) return null
   const flow = element.closest<HTMLElement>('.vue-flow')
   return flow && root.contains(flow) ? flow : null
 }

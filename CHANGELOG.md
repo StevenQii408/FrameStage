@@ -2,9 +2,9 @@
 
 ## v0.1.2 — canvas media preview
 
-- Double-click an image or video to frame it with the canvas camera. Pan or zoom while inspecting the asset and close the preview to return to the previous view.
+- Double-click an image or video to frame it with the canvas camera. Pan or zoom while inspecting the asset. Closing the preview, clicking another node or double-clicking empty canvas keeps the current position and zoom.
 - Toggle the minimap from the bottom left. The minimap starts open, stays above the canvas and keeps the visibility you choose while previewing media.
-- Download the displayed image or video version from the selected card or its preview.
+- Download the displayed image or video version from the selected card or the single download control in the preview’s upper-right corner. Video history shows each version’s first frame. Preview borders and controls render at screen resolution.
 
 ## v0.1.1 — FrameStage
 

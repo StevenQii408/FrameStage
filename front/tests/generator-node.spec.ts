@@ -23,7 +23,7 @@ describe('generator media card', () => {
     const data = { generator: { ...generator, kind: 'video' as const }, resolved, reduced: true, output }
     const wrapper = mount(GeneratorNode, { props: { data }, global: { stubs: { Handle: true } } })
     expect(wrapper.find('video').exists()).toBe(false)
-    expect(wrapper.get('.generator-video-poster').attributes('src')).toBe(generationAssetUrl(path) + '/poster')
+    expect(wrapper.get('.generator-video-poster').attributes('src')).toBe(generationAssetUrl(path) + '/poster?frame=first')
     await wrapper.get('.generator-video-poster').trigger('load')
     expect(wrapper.find('.generator-media-loading').exists()).toBe(false)
     await wrapper.get('.generator-video-poster').trigger('error')
@@ -92,12 +92,40 @@ describe('generator media card', () => {
     expect(wrapper.get('.generator-card').attributes('style')).toContain('height: 268px')
     expect(wrapper.get('.generator-handle-output').attributes('style')).toContain('top: 134px')
     expect(wrapper.find('.source-video-overlay').exists()).toBe(false)
-    await wrapper.get('[aria-label="收起节点预览"]').trigger('click')
+    await wrapper.get('.generator-card').trigger('keydown', { key: 'Escape' })
     expect(wrapper.emitted('previewClose')).toEqual([[item.id]])
     await wrapper.setProps({ data: { generator: item, resolved, reduced: true, previewOpen: false } })
     expect(wrapper.get('.generator-card').attributes('style')).toContain('height: 268px')
     expect(JSON.stringify(item)).toBe(before)
     wrapper.unmount()
+  })
+
+  it('paints one original image at screen resolution outside the transformed pane and follows the camera', async () => {
+    const flow = document.createElement('div'), pane = document.createElement('div')
+    flow.className = 'vue-flow'; pane.className = 'vue-flow__transformationpane'
+    flow.append(pane); document.body.append(flow)
+    const data = { generator: { ...generator, position: { x: 20, y: 30 } }, resolved, reduced: true }
+    const wrapper = mount(GeneratorNode, { attachTo: pane, props: { data }, global: { stubs: { Handle: true } } })
+    try {
+      const image = wrapper.get('.generator-card img').element
+      const size = generatorFrameSize(data.generator)
+      await wrapper.setProps({ data: { ...data, previewOpen: true }, previewViewport: { x: 11, y: 12, zoom: 4 } })
+      const card = flow.querySelector<HTMLElement>(':scope > .generator-preview-surface')!
+      expect(card.parentElement).toBe(flow)
+      expect(card.querySelector('img')).toBe(image)
+      expect(pane.querySelector('.generator-card')).toBeNull()
+      expect(pane.querySelector('.generator-preview-footprint')).toBeTruthy()
+      expect([card.style.left, card.style.top, card.style.width, card.style.height]).toEqual(['91px', '132px', Math.round(size.width * 4) + 'px', '1072px'])
+      await wrapper.setProps({ previewViewport: { x: 20, y: 40, zoom: 3 } })
+      expect([card.style.left, card.style.top, card.style.height]).toEqual(['80px', '130px', '804px'])
+      expect(card.querySelectorAll('.generator-media-actions > *')).toHaveLength(1)
+      expect(card.querySelector('.generator-media-actions > .generator-download')).toBeTruthy()
+      await wrapper.get('.generator-preview-footprint').trigger('dblclick')
+      expect(wrapper.emitted('previewClose')).toEqual([[generator.id]])
+      await wrapper.setProps({ data })
+      expect(wrapper.get('.generator-card img').element).toBe(image)
+      expect(flow.querySelector('.generator-preview-surface')).toBeNull()
+    } finally { wrapper.unmount(); flow.remove() }
   })
 
   it.each(['image', 'video'] as const)('downloads the selected %s version from both entry points', async kind => {
@@ -121,7 +149,7 @@ describe('generator media card', () => {
       await wrapper.get('.generator-download').trigger('dblclick')
       expect(wrapper.emitted('previewToggle')).toBeUndefined()
       await wrapper.setProps({ selected: false, data: { ...data, previewOpen: true } })
-      expect(wrapper.get('.generator-download + .generator-preview-close').exists()).toBe(true)
+      expect(wrapper.get('.generator-media-actions').element.children).toHaveLength(1)
       expect(wrapper.get('.generator-download').attributes('href')).toBe(url.href)
       await wrapper.setProps({ selected: true, data: { ...data, generator: { ...item, activeVersionId: 'a' } } })
       expect(new URL(wrapper.get('.generator-download').attributes('href')).pathname).toBe('/api/generation-assets/' + versions[0].asset.id)
@@ -165,6 +193,7 @@ describe('generator media card', () => {
     const player = wrapper.findComponent({ name: 'CanvasVideoPlayer' })
     expect(player.exists()).toBe(true)
     expect(player.props('src')).toBe('/actual.mp4')
+    expect(wrapper.find('.generator-media-actions').exists()).toBe(false)
     expect(player.props('captureEnabled')).toBe(true)
     const captured = { blob: new Blob(['frame'], { type: 'image/png' }), width: 1920, height: 1080, timestamp: 2.25, source: 'current' as const }
     player.vm.$emit('capture', captured)
