@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="FrameForge">
+  <defs>
+    <linearGradient id="night" x2=".8" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#1b3146"/><stop offset="1" stop-color="#121827"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2=".85" gradientUnits="objectBoundingBox">
+      <stop stop-color="#83ecff"/><stop offset="1" stop-color="#b8a5fc"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#night)"/>
+  <path d="M9 23V14a5 5 0 0 1 5-5h9m32 32v9a5 5 0 0 1-5 5h-9"
+        fill="none" stroke="url(#frame)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M20 18h30l-6 8H30v6h13l-6 8h-7v9H20z" fill="#edf9fe"/>
+</svg>

@@ -12,11 +12,17 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 import re
+import struct
 import subprocess
 import tempfile
+from xml.etree import ElementTree
 import zipfile
+import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
+BRAND_SVG = "front/public/frameforge.svg"
+BRAND_PNG_SIZES = {"front/public/frameforge-32.png": (32, 32), "front/public/apple-touch-icon.png": (180, 180)}
+BRAND_ASSETS = {BRAND_SVG, *BRAND_PNG_SIZES}
 TOP_FILES = {"README.md", "LICENSE", "SECURITY.md", "CONTRIBUTING.md", "CHANGELOG.md",
              "PROJECT_STATUS.md", "DEVELOPMENT_ROADMAP.md", "THIRD_PARTY_REFERENCES.md",
              ".gitignore", ".gitattributes", ".nvmrc"}
@@ -32,7 +38,7 @@ def distributable(name):
         return False
     if any(part.startswith(".env") and part != ".env.example" for part in path.parts):
         return False
-    if name in TOP_FILES or name in {"backend/LICENSE", "backend/.env.example"}:
+    if name in TOP_FILES or name in BRAND_ASSETS or name in {"backend/LICENSE", "backend/.env.example"}:
         return True
     if name.startswith("docs/history/"):
         return False
@@ -60,7 +66,44 @@ backend/app/prompt_profiles/profiles.json backend/evals/storyboard_reliability.v
 backend/tests/style_protocol_samples.py backend/tests/fixtures/workspace_qa_app.py backend/tests/test_smoke.py
 Prompts/cinema_style_library/sources.v1.json Prompts/cinema_style_library/taxonomy.v1.json
 front/index.html front/package.json front/package-lock.json front/tsconfig.json front/vite.config.ts
-front/src/main.ts front/src/App.vue front/src/router.ts front/src/sceneLayout.ts""".split())
+front/src/main.ts front/src/App.vue front/src/router.ts front/src/sceneLayout.ts""".split()) | BRAND_ASSETS
+
+
+def brand_asset_problem(name, data):
+    if len(data) > 256 * 1024:
+        return "brand icon exceeds 256 KiB review limit"
+    if name == BRAND_SVG:
+        try:
+            root = ElementTree.fromstring(data.decode("utf-8"))
+        except (UnicodeDecodeError, ElementTree.ParseError):
+            return "brand icon must be a UTF-8 SVG"
+        if root.tag != "{http://www.w3.org/2000/svg}svg":
+            return "brand icon must have an SVG root element"
+        return None
+
+    if not data.startswith(b"\x89PNG\r\n\x1a\n"):
+        return "brand icon must be a PNG"
+    expected = BRAND_PNG_SIZES[name]
+    offset = 8
+    has_image_data = False
+    while offset + 12 <= len(data):
+        length, kind = struct.unpack_from(">I4s", data, offset)
+        end = offset + 8 + length
+        if end + 4 > len(data) or zlib.crc32(data[offset + 4:end]) != int.from_bytes(data[end:end + 4], "big"):
+            return "invalid PNG chunk"
+        if offset == 8:
+            if kind != b"IHDR" or length != 13:
+                return "missing PNG header"
+            if struct.unpack_from(">II", data, offset + 8) != expected:
+                return f"brand PNG must measure {expected[0]}x{expected[1]} pixels"
+        if kind == b"IDAT" and length:
+            has_image_data = True
+        offset = end + 4
+        if kind == b"IEND":
+            if not length and has_image_data and offset == len(data):
+                return None
+            break
+    return "incomplete or invalid PNG"
 
 
 def audit_tree(root=ROOT):
@@ -92,6 +135,10 @@ def audit_tree(root=ROOT):
         if not path.is_file():  # A tracked deletion is not shipped.
             continue
         data = path.read_bytes()
+        if name in BRAND_ASSETS:
+            issue = brand_asset_problem(name, data)
+            if issue:
+                problems.append({"path": name, "reason": issue})
         if len(data) > 2 * 1024 * 1024:
             problems.append({"path": name, "reason": "source file exceeds 2 MB review limit"})
         text = data.decode("utf-8", errors="replace")
