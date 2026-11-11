@@ -54,6 +54,10 @@ jobs:
           python -m pip install --require-hashes -r requirements-dev.lock
           python -m pip install --no-deps -e .
           python -m pip check
+      - name: Check installed distribution contents
+        run: |
+          python -m pip wheel --no-deps --wheel-dir "$RUNNER_TEMP/frameforge-wheel" .
+          python ../scripts/check_backend_wheel.py "$RUNNER_TEMP"/frameforge-wheel/*.whl
       - name: Test without cloud credentials
         run: python -m pytest -q -p no:cacheprovider
       - name: Check authored style artifact

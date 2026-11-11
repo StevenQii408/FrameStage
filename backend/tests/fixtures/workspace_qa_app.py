@@ -87,4 +87,3 @@ def set_provider(mode: str):
         app.state.generation_service.config = replace(app.state.generation_service.config,
             poll_interval_seconds=0.2, image_submit_rpm=600, video_submit_rpm=600)
     return {'mode': mode}
-

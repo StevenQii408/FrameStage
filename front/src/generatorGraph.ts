@@ -242,4 +242,3 @@ export function connectionSources(
   generators.forEach((item) => { result[item.id] = { kind: item.kind } })
   return result
 }
-

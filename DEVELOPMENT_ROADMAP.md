@@ -31,4 +31,3 @@ AI Video Production Workflow Engine / AI Director System：参考视频或文字
 9. **自动质检与交付**：生成质量基准、连续性质检、A/B 分支、PDF 提案及有序视频合集。聊天与画布均使用同一后端执行和资产模型。
 
 摄影知识库、Embedding、OCR、多模型降级/升级和复杂 Agent 仅在真实失败证据证明必要时另立里程碑。未接入生成 API 前，不显示虚假生成按钮/成功结果，不让前端成为无审计的执行内核。
-

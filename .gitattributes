@@ -1,0 +1,4 @@
+# Keep the bytes of release manifests, fixtures and authored prompt hashes portable.
+* text=auto eol=lf
+# Two trailing spaces intentionally render hard line breaks in this authored guide.
+Prompts/short_drama_storyboard_skill.md whitespace=-blank-at-eol

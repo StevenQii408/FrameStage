@@ -19,7 +19,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 TOP_FILES = {"README.md", "LICENSE", "SECURITY.md", "CONTRIBUTING.md", "CHANGELOG.md",
              "PROJECT_STATUS.md", "DEVELOPMENT_ROADMAP.md", "THIRD_PARTY_REFERENCES.md",
-             ".gitignore", ".nvmrc"}
+             ".gitignore", ".gitattributes", ".nvmrc"}
 SOURCE_EXTENSIONS = {".py", ".ts", ".mjs", ".vue", ".css", ".html", ".json", ".md", ".toml", ".yml", ".yaml", ".lock", ".constraints"}
 PRIVATE_PARTS = {".git", "node_modules", "__pycache__", ".pytest_cache", "data", "models", "eval-media", "eval-results", "results", "dist"}
 SECRET_PATTERNS = [re.compile(r"\bsk-[A-Za-z0-9]{24,}\b"), re.compile(r"\bAKIA[A-Z0-9]{16}\b"),
@@ -50,7 +50,7 @@ def distributable(name):
 
 # Small explicit boot/test contract; the full file set is separately checked against HEAD.
 REQUIRED = set("""README.md LICENSE SECURITY.md CONTRIBUTING.md THIRD_PARTY_REFERENCES.md
-.github/workflows/ci.yml scripts/release_source.py scripts/secret_scan.py
+.github/workflows/ci.yml scripts/release_source.py scripts/secret_scan.py scripts/check_backend_wheel.py
 backend/.env.example backend/LICENSE backend/pyproject.toml backend/requirements.lock
 backend/requirements-dev.lock backend/app/start_cloud.py backend/app/main.py backend/app/config.py
 backend/app/db.py backend/app/runtime.py backend/app/media_worker.py backend/app/providers/bailian.py

@@ -100,4 +100,3 @@ def test_invalid_or_symlinked_media_never_resolve_outside_data(tmp_path):
         assert not media.open_path(value)
         with pytest.raises(ValueError):
             media.store(value)
-

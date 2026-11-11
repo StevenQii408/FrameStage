@@ -71,4 +71,3 @@ class MediaPaths:
     def snapshot(self, snapshot, *, reading=False):
         return {**snapshot, "job": self.record(snapshot["job"], reading=reading),
                 "frames": [self.record(frame, reading=reading) for frame in snapshot["frames"]]}
-

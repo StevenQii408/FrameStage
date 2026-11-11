@@ -77,4 +77,3 @@ def wire_case():
     a,b=reference_pair()
     b["descriptions"][3]["professional_description"] += "（高光沿曲面变化）"
     return dict(style_responses=[a,b], montage_responses=[pairs,dict(relations=revised)])
-
