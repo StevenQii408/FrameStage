@@ -1,0 +1,13 @@
+{
+  "version": "cinema-style-taxonomy.v1",
+  "dimensions": ["medium_rendering", "form_language", "color_tone", "lighting_shading", "texture_material", "motion_signature"],
+  "non_global_dimensions": ["photography", "local_effects", "technical_knowledge"],
+  "category_targets": {"cinema": 40, "documentary": 20, "commercial": 10, "animation2d": 15, "animation3d": 10, "handmade_painting_design": 25},
+  "rules": [
+    "全局风格不混入服装、道具、人物身份、地点和具体摄影构图",
+    "静态图片不能证明动态画风、动作惯性或帧率",
+    "工作室或作者名称只表示具体视觉分支的相似性参考",
+    "配方与生成约束不是观察事实",
+    "通用关键词仅用于大类筛选，具体锚点需跨维度完整组合及证据"
+  ]
+}

@@ -1,0 +1,12 @@
+# Compatibility boundaries exercised by the supported Python 3.12+ release.
+# Keep dependency resolution separate from machine-specific pip freeze output.
+fastapi==0.141.1
+starlette==1.6.0
+uvicorn==0.52.4
+pydantic<=2.13.5
+httpx<=0.28.1
+numpy<=2.5.3
+psutil<=6.1.1
+scenedetect<=0.7.1
+opencv-python<=5.0.0.93
+pytest<=9.1.1

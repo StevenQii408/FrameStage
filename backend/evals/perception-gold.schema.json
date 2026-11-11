@@ -1,0 +1,200 @@
+{
+  "$defs": {
+    "GoldenFields": {
+      "additionalProperties": false,
+      "properties": {
+        "primary_subject": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "people": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "objects": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "scene": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "foreground": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "midground": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "background": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "relationships": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "initial_state": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "action_steps": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "final_state": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "shot_size": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "lens": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "camera_movement": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "lighting": {
+          "$ref": "#/$defs/HumanFact"
+        },
+        "artistic_effects": {
+          "$ref": "#/$defs/HumanFact"
+        }
+      },
+      "required": [
+        "primary_subject",
+        "people",
+        "objects",
+        "scene",
+        "foreground",
+        "midground",
+        "background",
+        "relationships",
+        "initial_state",
+        "action_steps",
+        "final_state",
+        "shot_size",
+        "lens",
+        "camera_movement",
+        "lighting",
+        "artistic_effects"
+      ],
+      "title": "GoldenFields",
+      "type": "object"
+    },
+    "HumanEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "frame_number": {
+          "maximum": 4,
+          "minimum": 1,
+          "title": "Frame Number",
+          "type": "integer"
+        },
+        "timestamp": {
+          "minimum": 0,
+          "title": "Timestamp",
+          "type": "number"
+        },
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "frame_number",
+        "timestamp",
+        "description"
+      ],
+      "title": "HumanEvidence",
+      "type": "object"
+    },
+    "HumanFact": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "title": "Value"
+        },
+        "observable": {
+          "title": "Observable",
+          "type": "boolean"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/HumanEvidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "value",
+        "observable",
+        "evidence"
+      ],
+      "title": "HumanFact",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "perception-gold.v1",
+      "default": "perception-gold.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source": {
+      "const": "human",
+      "default": "human",
+      "title": "Source",
+      "type": "string"
+    },
+    "reviewer": {
+      "minLength": 1,
+      "title": "Reviewer",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "minLength": 1,
+      "title": "Reviewed At",
+      "type": "string"
+    },
+    "fields": {
+      "$ref": "#/$defs/GoldenFields"
+    },
+    "important_closeup": {
+      "title": "Important Closeup",
+      "type": "boolean"
+    },
+    "scene_id": {
+      "minLength": 1,
+      "title": "Scene Id",
+      "type": "string"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "reviewer",
+    "reviewed_at",
+    "fields",
+    "important_closeup",
+    "scene_id"
+  ],
+  "title": "HumanVisualTruth",
+  "type": "object"
+}

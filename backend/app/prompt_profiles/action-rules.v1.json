@@ -1,0 +1,6 @@
+{
+  "schema_version": "action-delivery.v1",
+  "version": 2,
+  "sources": [{"path": "Prompts/action_delivery_v1.md", "sha256": "a89efd2ae3bc46c668bfdbb43dc935c8a3ba44f14a0424bf88c0c9f099e91b6a"}],
+  "observation_guidance": "subject_action 是简洁主动作链，写清谁、对什么做了什么及重要结果，通常25–80字，不为凑字数扩写。action_steps 保存1–4个有意义的详细观察；拿起→饮用→放下可以是一条连贯动作链，不要强制开始/发展/结果/结束四段。不得遗漏递出后接住、搅拌后舀起、饮用后打碎等独立事件；证据不足不写喝光。静止或注视等伴随状态可放 accompanying_states；不能仅凭步骤顺序断言同时、全程、始终，头部朝向不等于视线。可选 action_phases 只分真正不同的先后阶段，例如饮用与放杯后皱眉；每阶段可包含多个动作细节。阶段与镜头拆分是两件事：不要因有多个动作而虚构切镜，也不要吞并独立反应特写。只写可见表情，不把心理因果当事实。"
+}

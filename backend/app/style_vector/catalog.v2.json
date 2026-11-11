@@ -1,0 +1,3029 @@
+{
+  "version": "style-ontology.v2",
+  "terms": [
+    {
+      "id": "medium.photography",
+      "category": "medium_rendering",
+      "name_cn": "写实摄影",
+      "name_en": "Photography",
+      "definition": "形体、透视、遮挡与明暗呈真实摄影外观，保留自然细节而非手绘轮廓；仅外观不能证明实拍或排除逼真CG",
+      "positive_cues": [
+        "画面可辨认写实摄影的视觉表现"
+      ],
+      "negative_cues": [
+        "二维手绘动画",
+        "三维角色动画",
+        "黏土定格动画"
+      ],
+      "aliases": [
+        "写实摄影",
+        "photography"
+      ],
+      "generation_phrase": "写实摄影",
+      "compatible_with": [],
+      "conflicts_with": [
+        "medium.two-d-animation",
+        "medium.three-d-animation",
+        "medium.paper-cut"
+      ]
+    },
+    {
+      "id": "medium.documentary-photo",
+      "category": "medium_rendering",
+      "name_cn": "纪实摄影",
+      "name_en": "Documentary Photo",
+      "definition": "真实比例与自然表面细节，光照和画面组织偏生活化，保留环境杂乱和非理想化明暗；单帧不能证明真实事件或拍摄设备",
+      "positive_cues": [
+        "画面可辨认纪实摄影的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "纪实摄影",
+        "documentary photo"
+      ],
+      "generation_phrase": "纪实摄影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.film-still",
+      "category": "medium_rendering",
+      "name_cn": "胶片剧照",
+      "name_en": "Film Still",
+      "definition": "写实摄影外观中呈现克制颗粒、柔和高光过渡与统一色彩处理；不据此声称使用实体胶片或某型号摄影机",
+      "positive_cues": [
+        "画面可辨认胶片剧照的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "胶片剧照",
+        "film still"
+      ],
+      "generation_phrase": "胶片剧照",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.two-d-animation",
+      "category": "medium_rendering",
+      "name_cn": "二维手绘动画",
+      "name_en": "Two D Animation",
+      "definition": "以平面轮廓、绘制色块和绘画式背景组织形体，体积由线条和绘制阴影表达而非连续三维曲面",
+      "positive_cues": [
+        "画面可辨认二维手绘动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "二维手绘动画",
+        "two d animation"
+      ],
+      "generation_phrase": "二维手绘动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.three-d-animation",
+      "category": "medium_rendering",
+      "name_cn": "三维角色动画",
+      "name_en": "Three D Animation",
+      "definition": "角色与环境具有连续立体体积和可见深度",
+      "positive_cues": [
+        "角色与环境具有连续立体体积和可见深度"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "三维角色动画",
+        "3D动画",
+        "三维动画",
+        "CG动画",
+        "three d animation"
+      ],
+      "generation_phrase": "三维角色动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.cel-animation",
+      "category": "medium_rendering",
+      "name_cn": "赛璐璐动画",
+      "name_en": "Cel Animation",
+      "definition": "清晰轮廓包围均匀填色区域，明暗通常为少数硬边色阶，形体表现平面化；区别于柔和连续明暗的三维渲染",
+      "positive_cues": [
+        "画面可辨认赛璐璐动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "赛璐璐动画",
+        "cel animation"
+      ],
+      "generation_phrase": "赛璐璐动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.stop-motion",
+      "category": "medium_rendering",
+      "name_cn": "定格动画",
+      "name_en": "Stop Motion",
+      "definition": "外观呈实体微缩模型或手工偶的表面与投影；定格式间歇运动须由连续帧确认，单帧仅提供手工外观线索",
+      "positive_cues": [
+        "画面可辨认定格动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "定格动画",
+        "stop motion"
+      ],
+      "generation_phrase": "定格动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.clay-stop-motion",
+      "category": "medium_rendering",
+      "name_cn": "黏土定格动画",
+      "name_en": "Clay Stop Motion",
+      "definition": "揉塑式圆润形体、可见压痕和软陶表面形成手工黏土外观；连续帧停顿支持定格判断，不能把光滑数字角色直接归为黏土",
+      "positive_cues": [
+        "画面可辨认黏土定格动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "黏土定格动画",
+        "clay stop motion"
+      ],
+      "generation_phrase": "黏土定格动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.paper-cut",
+      "category": "medium_rendering",
+      "name_cn": "剪纸动画",
+      "name_en": "Paper Cut",
+      "definition": "形体由平面纸片层叠构成，边缘有裁切或撕裂痕迹，纸层之间有投影；与无纸纹的数字矢量色块区分",
+      "positive_cues": [
+        "画面可辨认剪纸动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "剪纸动画",
+        "paper cut"
+      ],
+      "generation_phrase": "剪纸动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.collage",
+      "category": "medium_rendering",
+      "name_cn": "拼贴动画",
+      "name_en": "Collage",
+      "definition": "不同图像或纸片以可辨接缝和叠层组合，局部尺度、纹理或媒介存在有意差异；普通照片叠加不必然构成全片拼贴风格",
+      "positive_cues": [
+        "画面可辨认拼贴动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "拼贴动画",
+        "collage"
+      ],
+      "generation_phrase": "拼贴动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.watercolor-animation",
+      "category": "medium_rendering",
+      "name_cn": "水彩动画",
+      "name_en": "Watercolor Animation",
+      "definition": "透明色层、边缘洇染、水渍与纸白共同塑形，色块内部明暗不均匀；区别于不透明水粉和光滑数字渐变",
+      "positive_cues": [
+        "画面可辨认水彩动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "水彩动画",
+        "watercolor animation"
+      ],
+      "generation_phrase": "水彩动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.ink-animation",
+      "category": "medium_rendering",
+      "name_cn": "水墨动画",
+      "name_en": "Ink Animation",
+      "definition": "以墨色浓淡、干湿笔触、晕染与纸白组织画面，轮廓具有书写性；黑白摄影缺少笔触不属于水墨",
+      "positive_cues": [
+        "画面可辨认水墨动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "水墨动画",
+        "ink animation"
+      ],
+      "generation_phrase": "水墨动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.gouache-animation",
+      "category": "medium_rendering",
+      "name_cn": "水粉动画",
+      "name_en": "Gouache Animation",
+      "definition": "不透明颜料色块与哑光笔触塑形，轮廓可见覆盖和涂抹，色层厚实；区别于透明洇染的水彩",
+      "positive_cues": [
+        "画面可辨认水粉动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "水粉动画",
+        "gouache animation"
+      ],
+      "generation_phrase": "水粉动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.crayon-animation",
+      "category": "medium_rendering",
+      "name_cn": "蜡笔绘本动画",
+      "name_en": "Crayon Animation",
+      "definition": "颗粒状蜡笔线条和不均匀铺色保留纸面空隙，轮廓有手绘摩擦质感；不是均匀数字噪点或照片胶片颗粒",
+      "positive_cues": [
+        "画面可辨认蜡笔绘本动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "蜡笔绘本动画",
+        "crayon animation"
+      ],
+      "generation_phrase": "蜡笔绘本动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.pixel-animation",
+      "category": "medium_rendering",
+      "name_cn": "像素动画",
+      "name_en": "Pixel Animation",
+      "definition": "刻意保留统一像素网格和阶梯状轮廓，以有限像素色块塑形；普通低清视频或压缩马赛克不属于像素美术",
+      "positive_cues": [
+        "画面可辨认像素动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "像素动画",
+        "pixel animation"
+      ],
+      "generation_phrase": "像素动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.vector-animation",
+      "category": "medium_rendering",
+      "name_cn": "矢量动画",
+      "name_en": "Vector Animation",
+      "definition": "锐利平滑的几何轮廓与均匀填色形成简洁平面图形，通常无纸纹或笔触；只有无轮廓不够证明矢量外观",
+      "positive_cues": [
+        "画面可辨认矢量动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "矢量动画",
+        "vector animation"
+      ],
+      "generation_phrase": "矢量动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.low-poly-animation",
+      "category": "medium_rendering",
+      "name_cn": "低多边形动画",
+      "name_en": "Low Poly Animation",
+      "definition": "立体形体由明显的平面面片构成，轮廓棱角鲜明，明暗呈分面而非平滑连续过渡",
+      "positive_cues": [
+        "明显多边形面片",
+        "棱角轮廓与分面明暗"
+      ],
+      "negative_cues": ["平滑曲面", "细腻平滑", "柔和连续体积明暗"],
+      "aliases": [
+        "低多边形动画",
+        "low poly animation"
+      ],
+      "generation_phrase": "低多边形动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.mixed-two-three-d",
+      "category": "medium_rendering",
+      "name_cn": "二维三维融合动画",
+      "name_en": "Mixed Two Three D",
+      "definition": "同一画面并置平面绘制轮廓与立体体积、空间遮挡或曲面明暗，两类语言均有可见证据；不因普通二维透视就判为融合",
+      "positive_cues": [
+        "画面可辨认二维三维融合动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "二维三维融合动画",
+        "mixed two three d"
+      ],
+      "generation_phrase": "二维三维融合动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.silhouette-animation",
+      "category": "medium_rendering",
+      "name_cn": "剪影动画",
+      "name_en": "Silhouette Animation",
+      "definition": "主体以实心深色剪影和负形关系表达，内部细节大幅省略；摄影逆光剪影若局部出现应保留为镜头处理",
+      "positive_cues": [
+        "画面可辨认剪影动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "剪影动画",
+        "silhouette animation"
+      ],
+      "generation_phrase": "剪影动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "medium.comic-panel",
+      "category": "medium_rendering",
+      "name_cn": "漫画分格动画",
+      "name_en": "Comic Panel",
+      "definition": "画面以明确分格、绘制轮廓、网点或排线组成漫画外观；是否运动需连续帧确认，不把普通多窗口界面认作漫画",
+      "positive_cues": [
+        "画面可辨认漫画分格动画的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "漫画分格动画",
+        "comic panel"
+      ],
+      "generation_phrase": "漫画分格动画",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.bold-black-outline",
+      "category": "form_language",
+      "name_cn": "粗黑轮廓",
+      "name_en": "Bold Black Outline",
+      "definition": "角色及物体边缘有连续、较粗的黑色线条",
+      "positive_cues": [
+        "角色及物体边缘有连续、较粗的黑色线条"
+      ],
+      "negative_cues": [
+        "无轮廓色块"
+      ],
+      "aliases": [
+        "粗黑轮廓",
+        "bold black outline"
+      ],
+      "generation_phrase": "粗黑轮廓描边",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.thin-ink-outline",
+      "category": "form_language",
+      "name_cn": "细墨线轮廓",
+      "name_en": "Thin Ink Outline",
+      "definition": "画面可辨认细墨线轮廓的视觉表现",
+      "positive_cues": [
+        "画面可辨认细墨线轮廓的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "细墨线轮廓",
+        "thin ink outline"
+      ],
+      "generation_phrase": "细墨线轮廓",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.no-outline",
+      "category": "form_language",
+      "name_cn": "无轮廓色块",
+      "name_en": "No Outline",
+      "definition": "画面可辨认无轮廓色块的视觉表现",
+      "positive_cues": [
+        "画面可辨认无轮廓色块的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "无轮廓色块",
+        "no outline"
+      ],
+      "generation_phrase": "无轮廓色块",
+      "compatible_with": [],
+      "conflicts_with": [
+        "line_language.bold-black-outline"
+      ]
+    },
+    {
+      "id": "line_language.variable-line-weight",
+      "category": "form_language",
+      "name_cn": "线条粗细变化",
+      "name_en": "Variable Line Weight",
+      "definition": "画面可辨认线条粗细变化的视觉表现",
+      "positive_cues": [
+        "画面可辨认线条粗细变化的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "线条粗细变化",
+        "variable line weight"
+      ],
+      "generation_phrase": "线条粗细变化",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.dry-brush-line",
+      "category": "form_language",
+      "name_cn": "干笔边缘",
+      "name_en": "Dry Brush Line",
+      "definition": "画面可辨认干笔边缘的视觉表现",
+      "positive_cues": [
+        "画面可辨认干笔边缘的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "干笔边缘",
+        "dry brush line"
+      ],
+      "generation_phrase": "干笔边缘",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.wet-ink-edge",
+      "category": "form_language",
+      "name_cn": "湿墨晕染边缘",
+      "name_en": "Wet Ink Edge",
+      "definition": "画面可辨认湿墨晕染边缘的视觉表现",
+      "positive_cues": [
+        "画面可辨认湿墨晕染边缘的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "湿墨晕染边缘",
+        "wet ink edge"
+      ],
+      "generation_phrase": "湿墨晕染边缘",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.angular-contour",
+      "category": "form_language",
+      "name_cn": "棱角轮廓",
+      "name_en": "Angular Contour",
+      "definition": "画面可辨认棱角轮廓的视觉表现",
+      "positive_cues": [
+        "画面可辨认棱角轮廓的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "棱角轮廓",
+        "angular contour"
+      ],
+      "generation_phrase": "棱角轮廓",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.rounded-contour",
+      "category": "form_language",
+      "name_cn": "圆润轮廓",
+      "name_en": "Rounded Contour",
+      "definition": "造型外缘以连续圆弧和软化转折为主，尖角较少；不能仅因一个圆形道具而晋升为整体造型语言",
+      "positive_cues": [
+        "画面可辨认圆润轮廓的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "圆润轮廓",
+        "rounded contour"
+      ],
+      "generation_phrase": "圆润轮廓",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.broken-contour",
+      "category": "form_language",
+      "name_cn": "断续轮廓",
+      "name_en": "Broken Contour",
+      "definition": "画面可辨认断续轮廓的视觉表现",
+      "positive_cues": [
+        "画面可辨认断续轮廓的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "断续轮廓",
+        "broken contour"
+      ],
+      "generation_phrase": "断续轮廓",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.glowing-outline",
+      "category": "form_language",
+      "name_cn": "发光轮廓",
+      "name_en": "Glowing Outline",
+      "definition": "画面可辨认发光轮廓的视觉表现",
+      "positive_cues": [
+        "画面可辨认发光轮廓的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "发光轮廓",
+        "glowing outline"
+      ],
+      "generation_phrase": "发光轮廓",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.sketch-line",
+      "category": "form_language",
+      "name_cn": "草图笔触",
+      "name_en": "Sketch Line",
+      "definition": "画面可辨认草图笔触的视觉表现",
+      "positive_cues": [
+        "画面可辨认草图笔触的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "草图笔触",
+        "sketch line"
+      ],
+      "generation_phrase": "草图笔触",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.woodcut-line",
+      "category": "form_language",
+      "name_cn": "木刻刀痕",
+      "name_en": "Woodcut Line",
+      "definition": "画面可辨认木刻刀痕的视觉表现",
+      "positive_cues": [
+        "画面可辨认木刻刀痕的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "木刻刀痕",
+        "woodcut line"
+      ],
+      "generation_phrase": "木刻刀痕",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.crosshatch",
+      "category": "form_language",
+      "name_cn": "交叉排线",
+      "name_en": "Crosshatch",
+      "definition": "画面可辨认交叉排线的视觉表现",
+      "positive_cues": [
+        "画面可辨认交叉排线的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "交叉排线",
+        "crosshatch"
+      ],
+      "generation_phrase": "交叉排线",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.stippling",
+      "category": "form_language",
+      "name_cn": "点描线影",
+      "name_en": "Stippling",
+      "definition": "画面可辨认点描线影的视觉表现",
+      "positive_cues": [
+        "画面可辨认点描线影的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "点描线影",
+        "stippling"
+      ],
+      "generation_phrase": "点描线影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.geometric-outline",
+      "category": "form_language",
+      "name_cn": "几何轮廓",
+      "name_en": "Geometric Outline",
+      "definition": "画面可辨认几何轮廓的视觉表现",
+      "positive_cues": [
+        "画面可辨认几何轮廓的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "几何轮廓",
+        "geometric outline"
+      ],
+      "generation_phrase": "几何轮廓",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.calligraphic-line",
+      "category": "form_language",
+      "name_cn": "书法式飞线",
+      "name_en": "Calligraphic Line",
+      "definition": "画面可辨认书法式飞线的视觉表现",
+      "positive_cues": [
+        "画面可辨认书法式飞线的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "书法式飞线",
+        "calligraphic line"
+      ],
+      "generation_phrase": "书法式飞线",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.pencil-line",
+      "category": "form_language",
+      "name_cn": "铅笔灰线",
+      "name_en": "Pencil Line",
+      "definition": "画面可辨认铅笔灰线的视觉表现",
+      "positive_cues": [
+        "画面可辨认铅笔灰线的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "铅笔灰线",
+        "pencil line"
+      ],
+      "generation_phrase": "铅笔灰线",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.charcoal-line",
+      "category": "form_language",
+      "name_cn": "炭笔擦痕",
+      "name_en": "Charcoal Line",
+      "definition": "画面可辨认炭笔擦痕的视觉表现",
+      "positive_cues": [
+        "画面可辨认炭笔擦痕的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "炭笔擦痕",
+        "charcoal line"
+      ],
+      "generation_phrase": "炭笔擦痕",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.paper-tear-edge",
+      "category": "form_language",
+      "name_cn": "撕纸边缘",
+      "name_en": "Paper Tear Edge",
+      "definition": "画面可辨认撕纸边缘的视觉表现",
+      "positive_cues": [
+        "画面可辨认撕纸边缘的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "撕纸边缘",
+        "paper tear edge"
+      ],
+      "generation_phrase": "撕纸边缘",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.soft-paint-edge",
+      "category": "form_language",
+      "name_cn": "柔和涂抹边缘",
+      "name_en": "Soft Paint Edge",
+      "definition": "画面可辨认柔和涂抹边缘的视觉表现",
+      "positive_cues": [
+        "画面可辨认柔和涂抹边缘的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "柔和涂抹边缘",
+        "soft paint edge"
+      ],
+      "generation_phrase": "柔和涂抹边缘",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.sharp-vector-edge",
+      "category": "form_language",
+      "name_cn": "锐利矢量边缘",
+      "name_en": "Sharp Vector Edge",
+      "definition": "画面可辨认锐利矢量边缘的视觉表现",
+      "positive_cues": [
+        "画面可辨认锐利矢量边缘的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "锐利矢量边缘",
+        "sharp vector edge"
+      ],
+      "generation_phrase": "锐利矢量边缘",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "line_language.hand-drawn-jitter",
+      "category": "form_language",
+      "name_cn": "手绘轻微抖动边缘",
+      "name_en": "Hand Drawn Jitter",
+      "definition": "画面可辨认手绘轻微抖动边缘的视觉表现",
+      "positive_cues": [
+        "画面可辨认手绘轻微抖动边缘的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "手绘轻微抖动边缘",
+        "hand drawn jitter"
+      ],
+      "generation_phrase": "手绘轻微抖动边缘",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "character_design.large-head-small-body",
+      "category": "form_language",
+      "name_cn": "大头小身比例",
+      "name_en": "Large Head Small Body",
+      "definition": "画面可辨认大头小身比例的视觉表现",
+      "positive_cues": [
+        "画面可辨认大头小身比例的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "大头小身比例",
+        "large head small body"
+      ],
+      "generation_phrase": "大头小身比例",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "character_design.realistic-proportion",
+      "category": "form_language",
+      "name_cn": "写实人体比例",
+      "name_en": "Realistic Proportion",
+      "definition": "人体各部位、关节和五官比例接近自然解剖结构，不依赖夸张大头、几何肢体或卡通大眼；不描述人物身份或服饰",
+      "positive_cues": [
+        "画面可辨认写实人体比例的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "写实人体比例",
+        "realistic proportion"
+      ],
+      "generation_phrase": "写实人体比例",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "character_design.geometric-body",
+      "category": "form_language",
+      "name_cn": "几何化肢体",
+      "name_en": "Geometric Body",
+      "definition": "画面可辨认几何化肢体的视觉表现",
+      "positive_cues": [
+        "画面可辨认几何化肢体的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "几何化肢体",
+        "geometric body"
+      ],
+      "generation_phrase": "几何化肢体",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "character_design.rounded-silhouette",
+      "category": "form_language",
+      "name_cn": "圆润人物剪影",
+      "name_en": "Rounded Silhouette",
+      "definition": "画面可辨认圆润人物剪影的视觉表现",
+      "positive_cues": [
+        "画面可辨认圆润人物剪影的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "圆润人物剪影",
+        "rounded silhouette"
+      ],
+      "generation_phrase": "圆润人物剪影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "character_design.angular-silhouette",
+      "category": "form_language",
+      "name_cn": "棱角人物剪影",
+      "name_en": "Angular Silhouette",
+      "definition": "画面可辨认棱角人物剪影的视觉表现",
+      "positive_cues": [
+        "画面可辨认棱角人物剪影的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "棱角人物剪影",
+        "angular silhouette"
+      ],
+      "generation_phrase": "棱角人物剪影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "character_design.expressive-eyes",
+      "category": "form_language",
+      "name_cn": "夸张大眼表情",
+      "name_en": "Expressive Eyes",
+      "definition": "角色眼睛相对面部明显放大，眉眼形状承担清晰表情表达；自然大眼或单镜瞪眼不足以确认稳定角色设计",
+      "positive_cues": [
+        "画面可辨认夸张大眼表情的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "夸张大眼表情",
+        "大眼睛",
+        "大眼表情",
+        "expressive eyes"
+      ],
+      "generation_phrase": "夸张大眼表情",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "character_design.minimal-face",
+      "category": "form_language",
+      "name_cn": "极简面部特征",
+      "name_en": "Minimal Face",
+      "definition": "画面可辨认极简面部特征的视觉表现",
+      "positive_cues": [
+        "画面可辨认极简面部特征的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "极简面部特征",
+        "minimal face"
+      ],
+      "generation_phrase": "极简面部特征",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "character_design.flat-face-shapes",
+      "category": "form_language",
+      "name_cn": "平面色块面部",
+      "name_en": "Flat Face Shapes",
+      "definition": "画面可辨认平面色块面部的视觉表现",
+      "positive_cues": [
+        "画面可辨认平面色块面部的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "平面色块面部",
+        "flat face shapes"
+      ],
+      "generation_phrase": "平面色块面部",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "character_design.paper-character",
+      "category": "form_language",
+      "name_cn": "平面剪纸人物",
+      "name_en": "Paper Character",
+      "definition": "画面可辨认平面剪纸人物的视觉表现",
+      "positive_cues": [
+        "画面可辨认平面剪纸人物的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "平面剪纸人物",
+        "paper character"
+      ],
+      "generation_phrase": "平面剪纸人物",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "character_design.clear-pose",
+      "category": "form_language",
+      "name_cn": "动作姿态轮廓清晰",
+      "name_en": "Clear Pose",
+      "definition": "画面可辨认动作姿态轮廓清晰的视觉表现",
+      "positive_cues": [
+        "画面可辨认动作姿态轮廓清晰的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "动作姿态轮廓清晰",
+        "clear pose"
+      ],
+      "generation_phrase": "动作姿态轮廓清晰",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.primary-four-color",
+      "category": "color_tone",
+      "name_cn": "红黄蓝黑四色主调",
+      "name_en": "Primary Four Color",
+      "definition": "红、黄、蓝为主要色块，黑色用于轮廓或暗部",
+      "positive_cues": [
+        "红、黄、蓝为主要色块，黑色用于轮廓或暗部"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "红黄蓝黑四色主调",
+        "primary four color"
+      ],
+      "generation_phrase": "红黄蓝黑四色限定",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.primary-three-color",
+      "category": "color_tone",
+      "name_cn": "红黄蓝三原色主调",
+      "name_en": "Primary Three Color",
+      "definition": "画面可辨认红黄蓝三原色主调的视觉表现",
+      "positive_cues": [
+        "画面可辨认红黄蓝三原色主调的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "红黄蓝三原色主调",
+        "primary three color"
+      ],
+      "generation_phrase": "红黄蓝三原色主调",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.warm-earth",
+      "category": "color_tone",
+      "name_cn": "暖土色系",
+      "name_en": "Warm Earth",
+      "definition": "土黄、赭色、棕色与暖灰构成稳定配色；仅暖色温或一处暖色物体不足以判断",
+      "positive_cues": [
+        "土黄赭棕占主导",
+        "暖土色系"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "暖土色系",
+        "warm earth"
+      ],
+      "generation_phrase": "暖土色系",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.cool-blue-gray",
+      "category": "color_tone",
+      "name_cn": "冷蓝灰色系",
+      "name_en": "Cool Blue Gray",
+      "definition": "画面可辨认冷蓝灰色系的视觉表现",
+      "positive_cues": [
+        "画面可辨认冷蓝灰色系的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "冷蓝灰色系",
+        "cool blue gray"
+      ],
+      "generation_phrase": "冷蓝灰色系",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.neon-cyan-magenta",
+      "category": "color_tone",
+      "name_cn": "青品红霓虹双色",
+      "name_en": "Neon Cyan Magenta",
+      "definition": "画面可辨认青品红霓虹双色的视觉表现",
+      "positive_cues": [
+        "画面可辨认青品红霓虹双色的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "青品红霓虹双色",
+        "neon cyan magenta"
+      ],
+      "generation_phrase": "青品红霓虹双色",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.vermilion-indigo",
+      "category": "color_tone",
+      "name_cn": "朱红与靛青对比",
+      "name_en": "Vermilion Indigo",
+      "definition": "画面可辨认朱红与靛青对比的视觉表现",
+      "positive_cues": [
+        "画面可辨认朱红与靛青对比的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "朱红与靛青对比",
+        "vermilion indigo"
+      ],
+      "generation_phrase": "朱红与靛青对比",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.gold-navy",
+      "category": "color_tone",
+      "name_cn": "金色与深蓝对比",
+      "name_en": "Gold Navy",
+      "definition": "画面可辨认金色与深蓝对比的视觉表现",
+      "positive_cues": [
+        "画面可辨认金色与深蓝对比的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "金色与深蓝对比",
+        "gold navy"
+      ],
+      "generation_phrase": "金色与深蓝对比",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.pastel-low-saturation",
+      "category": "color_tone",
+      "name_cn": "低饱和粉彩",
+      "name_en": "Pastel Low Saturation",
+      "definition": "画面可辨认低饱和粉彩的视觉表现",
+      "positive_cues": [
+        "画面可辨认低饱和粉彩的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "低饱和粉彩",
+        "pastel low saturation"
+      ],
+      "generation_phrase": "低饱和粉彩",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.muted-moss",
+      "category": "color_tone",
+      "name_cn": "灰绿苔色主调",
+      "name_en": "Muted Moss",
+      "definition": "画面可辨认灰绿苔色主调的视觉表现",
+      "positive_cues": [
+        "画面可辨认灰绿苔色主调的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "灰绿苔色主调",
+        "muted moss"
+      ],
+      "generation_phrase": "灰绿苔色主调",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.monochrome-ink",
+      "category": "color_tone",
+      "name_cn": "黑白水墨层次",
+      "name_en": "Monochrome Ink",
+      "definition": "画面可辨认黑白水墨层次的视觉表现",
+      "positive_cues": [
+        "画面可辨认黑白水墨层次的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "黑白水墨层次",
+        "monochrome ink"
+      ],
+      "generation_phrase": "黑白水墨层次",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.sepia",
+      "category": "color_tone",
+      "name_cn": "褐色怀旧调",
+      "name_en": "Sepia",
+      "definition": "画面可辨认褐色怀旧调的视觉表现",
+      "positive_cues": [
+        "画面可辨认褐色怀旧调的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "褐色怀旧调",
+        "sepia"
+      ],
+      "generation_phrase": "褐色怀旧调",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.complementary-orange-blue",
+      "category": "color_tone",
+      "name_cn": "橙蓝互补配色",
+      "name_en": "Complementary Orange Blue",
+      "definition": "画面可辨认橙蓝互补配色的视觉表现",
+      "positive_cues": [
+        "画面可辨认橙蓝互补配色的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "橙蓝互补配色",
+        "complementary orange blue"
+      ],
+      "generation_phrase": "橙蓝互补配色",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.limited-two-color",
+      "category": "color_tone",
+      "name_cn": "双色限定色板",
+      "name_en": "Limited Two Color",
+      "definition": "画面可辨认双色限定色板的视觉表现",
+      "positive_cues": [
+        "画面可辨认双色限定色板的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "双色限定色板",
+        "limited two color"
+      ],
+      "generation_phrase": "双色限定色板",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.limited-three-color",
+      "category": "color_tone",
+      "name_cn": "三色限定色板",
+      "name_en": "Limited Three Color",
+      "definition": "画面可辨认三色限定色板的视觉表现",
+      "positive_cues": [
+        "画面可辨认三色限定色板的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "三色限定色板",
+        "limited three color"
+      ],
+      "generation_phrase": "三色限定色板",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.warm-cool-split",
+      "category": "color_tone",
+      "name_cn": "暖主光与冷色阴影",
+      "name_en": "Warm Cool Split",
+      "definition": "画面可辨认暖主光与冷色阴影的视觉表现",
+      "positive_cues": [
+        "画面可辨认暖主光与冷色阴影的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "暖主光与冷色阴影",
+        "warm cool split"
+      ],
+      "generation_phrase": "暖主光与冷色阴影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.high-saturation",
+      "category": "color_tone",
+      "name_cn": "高饱和色块",
+      "name_en": "High Saturation",
+      "definition": "画面可辨认高饱和色块的视觉表现",
+      "positive_cues": [
+        "画面可辨认高饱和色块的视觉表现"
+      ],
+      "negative_cues": [
+        "低饱和色阶"
+      ],
+      "aliases": [
+        "高饱和色块",
+        "high saturation"
+      ],
+      "generation_phrase": "高饱和色块",
+      "compatible_with": [],
+      "conflicts_with": [
+        "palette.low-saturation",
+        "color.desaturated-cool"
+      ]
+    },
+    {
+      "id": "palette.low-saturation",
+      "category": "color_tone",
+      "name_cn": "低饱和色阶",
+      "name_en": "Low Saturation",
+      "definition": "不同画面区域的综合色彩纯度普遍较低，灰度混入明显；不因单件灰色衣物或欠曝光就判为低饱和",
+      "positive_cues": [
+        "画面可辨认低饱和色阶的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "低饱和色阶",
+        "low saturation"
+      ],
+      "generation_phrase": "低饱和色阶",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.high-contrast",
+      "category": "color_tone",
+      "name_cn": "高对比明暗",
+      "name_en": "High Contrast",
+      "definition": "画面可辨认高对比明暗的视觉表现",
+      "positive_cues": [
+        "画面可辨认高对比明暗的视觉表现"
+      ],
+      "negative_cues": [
+        "低对比柔和明暗"
+      ],
+      "aliases": [
+        "高对比明暗",
+        "high contrast"
+      ],
+      "generation_phrase": "高对比明暗",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.low-contrast",
+      "category": "color_tone",
+      "name_cn": "低对比柔和明暗",
+      "name_en": "Low Contrast",
+      "definition": "亮暗之间跨度较小，黑位柔和且中间调丰富；与仅阴影边缘柔和但黑白反差强的画面区分",
+      "positive_cues": [
+        "画面可辨认低对比柔和明暗的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "低对比柔和明暗",
+        "low contrast"
+      ],
+      "generation_phrase": "低对比柔和明暗",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.gradient-sky",
+      "category": "color_tone",
+      "name_cn": "清澈渐变天空",
+      "name_en": "Gradient Sky",
+      "definition": "画面可辨认清澈渐变天空的视觉表现",
+      "positive_cues": [
+        "画面可辨认清澈渐变天空的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "清澈渐变天空",
+        "gradient sky"
+      ],
+      "generation_phrase": "清澈渐变天空",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.mineral-pigments",
+      "category": "color_tone",
+      "name_cn": "矿物颜料配色",
+      "name_en": "Mineral Pigments",
+      "definition": "画面可辨认矿物颜料配色的视觉表现",
+      "positive_cues": [
+        "画面可辨认矿物颜料配色的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "矿物颜料配色",
+        "mineral pigments"
+      ],
+      "generation_phrase": "矿物颜料配色",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.amber-lavender",
+      "category": "color_tone",
+      "name_cn": "琥珀与薰衣草紫",
+      "name_en": "Amber Lavender",
+      "definition": "画面可辨认琥珀与薰衣草紫的视觉表现",
+      "positive_cues": [
+        "画面可辨认琥珀与薰衣草紫的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "琥珀与薰衣草紫",
+        "amber lavender"
+      ],
+      "generation_phrase": "琥珀与薰衣草紫",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.teal-coral",
+      "category": "color_tone",
+      "name_cn": "青绿与珊瑚红",
+      "name_en": "Teal Coral",
+      "definition": "画面可辨认青绿与珊瑚红的视觉表现",
+      "positive_cues": [
+        "画面可辨认青绿与珊瑚红的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "青绿与珊瑚红",
+        "teal coral"
+      ],
+      "generation_phrase": "青绿与珊瑚红",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.black-red-accent",
+      "category": "color_tone",
+      "name_cn": "黑底单点朱红",
+      "name_en": "Black Red Accent",
+      "definition": "画面可辨认黑底单点朱红的视觉表现",
+      "positive_cues": [
+        "画面可辨认黑底单点朱红的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "黑底单点朱红",
+        "black red accent"
+      ],
+      "generation_phrase": "黑底单点朱红",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "palette.gold-leaf-accent",
+      "category": "color_tone",
+      "name_cn": "金箔局部点缀",
+      "name_en": "Gold Leaf Accent",
+      "definition": "画面可辨认金箔局部点缀的视觉表现",
+      "positive_cues": [
+        "画面可辨认金箔局部点缀的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "金箔局部点缀",
+        "gold leaf accent"
+      ],
+      "generation_phrase": "金箔局部点缀",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.duotone-halftone",
+      "category": "lighting_shading",
+      "name_cn": "双色网点阴影",
+      "name_en": "Duotone Halftone",
+      "definition": "暗部可见规则点阵，阴影压缩为两级颜色",
+      "positive_cues": [
+        "暗部可见规则点阵，阴影压缩为两级颜色"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "双色网点阴影",
+        "duotone halftone"
+      ],
+      "generation_phrase": "暗部使用双色网点阴影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.hard-two-step",
+      "category": "lighting_shading",
+      "name_cn": "硬边两级阴影",
+      "name_en": "Hard Two Step",
+      "definition": "亮部与暗部以明确硬边分为两级",
+      "positive_cues": [
+        "亮部与暗部以明确硬边分为两级"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "硬边两级阴影",
+        "hard two step"
+      ],
+      "generation_phrase": "硬边两级阴影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.soft-gradient",
+      "category": "lighting_shading",
+      "name_cn": "柔和渐层阴影",
+      "name_en": "Soft Gradient",
+      "definition": "明暗在曲面上连续缓慢过渡，阴影边界柔和，不出现大面积硬边分色；柔和阴影不等于整体高调",
+      "positive_cues": [
+        "画面可辨认柔和渐层阴影的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "柔和渐层阴影",
+        "soft gradient"
+      ],
+      "generation_phrase": "柔和渐层阴影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.flat-no-shading",
+      "category": "lighting_shading",
+      "name_cn": "平面无渐变明暗",
+      "name_en": "Flat No Shading",
+      "definition": "画面可辨认平面无渐变明暗的视觉表现",
+      "positive_cues": [
+        "画面可辨认平面无渐变明暗的视觉表现"
+      ],
+      "negative_cues": [
+        "柔和渐层阴影",
+        "双色网点阴影"
+      ],
+      "aliases": [
+        "平面无渐变明暗",
+        "flat no shading"
+      ],
+      "generation_phrase": "平面无渐变明暗",
+      "compatible_with": [],
+      "conflicts_with": [
+        "shading.soft-gradient"
+      ]
+    },
+    {
+      "id": "shading.rim-light",
+      "category": "lighting_shading",
+      "name_cn": "细窄轮廓光",
+      "name_en": "Rim Light",
+      "definition": "画面可辨认细窄轮廓光的视觉表现",
+      "positive_cues": [
+        "画面可辨认细窄轮廓光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "细窄轮廓光",
+        "rim light"
+      ],
+      "generation_phrase": "细窄轮廓光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.backlight",
+      "category": "lighting_shading",
+      "name_cn": "逆光剪影",
+      "name_en": "Backlight",
+      "definition": "画面可辨认逆光剪影的视觉表现",
+      "positive_cues": [
+        "画面可辨认逆光剪影的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "逆光剪影",
+        "backlight"
+      ],
+      "generation_phrase": "逆光剪影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.window-softlight",
+      "category": "lighting_shading",
+      "name_cn": "窗边柔和漫射光",
+      "name_en": "Window Softlight",
+      "definition": "画面可辨认窗边柔和漫射光的视觉表现",
+      "positive_cues": [
+        "画面可辨认窗边柔和漫射光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "窗边柔和漫射光",
+        "window softlight"
+      ],
+      "generation_phrase": "窗边柔和漫射光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.directional-hardlight",
+      "category": "lighting_shading",
+      "name_cn": "硬质方向光",
+      "name_en": "Directional Hardlight",
+      "definition": "画面可辨认硬质方向光的视觉表现",
+      "positive_cues": [
+        "画面可辨认硬质方向光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "硬质方向光",
+        "directional hardlight"
+      ],
+      "generation_phrase": "硬质方向光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.overcast-softlight",
+      "category": "lighting_shading",
+      "name_cn": "阴天散射光",
+      "name_en": "Overcast Softlight",
+      "definition": "广范围漫射照明使投影边缘弱、明暗平缓，整体缺少强烈直射高光；仅柔光不能证明天气，需环境证据",
+      "positive_cues": [
+        "画面可辨认阴天散射光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "阴天散射光",
+        "overcast softlight"
+      ],
+      "generation_phrase": "阴天散射光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.high-key",
+      "category": "lighting_shading",
+      "name_cn": "高调均匀布光",
+      "name_en": "High Key",
+      "definition": "整体亮部占比高、暗部面积小且可读，主体与背景均较明亮；仅面部受光均匀但背景很暗不能判为高调",
+      "positive_cues": [
+        "画面可辨认高调均匀布光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "高调均匀布光",
+        "high key"
+      ],
+      "generation_phrase": "高调均匀布光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.low-key",
+      "category": "lighting_shading",
+      "name_cn": "低调局部布光",
+      "name_en": "Low Key",
+      "definition": "暗部占较大面积，少数亮部组织视觉重点，阴影与受光部分保持明显层次；不等同于曝光错误或夜间画面",
+      "positive_cues": [
+        "画面可辨认低调局部布光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "低调局部布光",
+        "low key"
+      ],
+      "generation_phrase": "低调局部布光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.candle-warmth",
+      "category": "lighting_shading",
+      "name_cn": "烛火暖光",
+      "name_en": "Candle Warmth",
+      "definition": "画面可辨认烛火暖光的视觉表现",
+      "positive_cues": [
+        "画面可辨认烛火暖光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "烛火暖光",
+        "candle warmth"
+      ],
+      "generation_phrase": "烛火暖光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.neon-edge",
+      "category": "lighting_shading",
+      "name_cn": "霓虹边缘光",
+      "name_en": "Neon Edge",
+      "definition": "画面可辨认霓虹边缘光的视觉表现",
+      "positive_cues": [
+        "画面可辨认霓虹边缘光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "霓虹边缘光",
+        "neon edge"
+      ],
+      "generation_phrase": "霓虹边缘光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.warm-cool-shadows",
+      "category": "lighting_shading",
+      "name_cn": "暖光冷影",
+      "name_en": "Warm Cool Shadows",
+      "definition": "画面可辨认暖光冷影的视觉表现",
+      "positive_cues": [
+        "画面可辨认暖光冷影的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "暖光冷影",
+        "warm cool shadows"
+      ],
+      "generation_phrase": "暖光冷影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.volumetric-beam-visible",
+      "category": "lighting_shading",
+      "name_cn": "可见雾中光束",
+      "name_en": "Volumetric Beam Visible",
+      "definition": "画面可辨认可见雾中光束的视觉表现",
+      "positive_cues": [
+        "画面可辨认可见雾中光束的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "可见雾中光束",
+        "volumetric beam visible"
+      ],
+      "generation_phrase": "可见雾中光束",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.colored-cast-shadow",
+      "category": "lighting_shading",
+      "name_cn": "彩色投影",
+      "name_en": "Colored Cast Shadow",
+      "definition": "画面可辨认彩色投影的视觉表现",
+      "positive_cues": [
+        "画面可辨认彩色投影的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "彩色投影",
+        "colored cast shadow"
+      ],
+      "generation_phrase": "彩色投影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.paper-layer-shadow",
+      "category": "lighting_shading",
+      "name_cn": "纸层投影",
+      "name_en": "Paper Layer Shadow",
+      "definition": "画面可辨认纸层投影的视觉表现",
+      "positive_cues": [
+        "画面可辨认纸层投影的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "纸层投影",
+        "paper layer shadow"
+      ],
+      "generation_phrase": "纸层投影",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.miniature-studio-light",
+      "category": "lighting_shading",
+      "name_cn": "微缩模型布光",
+      "name_en": "Miniature Studio Light",
+      "definition": "画面可辨认微缩模型布光的视觉表现",
+      "positive_cues": [
+        "画面可辨认微缩模型布光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "微缩模型布光",
+        "miniature studio light"
+      ],
+      "generation_phrase": "微缩模型布光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.side-light",
+      "category": "lighting_shading",
+      "name_cn": "侧向塑形光",
+      "name_en": "Side Light",
+      "definition": "画面可辨认侧向塑形光的视觉表现",
+      "positive_cues": [
+        "画面可辨认侧向塑形光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "侧向塑形光",
+        "side light"
+      ],
+      "generation_phrase": "侧向塑形光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.ambient-even",
+      "category": "lighting_shading",
+      "name_cn": "均匀环境光",
+      "name_en": "Ambient Even",
+      "definition": "画面大部分区域获得平缓环境照明，阴影较弱、无单一强光主导；不指明光源设备、摄影棚或天气",
+      "positive_cues": [
+        "画面可辨认均匀环境光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "均匀环境光",
+        "ambient even"
+      ],
+      "generation_phrase": "均匀环境光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.specular-highlight",
+      "category": "lighting_shading",
+      "name_cn": "局部镜面高光",
+      "name_en": "Specular Highlight",
+      "definition": "画面可辨认局部镜面高光的视觉表现",
+      "positive_cues": [
+        "画面可辨认局部镜面高光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "局部镜面高光",
+        "specular highlight"
+      ],
+      "generation_phrase": "局部镜面高光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "shading.matte-shading",
+      "category": "lighting_shading",
+      "name_cn": "哑光漫反射外观",
+      "name_en": "Matte Shading",
+      "definition": "画面可辨认哑光漫反射外观的视觉表现",
+      "positive_cues": [
+        "画面可辨认哑光漫反射外观的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "哑光漫反射外观",
+        "matte shading"
+      ],
+      "generation_phrase": "哑光漫反射外观",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.paper-fiber",
+      "category": "texture_material",
+      "name_cn": "纸纤维颗粒",
+      "name_en": "Paper Fiber",
+      "definition": "画面可辨认纸纤维颗粒的视觉表现",
+      "positive_cues": [
+        "画面可辨认纸纤维颗粒的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "纸纤维颗粒",
+        "paper fiber"
+      ],
+      "generation_phrase": "纸纤维颗粒",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.crayon-grain",
+      "category": "texture_material",
+      "name_cn": "蜡笔颗粒",
+      "name_en": "Crayon Grain",
+      "definition": "画面可辨认蜡笔颗粒的视觉表现",
+      "positive_cues": [
+        "画面可辨认蜡笔颗粒的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "蜡笔颗粒",
+        "crayon grain"
+      ],
+      "generation_phrase": "蜡笔颗粒",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.gouache-brush",
+      "category": "texture_material",
+      "name_cn": "水粉笔触",
+      "name_en": "Gouache Brush",
+      "definition": "画面可辨认水粉笔触的视觉表现",
+      "positive_cues": [
+        "画面可辨认水粉笔触的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "水粉笔触",
+        "gouache brush"
+      ],
+      "generation_phrase": "水粉笔触",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.watercolor-bleed",
+      "category": "texture_material",
+      "name_cn": "水彩洇染",
+      "name_en": "Watercolor Bleed",
+      "definition": "画面可辨认水彩洇染的视觉表现",
+      "positive_cues": [
+        "画面可辨认水彩洇染的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "水彩洇染",
+        "watercolor bleed"
+      ],
+      "generation_phrase": "水彩洇染",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.ink-wash",
+      "category": "texture_material",
+      "name_cn": "水墨晕染",
+      "name_en": "Ink Wash",
+      "definition": "画面可辨认水墨晕染的视觉表现",
+      "positive_cues": [
+        "画面可辨认水墨晕染的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "水墨晕染",
+        "ink wash"
+      ],
+      "generation_phrase": "水墨晕染",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.clay-fingerprint",
+      "category": "texture_material",
+      "name_cn": "黏土手指压痕",
+      "name_en": "Clay Fingerprint",
+      "definition": "角色表面有局部按压痕与软陶颗粒",
+      "positive_cues": [
+        "角色表面有局部按压痕与软陶颗粒"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "黏土手指压痕",
+        "clay fingerprint"
+      ],
+      "generation_phrase": "保留黏土压痕与软陶颗粒",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.felt-fabric",
+      "category": "texture_material",
+      "name_cn": "毛毡纤维",
+      "name_en": "Felt Fabric",
+      "definition": "画面可辨认毛毡纤维的视觉表现",
+      "positive_cues": [
+        "画面可辨认毛毡纤维的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "毛毡纤维",
+        "felt fabric"
+      ],
+      "generation_phrase": "毛毡纤维",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.matte-plastic",
+      "category": "texture_material",
+      "name_cn": "哑光塑料外观",
+      "name_en": "Matte Plastic",
+      "definition": "画面可辨认哑光塑料外观的视觉表现",
+      "positive_cues": [
+        "画面可辨认哑光塑料外观的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "哑光塑料外观",
+        "matte plastic"
+      ],
+      "generation_phrase": "哑光塑料外观",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.smooth-animation-surface",
+      "category": "texture_material",
+      "name_cn": "光滑动画曲面",
+      "name_en": "Smooth Animation Surface",
+      "definition": "角色与环境以连续平滑曲面和细腻人工化表面表达，无明显纸纹、刀痕或揉塑痕；不借单个光滑物体推断全片材质",
+      "positive_cues": [
+        "画面可辨认光滑动画曲面的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "光滑动画曲面",
+        "smooth animation surface"
+      ],
+      "generation_phrase": "光滑动画曲面",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.handmade-paper",
+      "category": "texture_material",
+      "name_cn": "手工纸不规则纹理",
+      "name_en": "Handmade Paper",
+      "definition": "画面可辨认手工纸不规则纹理的视觉表现",
+      "positive_cues": [
+        "画面可辨认手工纸不规则纹理的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "手工纸不规则纹理",
+        "handmade paper"
+      ],
+      "generation_phrase": "手工纸不规则纹理",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.printed-ink",
+      "category": "texture_material",
+      "name_cn": "印刷油墨颗粒",
+      "name_en": "Printed Ink",
+      "definition": "画面可辨认印刷油墨颗粒的视觉表现",
+      "positive_cues": [
+        "画面可辨认印刷油墨颗粒的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "印刷油墨颗粒",
+        "printed ink"
+      ],
+      "generation_phrase": "印刷油墨颗粒",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.canvas-tooth",
+      "category": "texture_material",
+      "name_cn": "画布织纹",
+      "name_en": "Canvas Tooth",
+      "definition": "画面可辨认画布织纹的视觉表现",
+      "positive_cues": [
+        "画面可辨认画布织纹的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "画布织纹",
+        "canvas tooth"
+      ],
+      "generation_phrase": "画布织纹",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.chalk-dust",
+      "category": "texture_material",
+      "name_cn": "粉笔粉尘",
+      "name_en": "Chalk Dust",
+      "definition": "画面可辨认粉笔粉尘的视觉表现",
+      "positive_cues": [
+        "画面可辨认粉笔粉尘的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "粉笔粉尘",
+        "chalk dust"
+      ],
+      "generation_phrase": "粉笔粉尘",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.frosted-glass",
+      "category": "texture_material",
+      "name_cn": "磨砂玻璃透光",
+      "name_en": "Frosted Glass",
+      "definition": "画面可辨认磨砂玻璃透光的视觉表现",
+      "positive_cues": [
+        "画面可辨认磨砂玻璃透光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "磨砂玻璃透光",
+        "frosted glass"
+      ],
+      "generation_phrase": "磨砂玻璃透光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "material.gold-leaf",
+      "category": "texture_material",
+      "name_cn": "金箔片状反光",
+      "name_en": "Gold Leaf",
+      "definition": "画面可辨认金箔片状反光的视觉表现",
+      "positive_cues": [
+        "画面可辨认金箔片状反光的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "金箔片状反光",
+        "gold leaf"
+      ],
+      "generation_phrase": "金箔片状反光",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.exaggerated-pose",
+      "category": "motion_signature",
+      "name_cn": "夸张清晰姿态",
+      "name_en": "Exaggerated Pose",
+      "definition": "画面可辨认夸张清晰姿态的视觉表现",
+      "positive_cues": [
+        "画面可辨认夸张清晰姿态的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "夸张清晰姿态",
+        "exaggerated pose"
+      ],
+      "generation_phrase": "夸张清晰姿态",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.limited-animation",
+      "category": "motion_signature",
+      "name_cn": "有限动画停顿",
+      "name_en": "Limited Animation",
+      "definition": "画面可辨认有限动画停顿的视觉表现",
+      "positive_cues": [
+        "画面可辨认有限动画停顿的视觉表现"
+      ],
+      "negative_cues": [
+        "平滑缓入缓出"
+      ],
+      "aliases": [
+        "有限动画停顿",
+        "limited animation"
+      ],
+      "generation_phrase": "有限动画停顿",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.frame-by-frame-jitter",
+      "category": "motion_signature",
+      "name_cn": "逐帧轻微抖动",
+      "name_en": "Frame By Frame Jitter",
+      "definition": "画面可辨认逐帧轻微抖动的视觉表现",
+      "positive_cues": [
+        "画面可辨认逐帧轻微抖动的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "逐帧轻微抖动",
+        "frame by frame jitter"
+      ],
+      "generation_phrase": "逐帧轻微抖动",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.smooth-ease",
+      "category": "motion_signature",
+      "name_cn": "平滑缓入缓出",
+      "name_en": "Smooth Ease",
+      "definition": "画面可辨认平滑缓入缓出的视觉表现",
+      "positive_cues": [
+        "画面可辨认平滑缓入缓出的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "平滑缓入缓出",
+        "smooth ease"
+      ],
+      "generation_phrase": "平滑缓入缓出",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.snappy-poses",
+      "category": "motion_signature",
+      "name_cn": "利落关键姿态",
+      "name_en": "Snappy Poses",
+      "definition": "画面可辨认利落关键姿态的视觉表现",
+      "positive_cues": [
+        "画面可辨认利落关键姿态的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "利落关键姿态",
+        "snappy poses"
+      ],
+      "generation_phrase": "利落关键姿态",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.elastic-stretch",
+      "category": "motion_signature",
+      "name_cn": "弹性拉伸形变",
+      "name_en": "Elastic Stretch",
+      "definition": "画面可辨认弹性拉伸形变的视觉表现",
+      "positive_cues": [
+        "画面可辨认弹性拉伸形变的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "弹性拉伸形变",
+        "elastic stretch"
+      ],
+      "generation_phrase": "弹性拉伸形变",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.physical-inertia",
+      "category": "motion_signature",
+      "name_cn": "写实运动惯性",
+      "name_en": "Physical Inertia",
+      "definition": "连续帧中的加速、减速、碰撞和重心转移具有自然重量感，无大幅弹性形变；单帧不能确认惯性",
+      "positive_cues": [
+        "画面可辨认写实运动惯性的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "写实运动惯性",
+        "physical inertia"
+      ],
+      "generation_phrase": "写实运动惯性",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.smear-frames",
+      "category": "motion_signature",
+      "name_cn": "快速涂抹中间帧",
+      "name_en": "Smear Frames",
+      "definition": "画面可辨认快速涂抹中间帧的视觉表现",
+      "positive_cues": [
+        "画面可辨认快速涂抹中间帧的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "快速涂抹中间帧",
+        "smear frames"
+      ],
+      "generation_phrase": "快速涂抹中间帧",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.stopmotion-staccato",
+      "category": "motion_signature",
+      "name_cn": "定格式间歇运动",
+      "name_en": "Stopmotion Staccato",
+      "definition": "画面可辨认定格式间歇运动的视觉表现",
+      "positive_cues": [
+        "画面可辨认定格式间歇运动的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "定格式间歇运动",
+        "stopmotion staccato"
+      ],
+      "generation_phrase": "定格式间歇运动",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.paper-layer-parallax",
+      "category": "motion_signature",
+      "name_cn": "纸层运动视差",
+      "name_en": "Paper Layer Parallax",
+      "definition": "画面可辨认纸层运动视差的视觉表现",
+      "positive_cues": [
+        "画面可辨认纸层运动视差的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "纸层运动视差",
+        "paper layer parallax"
+      ],
+      "generation_phrase": "纸层运动视差",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.fluid-brush-trail",
+      "category": "motion_signature",
+      "name_cn": "流动笔触拖尾",
+      "name_en": "Fluid Brush Trail",
+      "definition": "画面可辨认流动笔触拖尾的视觉表现",
+      "positive_cues": [
+        "画面可辨认流动笔触拖尾的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "流动笔触拖尾",
+        "fluid brush trail"
+      ],
+      "generation_phrase": "流动笔触拖尾",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.weight-shift",
+      "category": "motion_signature",
+      "name_cn": "重心变化清楚",
+      "name_en": "Weight Shift",
+      "definition": "画面可辨认重心变化清楚的视觉表现",
+      "positive_cues": [
+        "画面可辨认重心变化清楚的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "重心变化清楚",
+        "weight shift"
+      ],
+      "generation_phrase": "重心变化清楚",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.anticipation-pose",
+      "category": "motion_signature",
+      "name_cn": "动作预备姿态",
+      "name_en": "Anticipation Pose",
+      "definition": "画面可辨认动作预备姿态的视觉表现",
+      "positive_cues": [
+        "画面可辨认动作预备姿态的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "动作预备姿态",
+        "anticipation pose"
+      ],
+      "generation_phrase": "动作预备姿态",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.held-expression",
+      "category": "motion_signature",
+      "name_cn": "表情定格停顿",
+      "name_en": "Held Expression",
+      "definition": "画面可辨认表情定格停顿的视觉表现",
+      "positive_cues": [
+        "画面可辨认表情定格停顿的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "表情定格停顿",
+        "held expression"
+      ],
+      "generation_phrase": "表情定格停顿",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.clear-arc",
+      "category": "motion_signature",
+      "name_cn": "动作弧线清楚",
+      "name_en": "Clear Arc",
+      "definition": "画面可辨认动作弧线清楚的视觉表现",
+      "positive_cues": [
+        "画面可辨认动作弧线清楚的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "动作弧线清楚",
+        "clear arc"
+      ],
+      "generation_phrase": "动作弧线清楚",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.silhouette-readable",
+      "category": "motion_signature",
+      "name_cn": "运动剪影可读",
+      "name_en": "Silhouette Readable",
+      "definition": "画面可辨认运动剪影可读的视觉表现",
+      "positive_cues": [
+        "画面可辨认运动剪影可读的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "运动剪影可读",
+        "silhouette readable"
+      ],
+      "generation_phrase": "运动剪影可读",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.gentle-drift",
+      "category": "motion_signature",
+      "name_cn": "缓慢漂移",
+      "name_en": "Gentle Drift",
+      "definition": "画面可辨认缓慢漂移的视觉表现",
+      "positive_cues": [
+        "画面可辨认缓慢漂移的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "缓慢漂移",
+        "gentle drift"
+      ],
+      "generation_phrase": "缓慢漂移",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.fast-snap",
+      "category": "motion_signature",
+      "name_cn": "快速脆响转向",
+      "name_en": "Fast Snap",
+      "definition": "画面可辨认快速脆响转向的视觉表现",
+      "positive_cues": [
+        "画面可辨认快速脆响转向的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "快速脆响转向",
+        "fast snap"
+      ],
+      "generation_phrase": "快速脆响转向",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.rhythmic-repetition",
+      "category": "motion_signature",
+      "name_cn": "节奏性重复动作",
+      "name_en": "Rhythmic Repetition",
+      "definition": "画面可辨认节奏性重复动作的视觉表现",
+      "positive_cues": [
+        "画面可辨认节奏性重复动作的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "节奏性重复动作",
+        "rhythmic repetition"
+      ],
+      "generation_phrase": "节奏性重复动作",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.measured-naturalism",
+      "category": "motion_signature",
+      "name_cn": "克制自然动作",
+      "name_en": "Measured Naturalism",
+      "definition": "连续帧中的姿态变化幅度、停顿和身体反应接近日常动作，不夸张摆姿或突然变形；不能由静止单帧推断",
+      "positive_cues": [
+        "画面可辨认克制自然动作的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "克制自然动作",
+        "measured naturalism"
+      ],
+      "generation_phrase": "克制自然动作",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.graphic-impact",
+      "category": "motion_signature",
+      "name_cn": "图形化冲击动作",
+      "name_en": "Graphic Impact",
+      "definition": "画面可辨认图形化冲击动作的视觉表现",
+      "positive_cues": [
+        "画面可辨认图形化冲击动作的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "图形化冲击动作",
+        "graphic impact"
+      ],
+      "generation_phrase": "图形化冲击动作",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "motion_language.subtle-breath",
+      "category": "motion_signature",
+      "name_cn": "细微呼吸起伏",
+      "name_en": "Subtle Breath",
+      "definition": "画面可辨认细微呼吸起伏的视觉表现",
+      "positive_cues": [
+        "画面可辨认细微呼吸起伏的视觉表现"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "细微呼吸起伏",
+        "subtle breath"
+      ],
+      "generation_phrase": "细微呼吸起伏",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "color.desaturated-cool",
+      "category": "color_tone",
+      "name_cn": "低饱和青灰色调",
+      "name_en": "Desaturated Cool",
+      "definition": "蓝灰与青灰占主导，综合色彩纯度较低，暖色面积有限",
+      "positive_cues": [
+        "蓝灰与青灰占主导，综合色彩纯度较低，暖色面积有限"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "低饱和青灰色调",
+        "蓝灰低饱和",
+        "冷调灰蓝",
+        "低彩度青灰"
+      ],
+      "generation_phrase": "低饱和青灰色调",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "form.impossible-geometry",
+      "category": "form_language",
+      "name_cn": "不可能几何形状",
+      "name_en": "Impossible Geometry",
+      "definition": "平面形状以违反常规空间关系的几何轮廓组织",
+      "positive_cues": [
+        "平面形状以违反常规空间关系的几何轮廓组织"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "不可能几何形状",
+        "几何门洞",
+        "空间错位"
+      ],
+      "generation_phrase": "不可能几何形状",
+      "compatible_with": [],
+      "conflicts_with": []
+    },
+    {
+      "id": "texture.clean-digital",
+      "category": "texture_material",
+      "name_cn": "光滑数字表面",
+      "name_en": "Clean Digital",
+      "definition": "表面平滑无纸纤维或手作痕迹",
+      "positive_cues": [
+        "表面平滑无纸纤维或手作痕迹"
+      ],
+      "negative_cues": [],
+      "aliases": [
+        "光滑数字表面",
+        "细腻平滑",
+        "光滑表面",
+        "数字光滑"
+      ],
+      "generation_phrase": "光滑数字表面",
+      "compatible_with": [],
+      "conflicts_with": [
+        "material.paper-fiber",
+        "material.handmade-paper"
+      ]
+    },
+    {
+      "id": "color.warm-tone",
+      "category": "color_tone",
+      "name_cn": "统一暖色调",
+      "name_en": "Warm Overall Tone",
+      "definition": "画面整体色彩与明暗偏暖，不限定具体物体颜色或土色配色",
+      "positive_cues": ["综合色温偏暖", "整体暖色调"],
+      "negative_cues": ["综合色温偏冷"],
+      "aliases": ["暖色调", "综合色温偏暖", "整体偏暖"],
+      "generation_phrase": "统一暖色调",
+      "compatible_with": ["palette.warm-earth"],
+      "conflicts_with": []
+    },
+    {
+      "id": "form.stylized-realism",
+      "category": "form_language",
+      "name_cn": "风格化写实造型",
+      "name_en": "Stylized Realism",
+      "definition": "以可辨识的写实结构为基础，简化轮廓并对五官或体块进行适度卡通化，不要求完全写实比例",
+      "positive_cues": ["写实结构与卡通化五官并存", "风格化写实"],
+      "negative_cues": ["纯平面几何抽象"],
+      "aliases": ["风格化写实", "半写实卡通", "写实比例卡通化"],
+      "generation_phrase": "写实结构结合适度卡通化造型",
+      "compatible_with": ["medium.three-d-animation"],
+      "conflicts_with": []
+    },
+    {
+      "id": "color.neutral-balanced", "category": "color_tone", "name_cn": "中性自然色彩", "name_en": "Neutral Natural Color",
+      "definition": "全画面综合色彩接近自然中性，肤色与灰白区域无明显统一偏色，不依赖强橙蓝分离或高饱和滤镜",
+      "positive_cues": ["中性自然色彩", "综合色温中性", "白色与灰色无明显偏色"],
+      "negative_cues": ["明显青橙分离", "强烈统一偏色"], "aliases": ["自然中性色", "中性白平衡", "neutral natural color"],
+      "generation_phrase": "保持中性综合色温与自然色彩", "compatible_with": ["medium.photography"], "conflicts_with": []
+    },
+    {
+      "id": "texture.natural-detail", "category": "texture_material", "name_cn": "自然真实细节", "name_en": "Natural Surface Detail",
+      "definition": "真实表面有细微不均匀、自然纹理与光泽变化，避免人工磨皮、塑料平滑和绘制颗粒；不是特定服装或道具材质",
+      "positive_cues": ["自然真实细节", "表面细节未经明显磨平", "细微不均匀纹理"],
+      "negative_cues": ["塑料般无纹理", "大面积绘制笔触"], "aliases": ["自然细节", "真实表面纹理", "natural surface detail"],
+      "generation_phrase": "保留自然表面细节与细微不均匀质感", "compatible_with": ["medium.photography"], "conflicts_with": ["texture.clean-digital"]
+    },
+    {
+      "id": "texture.film-grain", "category": "texture_material", "name_cn": "细微胶片式颗粒", "name_en": "Subtle Film-like Grain",
+      "definition": "全画面可见细微不规则亮度颗粒而非规则网点或块状压缩；仅外观不能证明实体胶片、胶片型号或感光度",
+      "positive_cues": ["细微胶片式颗粒", "不规则亮度颗粒", "胶片式颗粒"],
+      "negative_cues": ["块状压缩马赛克", "规则印刷网点"], "aliases": ["胶片颗粒", "film-like grain", "细腻胶片感颗粒"],
+      "generation_phrase": "细微不规则胶片式颗粒，不夸大噪点", "compatible_with": ["medium.photography"], "conflicts_with": []
+    },
+    {
+      "id": "texture.digital-edge", "category": "texture_material", "name_cn": "清晰数字细节", "name_en": "Crisp Digital Detail",
+      "definition": "画面边缘与细节清楚，数字锐化感轻微或中等，暗部相对干净；不是从单帧确认手机型号或分辨率",
+      "positive_cues": ["清晰数字细节", "轻微数字锐化", "边缘细节清楚"],
+      "negative_cues": ["明显绘画笔触", "大面积柔焦"], "aliases": ["数字清晰质感", "crisp digital detail", "自然数字锐度"],
+      "generation_phrase": "清晰自然的数字细节，避免过度锐化", "compatible_with": ["medium.photography"], "conflicts_with": []
+    },
+    {
+      "id": "texture.low-light-noise", "category": "texture_material", "name_cn": "低照度细微噪点", "name_en": "Low-light Image Noise",
+      "definition": "暗部可见细微亮度或颜色噪点，细节略软且亮部相对清楚；不自动解释为胶片、具体ISO或拍摄设备",
+      "positive_cues": ["暗部细微噪点", "低照度细微噪点", "暗部噪声"],
+      "negative_cues": ["规则网点纹理", "全画面颗粒大小均匀"], "aliases": ["低光噪点", "low-light noise"],
+      "generation_phrase": "暗部保留少量低照度噪点与自然细节", "compatible_with": ["medium.photography"], "conflicts_with": []
+    },
+    {
+      "id": "color.monochrome-photo", "category": "color_tone", "name_cn": "黑白摄影灰阶", "name_en": "Photographic Monochrome",
+      "definition": "色彩转为黑白灰阶，真实光学层次和表面细节仍保留；不因黑白就判断为水墨、素描或黑色电影",
+      "positive_cues": ["黑白摄影灰阶", "无彩色且真实光学层次", "黑白灰阶"],
+      "negative_cues": ["大片墨迹晕染", "明显彩色区域"], "aliases": ["黑白摄影", "monochrome photography", "无彩摄影灰阶"],
+      "generation_phrase": "黑白摄影灰阶，保留中间调与明暗细节", "compatible_with": ["medium.photography"], "conflicts_with": ["palette.high-saturation"]
+    },
+    {
+      "id": "color.faded-colors", "category": "color_tone", "name_cn": "褪色柔和配色", "name_en": "Faded Muted Color",
+      "definition": "画面综合色彩纯度与反差偏低，黑位略抬、亮部颜色柔和，呈褪色外观；不指明年代或胶片型号",
+      "positive_cues": ["褪色柔和配色", "黑位略抬且色彩柔和", "褪色外观"],
+      "negative_cues": ["强烈纯黑与鲜艳色块"], "aliases": ["褪色调", "faded muted color", "柔和褪色"],
+      "generation_phrase": "柔和褪色配色与轻抬黑位", "compatible_with": ["medium.photography"], "conflicts_with": ["palette.high-saturation"]
+    },
+    {
+      "id": "shading.highlight-rolloff", "category": "lighting_shading", "name_cn": "柔和高光过渡", "name_en": "Gentle Highlight Rolloff",
+      "definition": "高光逐渐过渡至白色，亮部与中间调连接平顺而非大面积生硬截白；不能证明HDR或特定摄影机动态范围",
+      "positive_cues": ["柔和高光过渡", "高光过渡平顺", "亮部渐进过渡"],
+      "negative_cues": ["大面积硬边截白"], "aliases": ["平顺高光", "gentle highlight rolloff"],
+      "generation_phrase": "高光过渡柔和，保留亮部层次", "compatible_with": ["medium.photography"], "conflicts_with": []
+    },
+    {
+      "id": "shading.available-light", "category": "lighting_shading", "name_cn": "自然可见光照", "name_en": "Available-light Appearance",
+      "definition": "照明与可见窗光或实景光源方向一致，明暗允许自然不均匀；不能据此证明未使用补光或拍摄真实生活事件",
+      "positive_cues": ["自然可见光照", "与可见光源方向一致", "生活化自然明暗"],
+      "negative_cues": ["均匀无方向的强烈美颜亮面"], "aliases": ["生活化光照", "实景光外观", "available light"],
+      "generation_phrase": "生活化可见光源照明，保留自然明暗差异", "compatible_with": ["medium.photography"], "conflicts_with": []
+    },
+    {
+      "id": "shading.hard-contrast", "category": "lighting_shading", "name_cn": "硬光强明暗组织", "name_en": "Hard-light Contrast",
+      "definition": "受光区与暗部反差强，投影边缘清楚，亮暗形状参与画面组织；不因明暗强就推断叙事类型",
+      "positive_cues": ["硬光强明暗组织", "清晰投影与强反差", "硬光反差"],
+      "negative_cues": ["阴影边缘弱且整体平缓"], "aliases": ["硬光高反差", "hard-light contrast"],
+      "generation_phrase": "硬质光照与明确的亮暗形状", "compatible_with": ["medium.photography"], "conflicts_with": ["shading.ambient-even"]
+    }
+  ],
+  "recipes": [
+    {
+      "id": "recipe.paper-cut-uncanny-geometry",
+      "name": "剪纸贴图与诡异几何风",
+      "family": "handmade",
+      "retrieval_description": "平面纸片分层拼贴，裁切或撕裂边缘与纸纤维清楚，层间投影形成浅立体层次，朱红靛青低饱和配色，平面几何造型与异常空间并置",
+      "positive_cues": ["纸片边缘与纤维", "分层投影", "平面拼贴造型"], "negative_cues": ["光滑连续三维曲面", "真实摄影表面"],
+      "dynamic_description": "轻微逐帧抖动与纸层视差须由连续帧核验",
+      "suitable_for": [
+        "童话惊悚",
+        "梦境",
+        "空间裂缝",
+        "悬疑转折"
+      ],
+      "term_ids": [
+        "medium.paper-cut",
+        "line_language.paper-tear-edge",
+        "character_design.paper-character",
+        "form.impossible-geometry",
+        "palette.vermilion-indigo",
+        "shading.paper-layer-shadow",
+        "material.paper-fiber",
+        "motion_language.frame-by-frame-jitter"
+      ],
+      "global_prompt": "多层手工剪纸拼贴动画，纸纤维边缘清晰，前中后景有明显投影与视差，低饱和朱红、靛青和黑色，平面人物与不可能几何门洞并置，轻微逐帧抖动。",
+      "shot_constraints": "35mm 正侧构图；一次几何门洞折叠或一张纸影横移即可，禁止复杂三维翻转、无数碎纸和高速镜头穿越。",
+      "forbidden_drift": [
+        "texture.clean-digital",
+        "medium.photography"
+      ]
+    },
+    {
+      "id": "recipe.pop-graphic-motion",
+      "name": "高对比波普图形动画",
+      "family": "animation",
+      "retrieval_description": "平面图形化造型与粗黑轮廓，红黄蓝黑限定色，高明暗反差，双色网点阴影和印刷颗粒，图形轮廓鲜明且背景留白",
+      "positive_cues": ["粗黑轮廓", "限定原色与网点", "印刷式平面色块"], "negative_cues": ["连续写实明暗", "柔和粉彩曲面"],
+      "dynamic_description": "利落关键姿态与短促节奏须由时序确认",
+      "suitable_for": [
+        "音乐广告",
+        "活力转场",
+        "青春喜剧"
+      ],
+      "term_ids": [
+        "medium.two-d-animation",
+        "line_language.bold-black-outline",
+        "palette.primary-four-color",
+        "shading.duotone-halftone",
+        "material.printed-ink",
+        "motion_language.snappy-poses"
+      ],
+      "global_prompt": "扁平高对比波普动画，红黄蓝黑限定色与粗黑轮廓并置，形体简化且姿态鲜明，暗部以双色网点阴影组织，保留丝网印刷颗粒与干净留白，动作节奏短促有力。",
+      "shot_constraints": "单镜只保留一种图形爆破或速度线效果，避免连续高速穿越与多个视觉焦点同时竞争。",
+      "forbidden_drift": [
+        "medium.photography",
+        "line_language.no-outline"
+      ]
+    },
+    {
+      "id": "recipe.warm-stylized-3d",
+      "name": "温暖风格化三维动画",
+      "family": "animation",
+      "retrieval_description": "连续立体体积，圆润轮廓与简化体块，五官可读且适度夸张，暖土色与柔和中性色，宽缓阴影过渡，细腻光滑但非完全写实的动画表面",
+      "positive_cues": ["立体体积与圆润造型", "人工化平滑表面", "暖土色与宽缓阴影"], "negative_cues": ["平面墨线色块", "棱角分面", "自然摄影比例与表面"],
+      "dynamic_description": "缓入缓出与轻微惯性仅在多帧支持时使用",
+      "optional_anchors": ["皮克斯式角色表现（创作参考，不代表原片来源）"],
+      "suitable_for": [
+        "家庭短片",
+        "轻喜剧",
+        "情感广告"
+      ],
+      "term_ids": [
+        "medium.three-d-animation",
+        "line_language.rounded-contour",
+        "palette.warm-earth",
+        "shading.window-softlight",
+        "material.smooth-animation-surface",
+        "motion_language.smooth-ease"
+      ],
+      "global_prompt": "风格化三维动画，圆润轮廓与清晰可读的体块比例，暖土色与柔和中性色统一全片，窗侧柔光形成宽缓的明暗过渡，表面细腻但不过度写实，动作遵循平滑缓入缓出与轻微惯性。",
+      "shot_constraints": "保持轮廓、表面平滑度和综合色温稳定；单镜局部光效不改写全片材质语言。",
+      "forbidden_drift": [
+        "medium.photography",
+        "material.paper-fiber"
+      ]
+    },
+    {
+      "id": "recipe.monochrome-ink-motion",
+      "name": "留白水墨逐帧动画",
+      "family": "painting",
+      "retrieval_description": "墨色浓淡与干湿笔触塑形，轮廓有书写性与晕染，黑白灰克制，大面积纸白，纸面吸墨质感可见而非摄影灰阶",
+      "positive_cues": ["墨色晕染", "书写性线条", "纸白与干湿笔触"], "negative_cues": ["真实摄影灰阶", "锐利数字色块"],
+      "dynamic_description": "笔势延展与墨迹流动需连续帧支持",
+      "suitable_for": [
+        "诗意叙事",
+        "历史意象",
+        "静谧片头"
+      ],
+      "term_ids": [
+        "medium.ink-animation",
+        "line_language.calligraphic-line",
+        "palette.monochrome-ink",
+        "shading.flat-no-shading",
+        "material.ink-wash",
+        "motion_language.fluid-brush-trail"
+      ],
+      "global_prompt": "水墨逐帧动画，以墨色浓淡和书写性线条塑造形体，黑白灰层次克制，大片留白维持呼吸感，纸面晕染与干湿笔触可见，不引入写实三维体积，动态保留笔势延展与流动尾迹。",
+      "shot_constraints": "单镜只强调一次墨迹扩散或笔势转折，不同时叠加高饱和特效和复杂镜头飞行。",
+      "forbidden_drift": [
+        "medium.photography",
+        "texture.clean-digital"
+      ]
+    },
+    {
+      "id": "recipe.clay-stopmotion",
+      "name": "手作黏土定格动画",
+      "family": "handmade",
+      "retrieval_description": "揉塑式圆润形体，表面轻微按压痕与手工不均匀，低饱和粉彩，微缩实体般柔光与自然投影，非无痕数字塑料",
+      "positive_cues": ["揉塑痕迹", "实体微缩外观", "手工不均匀表面"], "negative_cues": ["无痕数字曲面", "真实皮肤细节"],
+      "dynamic_description": "逐格停顿需连续帧确认，单帧仅判断手工黏土外观",
+      "suitable_for": [
+        "童话",
+        "手工品牌",
+        "亲子短片"
+      ],
+      "term_ids": [
+        "medium.clay-stop-motion",
+        "character_design.rounded-silhouette",
+        "palette.pastel-low-saturation",
+        "shading.miniature-studio-light",
+        "material.clay-fingerprint",
+        "motion_language.stopmotion-staccato"
+      ],
+      "global_prompt": "手工黏土定格动画，圆润简化的形体与低饱和粉彩色系统一，微缩棚拍式柔光形成温和投影，表面留有轻微指纹和揉塑痕迹，运动带有可控的逐格停顿与手作触感。",
+      "shot_constraints": "避免皮肤写实毛孔、流体金属和完全无痕的数字塑料表面；动作保持少量明确步骤。",
+      "forbidden_drift": [
+        "medium.photography",
+        "texture.clean-digital"
+      ]
+    },
+    {
+      "id": "recipe.cool-cinematic-photo",
+      "name": "冷调克制电影摄影",
+      "family": "cinematic",
+      "retrieval_description": "真实摄影比例与自然表面，低饱和青灰综合色调，暗部面积较大但细节可读，明暗层次克制，无手绘轮廓或显著卡通形变",
+      "positive_cues": ["统一低饱和青灰", "暗部可读", "真实比例与表面"], "negative_cues": ["明显卡通造型", "高饱和图形色块"],
+      "dynamic_description": "克制动作停顿需时序核验",
+      "suitable_for": [
+        "悬疑短剧",
+        "都市剧情",
+        "纪录式广告"
+      ],
+      "term_ids": [
+        "medium.film-still",
+        "line_language.no-outline",
+        "color.desaturated-cool",
+        "shading.low-key",
+        "motion_language.measured-naturalism"
+      ],
+      "global_prompt": "克制的电影摄影语言，人物与环境保持真实光学层次，低饱和青灰色调统领全片，暗部保留可读细节和柔和灰阶，表面不过度磨皮或人工加纹，动作节奏自然并保留停顿。",
+      "shot_constraints": "镜头景别和运镜按分镜合同分别指定，勿把全片画风写成某一镜的焦段或机位。",
+      "forbidden_drift": [
+        "medium.two-d-animation",
+        "shading.duotone-halftone"
+      ]
+    },
+    {
+      "id": "recipe.fairytale-stylized-3d",
+      "name": "童话绘本式三维动画",
+      "family": "animation",
+      "retrieval_description": "立体体积与适度卡通化写实结构并存，轮廓优雅清晰，低饱和粉彩，柔和渐变阴影，细腻干净的表面与绘画式环境色块",
+      "positive_cues": ["卡通化写实造型", "粉彩和渐变阴影", "绘画式环境与立体角色"], "negative_cues": ["棱角分面", "粗黑网点波普"],
+      "optional_anchors": ["迪士尼式童话美术（创作参考，不代表原片来源）"],
+      "suitable_for": ["童话", "浪漫幻想"],
+      "term_ids": ["medium.three-d-animation", "form.stylized-realism", "palette.pastel-low-saturation", "shading.soft-gradient", "texture.clean-digital"],
+      "global_prompt": "童话绘本式三维动画，写实结构结合适度卡通化造型，轮廓优雅清晰，低饱和粉彩与柔和渐变阴影统一画面，表面细腻干净，环境以绘画式色块组织，保持主体与背景的层次，不生成文字或水印。",
+      "shot_constraints": "保持角色造型与配色一致；单镜最多一种柔和光效，不自动补充复杂运动。",
+      "forbidden_drift": ["medium.photography", "medium.low-poly-animation"]
+    },
+    {
+      "id": "recipe.poetic-luminous-2d",
+      "name": "诗意通透二维动画",
+      "family": "animation",
+      "retrieval_description": "细线平面角色与细致绘画背景，渐变色层和清晰冷暖对比，柔和逆光轮廓，高光明亮且暗部保留色彩，整体有通透光色层次",
+      "positive_cues": ["细线角色与绘画背景", "通透冷暖光色", "暗部保留色彩"], "negative_cues": ["连续光滑三维曲面", "黑白留墨笔触"],
+      "optional_anchors": ["新海诚式通透光色（创作参考，不代表原片来源）"],
+      "suitable_for": ["青春", "诗意叙事"],
+      "term_ids": ["medium.two-d-animation", "line_language.thin-ink-outline", "palette.gradient-sky", "shading.backlight", "shading.soft-gradient"],
+      "global_prompt": "诗意通透二维动画，细线勾勒简化角色，背景采用细致绘画语言，渐变色层与冷暖对比建立空间，柔和逆光勾勒轮廓，高光明亮而暗部保留色彩，光影层次清晰，不添加文字、Logo或水印。",
+      "shot_constraints": "保留二维轮廓和背景层次；光效不遮挡主体，不自动添加雨、烟雾或镜头飞行。",
+      "forbidden_drift": ["medium.three-d-animation", "medium.low-poly-animation"]
+    },
+    {
+      "id": "recipe.naturalistic-realism", "name": "自然主义写实电影", "family": "cinematic", "suitable_for": ["生活剧情", "人物短片"],
+      "term_ids": ["medium.photography", "character_design.realistic-proportion", "color.neutral-balanced", "shading.available-light", "texture.natural-detail"],
+      "retrieval_description": "自然人体比例与真实表面细节，中性综合色温与适度饱和，光照方向生活化且明暗不完全均匀，没有显著美颜、霓虹分色或人工颗粒",
+      "positive_cues": ["自然比例与真实细节", "中性综合色彩", "生活化明暗"], "negative_cues": ["塑料磨皮", "夸张卡通造型", "强烈综合色偏"],
+      "global_prompt": "自然主义写实电影外观，形体比例与表面细节真实，综合色温中性，色彩适度饱和，光照保留生活化方向与自然明暗差异，高光不过度泛白，暗部可读，避免美颜磨皮、塑料质感和夸张滤镜。",
+      "shot_constraints": "景别、构图与运镜遵循镜头合同；不要把自然主义解释为必须手持或长镜头。", "forbidden_drift": ["medium.two-d-animation", "texture.clean-digital"]
+    },
+    {
+      "id": "recipe.warm-humanist", "name": "温暖人文电影", "family": "cinematic", "suitable_for": ["家庭剧情", "人文广告"],
+      "term_ids": ["medium.photography", "character_design.realistic-proportion", "color.warm-tone", "shading.soft-gradient", "texture.natural-detail"],
+      "retrieval_description": "写实摄影比例，整体暖色温但保留自然肤色和综合色彩，柔和阴影与清楚中间调，真实表面细节而非粉彩三维动画",
+      "positive_cues": ["暖而自然的综合色彩", "真实比例", "柔和中间调"], "negative_cues": ["光滑卡通曲面", "强烈橙色滤镜"],
+      "global_prompt": "温暖人文电影外观，真实比例与自然表面细节，综合色温柔和偏暖，饱和度适中而不泛橙，中间调丰富，阴影过渡宽缓，亮部柔和且不过曝，保持自然肤色和环境色彩，不加入卡通化、美颜或过度柔焦。",
+      "shot_constraints": "暖调是全局综合色温，不固定服装、道具颜色，也不自动增加夕阳或窗光。", "forbidden_drift": ["medium.three-d-animation"]
+    },
+    {
+      "id": "recipe.monochrome-noir", "name": "黑白强反差电影", "family": "cinematic", "suitable_for": ["黑色电影式创作", "悬疑"],
+      "term_ids": ["medium.photography", "color.monochrome-photo", "shading.hard-contrast", "texture.natural-detail"],
+      "retrieval_description": "真实摄影外观的黑白灰阶，深黑大面积与小面积亮部形成强反差，硬边投影和清楚形体，中间调仍有细节，无墨迹或排线",
+      "positive_cues": ["黑白摄影灰阶", "硬边强反差", "少数亮部组织重点"], "negative_cues": ["水墨晕染", "低反差灰雾"],
+      "global_prompt": "黑白强反差电影外观，真实比例与摄影灰阶，深黑和明亮区域形成清楚明暗组织，投影边缘明确，中间调保留自然表面细节，亮部避免大片截白，不加入彩色点缀、漫画排线或水墨晕染。",
+      "shot_constraints": "斜角、百叶窗影与烟雾只在镜头合同要求时添加，不把类型惯例当作观察事实。", "forbidden_drift": ["medium.ink-animation", "palette.high-saturation"]
+    },
+    {
+      "id": "recipe.muted-suspense", "name": "低饱和灰绿悬疑电影", "family": "cinematic", "suitable_for": ["心理悬疑", "都市短剧"],
+      "term_ids": ["medium.photography", "palette.muted-moss", "shading.low-key", "texture.natural-detail"],
+      "retrieval_description": "写实表面与自然形体，低彩度灰绿统领综合色彩，暗部较多且层次可读，亮部克制，非青品红霓虹双色或动画色块",
+      "positive_cues": ["灰绿综合色调", "低调但可读暗部", "写实细节"], "negative_cues": ["明亮粉彩", "鲜艳霓虹双色"],
+      "global_prompt": "低饱和灰绿电影外观，保留真实形体和自然纹理，综合色彩克制偏灰绿，亮部面积有限，暗部保持层次而不压成纯黑，阴影冷静，高光不过度泛光，不添加霓虹、颗粒风暴或超现实材质。",
+      "shot_constraints": "不凭配色推断危险、心理状态或剧情；局部光源与空间关系按证据设置。", "forbidden_drift": ["medium.two-d-animation"]
+    },
+    {
+      "id": "recipe.neon-night-realism", "name": "霓虹冷暖夜景电影", "family": "cinematic", "suitable_for": ["夜景剧情", "都市广告"],
+      "term_ids": ["medium.photography", "palette.neon-cyan-magenta", "shading.neon-edge", "texture.natural-detail"],
+      "retrieval_description": "真实摄影比例与自然表面，青蓝与品红综合色彩交替，暗部深且色光方向明显，轮廓受彩色光影响；不依赖具体招牌或道具识别",
+      "positive_cues": ["青品红光色分离", "真实表面承接彩光", "较深暗部"], "negative_cues": ["中性白天光色", "平面波普原色色块"],
+      "global_prompt": "写实夜景电影外观，青蓝与品红光色形成克制冷暖对照，保留真实比例、自然表面与暗部层次，彩色轮廓光不覆盖全部细节，高光集中而不大片溢出，避免把画面变成高饱和平面图形或满屏霓虹。",
+      "shot_constraints": "不自动生成招牌文字、雨或反光路面；彩光来源须与镜头空间一致。", "forbidden_drift": ["medium.vector-animation"]
+    },
+    {
+      "id": "recipe.restrained-period", "name": "克制暖土色年代电影", "family": "cinematic", "suitable_for": ["年代剧情", "历史感创作"],
+      "term_ids": ["medium.photography", "palette.warm-earth", "shading.soft-gradient", "texture.natural-detail"],
+      "retrieval_description": "写实比例与真实纹理，土黄赭棕和暖灰构成稳定综合色板，饱和度克制、阴影柔和，无强烈橙蓝分色；配色不能证明真实年代",
+      "positive_cues": ["稳定暖土综合色板", "自然纹理", "克制柔和明暗"], "negative_cues": ["只是暖光而无土色体系", "卡通平滑表面"],
+      "global_prompt": "克制暖土色电影外观，土黄、赭棕与暖灰组织综合色板，真实比例和自然纹理清楚，色彩不过度鲜艳，阴影柔和且暗部可读，高光温润不过曝，不套用统一褐色滤镜，不自动添加磨损、旧衣或历史道具。",
+      "shot_constraints": "年代、服装和布景来自内容合同，不能由暖土配色反向编造。", "forbidden_drift": ["medium.three-d-animation"]
+    },
+    {
+      "id": "recipe.high-key-commercial", "name": "高调清爽商业摄影", "family": "cinematic", "suitable_for": ["品牌广告", "清爽视觉"],
+      "term_ids": ["medium.photography", "color.neutral-balanced", "shading.high-key", "texture.digital-edge"],
+      "retrieval_description": "写实摄影外观，整体明亮且背景暗部少，中性清爽综合色彩，轮廓细节清晰，高光和中间调干净，非仅面部亮而背景深黑",
+      "positive_cues": ["整体高调", "背景亦较明亮", "干净中性色与清楚细节"], "negative_cues": ["大面积深黑", "美颜抹平细节"],
+      "global_prompt": "高调清爽商业摄影外观，综合色彩中性自然，主体和背景均明亮，阴影柔和而非完全消失，细节清楚且表面真实，高光保留层次，避免过度磨皮、纯白截断、夸张锐化和糖果色滤镜。",
+      "shot_constraints": "不自动指定背景必须纯白；具体布景、景别和光源位置由镜头合同决定。", "forbidden_drift": ["shading.low-key"]
+    },
+    {
+      "id": "recipe.hard-light-commercial", "name": "硬光雕塑感商业摄影", "family": "cinematic", "suitable_for": ["时尚广告", "视觉提案"],
+      "term_ids": ["medium.photography", "shading.hard-contrast", "texture.natural-detail"],
+      "retrieval_description": "写实形体，定向光形成明确亮暗块和清楚投影，表面细节与局部高光可见，颜色可自然或克制，非均匀柔光或二维分色",
+      "positive_cues": ["清楚投影边缘", "定向塑形明暗", "真实表面"], "negative_cues": ["整体均匀散射光", "平面卡通分色"],
+      "global_prompt": "硬光雕塑感商业摄影外观，保持真实比例与自然表面细节，方向明确的硬光塑造清楚亮暗块和投影，色彩克制，高光与暗部均有可读层次，不加入漫画分色、金属化皮肤或夸张磨皮。",
+      "shot_constraints": "单镜最多一个主要光线方向；不要因硬光而自动指定摄影棚或光具型号。", "forbidden_drift": ["shading.ambient-even"]
+    },
+    {
+      "id": "recipe.analog-grain-realism", "name": "细颗粒柔和胶片式写实", "family": "cinematic", "suitable_for": ["人文短片", "复古视觉"],
+      "term_ids": ["medium.photography", "color.faded-colors", "shading.highlight-rolloff", "texture.film-grain"],
+      "retrieval_description": "真实摄影比例与纹理，细微不规则颗粒，略褪色与柔和黑位，高光过渡平顺，非低照度彩色噪点、规则网点或压缩块",
+      "positive_cues": ["细微全画面颗粒", "柔和高光与轻抬黑位", "褪色外观"], "negative_cues": ["粗大彩色噪声", "规则网点", "硬锐数字边缘"],
+      "global_prompt": "胶片式写实影像，细微不规则颗粒统一画面，综合色彩柔和略褪，黑位轻抬而不泛灰，高光平顺过渡，真实形体和自然纹理仍清楚，不添加划痕、漏光、日期戳或粗大噪点。",
+      "shot_constraints": "胶片式是视觉外观，不声称拍摄介质、ISO或胶片品牌；动态节奏按内容设置。", "forbidden_drift": ["medium.pixel-animation"]
+    },
+    {
+      "id": "recipe.bleached-documentary", "name": "低彩度粗粝纪实", "family": "documentary", "suitable_for": ["社会观察", "纪实提案"],
+      "term_ids": ["medium.documentary-photo", "palette.low-saturation", "shading.available-light", "texture.natural-detail"],
+      "retrieval_description": "真实比例与未经理想化的表面，综合色彩偏低饱和，明暗自然不均匀，细节可有轻微软化，不表现为均匀美颜、棚拍光滑或规则手绘纹理",
+      "positive_cues": ["低彩度真实外观", "自然不均匀明暗", "保留非理想化细节"], "negative_cues": ["均匀美颜光滑", "高饱和卡通色块"],
+      "global_prompt": "低彩度纪实影像外观，真实比例与自然不均匀纹理，保留生活化明暗差异，综合色彩克制偏淡，亮部和暗部不过度修饰，允许轻微成像粗粝但不刻意做旧，不加入美颜、夸张颗粒或统一戏剧光。",
+      "shot_constraints": "纪实外观不证明事件真实；手持、抖动和快切必须有时序证据或明确创作要求。", "forbidden_drift": ["medium.three-d-animation"]
+    },
+    {
+      "id": "recipe.natural-light-documentary", "name": "自然光观察式纪实", "family": "documentary", "suitable_for": ["生活记录", "人物观察"],
+      "term_ids": ["medium.documentary-photo", "color.neutral-balanced", "shading.available-light", "texture.natural-detail"],
+      "retrieval_description": "真实形体与自然纹理，中性自然综合色彩，光照与可见环境方向一致，允许明暗不均匀而不追求完美棚拍外观，背景细节自然保留",
+      "positive_cues": ["自然综合色彩与细节", "环境光方向可解释", "不理想化明暗"], "negative_cues": ["强烈戏剧分色", "光滑CG造型"],
+      "global_prompt": "自然光观察式纪实外观，真实比例与自然纹理清楚，综合色温中性，保留环境本身的光照方向、明暗差异和普通细节，亮部不过度修复成均匀白光，不加入美颜磨皮、夸张调色或人工电影颗粒。",
+      "shot_constraints": "不自动改变摄影机运动或景深；所谓观察式为创作方向而非真实拍摄方式判定。", "forbidden_drift": ["medium.two-d-animation"]
+    },
+    {
+      "id": "recipe.observational-indoor-doc", "name": "室内混合光生活纪实", "family": "documentary", "suitable_for": ["家庭观察", "日常记录"],
+      "term_ids": ["medium.documentary-photo", "palette.warm-cool-split", "shading.available-light", "texture.natural-detail"],
+      "retrieval_description": "真实摄影外观，环境不同区域可见自然冷暖色温差，暖亮部与偏冷阴影并存，光照不完全均匀，普通表面纹理保留而非统一戏剧色光",
+      "positive_cues": ["生活化冷暖光差", "自然表面与明暗", "真实比例"], "negative_cues": ["强烈青品红霓虹", "完全均匀白光"],
+      "global_prompt": "生活纪实影像外观，真实比例与自然细节，允许可见光源形成温和冷暖色温差和非均匀阴影，不强行把全画面校成单一色温，保留中间调与暗部信息，不加入美颜、霓虹分色或光滑动画材质。",
+      "shot_constraints": "具体地点与灯具写在场景合同，不在全局风格中锁定；混合光须有可见证据。", "forbidden_drift": ["medium.three-d-animation"]
+    },
+    {
+      "id": "recipe.phone-daylight", "name": "手机日常自然日光", "family": "phone", "suitable_for": ["手机生活记录", "轻量短视频"],
+      "term_ids": ["medium.documentary-photo", "color.neutral-balanced", "shading.available-light", "texture.digital-edge"],
+      "retrieval_description": "日常写实外观，中性综合色彩，自然日光明暗和清楚数字细节，画面较直接无显著胶片颗粒、美颜或戏剧调色；外观不能证明由手机拍摄",
+      "positive_cues": ["清晰日常数字细节", "中性色与自然日光", "低修饰感"], "negative_cues": ["明显电影颗粒", "夸张美颜磨皮", "强烈风格化综合色偏"],
+      "global_prompt": "日常数字纪实影像，真实比例与自然色彩，日光明暗直接清楚，细节具有适度数字锐度，保留生活化曝光差和自然表面，不刻意制造电影浅景深、胶片颗粒、磨皮或鲜艳滤镜。",
+      "shot_constraints": "手机是可选创作方式而非识别事实；竖屏、广角和手持不能由名称自动添加。", "forbidden_drift": ["medium.two-d-animation"]
+    },
+    {
+      "id": "recipe.phone-indoor", "name": "手机室内日常记录", "family": "phone", "suitable_for": ["随手记录", "生活分享"],
+      "term_ids": ["medium.documentary-photo", "color.warm-tone", "shading.available-light", "texture.digital-edge"],
+      "retrieval_description": "日常真实比例与清楚数字边缘，整体温和偏暖，照明不均匀且保留环境明暗，细节无重度磨皮，不是统一棚拍暖光或圆润卡通渲染",
+      "positive_cues": ["暖调日常数字外观", "生活化光照差异", "无重度磨皮"], "negative_cues": ["无痕卡通曲面", "完美均匀棚拍光"],
+      "global_prompt": "温和暖调的日常数字纪实影像，真实形体和表面细节，保留生活光照的不均匀与适度数字清晰度，暖色不过分泛橙，暗部自然，高光不过度发白，不增加棚拍式戏剧光、磨皮或卡通化材质。",
+      "shot_constraints": "不把配方名称中的室内写为全部镜头地点；曝光、景别和帧比例分别来自镜头合同。", "forbidden_drift": ["medium.three-d-animation"]
+    },
+    {
+      "id": "recipe.phone-night", "name": "手机低光日常记录", "family": "phone", "suitable_for": ["夜间记录", "低光生活片段"],
+      "term_ids": ["medium.documentary-photo", "shading.available-light", "texture.low-light-noise"],
+      "retrieval_description": "真实数字纪实外观，亮部集中于可见光源附近，暗部细节略软且有细微噪点，综合色温可自然混合，无均匀电影颗粒或手绘纹理",
+      "positive_cues": ["暗部轻微软化与噪点", "局部生活光源", "真实数字外观"], "negative_cues": ["全画面印刷颗粒", "动画光滑曲面"],
+      "global_prompt": "低光日常数字纪实影像，真实比例与生活化光照，亮部集中而暗部保留自然层次，允许少量低照度噪点和轻微软化，不过度降噪抹平细节，不把夜景自动变成霓虹电影、雨夜反光或人工胶片效果。",
+      "shot_constraints": "不推断手机型号、ISO或夜景算法；噪点只在证据支持或用户选择时使用。", "forbidden_drift": ["medium.vector-animation"]
+    },
+    {
+      "id": "recipe.phone-travel", "name": "手机旅行清爽纪实", "family": "phone", "suitable_for": ["旅行记录", "随行短片"],
+      "term_ids": ["medium.documentary-photo", "color.neutral-balanced", "shading.highlight-rolloff", "texture.digital-edge"],
+      "retrieval_description": "清晰日常数字影像，综合色彩自然略明快，亮部与中间调过渡较平顺，形体与环境比例真实，非高饱和海报色或重度胶片做旧",
+      "positive_cues": ["自然清晰数字细节", "平顺亮部过渡", "适度明快色彩"], "negative_cues": ["强烈过饱和滤镜", "粗颗粒做旧"],
+      "global_prompt": "清爽日常数字纪实影像，综合色彩自然明快但不过饱和，真实比例与清楚环境细节，高光过渡柔和，暗部保持适度信息，不刻意制造胶片划痕、夸张锐化、纯色天空或重度美颜。",
+      "shot_constraints": "旅行只是适用题材，不把山海、建筑、天空或运动方式加入全局风格；不能证明HDR处理。", "forbidden_drift": ["medium.comic-panel"]
+    },
+    {
+      "id": "recipe.phone-home", "name": "手机家庭柔和日常", "family": "phone", "suitable_for": ["家庭记录", "亲友短片"],
+      "term_ids": ["medium.documentary-photo", "color.neutral-balanced", "shading.soft-gradient", "texture.natural-detail"],
+      "retrieval_description": "真实自然形体，综合色彩柔和中性，细节自然保留，阴影平缓且环境不过度修饰，非刻意粉彩卡通、均匀商业高调或柔焦美颜",
+      "positive_cues": ["柔和中性日常外观", "自然表面细节", "环境明暗不理想化"], "negative_cues": ["粉彩卡通表面", "大面积美颜柔焦"],
+      "global_prompt": "柔和日常纪实影像，真实比例与自然表面细节，综合色彩中性温润，阴影过渡平缓，保留普通光照和自然明暗，不修饰成完美棚拍，不加入大面积柔焦、磨皮、粉彩卡通或胶片做旧。",
+      "shot_constraints": "家庭与人物关系由内容合同决定；柔和外观不代表必须逆光或浅景深。", "forbidden_drift": ["medium.three-d-animation"]
+    },
+    {
+      "id": "recipe.clean-digital-realism", "name": "中性清晰数字电影", "family": "cinematic", "suitable_for": ["现代剧情", "写实提案"],
+      "term_ids": ["medium.photography", "color.neutral-balanced", "shading.highlight-rolloff", "texture.digital-edge"],
+      "retrieval_description": "写实摄影比例，中性综合色温，清楚但不过锐的数字细节，亮部过渡平顺且暗部干净，未呈显著胶片颗粒、卡通造型或人工色光",
+      "positive_cues": ["自然中性色", "清晰不过锐的细节", "平顺高光"], "negative_cues": ["显著胶片颗粒", "过度锐化白边", "卡通体块"],
+      "global_prompt": "中性清晰的数字电影外观，真实比例与自然细节，综合色温均衡，边缘清楚但无锐化白边，高光过渡平顺，暗部干净且有层次，不添加胶片颗粒、美颜磨皮、夸张滤镜或卡通表面。",
+      "shot_constraints": "不能仅凭画面宣布数字摄影机品牌或具体分辨率；镜头参数来自独立摄影合同。", "forbidden_drift": ["medium.two-d-animation"]
+    },
+    {
+      "id": "recipe.watercolor-storybook", "name": "透明水彩绘本", "family": "painting", "suitable_for": ["绘本", "诗意提案"],
+      "term_ids": ["medium.watercolor-animation", "palette.pastel-low-saturation", "material.watercolor-bleed"],
+      "retrieval_description": "透明颜料层与水渍边缘，纸白参与塑形，柔和低饱和色块，内部色浓不均匀，非厚重不透明覆盖或光滑三维曲面",
+      "positive_cues": ["透明色层", "洇染与纸白", "不均匀水渍边缘"], "negative_cues": ["不透明厚重笔触", "无纹理数字渐变"],
+      "global_prompt": "透明水彩绘本外观，柔和低饱和色层保留纸白，色块内部有自然浓淡和水渍边缘，形体简化但清楚，阴影以透明叠色表达，避免厚重油彩、锐利矢量轮廓或光滑三维材质。",
+      "shot_constraints": "水彩外观不自动产生流动动画；动作和特效另行指定。", "forbidden_drift": ["texture.clean-digital"]
+    },
+    {
+      "id": "recipe.gouache-poster", "name": "哑光水粉色块绘画", "family": "painting", "suitable_for": ["绘画广告", "美术提案"],
+      "term_ids": ["medium.gouache-animation", "line_language.soft-paint-edge", "material.gouache-brush"],
+      "retrieval_description": "不透明哑光颜料色块，覆盖式笔触和软硬交错边缘，形体由涂抹色层表达，区别于透明水彩洇染和真实摄影纹理",
+      "positive_cues": ["不透明色块", "哑光覆盖笔触", "涂抹边缘"], "negative_cues": ["透明水渍色层", "光滑摄影表面"],
+      "global_prompt": "哑光水粉绘画外观，以不透明色块塑造形体，保留覆盖笔触与软硬交错的涂抹边缘，综合色彩统一，明暗通过简洁色层组织，不添加摄影镜面高光、透明水渍或三维塑料曲面。",
+      "shot_constraints": "保留画面本身的色板，不因绘画类别强制使用原色或粉彩。", "forbidden_drift": ["medium.photography"]
+    },
+    {
+      "id": "recipe.woodcut-graphic", "name": "黑白木刻版画", "family": "painting", "suitable_for": ["民间叙事", "图形片头"],
+      "term_ids": ["medium.two-d-animation", "line_language.woodcut-line", "material.printed-ink", "palette.high-contrast"],
+      "retrieval_description": "平面黑白强反差，刀痕式线条与块面交错，印刷颗粒和负形清楚，区别于写实黑白摄影与水墨晕染",
+      "positive_cues": ["刀痕排线", "黑白负形", "版画油墨外观"], "negative_cues": ["摄影连续灰阶", "湿墨洇染"],
+      "global_prompt": "黑白木刻版画外观，刀痕式线条与强反差块面组织形体，保留负形和少量印刷颗粒，轮廓清晰有手工切削质感，不使用摄影灰阶、平滑三维阴影或水彩洇染，不生成文字与水印。",
+      "shot_constraints": "逐帧运动与图形转场按动作合同设置，不自动加入纸张飞散。", "forbidden_drift": ["medium.photography", "texture.clean-digital"]
+    },
+    {
+      "id": "recipe.retro-cel", "name": "复古赛璐璐二维动画", "family": "animation", "suitable_for": ["复古短片", "角色动画"],
+      "term_ids": ["medium.cel-animation", "line_language.thin-ink-outline", "shading.hard-two-step", "palette.low-saturation"],
+      "retrieval_description": "清楚墨线轮廓与均匀填色，少量硬边明暗色阶，综合色彩略低饱和，平面角色与绘制背景并存，非连续立体曲面或网点波普",
+      "positive_cues": ["均匀填色与墨线", "少数硬边阴影", "平面绘制形体"], "negative_cues": ["光滑三维曲面", "透明水彩晕染"],
+      "global_prompt": "复古赛璐璐二维动画外观，清楚墨线围合均匀色块，明暗以少数硬边色阶表达，综合色彩克制，角色保持平面绘制造型，背景有绘画层次，不加入三维塑料高光、网点波普或透明水彩材质。",
+      "shot_constraints": "有限动画、低帧率或画面抖动必须独立核验，不从复古外观直接推断。", "forbidden_drift": ["medium.three-d-animation"]
+    },
+    {
+      "id": "recipe.faceted-low-poly", "name": "棱角低多边形三维", "family": "animation", "suitable_for": ["图形广告", "低多边形创作"],
+      "term_ids": ["medium.low-poly-animation", "line_language.angular-contour", "character_design.geometric-body", "shading.hard-two-step"],
+      "retrieval_description": "立体形体由明确平面面片组成，棱角轮廓和分面明暗清楚，造型几何化且表面简洁，非圆润平滑曲面或平面手绘轮廓",
+      "positive_cues": ["三维面片", "分面明暗", "几何棱角"], "negative_cues": ["圆润连续曲面", "真实摄影纹理"],
+      "global_prompt": "低多边形三维外观，以清楚平面面片与棱角轮廓构成体积，造型几何化，明暗保留分面变化，表面简洁且色板统一，不加入写实毛孔、光滑卡通曲面或复杂手工纸纹。",
+      "shot_constraints": "低多边形是可见外观，不指定软件、面数或渲染器；运动独立设置。", "forbidden_drift": ["material.smooth-animation-surface", "medium.photography"]
+    },
+    {
+      "id": "recipe.editorial-collage", "name": "混合媒介纸片拼贴", "family": "handmade", "suitable_for": ["创意广告", "拼贴提案"],
+      "term_ids": ["medium.collage", "line_language.paper-tear-edge", "material.printed-ink", "material.paper-fiber"],
+      "retrieval_description": "纸片与不同印刷图像叠层，接缝和撕裂边缘可见，局部纹理与尺度有意不一致，保留印刷颗粒和纸面，非连续摄影画面或无痕数字合成",
+      "positive_cues": ["有意叠层接缝", "撕裂边缘", "不同印刷纹理"], "negative_cues": ["无接缝真实摄影", "统一光滑CG表面"],
+      "global_prompt": "混合媒介纸片拼贴外观，保留图像叠层接缝、撕裂边缘和印刷颗粒，纸面纹理与局部尺度差异清楚，形体有意平面化，色板协调，不将所有表面统一成光滑三维材质，不生成文字或水印。",
+      "shot_constraints": "局部图像移动与纸片数量按镜头合同，不自动加入大量碎片或高速穿越。", "forbidden_drift": ["texture.clean-digital"]
+    }
+  ]
+}

@@ -1,0 +1,582 @@
+{
+  "version": "cinema-style-library.v1",
+  "knowledge": [
+    {
+      "id": "photo-knowledge.neo-noir-neon",
+      "title": "新黑色电影与霓虹夜景为何不能互换",
+      "summary": "新黑色电影涵盖多个视觉分支，本库以中性硬亮、轻冷阴影和密黑组织其中一支；霓虹混色则要求青蓝与品红方向光参与塑形。两者可以共存，但夜景、招牌和悬疑剧情都无法代替明暗与光色证据。",
+      "related_recipe_ids": [
+        "photo.neo-noir-neutral",
+        "neon-cinema",
+        "noir-cinema"
+      ],
+      "related_term_ids": [
+        "photo.dense-neutral",
+        "photo.hard-directional",
+        "photo.cyan-magenta",
+        "photo.color-light-separation"
+      ],
+      "questions": [
+        {
+          "question": "看到霓虹和深暗就能认定新黑色电影吗？",
+          "answer": "不能。先检查是否有密黑、方向硬照和克制中性亮部。若主要线索是青品光区交叠，只支持霓虹混色分支。"
+        },
+        {
+          "question": "新黑色电影必须发生在夜晚吗？",
+          "answer": "配方描述明暗和色彩关系，不限制题材或时段。非夜景也可能满足密黑硬照条件，实际拍摄时间不能由此确认。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.natural-phone",
+      "title": "自然主义电影与手机式日常成像如何区分",
+      "summary": "二者都可能有可信光照和自然本色。自然主义电影在本库强调柔方向光、亮部肩部和连续体积；手机式分支额外使用局部细节整理、均衡区域解析与轻度边缘增强。深景深须记录为镜头属性，设备来源仍待独立证据。",
+      "related_recipe_ids": [
+        "natural-cinema",
+        "phone-daylight",
+        "photo.phone-computational-hdr"
+      ],
+      "related_term_ids": [
+        "photo.soft-directional",
+        "photo.highlight-rolloff",
+        "photo.computational-detail",
+        "photo.device-uncertain"
+      ],
+      "questions": [
+        {
+          "question": "只有自然光和日常内容应选哪个配方？",
+          "answer": "这些线索不足以区分。需要继续观察光向、白阶响应和数字细节整理，条件不全时保留较宽的摄影描述。"
+        },
+        {
+          "question": "手机式配方能证明实际使用手机吗？",
+          "answer": "不能。多种设备和后期流程都能产生相似外观。只描述视觉语言，品牌和型号应来自可信元数据或拍摄记录。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.vfx-cgi",
+      "title": "写实VFX整合为何不等于全三维制作",
+      "summary": "写实表面、反射和摄影连续性只说明外观可信。局部特效、全三维渲染、实拍与复杂合成都可能满足相似条件。摄影库记录曝光、粒度、焦点和光向是否跨区域一致；只有明确制作证据才将来源标注为全CG或具体流程。",
+      "related_recipe_ids": [
+        "photo.vfx-neutral-realism",
+        "photo.vfx-dark-reflection",
+        "natural-cinema"
+      ],
+      "related_term_ids": [
+        "photo.vfx-integration",
+        "photo.photographic-continuity",
+        "photo.vfx-provenance-uncertain"
+      ],
+      "questions": [
+        {
+          "question": "金属反射很逼真是否足以判为写实3D？",
+          "answer": "不足。真实物体也有同样反射。需要明确CG来源证据，不能从逼真程度或科幻题材直接推断制作媒介。"
+        },
+        {
+          "question": "没有制作来源时怎样写生成描述？",
+          "answer": "写连续体积、真实反射、曝光一致和粒度相容等可见关系；如采用写实VFX整合参考，仍把具体制作来源留为未知。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.film-stock",
+      "title": "为什么不能从单帧确认具体胶片型号",
+      "summary": "颗粒尺度、色彩偏向和高光肩部会受到曝光、扫描、调色、压缩与数字模拟影响。本库将这些现象拆为可见术语，而不把某种组合绑定到胶片品牌。型号、感光度和冲洗方式应由可信拍摄或制作记录支持。",
+      "related_recipe_ids": [
+        "warm-retro-film",
+        "photo.warm-shoulder-film",
+        "photo.cross-color-film"
+      ],
+      "related_term_ids": [
+        "photo.film-response",
+        "photo.fine-grain",
+        "photo.highlight-rolloff",
+        "photo.film-stock-uncertain"
+      ],
+      "questions": [
+        {
+          "question": "暖颗粒加柔高光能填写某个胶片型号吗？",
+          "answer": "不能。这组证据可以支持胶片式响应或暖柔配方，但多个媒介和处理流程都可能得到相似外观。"
+        },
+        {
+          "question": "用户明确要求胶片型号时如何处理？",
+          "answer": "把型号视为创作参考而非识别结果，并仍描述期望的颗粒、色彩和高光关系，避免把名称当成唯一视觉依据。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.creator-branches",
+      "title": "导演、摄影师和工作室名称不是单一风格",
+      "summary": "创作者的作品会跨越照明、色域、媒介和时代条件，同一作品内部也可能具有多个摄影分支。本库优先命名具体可见组合。使用创作者名称时应限定到作品或阶段，并保留视觉证据和容易混淆的其他分支。",
+      "related_recipe_ids": [
+        "photo.neo-noir-neutral",
+        "photo.primary-hard-film",
+        "photo.pastel-diffuse-film"
+      ],
+      "related_term_ids": [
+        "photo.creator-not-style",
+        "photo.shot-not-global"
+      ],
+      "questions": [
+        {
+          "question": "一个导演的名字能替代全部风格说明吗？",
+          "answer": "不能。名称可帮助组织参考，但实际配方仍需列出影调、照明和纹理共同关系，并限制适用作品范围。"
+        },
+        {
+          "question": "同一影片不同段落能使用不同配方吗？",
+          "answer": "可以。先区分跨镜头稳定的全局响应和局部变化，再记录具体段落的视觉组合，不能为统一名称强行抹掉差异。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.grain-noise-blocks",
+      "title": "颗粒、低照噪声与压缩块有什么不同",
+      "summary": "随机颗粒通常以不规则细点或粗点参与灰阶；低照数字噪声往往在暗区更强，并伴随区域解析变化；压缩损伤更可能呈规则块边和按块丢失细节。三类现象能同时存在，但都不能单独证明胶片、手机或年代。",
+      "related_recipe_ids": [
+        "photo.coarse-dark-film",
+        "photo.phone-lowlight-blue",
+        "photo.documentary-color-grain"
+      ],
+      "related_term_ids": [
+        "photo.fine-grain",
+        "photo.shadow-chroma-noise",
+        "photo.compression-blocks",
+        "photo.sensor-lowlight-soft"
+      ],
+      "questions": [
+        {
+          "question": "规则马赛克可以写成胶片颗粒吗？",
+          "answer": "不可以。规则块边与随机颗粒空间结构不同，应先描述编码损伤，而不使用胶片来源名称。"
+        },
+        {
+          "question": "颗粒必须遍布画面相同强度吗？",
+          "answer": "不必。可见强度随曝光和处理变化。应说明在哪些亮度区域出现，避免均匀覆盖噪点来制造没有观察依据的质感。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.highkey-clipping",
+      "title": "高调照明与曝光截白如何区别",
+      "summary": "高调指亮部和浅中调占优，同时仍有白阶差、浅阴影和体积；截白指某些最高亮度区域内部信息消失。少量截白可以与高调共存，但整片纯白并不自动构成洁净商业配方，必须检查高光与周围灰阶是否受控。",
+      "related_recipe_ids": [
+        "clean-commercial",
+        "photo.highkey-cream-cinema",
+        "photo.phone-direct-flash"
+      ],
+      "related_term_ids": [
+        "photo.high-key",
+        "photo.highlight-clipping",
+        "photo.highlight-rolloff",
+        "photo.specular-controlled"
+      ],
+      "questions": [
+        {
+          "question": "画面很白就可以认定高调商业吗？",
+          "answer": "不能。要看浅灰与白阶是否分离，以及反射形状、细节和浅暗侧是否受控。白物体或过曝都不足。"
+        },
+        {
+          "question": "亮部柔和肩部和局部截白能同时出现吗？",
+          "answer": "可以发生在不同区域，但应分别记录。多数亮部可以渐压，极少点状高亮仍截白，不能把两者混成一个全域响应。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.soft-flat",
+      "title": "柔光与无影平光不是同一关系",
+      "summary": "柔光描述明暗过渡宽缓，仍可以有强方向、暗侧和空间衰减；平光更偏向较弱塑形或低照度差。自然主义柔照需要方向体积，商业包裹光需要温和暗侧，阴天漫照则依接触阴影维持深度，不能都简化为没有阴影。",
+      "related_recipe_ids": [
+        "natural-cinema",
+        "photo.overcast-earth",
+        "photo.commercial-cool-soft"
+      ],
+      "related_term_ids": [
+        "photo.soft-directional",
+        "photo.flat-mid",
+        "photo.broad-soft-wrap",
+        "photo.overcast-diffuse"
+      ],
+      "questions": [
+        {
+          "question": "柔光是否必须让两侧同亮？",
+          "answer": "不是。柔光可以有明显明暗差，区别主要在过渡宽度。保留方向与暗侧有助于维持真实体积。"
+        },
+        {
+          "question": "完全没有阴影可以称为自然漫照吗？",
+          "answer": "通常不足。漫照仍应有接触或遮挡层次；若这些关系全部消失，需要检查是否是平面处理、过曝或特殊无影照明。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.intrinsic-color",
+      "title": "对象本色怎样避免被误判为全局色域",
+      "summary": "配方色域需要在多个表面或亮度区间中反复成立，并与光照或响应曲线相容。单件红物体、蓝墙或铜制表面的本色只属于画面内容。识别应先说明颜色分布在哪里，再判断是局部对象属性、局部彩光还是全局影调。",
+      "related_recipe_ids": [
+        "photo.red-dense-hard",
+        "photo.copper-gray-cinema",
+        "photo.daylight-hard-earth"
+      ],
+      "related_term_ids": [
+        "photo.red-black",
+        "photo.copper-gray",
+        "photo.muted-earth",
+        "photo.neutral-color"
+      ],
+      "questions": [
+        {
+          "question": "一件红色物体配黑背景能认定红黑电影吗？",
+          "answer": "不能。需要红色参与受光区或全局中调，并与密黑和方向硬照共同组织多个可見体积。"
+        },
+        {
+          "question": "避免材质污染的生成约束怎么写？",
+          "answer": "保留原对象的材质和本色，把调整限定为光照、色温与成像关系，例如铜色只进入受光中调而不把全部对象改成铜。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.mixed-light-tint",
+      "title": "实景混光、彩光分区与全幅染色怎样辨别",
+      "summary": "实景混光强调光源邻域的白平衡与曝光差，彩光分区强调异色方向光塑造不同受光面；全幅染色则可能让所有区域同等偏色。可读光向、衰减和体积交界是关键证据，两个颜色的文字标签不能替代空间关系。",
+      "related_recipe_ids": [
+        "photo.mixed-temperature-natural",
+        "neon-cinema",
+        "photo.phone-mixed-light"
+      ],
+      "related_term_ids": [
+        "photo.mixed-practical",
+        "photo.color-light-separation",
+        "photo.tungsten-daylight",
+        "photo.cyan-magenta"
+      ],
+      "questions": [
+        {
+          "question": "看到青蓝和品红就能确认彩光分区吗？",
+          "answer": "不能。需要它们分别影响有方向的受光面并形成可读交界；物体配色或统一紫罩都不满足这项关系。"
+        },
+        {
+          "question": "实景混光是否必须包含可见灯具？",
+          "answer": "不必须，但光区、色温和衰减要有可解释依据。灯具入画而附近没有对应明暗变化，也不能成为充分证据。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.shot-global",
+      "title": "景别、构图、焦点和运镜为何保持镜头作用域",
+      "summary": "这些属性描述一次视点和时间组织，往往在相邻镜头中改变。全局配方应依媒介、影调、照明响应和纹理关系形成。摄影库将深焦、倾斜轴线、遮挡、移焦和移动另存为镜头术语，避免风格选择无意改写画面内容。",
+      "related_recipe_ids": [
+        "phone-daylight",
+        "street-documentary",
+        "natural-cinema"
+      ],
+      "related_term_ids": [
+        "photo.shot-not-global",
+        "photo.deep-focus",
+        "photo.tilted-axis",
+        "photo.focus-transition"
+      ],
+      "questions": [
+        {
+          "question": "电影风格可以直接要求所有镜头浅焦吗？",
+          "answer": "仅凭风格名称不能。浅焦应由镜头意图或观察证据决定，配方提供成像参考而不强制每个景别采用同样焦点关系。"
+        },
+        {
+          "question": "多个镜头都居中是否能进入全局六维？",
+          "answer": "可以记录为系列构图偏好，但仍属于镜头组织层，而不是将其硬塞进媒介、色彩或材质的全局鉴别组。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.static-motion",
+      "title": "静帧能支持哪些运动描述",
+      "summary": "单帧可以说明拖影形状、当前构图与焦点关系，却无法证明运镜方向、固定拍摄、手持漂移、移焦或帧间节律。运动识别必须依连续帧比较，且要区分对象动作、视点变化和编码或播放问题，不能因纪实题材默认手持。",
+      "related_recipe_ids": [
+        "street-documentary",
+        "phone-daylight",
+        "photo.documentary-soft-detail"
+      ],
+      "related_term_ids": [
+        "photo.motion-needs-time",
+        "photo.handheld-drift",
+        "photo.static-frame",
+        "photo.natural-motion-blur"
+      ],
+      "questions": [
+        {
+          "question": "单帧倾斜画面能写手持摇晃吗？",
+          "answer": "不能。它只支持当前轴线倾斜。手持漂移需要时间中的低幅不规则画幅变化，并与对象动作区分。"
+        },
+        {
+          "question": "单帧拖影能推断帧率和快门数值吗？",
+          "answer": "不能可靠推断。可描述方向和模糊范围，但速度、曝光时长、处理和其他因素可能产生类似外观。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.lens-uncertainty",
+      "title": "镜头外观与器材规格应分开记录",
+      "summary": "宽画幅不等于广角，浅焦不等于某个焦距，横向耀光也不能单独确认变形镜头。先描述近远比例、视差、散焦与亮源对应等可见关系，再把焦距、光圈和器材型号作为来源依赖的信息，避免以技术名词替代观察。",
+      "related_recipe_ids": [
+        "natural-cinema",
+        "photo.backlit-soft-film",
+        "photo.vfx-neutral-realism"
+      ],
+      "related_term_ids": [
+        "photo.wide-perspective",
+        "photo.compressed-perspective",
+        "photo.optical-bokeh",
+        "photo.anamorphic-streak"
+      ],
+      "questions": [
+        {
+          "question": "宽画面可以直接写广角镜头吗？",
+          "answer": "不可以。需要近大远小的透视扩展等空间关系。宽高比只是画幅属性，与视点和镜头视角不能混为一谈。"
+        },
+        {
+          "question": "横向蓝色光带能确认某类镜头吗？",
+          "answer": "只能描述横向耀光外观并检查亮源依据。光学器材、滤镜和后期处理都可能造成类似效果，型号仍需独立证据。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.retro-age",
+      "title": "复古外观为什么不等于真实年代",
+      "summary": "暖褪彩、浅黑位、柔颗粒、扫描磨损与解析下降都可以被后期模拟。配方用这些可见关系定义复古或转录外观，而不绑定真实拍摄年份。年代服饰、旧物和历史题材属于内容，也不能补足缺失的成像证据。",
+      "related_recipe_ids": [
+        "warm-retro-film",
+        "photo.blue-fade-archive",
+        "photo.sepia-transfer"
+      ],
+      "related_term_ids": [
+        "photo.warm-faded",
+        "photo.scan-wear",
+        "photo.archive-transfer",
+        "photo.intermediate-resolution"
+      ],
+      "questions": [
+        {
+          "question": "看到颗粒和旧物能确认影像拍自过去吗？",
+          "answer": "不能。旧物是内容，颗粒是外观。拍摄年代要依档案来源、元数据或可核验记录，不从美术题材推断。"
+        },
+        {
+          "question": "生成复古参考是否需要加入旧道具？",
+          "answer": "不需要。可只调整已授权的色彩、颗粒、亮部响应和解析关系，保留对象与场景内容，避免以道具凑成风格。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.phone-depth",
+      "title": "深景深与手机式成像为何不能互相证明",
+      "summary": "多距离层保持清楚是镜头焦点关系，可能出现在多种设备与拍摄条件下。手机式语言还需局部明暗整理、边缘增强和数字细节响应。两类描述分别存储，可相互支持但不越级替代；静帧缺乏距离层时连深景深也无法确认。",
+      "related_recipe_ids": [
+        "phone-daylight",
+        "photo.phone-open-shadows",
+        "photo.phone-computational-hdr"
+      ],
+      "related_term_ids": [
+        "photo.deep-focus",
+        "photo.even-depth-readability",
+        "photo.computational-detail",
+        "photo.device-uncertain"
+      ],
+      "questions": [
+        {
+          "question": "一个清楚平面能认定深景深吗？",
+          "answer": "不能。必须有多个可分辨距离层同时清楚，单平面无从说明焦点深度。"
+        },
+        {
+          "question": "手机式配方会强制每个镜头深焦吗？",
+          "answer": "不会。全局细节响应和具体焦点关系分开记录，真实手机也可能出现局部散焦，创作时按该镜头意图决定。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.reflection-material",
+      "title": "受控反射不应把所有对象变为金属或塑料",
+      "summary": "商业高光整理描述已有表面的亮区形状与内部渐变，写实整合描述反射方向和曝光是否一致。二者都不授权材质替换。应保留哑光与镜面区域的差异，并让纹理、反射和本色继续对应同一对象，避免统一亮面造成塑料感。",
+      "related_recipe_ids": [
+        "photo.commercial-dark-reflection",
+        "photo.commercial-neutral-texture",
+        "photo.vfx-dark-reflection"
+      ],
+      "related_term_ids": [
+        "photo.specular-controlled",
+        "photo.specular-detail",
+        "photo.matte-detail",
+        "photo.diffuse-specular-balance"
+      ],
+      "questions": [
+        {
+          "question": "受控高光可以写所有表面镜面化吗？",
+          "answer": "不能。只整理已有反射，哑光区域仍使用其本来的宽弱高光和漫反射层次，材质变化需要独立创作要求。"
+        },
+        {
+          "question": "表面很光滑能证明全CG吗？",
+          "answer": "不能。真实材质、修饰、灯光和数字生成都可能光滑。若制作来源不明，只描述表面响应及光学连续性。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.blue-night",
+      "title": "深蓝低照与夜晚题材有哪些边界",
+      "summary": "深蓝夜色分支要求暗部色域、黑阶层次和稀疏异温亮区共同成立，是否真在夜晚拍摄仍未知。手机低照还需要彩噪或解析随曝光改变。若只有夜晚故事、蓝色物体或全幅同亮浓蓝，只能作为内容或局部色彩事实。",
+      "related_recipe_ids": [
+        "photo.deep-blue-lowlight",
+        "photo.phone-lowlight-blue",
+        "neon-cinema"
+      ],
+      "related_term_ids": [
+        "photo.deep-blue-night",
+        "photo.dark-ambient-punctuated",
+        "photo.shadow-chroma-noise",
+        "photo.sensor-lowlight-soft"
+      ],
+      "questions": [
+        {
+          "question": "夜晚题材但画面很中性明亮应该套夜蓝吗？",
+          "answer": "不应该。按实际色域和曝光选择配方，题材不能替代深蓝暗部与异温亮区的视觉关系。"
+        },
+        {
+          "question": "夜蓝电影与手机夜拍如何区别？",
+          "answer": "检查低照区彩噪和区域解析软化是否成立。若没有这些技术响应，只支持更宽的低照深蓝摄影，不判断设备。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.bleach-monochrome",
+      "title": "银灰脱色与黑白摄影有什么不同",
+      "summary": "银灰脱色保留少量原色并提高中调密度，黑白摄影则以无彩灰阶区分表面。二者都可能有硬照或颗粒，因此不能只凭低饱和判定。本库分别记录残余色、灰阶分离和明暗结构，并将漂白旁路视为外观参考而非工艺鉴定。",
+      "related_recipe_ids": [
+        "photo.bleach-hard",
+        "noir-cinema",
+        "photo.monochrome-fine-bright"
+      ],
+      "related_term_ids": [
+        "photo.bleach-bypass",
+        "photo.monochrome-photographic",
+        "photo.high-contrast-mid",
+        "photo.restrained-saturation"
+      ],
+      "questions": [
+        {
+          "question": "几乎无色是否必然属于黑白？",
+          "answer": "不必。先检查是否有可辨残余色。如果少量色相仍存在并配合银灰密度，可以考虑脱色分支而非无彩黑白。"
+        },
+        {
+          "question": "银灰高反差能确认真实漂白工艺吗？",
+          "answer": "不能。数字调色也能产生类似外观。描述残余色和中调密度即可，实际工艺需要可信制作记录。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.warm-retro-commercial",
+      "title": "暖褪染电影与暖净商业如何避免混淆",
+      "summary": "二者都可能温暖柔和，但暖复古要求褪彩、浅黑位和柔颗粒共同作用；暖净商业强调稳定本色、受控白阶与洁净解析。观察暖色进入哪个亮度区间，以及纹理是随机颗粒还是自然细节，比暖情绪或浅色道具更有辨别力。",
+      "related_recipe_ids": [
+        "warm-retro-film",
+        "photo.warm-shoulder-film",
+        "photo.commercial-warm-soft"
+      ],
+      "related_term_ids": [
+        "photo.warm-faded",
+        "photo.warm-clean",
+        "photo.fine-soft-grain",
+        "photo.crisp-no-grain"
+      ],
+      "questions": [
+        {
+          "question": "暖色柔光是否自动复古？",
+          "answer": "不是。没有褪彩、浅黑位和颗粒的暖柔影像可属于洁净商业或自然主义，不能仅以温暖感命名复古。"
+        },
+        {
+          "question": "暖净商业必须消除自然纹理吗？",
+          "answer": "不必。稳定校色与受控曝光可以保留自然表面微差，全面磨平纹理反而可能破坏真实材质与体积。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo-knowledge.hard-overcast-earth",
+      "title": "同样低彩土色为何分硬日照和阴天漫照",
+      "summary": "土色色域只覆盖色彩维度，具体配方还需要照明关系。硬日照有清楚光向、锐利投影和环境回光；阴天式漫照则光向较弱、照度差较小并依接触阴影维持体积。土地、云层和天气名称都不能越过可见影边与高光证据。",
+      "related_recipe_ids": [
+        "photo.daylight-hard-earth",
+        "photo.overcast-earth",
+        "photo.phone-hard-day"
+      ],
+      "related_term_ids": [
+        "photo.muted-earth",
+        "photo.sun-hard",
+        "photo.overcast-diffuse",
+        "photo.shadow-detail"
+      ],
+      "questions": [
+        {
+          "question": "有云层是否必须选漫照配方？",
+          "answer": "不必须。画面仍可能存在强方向日光和硬投影，按实际照明关系判断，云层只是场景内容。"
+        },
+        {
+          "question": "硬影越黑越适合硬日照吗？",
+          "answer": "不一定。自然环境回光通常提供可读层次，本配方需要硬影与回光共存，全黑暗侧更可能适合其他低调硬照分支。"
+        }
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    }
+  ]
+}

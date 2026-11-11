@@ -1,0 +1,537 @@
+{
+  "$defs": {
+    "KnowledgeCard": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 150,
+          "minLength": 4,
+          "title": "Title",
+          "type": "string"
+        },
+        "summary": {
+          "maxLength": 2000,
+          "minLength": 60,
+          "title": "Summary",
+          "type": "string"
+        },
+        "related_recipe_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "title": "Related Recipe Ids",
+          "type": "array"
+        },
+        "related_term_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 30,
+          "title": "Related Term Ids",
+          "type": "array"
+        },
+        "questions": {
+          "items": {
+            "$ref": "#/$defs/QuestionAnswer"
+          },
+          "maxItems": 8,
+          "minItems": 2,
+          "title": "Questions",
+          "type": "array"
+        },
+        "source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Source Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "summary",
+        "questions",
+        "source_ids"
+      ],
+      "title": "KnowledgeCard",
+      "type": "object"
+    },
+    "QuestionAnswer": {
+      "additionalProperties": false,
+      "properties": {
+        "question": {
+          "maxLength": 300,
+          "minLength": 5,
+          "title": "Question",
+          "type": "string"
+        },
+        "answer": {
+          "maxLength": 1500,
+          "minLength": 12,
+          "title": "Answer",
+          "type": "string"
+        }
+      },
+      "required": [
+        "question",
+        "answer"
+      ],
+      "title": "QuestionAnswer",
+      "type": "object"
+    },
+    "SignatureGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.-]*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "dimension": {
+          "enum": [
+            "medium_rendering",
+            "form_language",
+            "color_tone",
+            "lighting_shading",
+            "texture_material",
+            "motion_signature",
+            "photography",
+            "local_effects",
+            "technical_knowledge"
+          ],
+          "title": "Dimension",
+          "type": "string"
+        },
+        "term_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4,
+          "minItems": 1,
+          "title": "Term Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "dimension",
+        "term_ids"
+      ],
+      "title": "SignatureGroup",
+      "type": "object"
+    },
+    "SourceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "license": {
+          "title": "License",
+          "type": "string"
+        },
+        "policy": {
+          "enum": [
+            "authored-reference",
+            "research-only",
+            "open-data"
+          ],
+          "title": "Policy",
+          "type": "string"
+        },
+        "revision": {
+          "minLength": 2,
+          "title": "Revision",
+          "type": "string"
+        },
+        "license_url": {
+          "default": "",
+          "title": "License Url",
+          "type": "string"
+        },
+        "notes": {
+          "title": "Notes",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "url",
+        "license",
+        "policy",
+        "revision",
+        "notes"
+      ],
+      "title": "SourceReference",
+      "type": "object"
+    },
+    "StyleRecipe": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 100,
+          "minLength": 4,
+          "title": "Label",
+          "type": "string"
+        },
+        "family": {
+          "enum": [
+            "photo",
+            "2d",
+            "3d",
+            "handmade",
+            "painting",
+            "design"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "cinema",
+            "documentary",
+            "commercial",
+            "animation2d",
+            "animation3d",
+            "handmade",
+            "painting",
+            "design"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "definition": {
+          "maxLength": 600,
+          "minLength": 24,
+          "title": "Definition",
+          "type": "string"
+        },
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 12,
+          "title": "Aliases",
+          "type": "array"
+        },
+        "signature_groups": {
+          "items": {
+            "$ref": "#/$defs/SignatureGroup"
+          },
+          "maxItems": 5,
+          "minItems": 2,
+          "title": "Signature Groups",
+          "type": "array"
+        },
+        "supporting_term_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 12,
+          "title": "Supporting Term Ids",
+          "type": "array"
+        },
+        "insufficient_evidence": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 12,
+          "minItems": 2,
+          "title": "Insufficient Evidence",
+          "type": "array"
+        },
+        "confusable_with": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8,
+          "title": "Confusable With",
+          "type": "array"
+        },
+        "distinction": {
+          "maxLength": 500,
+          "minLength": 16,
+          "title": "Distinction",
+          "type": "string"
+        },
+        "compact_prompt": {
+          "maxLength": 140,
+          "minLength": 50,
+          "title": "Compact Prompt",
+          "type": "string"
+        },
+        "detailed_description": {
+          "maxLength": 1000,
+          "minLength": 80,
+          "title": "Detailed Description",
+          "type": "string"
+        },
+        "generation_constraints": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8,
+          "title": "Generation Constraints",
+          "type": "array"
+        },
+        "source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Source Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "family",
+        "category",
+        "definition",
+        "signature_groups",
+        "insufficient_evidence",
+        "distinction",
+        "compact_prompt",
+        "detailed_description",
+        "source_ids"
+      ],
+      "title": "StyleRecipe",
+      "type": "object"
+    },
+    "StyleTerm": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 80,
+          "minLength": 2,
+          "title": "Label",
+          "type": "string"
+        },
+        "dimension": {
+          "enum": [
+            "medium_rendering",
+            "form_language",
+            "color_tone",
+            "lighting_shading",
+            "texture_material",
+            "motion_signature",
+            "photography",
+            "local_effects",
+            "technical_knowledge"
+          ],
+          "title": "Dimension",
+          "type": "string"
+        },
+        "definition": {
+          "maxLength": 600,
+          "minLength": 16,
+          "title": "Definition",
+          "type": "string"
+        },
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 16,
+          "title": "Aliases",
+          "type": "array"
+        },
+        "positive_cues": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "maxItems": 6,
+          "minItems": 2,
+          "title": "Positive Cues",
+          "type": "array"
+        },
+        "negative_cues": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 12,
+          "title": "Negative Cues",
+          "type": "array"
+        },
+        "generation_phrase": {
+          "maxLength": 180,
+          "minLength": 6,
+          "title": "Generation Phrase",
+          "type": "string"
+        },
+        "scope": {
+          "enum": [
+            "global",
+            "shot",
+            "knowledge"
+          ],
+          "title": "Scope",
+          "type": "string"
+        },
+        "source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Source Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "dimension",
+        "definition",
+        "positive_cues",
+        "generation_phrase",
+        "scope",
+        "source_ids"
+      ],
+      "title": "StyleTerm",
+      "type": "object"
+    },
+    "Taxonomy": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": "cinema-style-taxonomy.v1",
+          "title": "Version",
+          "type": "string"
+        },
+        "dimensions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dimensions",
+          "type": "array"
+        },
+        "non_global_dimensions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Non Global Dimensions",
+          "type": "array"
+        },
+        "category_targets": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Category Targets",
+          "type": "object"
+        },
+        "rules": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Rules",
+          "type": "array"
+        }
+      },
+      "required": [
+        "version",
+        "dimensions",
+        "non_global_dimensions",
+        "category_targets",
+        "rules"
+      ],
+      "title": "Taxonomy",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": "cinema-style-library.v1",
+      "default": "cinema-style-library.v1",
+      "title": "Version",
+      "type": "string"
+    },
+    "source_hash": {
+      "default": "",
+      "title": "Source Hash",
+      "type": "string"
+    },
+    "terms": {
+      "items": {
+        "$ref": "#/$defs/StyleTerm"
+      },
+      "title": "Terms",
+      "type": "array"
+    },
+    "recipes": {
+      "items": {
+        "$ref": "#/$defs/StyleRecipe"
+      },
+      "title": "Recipes",
+      "type": "array"
+    },
+    "knowledge": {
+      "items": {
+        "$ref": "#/$defs/KnowledgeCard"
+      },
+      "title": "Knowledge",
+      "type": "array"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/SourceReference"
+      },
+      "title": "Sources",
+      "type": "array"
+    },
+    "taxonomy": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Taxonomy"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "terms",
+    "recipes",
+    "knowledge",
+    "sources"
+  ],
+  "title": "CinemaLibrary",
+  "type": "object"
+}

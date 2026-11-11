@@ -1,0 +1,559 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "storyboard-reliability.schema.json",
+  "title": "Independently authored storyboard reliability corpus; not human-adjudicated real-video truth",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "corpus_id",
+    "created_at",
+    "annotation_policy",
+    "inventory",
+    "cases"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "storyboard-reliability-corpus.v1"
+    },
+    "corpus_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "annotation_policy": {
+      "type": "object",
+      "required": [
+        "origin",
+        "not_human_adjudicated",
+        "not_model_output_as_gold",
+        "gold_construction",
+        "real_video_requirement",
+        "metrics_limits",
+        "shot_count_policy"
+      ],
+      "properties": {
+        "origin": {
+          "const": "independent-authored-fixture"
+        },
+        "not_human_adjudicated": {
+          "type": "boolean"
+        },
+        "not_model_output_as_gold": {
+          "const": true
+        },
+        "gold_construction": {
+          "type": "string"
+        },
+        "real_video_requirement": {
+          "type": "string"
+        },
+        "metrics_limits": {
+          "type": "string"
+        },
+        "shot_count_policy": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "inventory": {
+      "type": "object",
+      "description": "Read-only discovery snapshot and explicit pending human/license verification counts",
+      "additionalProperties": {
+        "type": [
+          "integer",
+          "string"
+        ]
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/case"
+      }
+    }
+  },
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "required": [
+        "kind",
+        "author",
+        "generated_by_tested_pipeline",
+        "human_review_status",
+        "source_license"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "authored-script",
+            "synthetic-transition-fixture",
+            "human-inspected-real-video"
+          ]
+        },
+        "author": {
+          "type": "string",
+          "minLength": 1
+        },
+        "generated_by_tested_pipeline": {
+          "const": false
+        },
+        "human_review_status": {
+          "enum": [
+            "pending",
+            "reviewed"
+          ]
+        },
+        "source_license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "real_video": {
+          "type": "boolean"
+        },
+        "human_reviewer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "media_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "authorization_record": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "event_constraint": {
+      "type": "object",
+      "required": [
+        "left",
+        "right",
+        "relation",
+        "reason"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "left": {
+          "type": "string"
+        },
+        "right": {
+          "type": "string"
+        },
+        "relation": {
+          "enum": [
+            "same_event",
+            "different_event",
+            "allowed_alternative"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "fact": {
+      "type": "object",
+      "required": [
+        "id",
+        "text",
+        "subject",
+        "predicate",
+        "object",
+        "source_ids",
+        "frame_ids",
+        "critical"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "predicate": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "polarity": {
+          "type": "boolean"
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "frame_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "critical": {
+          "type": "boolean"
+        }
+      }
+    },
+    "forbidden": {
+      "type": "object",
+      "required": [
+        "id",
+        "phrases",
+        "reason"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "predicate": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "polarity": {
+          "type": "boolean"
+        },
+        "phrases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "content_unit": {
+      "type": "object",
+      "required": [
+        "id",
+        "text",
+        "role",
+        "speaker",
+        "character_ids"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "action",
+            "dialogue",
+            "voiceover",
+            "sound"
+          ]
+        },
+        "speaker": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "character_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "occurrence": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "coreference": {
+      "type": "object",
+      "required": [
+        "mention",
+        "context",
+        "character_id",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "mention": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "character_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "resolved",
+            "unresolved",
+            "group"
+          ]
+        },
+        "context_occurrence": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "mention_occurrence": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "source_unit": {
+      "type": "object",
+      "required": [
+        "id",
+        "start_time",
+        "end_time"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "number",
+          "minimum": 0
+        },
+        "end_time": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "frame": {
+      "type": "object",
+      "required": [
+        "id",
+        "source_id",
+        "timestamp",
+        "representation",
+        "state"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "number",
+          "minimum": 0
+        },
+        "representation": {
+          "enum": [
+            "authored-scene-state",
+            "human-inspected-raster"
+          ]
+        },
+        "state": {
+          "type": "object"
+        },
+        "file": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "case": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "tags",
+        "provenance",
+        "event_constraints",
+        "required_facts",
+        "forbidden_claims",
+        "notes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "script",
+            "video"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "source_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "characters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "aliases"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "aliases": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "content_units": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/content_unit"
+          }
+        },
+        "coreferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coreference"
+          }
+        },
+        "excluded_source": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_units": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source_unit"
+          }
+        },
+        "frames": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/frame"
+          }
+        },
+        "event_constraints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/event_constraint"
+          }
+        },
+        "required_facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fact"
+          }
+        },
+        "forbidden_claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/forbidden"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "script"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "source_text",
+              "characters",
+              "content_units",
+              "coreferences",
+              "excluded_source"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "video"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "source_units",
+              "frames"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

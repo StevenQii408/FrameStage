@@ -1,0 +1,3356 @@
+{
+  "schema_version": "storyboard-reliability-corpus.v1",
+  "corpus_id": "storyboard-reliability-authored-v1",
+  "created_at": "2026-10-10",
+  "annotation_policy": {
+    "origin": "independent-authored-fixture",
+    "not_human_adjudicated": true,
+    "not_model_output_as_gold": true,
+    "gold_construction": "Explicit fixture assertions authored before running the tested pipeline; no parser, inference model, stored production response or boundary output generated these labels.",
+    "real_video_requirement": "Actual licensed/user-authorized pixels plus human-inspected frame annotations are required before claiming real-video semantic acceptance.",
+    "metrics_limits": "Authored semantic atoms test deterministic fixture alignment; text matching is only a literal proxy. Evidence-reference validity is structural, never proof that real pixels show a claimed fact.",
+    "shot_count_policy": "No fixed generated shot count. Mandatory same/different event constraints and allowed alternatives are scored separately."
+  },
+  "inventory": {
+    "existing_draft_clips": 4,
+    "existing_draft_pending_human": 4,
+    "existing_draft_human_labeled": 0,
+    "local_video_files_discovered": 22,
+    "local_raster_files_discovered": 1220,
+    "saved_probe_frame_files_discovered": 8,
+    "asset_inventory_scope": "Read-only backend/data and backend/eval-results snapshot, 2026-10-10; counts may include duplicates/caches. Local availability does not establish source license or human truth.",
+    "source_provenance_status": "Local assets not promoted into gold; license/user authorization and human annotation need verification.",
+    "required_real_human_reviewed_clips": 10,
+    "real_human_reviewed_clips": 0,
+    "real_video_manual_pending": 10,
+    "external_human_review_pending_script_fixtures": 10,
+    "external_human_review_pending_synthetic_fixtures": 10
+  },
+  "cases": [
+    {
+      "id": "script-01-handoff",
+      "kind": "script",
+      "title": "明确递交与接稳",
+      "tags": [],
+      "provenance": {
+        "kind": "authored-script",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture"
+      },
+      "source_text": "【人物】\n何青（32岁，管理员）\n杜川（29岁，快递员）\n内景：值班室 日\n何青把钥匙递到杜川掌心。\n杜川握住钥匙。\n杜川：我去开门。\n他转身走向门口。",
+      "characters": [
+        {
+          "id": "何青",
+          "aliases": []
+        },
+        {
+          "id": "杜川",
+          "aliases": []
+        }
+      ],
+      "content_units": [
+        {
+          "id": "u1",
+          "text": "何青把钥匙递到杜川掌心。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "何青",
+            "杜川"
+          ]
+        },
+        {
+          "id": "u2",
+          "text": "杜川握住钥匙。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "杜川"
+          ]
+        },
+        {
+          "id": "u3",
+          "text": "我去开门。",
+          "role": "dialogue",
+          "speaker": "杜川",
+          "character_ids": [
+            "杜川"
+          ]
+        },
+        {
+          "id": "u4",
+          "text": "他转身走向门口。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "杜川"
+          ]
+        }
+      ],
+      "coreferences": [
+        {
+          "mention": "他",
+          "context": "他转身走向门口。",
+          "character_id": "杜川",
+          "status": "resolved"
+        }
+      ],
+      "excluded_source": [
+        "【人物】",
+        "何青（32岁，管理员）",
+        "杜川（29岁，快递员）",
+        "内景：值班室 日"
+      ],
+      "event_constraints": [
+        {
+          "left": "u1",
+          "right": "u2",
+          "relation": "same_event",
+          "reason": "钥匙交付与接稳是同一交付目标"
+        },
+        {
+          "left": "u2",
+          "right": "u4",
+          "relation": "different_event",
+          "reason": "接稳后开始开门目标"
+        },
+        {
+          "left": "u3",
+          "right": "u4",
+          "relation": "allowed_alternative",
+          "reason": "意图对白可归入交付尾声或开门起始"
+        }
+      ],
+      "required_facts": [],
+      "forbidden_claims": [
+        {
+          "id": "no-hidden-identity",
+          "phrases": [
+            "杜川是卧底"
+          ],
+          "reason": "原文没有身份反转"
+        }
+      ],
+      "notes": "标注由独立测试夹具作者预先写定；不是运行待测解析器后生成，尚未获外部人工审阅。"
+    },
+    {
+      "id": "script-02-ambiguous",
+      "kind": "script",
+      "title": "两个女性与未决代词",
+      "tags": [],
+      "provenance": {
+        "kind": "authored-script",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture"
+      },
+      "source_text": "【人物】\n林岚（30岁，医生）\n方雨（28岁，记者）\n内景：走廊 日\n林岚和方雨站在门外。\n她抬手敲门。\n“请进。”\n两人互相看了一眼。",
+      "characters": [
+        {
+          "id": "林岚",
+          "aliases": []
+        },
+        {
+          "id": "方雨",
+          "aliases": []
+        }
+      ],
+      "content_units": [
+        {
+          "id": "u1",
+          "text": "林岚和方雨站在门外。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "林岚",
+            "方雨"
+          ]
+        },
+        {
+          "id": "u2",
+          "text": "她抬手敲门。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": []
+        },
+        {
+          "id": "u3",
+          "text": "“请进。”",
+          "role": "dialogue",
+          "speaker": null,
+          "character_ids": []
+        },
+        {
+          "id": "u4",
+          "text": "两人互相看了一眼。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "林岚",
+            "方雨"
+          ]
+        }
+      ],
+      "coreferences": [
+        {
+          "mention": "她",
+          "context": "她抬手敲门。",
+          "character_id": null,
+          "status": "unresolved"
+        },
+        {
+          "mention": "两人",
+          "context": "两人互相看了一眼。",
+          "character_id": null,
+          "status": "group"
+        }
+      ],
+      "excluded_source": [
+        "【人物】",
+        "林岚（30岁，医生）",
+        "方雨（28岁，记者）",
+        "内景：走廊 日"
+      ],
+      "event_constraints": [
+        {
+          "left": "u1",
+          "right": "u2",
+          "relation": "same_event",
+          "reason": "等候与敲门推进进门目标"
+        },
+        {
+          "left": "u2",
+          "right": "u3",
+          "relation": "same_event",
+          "reason": "敲门得到回应"
+        },
+        {
+          "left": "u3",
+          "right": "u4",
+          "relation": "allowed_alternative",
+          "reason": "反应可单独成事件也可保留在等候事件"
+        }
+      ],
+      "required_facts": [],
+      "forbidden_claims": [
+        {
+          "id": "no-resolve-she",
+          "phrases": [
+            "林岚抬手敲门",
+            "方雨抬手敲门"
+          ],
+          "reason": "两个候选人，原文不能唯一指代"
+        }
+      ],
+      "notes": "标注由独立测试夹具作者预先写定；不是运行待测解析器后生成，尚未获外部人工审阅。"
+    },
+    {
+      "id": "script-03-alias",
+      "kind": "script",
+      "title": "别名与原名同一角色",
+      "tags": [],
+      "provenance": {
+        "kind": "authored-script",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture"
+      },
+      "source_text": "人物：\n周衡/老周（45岁，修表师，昵称阿衡）\n陆敏（23岁，学徒）\n内景：钟表店 傍晚\n老周：把放大镜给我。\n陆敏把放大镜递给阿衡。\n周衡接住放大镜。\n他低头检查表盘。",
+      "characters": [
+        {
+          "id": "周衡",
+          "aliases": [
+            "老周",
+            "阿衡"
+          ]
+        },
+        {
+          "id": "陆敏",
+          "aliases": []
+        }
+      ],
+      "content_units": [
+        {
+          "id": "u1",
+          "text": "把放大镜给我。",
+          "role": "dialogue",
+          "speaker": "周衡",
+          "character_ids": [
+            "周衡"
+          ]
+        },
+        {
+          "id": "u2",
+          "text": "陆敏把放大镜递给阿衡。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "陆敏",
+            "周衡"
+          ]
+        },
+        {
+          "id": "u3",
+          "text": "周衡接住放大镜。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "周衡"
+          ]
+        },
+        {
+          "id": "u4",
+          "text": "他低头检查表盘。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "周衡"
+          ]
+        }
+      ],
+      "coreferences": [
+        {
+          "mention": "阿衡",
+          "context": "陆敏把放大镜递给阿衡。",
+          "character_id": "周衡",
+          "status": "resolved"
+        },
+        {
+          "mention": "他",
+          "context": "他低头检查表盘。",
+          "character_id": "周衡",
+          "status": "resolved"
+        }
+      ],
+      "excluded_source": [
+        "人物：",
+        "周衡/老周（45岁，修表师，昵称阿衡）",
+        "陆敏（23岁，学徒）",
+        "内景：钟表店 傍晚"
+      ],
+      "event_constraints": [
+        {
+          "left": "u1",
+          "right": "u2",
+          "relation": "same_event",
+          "reason": "索要与递交同一放大镜"
+        },
+        {
+          "left": "u2",
+          "right": "u3",
+          "relation": "same_event",
+          "reason": "递交与接稳同一目标"
+        },
+        {
+          "left": "u3",
+          "right": "u4",
+          "relation": "different_event",
+          "reason": "拿到工具后转入检查表盘"
+        }
+      ],
+      "required_facts": [],
+      "forbidden_claims": [],
+      "notes": "标注由独立测试夹具作者预先写定；不是运行待测解析器后生成，尚未获外部人工审阅。"
+    },
+    {
+      "id": "script-04-reported-quote",
+      "kind": "script",
+      "title": "转述引语不是新说话人",
+      "tags": [],
+      "provenance": {
+        "kind": "authored-script",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture"
+      },
+      "source_text": "【人物】\n陈舟（35岁，调查员）\n叶宁（31岁，档案员）\n内景：档案室 夜\n陈舟说：“纸条上写着‘别开箱子’，我只是照读。”\n叶宁：那就先查编号。\n叶宁把纸条放回袋中。\n袋上印着“留存”。",
+      "characters": [
+        {
+          "id": "陈舟",
+          "aliases": []
+        },
+        {
+          "id": "叶宁",
+          "aliases": []
+        }
+      ],
+      "content_units": [
+        {
+          "id": "u1",
+          "text": "“纸条上写着‘别开箱子’，我只是照读。”",
+          "role": "dialogue",
+          "speaker": "陈舟",
+          "character_ids": [
+            "陈舟"
+          ]
+        },
+        {
+          "id": "u2",
+          "text": "那就先查编号。",
+          "role": "dialogue",
+          "speaker": "叶宁",
+          "character_ids": [
+            "叶宁"
+          ]
+        },
+        {
+          "id": "u3",
+          "text": "叶宁把纸条放回袋中。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "叶宁"
+          ]
+        },
+        {
+          "id": "u4",
+          "text": "袋上印着“留存”。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": []
+        }
+      ],
+      "coreferences": [],
+      "excluded_source": [
+        "【人物】",
+        "陈舟（35岁，调查员）",
+        "叶宁（31岁，档案员）",
+        "内景：档案室 夜"
+      ],
+      "event_constraints": [
+        {
+          "left": "u1",
+          "right": "u2",
+          "relation": "same_event",
+          "reason": "朗读纸条与决定核查"
+        },
+        {
+          "left": "u2",
+          "right": "u3",
+          "relation": "allowed_alternative",
+          "reason": "保存纸条可为核查准备或独立收纳事件"
+        }
+      ],
+      "required_facts": [],
+      "forbidden_claims": [
+        {
+          "id": "no-quote-speaker",
+          "phrases": [
+            "留存说道",
+            "别开箱子的人出现"
+          ],
+          "reason": "文字与转述引语不能创建角色"
+        }
+      ],
+      "notes": "标注由独立测试夹具作者预先写定；不是运行待测解析器后生成，尚未获外部人工审阅。"
+    },
+    {
+      "id": "script-05-sound-only",
+      "kind": "script",
+      "title": "枪响不证明谁受伤",
+      "tags": [],
+      "provenance": {
+        "kind": "authored-script",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture"
+      },
+      "source_text": "【人物】\n顾岩（40岁，保安）\n外景：庭院 夜\n顾岩停在树旁。\n远处传来枪声。\n顾岩伏低身体。\n音效：玻璃碎裂。\n顾岩：先等一下。",
+      "characters": [
+        {
+          "id": "顾岩",
+          "aliases": []
+        }
+      ],
+      "content_units": [
+        {
+          "id": "u1",
+          "text": "顾岩停在树旁。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "顾岩"
+          ]
+        },
+        {
+          "id": "u2",
+          "text": "远处传来枪声。",
+          "role": "sound",
+          "speaker": null,
+          "character_ids": []
+        },
+        {
+          "id": "u3",
+          "text": "顾岩伏低身体。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "顾岩"
+          ]
+        },
+        {
+          "id": "u4",
+          "text": "音效：玻璃碎裂。",
+          "role": "sound",
+          "speaker": null,
+          "character_ids": []
+        },
+        {
+          "id": "u5",
+          "text": "先等一下。",
+          "role": "dialogue",
+          "speaker": "顾岩",
+          "character_ids": [
+            "顾岩"
+          ]
+        }
+      ],
+      "coreferences": [],
+      "excluded_source": [
+        "【人物】",
+        "顾岩（40岁，保安）",
+        "外景：庭院 夜"
+      ],
+      "event_constraints": [
+        {
+          "left": "u2",
+          "right": "u3",
+          "relation": "same_event",
+          "reason": "听见枪响后伏低作为避险反应"
+        },
+        {
+          "left": "u3",
+          "right": "u5",
+          "relation": "same_event",
+          "reason": "继续等待同一避险目标"
+        },
+        {
+          "left": "u1",
+          "right": "u2",
+          "relation": "allowed_alternative",
+          "reason": "建立状态可并入避险或单列"
+        }
+      ],
+      "required_facts": [],
+      "forbidden_claims": [
+        {
+          "id": "no-gunshot-injury",
+          "phrases": [
+            "顾岩中枪",
+            "顾岩受伤",
+            "顾岩开枪",
+            "有人死亡"
+          ],
+          "reason": "仅有声音与伏低动作，没有开枪主体或伤亡证据"
+        }
+      ],
+      "notes": "标注由独立测试夹具作者预先写定；不是运行待测解析器后生成，尚未获外部人工审阅。"
+    },
+    {
+      "id": "script-06-voiceover",
+      "kind": "script",
+      "title": "画外音与画面人物分离",
+      "tags": [],
+      "provenance": {
+        "kind": "authored-script",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture"
+      },
+      "source_text": "【人物】\n赵澄（34岁，摄影师）\n内景：旧屋 日\n旁白：那年冬天，我们离开了这座城。\n赵澄（VO）：我只记得门是蓝色的。\n赵澄站在褪色的绿门前。\n音效：风声。",
+      "characters": [
+        {
+          "id": "赵澄",
+          "aliases": []
+        }
+      ],
+      "content_units": [
+        {
+          "id": "u1",
+          "text": "那年冬天，我们离开了这座城。",
+          "role": "voiceover",
+          "speaker": null,
+          "character_ids": []
+        },
+        {
+          "id": "u2",
+          "text": "我只记得门是蓝色的。",
+          "role": "voiceover",
+          "speaker": "赵澄",
+          "character_ids": [
+            "赵澄"
+          ]
+        },
+        {
+          "id": "u3",
+          "text": "赵澄站在褪色的绿门前。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵澄"
+          ]
+        },
+        {
+          "id": "u4",
+          "text": "音效：风声。",
+          "role": "sound",
+          "speaker": null,
+          "character_ids": []
+        }
+      ],
+      "coreferences": [
+        {
+          "mention": "我们",
+          "context": "那年冬天，我们离开了这座城。",
+          "character_id": null,
+          "status": "unresolved"
+        },
+        {
+          "mention": "我",
+          "context": "我只记得门是蓝色的。",
+          "character_id": "赵澄",
+          "status": "resolved"
+        }
+      ],
+      "excluded_source": [
+        "【人物】",
+        "赵澄（34岁，摄影师）",
+        "内景：旧屋 日"
+      ],
+      "event_constraints": [
+        {
+          "left": "u2",
+          "right": "u3",
+          "relation": "same_event",
+          "reason": "记忆对白与当前门的对照"
+        },
+        {
+          "left": "u3",
+          "right": "u4",
+          "relation": "allowed_alternative",
+          "reason": "声音氛围允许并入画面或作声音过渡"
+        }
+      ],
+      "required_facts": [],
+      "forbidden_claims": [
+        {
+          "id": "no-blue-current-door",
+          "phrases": [
+            "眼前的门是蓝色",
+            "绿门变成蓝门"
+          ],
+          "reason": "画外记忆不覆盖原文明示的当前绿门"
+        }
+      ],
+      "notes": "标注由独立测试夹具作者预先写定；不是运行待测解析器后生成，尚未获外部人工审阅。"
+    },
+    {
+      "id": "script-07-split-speaker",
+      "kind": "script",
+      "title": "换行说话标记与动作",
+      "tags": [],
+      "provenance": {
+        "kind": "authored-script",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture"
+      },
+      "source_text": "【人物】\n沈易（27岁，乐师）\n韩夏（26岁，舞者）\n内景：排练室 日\n沈易：\n（轻声）\n你准备好了吗？\n韩夏（点头）：可以开始。\n韩夏走到地板中央。\n她抬起右手。",
+      "characters": [
+        {
+          "id": "沈易",
+          "aliases": []
+        },
+        {
+          "id": "韩夏",
+          "aliases": []
+        }
+      ],
+      "content_units": [
+        {
+          "id": "u1",
+          "text": "你准备好了吗？",
+          "role": "dialogue",
+          "speaker": "沈易",
+          "character_ids": [
+            "沈易"
+          ]
+        },
+        {
+          "id": "u2",
+          "text": "可以开始。",
+          "role": "dialogue",
+          "speaker": "韩夏",
+          "character_ids": [
+            "韩夏"
+          ]
+        },
+        {
+          "id": "u3",
+          "text": "韩夏走到地板中央。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "韩夏"
+          ]
+        },
+        {
+          "id": "u4",
+          "text": "她抬起右手。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "韩夏"
+          ]
+        }
+      ],
+      "coreferences": [
+        {
+          "mention": "她",
+          "context": "她抬起右手。",
+          "character_id": "韩夏",
+          "status": "resolved"
+        }
+      ],
+      "excluded_source": [
+        "【人物】",
+        "沈易（27岁，乐师）",
+        "韩夏（26岁，舞者）",
+        "内景：排练室 日"
+      ],
+      "event_constraints": [
+        {
+          "left": "u1",
+          "right": "u2",
+          "relation": "same_event",
+          "reason": "问答确认准备"
+        },
+        {
+          "left": "u2",
+          "right": "u3",
+          "relation": "different_event",
+          "reason": "确认后开始排练动作"
+        },
+        {
+          "left": "u3",
+          "right": "u4",
+          "relation": "same_event",
+          "reason": "走到中央与起势同一排练目标"
+        }
+      ],
+      "required_facts": [],
+      "forbidden_claims": [],
+      "notes": "独立标注确认问答顺序，括号表演提示不当作对白；外部人工审阅仍待完成。"
+    },
+    {
+      "id": "script-08-events-12",
+      "kind": "script",
+      "title": "12个独立事务不受阈值吞并",
+      "tags": [
+        "event-threshold-12"
+      ],
+      "provenance": {
+        "kind": "authored-script",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture"
+      },
+      "source_text": "【人物】\n赵安（38岁，仓库值班员）\n内景：仓库 夜\n赵安打开铁门。\n赵安擦净桌面。\n赵安点亮油灯。\n赵安挂好外套。\n赵安核对清单。\n赵安收起旧地图。\n赵安装入备用电池。\n赵安贴好封条。\n赵安锁上工具箱。\n赵安拨通值班电话。\n赵安关掉收音机。\n赵安拉上窗帘。",
+      "characters": [
+        {
+          "id": "赵安",
+          "aliases": []
+        }
+      ],
+      "content_units": [
+        {
+          "id": "u1",
+          "text": "赵安打开铁门。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u2",
+          "text": "赵安擦净桌面。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u3",
+          "text": "赵安点亮油灯。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u4",
+          "text": "赵安挂好外套。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u5",
+          "text": "赵安核对清单。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u6",
+          "text": "赵安收起旧地图。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u7",
+          "text": "赵安装入备用电池。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u8",
+          "text": "赵安贴好封条。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u9",
+          "text": "赵安锁上工具箱。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u10",
+          "text": "赵安拨通值班电话。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u11",
+          "text": "赵安关掉收音机。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u12",
+          "text": "赵安拉上窗帘。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        }
+      ],
+      "coreferences": [],
+      "excluded_source": [
+        "【人物】",
+        "赵安（38岁，仓库值班员）",
+        "内景：仓库 夜"
+      ],
+      "event_constraints": [
+        {
+          "left": "u1",
+          "right": "u2",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u2",
+          "right": "u3",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u3",
+          "right": "u4",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u4",
+          "right": "u5",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u5",
+          "right": "u6",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u6",
+          "right": "u7",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u7",
+          "right": "u8",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u8",
+          "right": "u9",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u9",
+          "right": "u10",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u10",
+          "right": "u11",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u11",
+          "right": "u12",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        }
+      ],
+      "required_facts": [],
+      "forbidden_claims": [],
+      "notes": "12/13仅是事件容量回归场景，每项事务一个独立目标。约束事件归属，不规定生成镜头数量。"
+    },
+    {
+      "id": "script-09-events-13",
+      "kind": "script",
+      "title": "13个独立事务不受阈值吞并",
+      "tags": [
+        "event-threshold-13"
+      ],
+      "provenance": {
+        "kind": "authored-script",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture"
+      },
+      "source_text": "【人物】\n赵安（38岁，仓库值班员）\n内景：仓库 夜\n赵安打开铁门。\n赵安擦净桌面。\n赵安点亮油灯。\n赵安挂好外套。\n赵安核对清单。\n赵安收起旧地图。\n赵安装入备用电池。\n赵安贴好封条。\n赵安锁上工具箱。\n赵安拨通值班电话。\n赵安关掉收音机。\n赵安拉上窗帘。\n赵安按响离岗铃。",
+      "characters": [
+        {
+          "id": "赵安",
+          "aliases": []
+        }
+      ],
+      "content_units": [
+        {
+          "id": "u1",
+          "text": "赵安打开铁门。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u2",
+          "text": "赵安擦净桌面。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u3",
+          "text": "赵安点亮油灯。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u4",
+          "text": "赵安挂好外套。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u5",
+          "text": "赵安核对清单。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u6",
+          "text": "赵安收起旧地图。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u7",
+          "text": "赵安装入备用电池。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u8",
+          "text": "赵安贴好封条。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u9",
+          "text": "赵安锁上工具箱。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u10",
+          "text": "赵安拨通值班电话。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u11",
+          "text": "赵安关掉收音机。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u12",
+          "text": "赵安拉上窗帘。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        },
+        {
+          "id": "u13",
+          "text": "赵安按响离岗铃。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "赵安"
+          ]
+        }
+      ],
+      "coreferences": [],
+      "excluded_source": [
+        "【人物】",
+        "赵安（38岁，仓库值班员）",
+        "内景：仓库 夜"
+      ],
+      "event_constraints": [
+        {
+          "left": "u1",
+          "right": "u2",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u2",
+          "right": "u3",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u3",
+          "right": "u4",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u4",
+          "right": "u5",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u5",
+          "right": "u6",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u6",
+          "right": "u7",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u7",
+          "right": "u8",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u8",
+          "right": "u9",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u9",
+          "right": "u10",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u10",
+          "right": "u11",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u11",
+          "right": "u12",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        },
+        {
+          "left": "u12",
+          "right": "u13",
+          "relation": "different_event",
+          "reason": "作者设定为完成后的独立值班事务；不因12/13数量阈值改变事件归属"
+        }
+      ],
+      "required_facts": [],
+      "forbidden_claims": [],
+      "notes": "12/13仅是事件容量回归场景，每项事务一个独立目标。约束事件归属，不规定生成镜头数量。"
+    },
+    {
+      "id": "script-10-optional-boundary",
+      "kind": "script",
+      "title": "倒茶动作中的可选停顿",
+      "tags": [],
+      "provenance": {
+        "kind": "authored-script",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture"
+      },
+      "source_text": "【人物】\n唐婉（41岁，店主）\n魏辰（24岁，顾客）\n内景：茶铺 日\n唐婉提起茶壶。\n唐婉向杯中倒茶。\n魏辰端起杯子。\n魏辰：谢谢。\n魏辰放下杯子，走向柜台结账。",
+      "characters": [
+        {
+          "id": "唐婉",
+          "aliases": []
+        },
+        {
+          "id": "魏辰",
+          "aliases": []
+        }
+      ],
+      "content_units": [
+        {
+          "id": "u1",
+          "text": "唐婉提起茶壶。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "唐婉"
+          ]
+        },
+        {
+          "id": "u2",
+          "text": "唐婉向杯中倒茶。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "唐婉"
+          ]
+        },
+        {
+          "id": "u3",
+          "text": "魏辰端起杯子。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "魏辰"
+          ]
+        },
+        {
+          "id": "u4",
+          "text": "谢谢。",
+          "role": "dialogue",
+          "speaker": "魏辰",
+          "character_ids": [
+            "魏辰"
+          ]
+        },
+        {
+          "id": "u5",
+          "text": "魏辰放下杯子，走向柜台结账。",
+          "role": "action",
+          "speaker": null,
+          "character_ids": [
+            "魏辰"
+          ]
+        }
+      ],
+      "coreferences": [],
+      "excluded_source": [
+        "【人物】",
+        "唐婉（41岁，店主）",
+        "魏辰（24岁，顾客）",
+        "内景：茶铺 日"
+      ],
+      "event_constraints": [
+        {
+          "left": "u1",
+          "right": "u2",
+          "relation": "same_event",
+          "reason": "提壶与倒茶同一服务目标"
+        },
+        {
+          "left": "u2",
+          "right": "u3",
+          "relation": "allowed_alternative",
+          "reason": "递茶与饮用可分开，也可保留一完整接茶事件"
+        },
+        {
+          "left": "u3",
+          "right": "u4",
+          "relation": "same_event",
+          "reason": "接茶与致谢同一交流"
+        },
+        {
+          "left": "u4",
+          "right": "u5",
+          "relation": "different_event",
+          "reason": "转为结账目标"
+        }
+      ],
+      "required_facts": [],
+      "forbidden_claims": [
+        {
+          "id": "no-drinking",
+          "phrases": [
+            "魏辰喝光茶",
+            "魏辰觉得茶烫"
+          ],
+          "reason": "端杯不等于喝下或感到烫"
+        }
+      ],
+      "notes": "标注由独立测试夹具作者预先写定；不是运行待测解析器后生成，尚未获外部人工审阅。"
+    },
+    {
+      "id": "video-01-handoff",
+      "kind": "video",
+      "title": "触碰、松手与接稳",
+      "tags": [],
+      "provenance": {
+        "kind": "synthetic-transition-fixture",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture",
+        "real_video": false
+      },
+      "source_units": [
+        {
+          "id": "s1",
+          "start_time": 0,
+          "end_time": 2
+        },
+        {
+          "id": "s2",
+          "start_time": 2,
+          "end_time": 4
+        },
+        {
+          "id": "s3",
+          "start_time": 4,
+          "end_time": 6
+        }
+      ],
+      "frames": [
+        {
+          "id": "f1",
+          "source_id": "s1",
+          "timestamp": 0.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "people": [
+              "红衣人",
+              "蓝衣人"
+            ],
+            "holder": "红衣人",
+            "prop": "灰色盒子",
+            "contact": []
+          }
+        },
+        {
+          "id": "f2",
+          "source_id": "s2",
+          "timestamp": 2.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "holder": "红衣人",
+            "prop": "灰色盒子",
+            "contact": [
+              "蓝衣人指尖"
+            ]
+          }
+        },
+        {
+          "id": "f3",
+          "source_id": "s3",
+          "timestamp": 4.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "holder": "蓝衣人",
+            "prop": "灰色盒子",
+            "contact": []
+          }
+        }
+      ],
+      "required_facts": [
+        {
+          "id": "box-in-red",
+          "text": "红衣人持有灰色盒子",
+          "subject": "红衣人",
+          "predicate": "holds",
+          "object": "灰色盒子",
+          "source_ids": [
+            "s1"
+          ],
+          "frame_ids": [
+            "f1"
+          ],
+          "critical": true
+        },
+        {
+          "id": "blue-touches",
+          "text": "蓝衣人指尖接触盒子，红衣人尚未松手",
+          "subject": "蓝衣人",
+          "predicate": "touches",
+          "object": "灰色盒子",
+          "source_ids": [
+            "s2"
+          ],
+          "frame_ids": [
+            "f2"
+          ],
+          "critical": true
+        },
+        {
+          "id": "handoff-completed",
+          "text": "红衣人松手后蓝衣人接稳盒子",
+          "subject": "灰色盒子",
+          "predicate": "transferred",
+          "object": "红衣人->蓝衣人",
+          "source_ids": [
+            "s2",
+            "s3"
+          ],
+          "frame_ids": [
+            "f2",
+            "f3"
+          ],
+          "critical": true
+        }
+      ],
+      "event_constraints": [
+        {
+          "left": "s1",
+          "right": "s2",
+          "relation": "same_event",
+          "reason": "递交开始与触碰"
+        },
+        {
+          "left": "s2",
+          "right": "s3",
+          "relation": "same_event",
+          "reason": "同一递交目标结束"
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "early-owner",
+          "text": "蓝衣人在触碰帧已经持有盒子",
+          "subject": "蓝衣人",
+          "predicate": "holds-at-f2",
+          "object": "灰色盒子",
+          "phrases": [
+            "蓝衣人已经接稳盒子",
+            "触碰时红衣人已经松手"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        }
+      ],
+      "notes": "确定性作者设定的场景状态表；没有真实像素或原片，不用于声称真实视频感知准确率。"
+    },
+    {
+      "id": "video-02-drink-feedback",
+      "kind": "video",
+      "title": "杯到唇与后续呼气分离",
+      "tags": [],
+      "provenance": {
+        "kind": "synthetic-transition-fixture",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture",
+        "real_video": false
+      },
+      "source_units": [
+        {
+          "id": "s1",
+          "start_time": 0,
+          "end_time": 2
+        },
+        {
+          "id": "s2",
+          "start_time": 2,
+          "end_time": 4
+        },
+        {
+          "id": "s3",
+          "start_time": 4,
+          "end_time": 6
+        }
+      ],
+      "frames": [
+        {
+          "id": "f1",
+          "source_id": "s1",
+          "timestamp": 0.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "灰衣人",
+            "cup": "嘴唇前",
+            "mouth_contact": false
+          }
+        },
+        {
+          "id": "f2",
+          "source_id": "s2",
+          "timestamp": 2.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "灰衣人",
+            "cup": "接触嘴唇",
+            "mouth_contact": true
+          }
+        },
+        {
+          "id": "f3",
+          "source_id": "s3",
+          "timestamp": 4.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "灰衣人",
+            "cup": "离开嘴唇",
+            "mouth": "张开",
+            "exhalation": "不可判断"
+          }
+        }
+      ],
+      "required_facts": [
+        {
+          "id": "cup-to-lips",
+          "text": "灰衣人把杯口移动到嘴唇",
+          "subject": "灰衣人",
+          "predicate": "moves-cup",
+          "object": "to-lips",
+          "source_ids": [
+            "s1",
+            "s2"
+          ],
+          "frame_ids": [
+            "f1",
+            "f2"
+          ],
+          "critical": true
+        },
+        {
+          "id": "cup-away",
+          "text": "灰衣人移开杯子后张开嘴",
+          "subject": "灰衣人",
+          "predicate": "opens-mouth",
+          "object": "after-cup-away",
+          "source_ids": [
+            "s3"
+          ],
+          "frame_ids": [
+            "f3"
+          ],
+          "critical": true
+        }
+      ],
+      "event_constraints": [
+        {
+          "left": "s1",
+          "right": "s2",
+          "relation": "same_event",
+          "reason": "移杯与接触同一动作"
+        },
+        {
+          "left": "s2",
+          "right": "s3",
+          "relation": "allowed_alternative",
+          "reason": "移杯后的可见反馈可整合或单列"
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "exhaustion",
+          "text": "灰衣人因疲惫喘气",
+          "subject": "灰衣人",
+          "predicate": "is",
+          "object": "exhausted",
+          "phrases": [
+            "疲惫",
+            "喘气",
+            "累得"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        },
+        {
+          "id": "finished-drink",
+          "text": "灰衣人喝光杯中的水",
+          "subject": "灰衣人",
+          "predicate": "finishes",
+          "object": "water",
+          "phrases": [
+            "喝光",
+            "喝完所有水"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        },
+        {
+          "id": "blowing",
+          "text": "灰衣人吹气给饮料降温",
+          "subject": "灰衣人",
+          "predicate": "blows",
+          "object": "cool-drink",
+          "phrases": [
+            "吹气降温",
+            "吹凉"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        }
+      ],
+      "notes": "确定性作者设定的场景状态表；没有真实像素或原片，不用于声称真实视频感知准确率。"
+    },
+    {
+      "id": "video-03-protected-reveal",
+      "kind": "video",
+      "title": "接杯、杯内细节与放杯",
+      "tags": [],
+      "provenance": {
+        "kind": "synthetic-transition-fixture",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture",
+        "real_video": false
+      },
+      "source_units": [
+        {
+          "id": "s1",
+          "start_time": 0,
+          "end_time": 2
+        },
+        {
+          "id": "s2",
+          "start_time": 2,
+          "end_time": 4
+        },
+        {
+          "id": "s3",
+          "start_time": 4,
+          "end_time": 6
+        }
+      ],
+      "frames": [
+        {
+          "id": "f1",
+          "source_id": "s1",
+          "timestamp": 0.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "黄衣人",
+            "cup": "手中",
+            "interior": "不可见"
+          }
+        },
+        {
+          "id": "f2",
+          "source_id": "s2",
+          "timestamp": 2.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "cup": "特写",
+            "insect": "杯内一只黑色虫状物"
+          }
+        },
+        {
+          "id": "f3",
+          "source_id": "s3",
+          "timestamp": 4.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "黄衣人",
+            "cup": "桌面",
+            "hand": "收回"
+          }
+        }
+      ],
+      "required_facts": [
+        {
+          "id": "holds-cup",
+          "text": "黄衣人拿着杯子",
+          "subject": "黄衣人",
+          "predicate": "holds",
+          "object": "杯子",
+          "source_ids": [
+            "s1"
+          ],
+          "frame_ids": [
+            "f1"
+          ],
+          "critical": true
+        },
+        {
+          "id": "insect-reveal",
+          "text": "杯内有一只黑色虫状物",
+          "subject": "黑色虫状物",
+          "predicate": "located-in",
+          "object": "杯子",
+          "source_ids": [
+            "s2"
+          ],
+          "frame_ids": [
+            "f2"
+          ],
+          "critical": true
+        },
+        {
+          "id": "puts-cup",
+          "text": "黄衣人把杯子放到桌面并收回手",
+          "subject": "黄衣人",
+          "predicate": "places",
+          "object": "杯子->桌面",
+          "source_ids": [
+            "s3"
+          ],
+          "frame_ids": [
+            "f3"
+          ],
+          "critical": true
+        }
+      ],
+      "event_constraints": [
+        {
+          "left": "s1",
+          "right": "s2",
+          "relation": "allowed_alternative",
+          "reason": "杯内特写是同一喝水事件细节，也可作揭示事件"
+        },
+        {
+          "left": "s2",
+          "right": "s3",
+          "relation": "same_event",
+          "reason": "揭示与放杯反应必须保留"
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "poison",
+          "text": "杯子被下毒",
+          "subject": "杯子",
+          "predicate": "contains",
+          "object": "poison",
+          "phrases": [
+            "被下毒",
+            "有毒"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        },
+        {
+          "id": "psychology",
+          "text": "黄衣人认出仇人",
+          "subject": "黄衣人",
+          "predicate": "recognizes",
+          "object": "enemy",
+          "phrases": [
+            "认出仇人"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        }
+      ],
+      "notes": "确定性作者设定的场景状态表；没有真实像素或原片，不用于声称真实视频感知准确率。"
+    },
+    {
+      "id": "video-04-angle-continuity",
+      "kind": "video",
+      "title": "切角不重置递花目标",
+      "tags": [],
+      "provenance": {
+        "kind": "synthetic-transition-fixture",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture",
+        "real_video": false
+      },
+      "source_units": [
+        {
+          "id": "s1",
+          "start_time": 0,
+          "end_time": 2
+        },
+        {
+          "id": "s2",
+          "start_time": 2,
+          "end_time": 4
+        },
+        {
+          "id": "s3",
+          "start_time": 4,
+          "end_time": 6
+        }
+      ],
+      "frames": [
+        {
+          "id": "f1",
+          "source_id": "s1",
+          "timestamp": 0.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "angle": "正面",
+            "giver": "长发人",
+            "flower": "递出",
+            "holder": "长发人"
+          }
+        },
+        {
+          "id": "f2",
+          "source_id": "s2",
+          "timestamp": 2.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "angle": "侧面",
+            "flower": "同一朵白花",
+            "holder": "长发人",
+            "receiver": "短发人伸手"
+          }
+        },
+        {
+          "id": "f3",
+          "source_id": "s3",
+          "timestamp": 4.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "angle": "反打",
+            "holder": "短发人",
+            "flower": "白花"
+          }
+        }
+      ],
+      "required_facts": [
+        {
+          "id": "flower-offered",
+          "text": "长发人递出白花",
+          "subject": "长发人",
+          "predicate": "offers",
+          "object": "白花",
+          "source_ids": [
+            "s1"
+          ],
+          "frame_ids": [
+            "f1"
+          ],
+          "critical": true
+        },
+        {
+          "id": "flower-accepted",
+          "text": "短发人接稳同一朵白花",
+          "subject": "白花",
+          "predicate": "transferred",
+          "object": "长发人->短发人",
+          "source_ids": [
+            "s2",
+            "s3"
+          ],
+          "frame_ids": [
+            "f2",
+            "f3"
+          ],
+          "critical": true
+        }
+      ],
+      "event_constraints": [
+        {
+          "left": "s1",
+          "right": "s2",
+          "relation": "same_event",
+          "reason": "同一目标的必要切角"
+        },
+        {
+          "left": "s2",
+          "right": "s3",
+          "relation": "same_event",
+          "reason": "接稳完成递花"
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "second-flower",
+          "text": "出现第二朵红花",
+          "subject": "红花",
+          "predicate": "appears",
+          "object": "second-flower",
+          "phrases": [
+            "第二朵花",
+            "红花"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        }
+      ],
+      "notes": "确定性作者设定的场景状态表；没有真实像素或原片，不用于声称真实视频感知准确率。"
+    },
+    {
+      "id": "video-05-scene-change",
+      "kind": "video",
+      "title": "另一地点的动作有独立目标",
+      "tags": [],
+      "provenance": {
+        "kind": "synthetic-transition-fixture",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture",
+        "real_video": false
+      },
+      "source_units": [
+        {
+          "id": "s1",
+          "start_time": 0,
+          "end_time": 2
+        },
+        {
+          "id": "s2",
+          "start_time": 2,
+          "end_time": 4
+        },
+        {
+          "id": "s3",
+          "start_time": 4,
+          "end_time": 6
+        }
+      ],
+      "frames": [
+        {
+          "id": "f1",
+          "source_id": "s1",
+          "timestamp": 0.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "scene": "厨房",
+            "person": "围裙人",
+            "knife": "桌面"
+          }
+        },
+        {
+          "id": "f2",
+          "source_id": "s2",
+          "timestamp": 2.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "scene": "厨房",
+            "person": "围裙人",
+            "knife": "切黄瓜"
+          }
+        },
+        {
+          "id": "f3",
+          "source_id": "s3",
+          "timestamp": 4.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "scene": "车站",
+            "person": "背包人",
+            "ticket": "手中"
+          }
+        }
+      ],
+      "required_facts": [
+        {
+          "id": "cuts-cucumber",
+          "text": "围裙人在厨房切黄瓜",
+          "subject": "围裙人",
+          "predicate": "cuts",
+          "object": "黄瓜",
+          "source_ids": [
+            "s1",
+            "s2"
+          ],
+          "frame_ids": [
+            "f1",
+            "f2"
+          ],
+          "critical": true
+        },
+        {
+          "id": "holds-ticket",
+          "text": "背包人在车站拿着票",
+          "subject": "背包人",
+          "predicate": "holds",
+          "object": "车票",
+          "source_ids": [
+            "s3"
+          ],
+          "frame_ids": [
+            "f3"
+          ],
+          "critical": true
+        }
+      ],
+      "event_constraints": [
+        {
+          "left": "s1",
+          "right": "s2",
+          "relation": "same_event",
+          "reason": "准备与切菜同一目标"
+        },
+        {
+          "left": "s2",
+          "right": "s3",
+          "relation": "different_event",
+          "reason": "地点、参与者、目标均改变"
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "invented-travel",
+          "text": "围裙人切完菜赶到车站",
+          "subject": "围裙人",
+          "predicate": "travels",
+          "object": "厨房->车站",
+          "phrases": [
+            "切完菜赶到车站"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        }
+      ],
+      "notes": "确定性作者设定的场景状态表；没有真实像素或原片，不用于声称真实视频感知准确率。"
+    },
+    {
+      "id": "video-06-repeated-attempt",
+      "kind": "video",
+      "title": "多次够取同一物体",
+      "tags": [],
+      "provenance": {
+        "kind": "synthetic-transition-fixture",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture",
+        "real_video": false
+      },
+      "source_units": [
+        {
+          "id": "s1",
+          "start_time": 0,
+          "end_time": 2
+        },
+        {
+          "id": "s2",
+          "start_time": 2,
+          "end_time": 4
+        },
+        {
+          "id": "s3",
+          "start_time": 4,
+          "end_time": 6
+        }
+      ],
+      "frames": [
+        {
+          "id": "f1",
+          "source_id": "s1",
+          "timestamp": 0.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "孩子",
+            "toy": "高架上",
+            "hand": "第一次伸手"
+          }
+        },
+        {
+          "id": "f2",
+          "source_id": "s2",
+          "timestamp": 2.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "孩子",
+            "toy": "仍在高架",
+            "hand": "收回后再伸"
+          }
+        },
+        {
+          "id": "f3",
+          "source_id": "s3",
+          "timestamp": 4.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "孩子",
+            "toy": "手中",
+            "shelf": "空"
+          }
+        }
+      ],
+      "required_facts": [
+        {
+          "id": "retry-reach",
+          "text": "孩子收回手后再次伸向高架玩具",
+          "subject": "孩子",
+          "predicate": "retries",
+          "object": "reach-toy",
+          "source_ids": [
+            "s1",
+            "s2"
+          ],
+          "frame_ids": [
+            "f1",
+            "f2"
+          ],
+          "critical": true
+        },
+        {
+          "id": "gets-toy",
+          "text": "孩子最终拿到高架上的玩具",
+          "subject": "孩子",
+          "predicate": "holds",
+          "object": "玩具",
+          "source_ids": [
+            "s2",
+            "s3"
+          ],
+          "frame_ids": [
+            "f2",
+            "f3"
+          ],
+          "critical": true
+        }
+      ],
+      "event_constraints": [
+        {
+          "left": "s1",
+          "right": "s2",
+          "relation": "same_event",
+          "reason": "重复尝试仍推进同一取物目标"
+        },
+        {
+          "left": "s2",
+          "right": "s3",
+          "relation": "same_event",
+          "reason": "成功结束同一目标"
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "toy-returned",
+          "text": "孩子把玩具放回高架",
+          "subject": "孩子",
+          "predicate": "returns",
+          "object": "玩具",
+          "phrases": [
+            "放回高架"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        }
+      ],
+      "notes": "确定性作者设定的场景状态表；没有真实像素或原片，不用于声称真实视频感知准确率。"
+    },
+    {
+      "id": "video-07-gap-uncertain",
+      "kind": "video",
+      "title": "遮挡期间不能编造换手",
+      "tags": [],
+      "provenance": {
+        "kind": "synthetic-transition-fixture",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture",
+        "real_video": false
+      },
+      "source_units": [
+        {
+          "id": "s1",
+          "start_time": 0,
+          "end_time": 2
+        },
+        {
+          "id": "s2",
+          "start_time": 2,
+          "end_time": 4
+        },
+        {
+          "id": "s3",
+          "start_time": 4,
+          "end_time": 6
+        }
+      ],
+      "frames": [
+        {
+          "id": "f1",
+          "source_id": "s1",
+          "timestamp": 0.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "黑衣人",
+            "holder": "黑衣人",
+            "prop": "信封"
+          }
+        },
+        {
+          "id": "f2",
+          "source_id": "s2",
+          "timestamp": 2.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "visibility": "门遮挡所有手部",
+            "prop": "不可见"
+          }
+        },
+        {
+          "id": "f3",
+          "source_id": "s3",
+          "timestamp": 4.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "白衣人",
+            "holder": "白衣人",
+            "prop": "相似信封",
+            "identity_link": "未确认"
+          }
+        }
+      ],
+      "required_facts": [
+        {
+          "id": "envelope-in-black",
+          "text": "黑衣人手中有信封",
+          "subject": "黑衣人",
+          "predicate": "holds",
+          "object": "信封",
+          "source_ids": [
+            "s1"
+          ],
+          "frame_ids": [
+            "f1"
+          ],
+          "critical": true
+        },
+        {
+          "id": "hands-hidden",
+          "text": "门遮挡手部，信封不可见",
+          "subject": "门",
+          "predicate": "occludes",
+          "object": "hands",
+          "source_ids": [
+            "s2"
+          ],
+          "frame_ids": [
+            "f2"
+          ],
+          "critical": true
+        },
+        {
+          "id": "white-envelope",
+          "text": "白衣人手中有外观相似的信封",
+          "subject": "白衣人",
+          "predicate": "holds",
+          "object": "相似信封",
+          "source_ids": [
+            "s3"
+          ],
+          "frame_ids": [
+            "f3"
+          ],
+          "critical": true
+        }
+      ],
+      "event_constraints": [
+        {
+          "left": "s1",
+          "right": "s2",
+          "relation": "same_event",
+          "reason": "遮挡之前的连续上下文"
+        },
+        {
+          "left": "s2",
+          "right": "s3",
+          "relation": "allowed_alternative",
+          "reason": "有证据缺口，允许连续或另起事件并标明未确认"
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "assert-transfer",
+          "text": "黑衣人已把同一信封交给白衣人",
+          "subject": "信封",
+          "predicate": "transferred",
+          "object": "黑衣人->白衣人",
+          "phrases": [
+            "黑衣人把信封交给白衣人",
+            "完成信封交接"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        }
+      ],
+      "notes": "确定性作者设定的场景状态表；没有真实像素或原片，不用于声称真实视频感知准确率。"
+    },
+    {
+      "id": "video-08-events-12",
+      "kind": "video",
+      "title": "12个独立事件容量",
+      "tags": [
+        "event-threshold-12"
+      ],
+      "provenance": {
+        "kind": "synthetic-transition-fixture",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture",
+        "real_video": false
+      },
+      "source_units": [
+        {
+          "id": "s1",
+          "start_time": 0,
+          "end_time": 2
+        },
+        {
+          "id": "s2",
+          "start_time": 2,
+          "end_time": 4
+        },
+        {
+          "id": "s3",
+          "start_time": 4,
+          "end_time": 6
+        },
+        {
+          "id": "s4",
+          "start_time": 6,
+          "end_time": 8
+        },
+        {
+          "id": "s5",
+          "start_time": 8,
+          "end_time": 10
+        },
+        {
+          "id": "s6",
+          "start_time": 10,
+          "end_time": 12
+        },
+        {
+          "id": "s7",
+          "start_time": 12,
+          "end_time": 14
+        },
+        {
+          "id": "s8",
+          "start_time": 14,
+          "end_time": 16
+        },
+        {
+          "id": "s9",
+          "start_time": 16,
+          "end_time": 18
+        },
+        {
+          "id": "s10",
+          "start_time": 18,
+          "end_time": 20
+        },
+        {
+          "id": "s11",
+          "start_time": 20,
+          "end_time": 22
+        },
+        {
+          "id": "s12",
+          "start_time": 22,
+          "end_time": 24
+        }
+      ],
+      "frames": [
+        {
+          "id": "f1",
+          "source_id": "s1",
+          "timestamp": 0.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "开门",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f2",
+          "source_id": "s2",
+          "timestamp": 2.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "擦桌",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f3",
+          "source_id": "s3",
+          "timestamp": 4.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "点灯",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f4",
+          "source_id": "s4",
+          "timestamp": 6.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "挂衣",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f5",
+          "source_id": "s5",
+          "timestamp": 8.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "核单",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f6",
+          "source_id": "s6",
+          "timestamp": 10.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "收图",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f7",
+          "source_id": "s7",
+          "timestamp": 12.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "装电池",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f8",
+          "source_id": "s8",
+          "timestamp": 14.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "贴封条",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f9",
+          "source_id": "s9",
+          "timestamp": 16.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "锁箱",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f10",
+          "source_id": "s10",
+          "timestamp": 18.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "拨电话",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f11",
+          "source_id": "s11",
+          "timestamp": 20.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "关收音机",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f12",
+          "source_id": "s12",
+          "timestamp": 22.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "拉窗帘",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        }
+      ],
+      "required_facts": [
+        {
+          "id": "task-1",
+          "text": "值班员完成开门",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "开门",
+          "source_ids": [
+            "s1"
+          ],
+          "frame_ids": [
+            "f1"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-2",
+          "text": "值班员完成擦桌",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "擦桌",
+          "source_ids": [
+            "s2"
+          ],
+          "frame_ids": [
+            "f2"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-3",
+          "text": "值班员完成点灯",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "点灯",
+          "source_ids": [
+            "s3"
+          ],
+          "frame_ids": [
+            "f3"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-4",
+          "text": "值班员完成挂衣",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "挂衣",
+          "source_ids": [
+            "s4"
+          ],
+          "frame_ids": [
+            "f4"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-5",
+          "text": "值班员完成核单",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "核单",
+          "source_ids": [
+            "s5"
+          ],
+          "frame_ids": [
+            "f5"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-6",
+          "text": "值班员完成收图",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "收图",
+          "source_ids": [
+            "s6"
+          ],
+          "frame_ids": [
+            "f6"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-7",
+          "text": "值班员完成装电池",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "装电池",
+          "source_ids": [
+            "s7"
+          ],
+          "frame_ids": [
+            "f7"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-8",
+          "text": "值班员完成贴封条",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "贴封条",
+          "source_ids": [
+            "s8"
+          ],
+          "frame_ids": [
+            "f8"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-9",
+          "text": "值班员完成锁箱",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "锁箱",
+          "source_ids": [
+            "s9"
+          ],
+          "frame_ids": [
+            "f9"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-10",
+          "text": "值班员完成拨电话",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "拨电话",
+          "source_ids": [
+            "s10"
+          ],
+          "frame_ids": [
+            "f10"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-11",
+          "text": "值班员完成关收音机",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "关收音机",
+          "source_ids": [
+            "s11"
+          ],
+          "frame_ids": [
+            "f11"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-12",
+          "text": "值班员完成拉窗帘",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "拉窗帘",
+          "source_ids": [
+            "s12"
+          ],
+          "frame_ids": [
+            "f12"
+          ],
+          "critical": true
+        }
+      ],
+      "event_constraints": [
+        {
+          "left": "s1",
+          "right": "s2",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s2",
+          "right": "s3",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s3",
+          "right": "s4",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s4",
+          "right": "s5",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s5",
+          "right": "s6",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s6",
+          "right": "s7",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s7",
+          "right": "s8",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s8",
+          "right": "s9",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s9",
+          "right": "s10",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s10",
+          "right": "s11",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s11",
+          "right": "s12",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        }
+      ],
+      "forbidden_claims": [],
+      "notes": "确定性作者设定的场景状态表；没有真实像素或原片，不用于声称真实视频感知准确率。"
+    },
+    {
+      "id": "video-09-events-13",
+      "kind": "video",
+      "title": "13个独立事件容量",
+      "tags": [
+        "event-threshold-13"
+      ],
+      "provenance": {
+        "kind": "synthetic-transition-fixture",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture",
+        "real_video": false
+      },
+      "source_units": [
+        {
+          "id": "s1",
+          "start_time": 0,
+          "end_time": 2
+        },
+        {
+          "id": "s2",
+          "start_time": 2,
+          "end_time": 4
+        },
+        {
+          "id": "s3",
+          "start_time": 4,
+          "end_time": 6
+        },
+        {
+          "id": "s4",
+          "start_time": 6,
+          "end_time": 8
+        },
+        {
+          "id": "s5",
+          "start_time": 8,
+          "end_time": 10
+        },
+        {
+          "id": "s6",
+          "start_time": 10,
+          "end_time": 12
+        },
+        {
+          "id": "s7",
+          "start_time": 12,
+          "end_time": 14
+        },
+        {
+          "id": "s8",
+          "start_time": 14,
+          "end_time": 16
+        },
+        {
+          "id": "s9",
+          "start_time": 16,
+          "end_time": 18
+        },
+        {
+          "id": "s10",
+          "start_time": 18,
+          "end_time": 20
+        },
+        {
+          "id": "s11",
+          "start_time": 20,
+          "end_time": 22
+        },
+        {
+          "id": "s12",
+          "start_time": 22,
+          "end_time": 24
+        },
+        {
+          "id": "s13",
+          "start_time": 24,
+          "end_time": 26
+        }
+      ],
+      "frames": [
+        {
+          "id": "f1",
+          "source_id": "s1",
+          "timestamp": 0.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "开门",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f2",
+          "source_id": "s2",
+          "timestamp": 2.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "擦桌",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f3",
+          "source_id": "s3",
+          "timestamp": 4.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "点灯",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f4",
+          "source_id": "s4",
+          "timestamp": 6.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "挂衣",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f5",
+          "source_id": "s5",
+          "timestamp": 8.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "核单",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f6",
+          "source_id": "s6",
+          "timestamp": 10.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "收图",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f7",
+          "source_id": "s7",
+          "timestamp": 12.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "装电池",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f8",
+          "source_id": "s8",
+          "timestamp": 14.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "贴封条",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f9",
+          "source_id": "s9",
+          "timestamp": 16.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "锁箱",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f10",
+          "source_id": "s10",
+          "timestamp": 18.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "拨电话",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f11",
+          "source_id": "s11",
+          "timestamp": 20.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "关收音机",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f12",
+          "source_id": "s12",
+          "timestamp": 22.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "拉窗帘",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        },
+        {
+          "id": "f13",
+          "source_id": "s13",
+          "timestamp": 24.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "值班员",
+            "task": "按铃",
+            "result": "本项完成",
+            "next_goal": "独立事务"
+          }
+        }
+      ],
+      "required_facts": [
+        {
+          "id": "task-1",
+          "text": "值班员完成开门",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "开门",
+          "source_ids": [
+            "s1"
+          ],
+          "frame_ids": [
+            "f1"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-2",
+          "text": "值班员完成擦桌",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "擦桌",
+          "source_ids": [
+            "s2"
+          ],
+          "frame_ids": [
+            "f2"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-3",
+          "text": "值班员完成点灯",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "点灯",
+          "source_ids": [
+            "s3"
+          ],
+          "frame_ids": [
+            "f3"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-4",
+          "text": "值班员完成挂衣",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "挂衣",
+          "source_ids": [
+            "s4"
+          ],
+          "frame_ids": [
+            "f4"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-5",
+          "text": "值班员完成核单",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "核单",
+          "source_ids": [
+            "s5"
+          ],
+          "frame_ids": [
+            "f5"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-6",
+          "text": "值班员完成收图",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "收图",
+          "source_ids": [
+            "s6"
+          ],
+          "frame_ids": [
+            "f6"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-7",
+          "text": "值班员完成装电池",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "装电池",
+          "source_ids": [
+            "s7"
+          ],
+          "frame_ids": [
+            "f7"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-8",
+          "text": "值班员完成贴封条",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "贴封条",
+          "source_ids": [
+            "s8"
+          ],
+          "frame_ids": [
+            "f8"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-9",
+          "text": "值班员完成锁箱",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "锁箱",
+          "source_ids": [
+            "s9"
+          ],
+          "frame_ids": [
+            "f9"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-10",
+          "text": "值班员完成拨电话",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "拨电话",
+          "source_ids": [
+            "s10"
+          ],
+          "frame_ids": [
+            "f10"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-11",
+          "text": "值班员完成关收音机",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "关收音机",
+          "source_ids": [
+            "s11"
+          ],
+          "frame_ids": [
+            "f11"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-12",
+          "text": "值班员完成拉窗帘",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "拉窗帘",
+          "source_ids": [
+            "s12"
+          ],
+          "frame_ids": [
+            "f12"
+          ],
+          "critical": true
+        },
+        {
+          "id": "task-13",
+          "text": "值班员完成按铃",
+          "subject": "值班员",
+          "predicate": "completes",
+          "object": "按铃",
+          "source_ids": [
+            "s13"
+          ],
+          "frame_ids": [
+            "f13"
+          ],
+          "critical": true
+        }
+      ],
+      "event_constraints": [
+        {
+          "left": "s1",
+          "right": "s2",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s2",
+          "right": "s3",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s3",
+          "right": "s4",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s4",
+          "right": "s5",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s5",
+          "right": "s6",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s6",
+          "right": "s7",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s7",
+          "right": "s8",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s8",
+          "right": "s9",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s9",
+          "right": "s10",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s10",
+          "right": "s11",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s11",
+          "right": "s12",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        },
+        {
+          "left": "s12",
+          "right": "s13",
+          "relation": "different_event",
+          "reason": "作者设定不同事务目标；数量阈值不得强行合并"
+        }
+      ],
+      "forbidden_claims": [],
+      "notes": "确定性作者设定的场景状态表；没有真实像素或原片，不用于声称真实视频感知准确率。"
+    },
+    {
+      "id": "video-10-no-audio",
+      "kind": "video",
+      "title": "无音轨不生成对白与心理",
+      "tags": [],
+      "provenance": {
+        "kind": "synthetic-transition-fixture",
+        "author": "codex-independent-fixture-author",
+        "generated_by_tested_pipeline": false,
+        "human_review_status": "pending",
+        "source_license": "project-authored-test-fixture",
+        "real_video": false
+      },
+      "source_units": [
+        {
+          "id": "s1",
+          "start_time": 0,
+          "end_time": 2
+        },
+        {
+          "id": "s2",
+          "start_time": 2,
+          "end_time": 4
+        }
+      ],
+      "frames": [
+        {
+          "id": "f1",
+          "source_id": "s1",
+          "timestamp": 0.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "戴帽人",
+            "mouth": "闭合",
+            "audio": "不存在",
+            "camera": "固定"
+          }
+        },
+        {
+          "id": "f2",
+          "source_id": "s2",
+          "timestamp": 2.5,
+          "representation": "authored-scene-state",
+          "state": {
+            "person": "戴帽人",
+            "mouth": "张开",
+            "audio": "不存在",
+            "camera": "固定",
+            "lens_mm": "未测量"
+          }
+        }
+      ],
+      "required_facts": [
+        {
+          "id": "mouth-opens",
+          "text": "戴帽人的嘴从闭合变为张开",
+          "subject": "戴帽人",
+          "predicate": "opens",
+          "object": "mouth",
+          "source_ids": [
+            "s1",
+            "s2"
+          ],
+          "frame_ids": [
+            "f1",
+            "f2"
+          ],
+          "critical": true
+        }
+      ],
+      "event_constraints": [
+        {
+          "left": "s1",
+          "right": "s2",
+          "relation": "same_event",
+          "reason": "同一连续可见状态变化"
+        }
+      ],
+      "forbidden_claims": [
+        {
+          "id": "invented-dialogue",
+          "text": "戴帽人说出具体台词",
+          "subject": "戴帽人",
+          "predicate": "says",
+          "object": "quoted-dialogue",
+          "phrases": [
+            "他说：“快走”",
+            "戴帽人说快走"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        },
+        {
+          "id": "measured-lens",
+          "text": "原片使用85毫米镜头",
+          "subject": "原片",
+          "predicate": "lens-mm",
+          "object": "85",
+          "phrases": [
+            "原片使用85毫米",
+            "实测85mm"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        },
+        {
+          "id": "anger",
+          "text": "戴帽人愤怒地大喊",
+          "subject": "戴帽人",
+          "predicate": "is",
+          "object": "angry",
+          "phrases": [
+            "愤怒地大喊"
+          ],
+          "reason": "合成输入状态没有此事实或反证明确；不得补写"
+        }
+      ],
+      "notes": "确定性作者设定的场景状态表；没有真实像素或原片，不用于声称真实视频感知准确率。"
+    }
+  ]
+}

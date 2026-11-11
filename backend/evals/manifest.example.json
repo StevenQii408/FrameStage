@@ -1,0 +1,40 @@
+{
+  "schema_version": "storyboard-eval.v1",
+  "corpus_id": "real-media-v1",
+  "clips": [
+    {
+      "id": "clip-001",
+      "file": "clip-001.mp4",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "tags": ["人物", "室外", "竖屏", "固定镜头"],
+      "shots": [
+        {
+          "number": 1,
+          "start_time": 0.0,
+          "end_time": 5.0,
+          "transition_in": "start",
+          "labels": {
+            "subject_action": {"observable": true, "value": "人物沿街道向前行走", "keywords": ["行走", "走"]},
+            "shot_size": {"observable": true, "value": "全景"},
+            "lens": {"observable": true, "value": "广角"},
+            "camera_movement": {"observable": true, "value": "固定"},
+            "lighting_vibe": {"observable": true, "value": "柔和自然光"}
+          }
+        },
+        {
+          "number": 2,
+          "start_time": 5.0,
+          "end_time": 9.0,
+          "transition_in": "hard_cut",
+          "labels": {
+            "subject_action": {"observable": true, "value": "人物转身看向画外", "keywords": ["转身"]},
+            "shot_size": {"observable": true, "value": "中景"},
+            "lens": {"observable": true, "value": "标准"},
+            "camera_movement": {"observable": true, "value": "跟拍"},
+            "lighting_vibe": {"observable": true, "value": "室内暖光"}
+          }
+        }
+      ]
+    }
+  ]
+}

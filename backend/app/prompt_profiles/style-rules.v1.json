@@ -1,0 +1,12 @@
+{
+  "schema_version": "style-rules.v1",
+  "version": 1,
+  "sources": [
+    {"path": "Prompts/seedance_video_prompt_skill.md", "sha256": "cfc0d53cde41efe5ba78c6f52817ac2f3076384649a3d4bd7e33130517b49adf"},
+    {"path": "Prompts/short_drama_storyboard_skill.md", "sha256": "e8a5bedd5431e1d9f7197a82eb78b036edbda2a66b3fe2e3acc41182dbd1a502"}
+  ],
+  "observation_guidance": "整体画风必须分别描述：媒介（写实摄影/3D动画/2D手绘/定格/混合或未知）、角色造型与面部表情表现、可见渲染外观和光影、材质、色彩以及可见特效。识别夸张头身比、大眼睛、光滑曲面等具体特征；不能把3D动画说成真实人物摄影。渲染只描述柔和阴影、半透明皮肤外观、轮廓光等可见表现；不得把次表面散射、全局光照、路径追踪或PBR等实现算法当作事实，这些只能写为不确定技术。只写画面支持的特征，不猜作者、IP、渲染软件或电影机型号。光滑动画表面不是必须消除的塑料皮肤。",
+  "creative_focal_lengths_mm": {"超广角": "24", "广角": "35", "标准": "50", "长焦": "85"},
+  "sound_policy": "仅为生成建议，未分析原片音轨；无配乐，无台词、无人物说话、无旁白、无人声。",
+  "delivery_order": ["镜头合同", "首帧意图说明", "首帧图片提示词", "Seedance 中文图生视频提示词", "Seedance 素材与设置建议", "连续性检查"]
+}

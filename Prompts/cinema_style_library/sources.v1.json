@@ -1,0 +1,73 @@
+{
+  "version": "cinema-style-sources.v1",
+  "sources": [
+    {
+      "id": "internal-authored", "name": "VideoPrompt System 原创视觉知识",
+      "url": "", "license": "Project-authored", "policy": "authored-reference",
+      "revision": "cinema-style-library.v1", "license_url": "",
+      "notes": "本库中文定义、特征组合、配方和问答为自行编写，不是外部模板的批量翻译；名称是视觉相似性参考而非作者鉴定。"
+    },
+    {
+      "id": "photographic-krea", "name": "Photographic Styles and Wildcards for Krea-2",
+      "url": "https://github.com/aoleg/photographic-styles-and-wildcards-for-Krea-2",
+      "license": "MIT; Copyright (c) 2026 ghleg", "policy": "authored-reference",
+      "revision": "Reviewed 2026-10-02; upstream SHA unverified; no upstream text imported",
+      "license_url": "https://github.com/aoleg/photographic-styles-and-wildcards-for-Krea-2/blob/main/LICENSE",
+      "notes": "已核实MIT。研究摄影、胶片外观和手机纪实分类后自编中文；作者关于Krea的经验不作为Flash识别准确率依据。只读版本查询因网络失败，未伪造固定commit；未来实质导入前必须固定SHA、保留版权及MIT许可。"
+    },
+    {
+      "id": "cinematic", "name": "Cinematic Camera and Video Prompt Reference",
+      "url": "https://github.com/soul0710/cinematic", "license": "MIT; Copyright (c) 2026 Quốc Nghi Huỳnh",
+      "policy": "authored-reference", "revision": "Reviewed 2026-10-02; upstream SHA unverified; no upstream text imported",
+      "license_url": "https://github.com/soul0710/cinematic/blob/main/LICENSE",
+      "notes": "已核实MIT；该仓库为fork，若未来复制源码或实质文本需追溯上游版权。本次只研究术语分类，摄影与全局画风分开，全部描述自编。"
+    },
+    {
+      "id": "visual-realism", "name": "Awesome AI Visual Realism Prompts",
+      "url": "https://github.com/keng1304/awesome-ai-visual-realism-prompts",
+      "license": "MIT; Copyright (c) 2026 keng_1304 / tzukao.com", "policy": "authored-reference",
+      "revision": "Reviewed 2026-10-02; upstream SHA unverified; no upstream text imported",
+      "license_url": "https://github.com/keng1304/awesome-ai-visual-realism-prompts/blob/main/LICENSE",
+      "notes": "已核实MIT；参考描述结构而非认可全部技术论述，不把SSS、PBR或摄影设备推断成可见事实。未来改编实质文本需保留MIT版权及许可。"
+    },
+    {
+      "id": "wikidata", "name": "Wikidata structured classifications",
+      "url": "https://www.wikidata.org/wiki/Wikidata:Licensing", "license": "CC0 structured data only",
+      "policy": "open-data", "revision": "Licensing policy reviewed 2026-10-02",
+      "license_url": "https://www.wikidata.org/wiki/Wikidata:Licensing",
+      "notes": "仅结构数据名称空间的分类、名称、别名可按CC0使用；其他网页文本、图片和第三方链接不在这一授权范围。本次没有批量导入百科正文或图像。"
+    },
+    {
+      "id": "met-open-access", "name": "The Met Open Access",
+      "url": "https://www.metmuseum.org/hubs/open-access", "license": "CC0 selected public-domain artwork images and collection data",
+      "policy": "open-data", "revision": "Open Access policy reviewed 2026-10-02",
+      "license_url": "https://www.metmuseum.org/hubs/open-access",
+      "notes": "未来视觉样本只能选明确OA标识的作品并保存逐图授权，不认为整个网站正文都属于CC0；本次未下载或打包图像。"
+    },
+    {
+      "id": "mj-reference", "name": "MidJourney Styles and Keywords Reference",
+      "url": "https://github.com/willwulfken/MidJourney-Styles-and-Keywords-Reference",
+      "license": "Not verified", "policy": "research-only", "revision": "Repository classification reviewed 2026-10-02",
+      "license_url": "", "notes": "只研究分类，不复制原文、图片或平台触发词；许可不明的内容不得进入可重分发数据包。"
+    },
+    {
+      "id": "fooocus", "name": "Fooocus style presets",
+      "url": "https://github.com/lllyasviel/Fooocus", "license": "GPL-3.0", "policy": "research-only",
+      "revision": "License reviewed 2026-10-02", "license_url": "https://github.com/lllyasviel/Fooocus/blob/main/LICENSE",
+      "notes": "只参考分类，不复制或翻译预设；不能用一条NOTICE替代GPL义务。平台质量咒语与无依据的胶片型号不进入观察事实。"
+    },
+    {
+      "id": "asc", "name": "American Society of Cinematographers: L.A. Confidential",
+      "url": "https://theasc.com/article/wrap-shot-l-a-confidential/", "license": "Copyrighted editorial; no import permission verified",
+      "policy": "research-only", "revision": "Article dated 2018-05-03; reviewed 2026-10-02", "license_url": "",
+      "notes": "专业摄影一手参考，研究后原创解释并提供链接；不复制采访段落或电影截图，不把单片摄影方案定义为整个流派的唯一标准。"
+    },
+    {
+      "id": "kodak", "name": "Kodak VISION3 50D official characteristics",
+      "url": "https://www.kodak.com/en/motion/product/camera-films/50d-5203-7203/features/",
+      "license": "Copyrighted official reference; no import permission verified", "policy": "research-only",
+      "revision": "Product reference reviewed 2026-10-02", "license_url": "",
+      "notes": "用于校对颗粒、亮部层次与胶片知识的概念；不复制产品长文，不凭视频帧确定真实胶片型号。"
+    }
+  ]
+}

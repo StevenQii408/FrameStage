@@ -1,0 +1,30 @@
+backend/.venv/
+backend/.venv312/
+backend/data/
+backend/data-*/
+backend/*.egg-info/
+backend/eval-results/
+backend/evals/results/
+release-artifacts/
+# Local troubleshooting history and unverified demo media are not source assets.
+docs/history/
+系统展示/
+# Historical cloud transcripts stay on the original machine. Use synthetic Python fixtures.
+backend/tests/fixtures/*.json
+backend/build/
+backend/dist/
+# Private credentials: only .env.example may be committed.
+.env
+.env.*
+!.env.example
+eval-media/
+models/
+front/node_modules/
+front/dist/
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# This third-party prompt library remains an independently managed repository.
+Prompts/ai-shortfilm-prompts/

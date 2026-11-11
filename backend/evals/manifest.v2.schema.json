@@ -1,0 +1,369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.frameforge.dev/schemas/storyboard-eval.v2.json",
+  "title": "Source-PTS and event-first human evaluation manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "corpus_id",
+    "clips"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "storyboard-eval.v2"
+    },
+    "corpus_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "clips": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/clip"
+      }
+    }
+  },
+  "$defs": {
+    "baseLabel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observable",
+        "value"
+      ],
+      "properties": {
+        "observable": {
+          "type": "boolean"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "shotSizeLabel": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseLabel"
+        },
+        {
+          "properties": {
+            "value": {
+              "enum": [
+                "大远景",
+                "远景",
+                "大全景",
+                "全景",
+                "中景",
+                "中近景",
+                "近景",
+                "特写",
+                "大特写",
+                "未知"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "lensLabel": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseLabel"
+        },
+        {
+          "properties": {
+            "value": {
+              "enum": [
+                "超广角",
+                "广角",
+                "标准",
+                "长焦",
+                "未知"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "movementLabel": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseLabel"
+        },
+        {
+          "properties": {
+            "value": {
+              "enum": [
+                "固定",
+                "摇镜",
+                "俯仰",
+                "推近",
+                "拉远",
+                "跟拍",
+                "手持",
+                "升降",
+                "环绕",
+                "变焦",
+                "航拍",
+                "复合运动",
+                "未知"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "qualityLabels": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "objects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "scene": {
+          "type": "string"
+        },
+        "artistic_effects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "description",
+              "evidence_frames"
+            ],
+            "properties": {
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_frames": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "montageLabel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "left_shot",
+        "right_shot",
+        "relation_type",
+        "scene_change",
+        "evidence"
+      ],
+      "properties": {
+        "left_shot": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "right_shot": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "relation_type": {
+          "enum": [
+            "连续动作",
+            "反应镜头",
+            "视觉呼应",
+            "时间省略",
+            "场景转换",
+            "未知"
+          ]
+        },
+        "scene_change": {
+          "type": "boolean"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "shot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "number",
+        "start_time",
+        "end_time",
+        "transition_in",
+        "labels"
+      ],
+      "properties": {
+        "number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "start_time": {
+          "type": "number",
+          "minimum": 0
+        },
+        "end_time": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "transition_in": {
+          "enum": [
+            "start",
+            "hard_cut",
+            "dissolve",
+            "other"
+          ]
+        },
+        "quality_labels": {
+          "$ref": "#/$defs/qualityLabels"
+        },
+        "perception_labels": {
+          "$ref": "perception-gold.schema.json"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "subject_action",
+            "shot_size",
+            "lens",
+            "camera_movement",
+            "lighting_vibe"
+          ],
+          "properties": {
+            "subject_action": {
+              "$ref": "#/$defs/baseLabel"
+            },
+            "shot_size": {
+              "$ref": "#/$defs/shotSizeLabel"
+            },
+            "lens": {
+              "$ref": "#/$defs/lensLabel"
+            },
+            "camera_movement": {
+              "$ref": "#/$defs/movementLabel"
+            },
+            "lighting_vibe": {
+              "$ref": "#/$defs/baseLabel"
+            }
+          }
+        }
+      }
+    },
+    "generationShot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_time",
+        "end_time",
+        "scene_id",
+        "role"
+      ],
+      "properties": {
+        "start_time": {
+          "type": "number",
+          "minimum": 0
+        },
+        "end_time": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "scene_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "regular",
+            "salient_insert"
+          ]
+        }
+      }
+    },
+    "clip": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "file",
+        "sha256",
+        "shots"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^clip-[a-z0-9-]+$"
+        },
+        "file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "shots": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/shot"
+          }
+        },
+        "generation_shots": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/generationShot"
+          }
+        },
+        "montage_labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/montageLabel"
+          }
+        },
+        "event_groups": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

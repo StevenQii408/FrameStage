@@ -1,0 +1,4359 @@
+{
+  "version": "cinema-style-library.v1",
+  "terms": [
+    {
+      "id": "photo.photographic-continuity",
+      "label": "连续摄影成像",
+      "dimension": "medium_rendering",
+      "definition": "轮廓、遮挡、反射与明暗过渡遵循同一摄影成像逻辑，允许局部修饰但不出现独立绘画分色。",
+      "aliases": [
+        "摄影连续性"
+      ],
+      "positive_cues": [
+        [
+          "连续灰阶",
+          "连续明暗"
+        ],
+        [
+          "真实遮挡",
+          "摄影遮挡"
+        ]
+      ],
+      "negative_cues": [
+        "硬边分色替代体积",
+        "绘画轮廓覆盖所有边缘"
+      ],
+      "generation_phrase": "以连续摄影成像统一体积与光线",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.film-response",
+      "label": "胶片式响应曲线",
+      "dimension": "medium_rendering",
+      "definition": "中间调保有密集层次，亮部逐渐压缩并与颗粒相容，描述可见响应而不鉴定胶片品牌。",
+      "aliases": [
+        "胶片响应"
+      ],
+      "positive_cues": [
+        [
+          "中间调层次",
+          "中调密度"
+        ],
+        [
+          "高光肩部",
+          "亮部渐压"
+        ]
+      ],
+      "negative_cues": [
+        "高光突兀截断",
+        "全域均匀数字锐化"
+      ],
+      "generation_phrase": "中调密集并采用柔和亮部肩部",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.clean-digital",
+      "label": "洁净数字成像",
+      "dimension": "medium_rendering",
+      "definition": "暗部和亮部边界清楚、细节响应稳定且不带可辨随机颗粒，仍保留真实曝光和空间层次。",
+      "aliases": [
+        "洁净数字"
+      ],
+      "positive_cues": [
+        [
+          "洁净暗部",
+          "低噪暗部"
+        ],
+        [
+          "细节稳定",
+          "边界清楚"
+        ]
+      ],
+      "negative_cues": [
+        "明显乳剂颗粒",
+        "扫描划痕主导"
+      ],
+      "generation_phrase": "洁净数字细节与稳定灰阶过渡",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.documentary-integration",
+      "label": "实景光整合成像",
+      "dimension": "medium_rendering",
+      "definition": "照明变化与可见自然或实景光条件相互解释，局部曝光允许不均，不把纪实题材作为证据。",
+      "aliases": [
+        "实景整合"
+      ],
+      "positive_cues": [
+        [
+          "实景光逻辑",
+          "环境光依据"
+        ],
+        [
+          "局部曝光差",
+          "自然曝光差"
+        ]
+      ],
+      "negative_cues": [
+        "每个平面独立补光",
+        "无依据的彩色轮廓光"
+      ],
+      "generation_phrase": "整合实景光并保留局部曝光差",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.commercial-control",
+      "label": "商业受控成像",
+      "dimension": "medium_rendering",
+      "definition": "明暗与反射被系统整理为可读的层级，边缘质量和局部色彩稳定，区别于仅提升整体亮度。",
+      "aliases": [
+        "商业成像"
+      ],
+      "positive_cues": [
+        [
+          "受控反射",
+          "整理高光"
+        ],
+        [
+          "稳定色彩",
+          "洁净色域"
+        ]
+      ],
+      "negative_cues": [
+        "随机混色污染",
+        "关键亮面大幅过曝"
+      ],
+      "generation_phrase": "受控高光与稳定色域统一成像",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.monochrome-photographic",
+      "label": "摄影式黑白转换",
+      "dimension": "medium_rendering",
+      "definition": "以不同灰阶区分原本不同颜色的表面，并保持连续体积与曝光关系，而非简单取消色彩。",
+      "aliases": [
+        "摄影黑白"
+      ],
+      "positive_cues": [
+        [
+          "黑白灰阶",
+          "无彩灰阶"
+        ],
+        [
+          "连续体积",
+          "摄影体积"
+        ]
+      ],
+      "negative_cues": [
+        "纯黑白二值化",
+        "灰阶完全扁平"
+      ],
+      "generation_phrase": "采用连续灰阶且保留表面分离",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.archive-transfer",
+      "label": "档案转录质感",
+      "dimension": "medium_rendering",
+      "definition": "柔化的摄影细节、轻微密度漂移与可见扫描痕迹共同构成转录外观，单个噪点不能证明年代。",
+      "aliases": [
+        "档案转录"
+      ],
+      "positive_cues": [
+        [
+          "扫描纹理",
+          "转录痕迹"
+        ],
+        [
+          "细节柔化",
+          "解析柔化"
+        ]
+      ],
+      "negative_cues": [
+        "洁净锐利数字边缘",
+        "均匀装饰噪点覆盖"
+      ],
+      "generation_phrase": "轻度解析柔化并保留转录密度起伏",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.vfx-integration",
+      "label": "实拍与特效光学整合",
+      "dimension": "medium_rendering",
+      "definition": "新增区域与摄影部分在曝光、粒度、焦点和光影方向上连续，描述整合质量而不从静帧断言制作方式。",
+      "aliases": [
+        "VFX整合"
+      ],
+      "positive_cues": [
+        [
+          "曝光连续",
+          "亮度衔接"
+        ],
+        [
+          "粒度一致",
+          "噪声匹配"
+        ]
+      ],
+      "negative_cues": [
+        "合成边缘发亮",
+        "新增区域独立锐度"
+      ],
+      "generation_phrase": "统一合成区域的曝光粒度与光学响应",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.available-light-response",
+      "label": "可用光曝光响应",
+      "dimension": "medium_rendering",
+      "definition": "让现有光源主导明暗，允许亮部溢出或局部暗部缺失，同时维持主体积和空间关系可信。",
+      "aliases": [
+        "可用光响应"
+      ],
+      "positive_cues": [
+        [
+          "可用光",
+          "现成光"
+        ],
+        [
+          "曝光不均",
+          "局部溢出"
+        ]
+      ],
+      "negative_cues": [
+        "全域影棚式补光",
+        "无光源依据的等亮面"
+      ],
+      "generation_phrase": "由现有光源主导并接受有限曝光差",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.computational-detail",
+      "label": "计算摄影细节响应",
+      "dimension": "medium_rendering",
+      "definition": "不同明度区域被局部整理为较高可读性，深景深与边缘增强共同出现时可描述手机式成像语言。",
+      "aliases": [
+        "计算摄影响应"
+      ],
+      "positive_cues": [
+        [
+          "局部提亮",
+          "暗部抬升"
+        ],
+        [
+          "边缘增强",
+          "细节增强"
+        ]
+      ],
+      "negative_cues": [
+        "浅焦光学层次主导",
+        "未经整理的强烈曝光断层"
+      ],
+      "generation_phrase": "轻度局部提亮与宽景深细节呈现",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.silver-density",
+      "label": "银盐式密度组织",
+      "dimension": "medium_rendering",
+      "definition": "灰阶中的暗部呈厚实密度，亮部仍有渐变并与细颗粒共存，不等同于任意黑白滤镜。",
+      "aliases": [
+        "银盐密度"
+      ],
+      "positive_cues": [
+        [
+          "厚实暗部",
+          "密集黑阶"
+        ],
+        [
+          "亮部渐变",
+          "柔和白阶"
+        ]
+      ],
+      "negative_cues": [
+        "黑白阈值二值化",
+        "纯净平滑矢量面"
+      ],
+      "generation_phrase": "厚实黑阶配柔和白阶与细颗粒",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.optical-softness",
+      "label": "光学柔化成像",
+      "dimension": "medium_rendering",
+      "definition": "亮暗边缘缓慢过渡且高光略向邻域扩散，细节仍依赖真实焦点，区别于失焦或统一模糊。",
+      "aliases": [
+        "光学柔化"
+      ],
+      "positive_cues": [
+        [
+          "边缘柔化",
+          "低微反差"
+        ],
+        [
+          "高光扩散",
+          "亮部柔散"
+        ]
+      ],
+      "negative_cues": [
+        "整幅均匀失焦",
+        "锐化白边遍布"
+      ],
+      "generation_phrase": "降低微反差并保留可读焦点",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.neutral-color",
+      "label": "中性色彩校准",
+      "dimension": "color_tone",
+      "definition": "白与中灰接近中性，饱和色有分离而不被单一滤色覆盖，明暗两端维持一致的色彩基准。",
+      "aliases": [
+        "中性校色"
+      ],
+      "positive_cues": [
+        [
+          "中性白",
+          "中性灰"
+        ],
+        [
+          "色彩分离",
+          "色相分明"
+        ]
+      ],
+      "negative_cues": [
+        "整体明显偏绿",
+        "统一橙色覆盖"
+      ],
+      "generation_phrase": "中性白点与清晰而克制的色彩分离",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.cool-gray",
+      "label": "低彩青灰",
+      "dimension": "color_tone",
+      "definition": "整体彩度压低，青灰进入中暗部而高光保持克制，冷色关系应覆盖多个亮度区间。",
+      "aliases": [
+        "冷调青灰"
+      ],
+      "positive_cues": [
+        [
+          "青灰",
+          "蓝灰"
+        ],
+        [
+          "低饱和",
+          "低彩度"
+        ]
+      ],
+      "negative_cues": [
+        "大面积橙红高饱和",
+        "仅单个蓝色物体"
+      ],
+      "generation_phrase": "以低彩青灰组织中调和阴影",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.amber-warm",
+      "label": "琥珀暖调",
+      "dimension": "color_tone",
+      "definition": "琥珀色贯穿受光区域与中间调，暗部不被同等染黄，使暖色具有曝光层次而非整幅黄罩。",
+      "aliases": [
+        "琥珀暖色"
+      ],
+      "positive_cues": [
+        [
+          "琥珀",
+          "暖橙"
+        ],
+        [
+          "受光面",
+          "中间调"
+        ]
+      ],
+      "negative_cues": [
+        "所有灰阶同样染黄",
+        "蓝青受光主导"
+      ],
+      "generation_phrase": "琥珀暖中调配克制的深色暗部",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.cyan-shadow-amber",
+      "label": "青影琥珀高光",
+      "dimension": "color_tone",
+      "definition": "冷青集中在阴影而琥珀集中在亮部，两端之间保有中性过渡，不靠一冷一暖物体凑成关系。",
+      "aliases": [
+        "青橙分离"
+      ],
+      "positive_cues": [
+        [
+          "冷青",
+          "青蓝"
+        ],
+        [
+          "阴影",
+          "暗部"
+        ],
+        [
+          "琥珀",
+          "暖橙"
+        ],
+        [
+          "高光",
+          "受光部"
+        ]
+      ],
+      "negative_cues": [
+        "冷暖颜色仅来自物体本色",
+        "全幅单一蓝色覆盖"
+      ],
+      "generation_phrase": "冷青阴影与琥珀亮部保持分区",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.cyan-magenta",
+      "label": "青蓝品红混色",
+      "dimension": "color_tone",
+      "definition": "青蓝与品红分别由有方向的光区占据画面，交界存在可见混合，区别于随机彩色装饰。",
+      "aliases": [
+        "青品混光"
+      ],
+      "positive_cues": [
+        [
+          "青蓝",
+          "冷青"
+        ],
+        [
+          "品红",
+          "洋红"
+        ]
+      ],
+      "negative_cues": [
+        "单个霓虹文字",
+        "全域均匀紫色"
+      ],
+      "generation_phrase": "青蓝与品红光区形成可读混色边界",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.sodium-green",
+      "label": "钠黄绿混色",
+      "dimension": "color_tone",
+      "definition": "黄橙与偏绿的不同光源色在亮面和阴影中留下可见色差，不以一个绿色物体作为识别依据。",
+      "aliases": [
+        "黄绿混光"
+      ],
+      "positive_cues": [
+        [
+          "钠黄",
+          "黄橙"
+        ],
+        [
+          "偏绿",
+          "黄绿"
+        ]
+      ],
+      "negative_cues": [
+        "所有区域统一暖白",
+        "单个绿色表面"
+      ],
+      "generation_phrase": "保留黄橙与偏绿实景光的区域色差",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.muted-earth",
+      "label": "低彩土色",
+      "dimension": "color_tone",
+      "definition": "赭、棕与灰绿构成稳定低彩色域，高光保有自然中性，不以土地或旧物题材代替色彩证据。",
+      "aliases": [
+        "土色低彩"
+      ],
+      "positive_cues": [
+        [
+          "赭棕",
+          "土色"
+        ],
+        [
+          "灰绿",
+          "橄榄灰"
+        ]
+      ],
+      "negative_cues": [
+        "青品高饱和混光",
+        "仅有棕色物体"
+      ],
+      "generation_phrase": "压低彩度并组织赭棕灰绿色域",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.silver-monochrome",
+      "label": "冷银黑白",
+      "dimension": "color_tone",
+      "definition": "灰阶连续且中高光略带冷银倾向，深黑仍有局部分离，区别于蓝色染色的全幅单色。",
+      "aliases": [
+        "银灰黑白"
+      ],
+      "positive_cues": [
+        [
+          "冷银",
+          "冷灰"
+        ],
+        [
+          "连续灰阶",
+          "黑白层次"
+        ]
+      ],
+      "negative_cues": [
+        "全域蓝色单色化",
+        "纯黑白硬切"
+      ],
+      "generation_phrase": "冷银白阶与有层次的深黑相连",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.dense-neutral",
+      "label": "中性密黑",
+      "dimension": "color_tone",
+      "definition": "阴影保持中性并向深黑收拢，中调对比明显，高光不过度染色，强调密度而非低曝光错误。",
+      "aliases": [
+        "中性深黑"
+      ],
+      "positive_cues": [
+        [
+          "中性暗部",
+          "无彩黑阶"
+        ],
+        [
+          "深黑",
+          "密黑"
+        ]
+      ],
+      "negative_cues": [
+        "泛白阴影",
+        "全域发绿黑阶"
+      ],
+      "generation_phrase": "中性密黑与清楚的中调分离",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.lifted-neutral-black",
+      "label": "中性抬黑",
+      "dimension": "color_tone",
+      "definition": "最低灰阶略高于纯黑而中调仍清楚，暗部保持中性，使灰雾感来自曲线而非真实雾气。",
+      "aliases": [
+        "中性抬黑"
+      ],
+      "positive_cues": [
+        [
+          "抬黑",
+          "黑位上移"
+        ],
+        [
+          "中性阴影",
+          "无彩暗部"
+        ]
+      ],
+      "negative_cues": [
+        "阴影被压成纯黑",
+        "实际浓雾遮挡主导"
+      ],
+      "generation_phrase": "适度上移黑位且保留中调反差",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.pastel-low-chroma",
+      "label": "浅粉彩低饱和",
+      "dimension": "color_tone",
+      "definition": "高明度的浅彩色互相分离，阴影彩度受到压制且对比温和，区别于只提高曝光的灰白图像。",
+      "aliases": [
+        "粉彩低彩"
+      ],
+      "positive_cues": [
+        [
+          "浅粉彩",
+          "淡彩"
+        ],
+        [
+          "高明度",
+          "明亮中调"
+        ]
+      ],
+      "negative_cues": [
+        "强烈纯色深暗",
+        "全幅无彩曝光溢出"
+      ],
+      "generation_phrase": "浅彩高明度配柔和低彩阴影",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.dense-primary",
+      "label": "厚实原色",
+      "dimension": "color_tone",
+      "definition": "红黄蓝等色块维持清楚色相和较高密度，明暗塑形仍连续，不能只凭一件高饱和物品命名。",
+      "aliases": [
+        "密度原色"
+      ],
+      "positive_cues": [
+        [
+          "原色分离",
+          "红黄蓝分离"
+        ],
+        [
+          "高彩密度",
+          "厚实饱和"
+        ]
+      ],
+      "negative_cues": [
+        "全幅柔淡粉彩",
+        "单个亮色物体"
+      ],
+      "generation_phrase": "厚实原色分离并保留摄影塑形",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.bleach-bypass",
+      "label": "银灰脱色高密度",
+      "dimension": "color_tone",
+      "definition": "彩色被压向银灰但暗部密度和局部反差增强，少量颜色仍存，区别于完全黑白转换。",
+      "aliases": [
+        "漂白旁路外观"
+      ],
+      "positive_cues": [
+        [
+          "银灰",
+          "灰银"
+        ],
+        [
+          "局部反差",
+          "强中调反差"
+        ]
+      ],
+      "negative_cues": [
+        "完全无彩灰阶",
+        "柔和高调粉彩"
+      ],
+      "generation_phrase": "压低彩度并增加银灰中调密度",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.warm-faded",
+      "label": "暖色褪染",
+      "dimension": "color_tone",
+      "definition": "暖色中调、较浅黑位和下降的彩度共同形成褪染外观，仍应保留受光面与阴影的区分。",
+      "aliases": [
+        "暖褪色"
+      ],
+      "positive_cues": [
+        [
+          "暖中调",
+          "暖褐"
+        ],
+        [
+          "抬黑",
+          "浅黑位"
+        ]
+      ],
+      "negative_cues": [
+        "深黑高饱和数码色",
+        "单一黄色滤色"
+      ],
+      "generation_phrase": "暖褐中调配轻度抬黑与褪彩",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.faded-blue",
+      "label": "蓝灰褪色",
+      "dimension": "color_tone",
+      "definition": "蓝灰阴影搭配浅黑位和低彩高光，色彩弱化但并未完全失去空间层次。",
+      "aliases": [
+        "蓝灰褪染"
+      ],
+      "positive_cues": [
+        [
+          "蓝灰",
+          "褪蓝"
+        ],
+        [
+          "浅黑位",
+          "抬黑"
+        ]
+      ],
+      "negative_cues": [
+        "深黑青品高饱和",
+        "均匀浓蓝覆盖"
+      ],
+      "generation_phrase": "蓝灰褪色与浅黑位保持层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.muted-warm",
+      "label": "克制暖中调",
+      "dimension": "color_tone",
+      "definition": "暖色主要进入中调，彩度较低且白点近中性，使亲近感来自色温关系而非橙色整体罩染。",
+      "aliases": [
+        "低彩暖调"
+      ],
+      "positive_cues": [
+        [
+          "暖中调",
+          "暖灰"
+        ],
+        [
+          "低彩度",
+          "克制饱和"
+        ]
+      ],
+      "negative_cues": [
+        "统一橙色覆盖",
+        "高饱和黄橙高光"
+      ],
+      "generation_phrase": "克制暖中调与近中性白点",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.deep-blue-night",
+      "label": "深蓝夜色分层",
+      "dimension": "color_tone",
+      "definition": "深蓝支配暗部而少量亮部保持另一色温或中性，黑位有分层，不以夜晚叙事作为依据。",
+      "aliases": [
+        "层次夜蓝"
+      ],
+      "positive_cues": [
+        [
+          "深蓝暗部",
+          "夜蓝阴影"
+        ],
+        [
+          "异温亮部",
+          "中性亮部"
+        ]
+      ],
+      "negative_cues": [
+        "仅题材为夜晚",
+        "全幅同亮度浓蓝"
+      ],
+      "generation_phrase": "深蓝暗部配稀疏异温亮部",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.red-black",
+      "label": "深红密黑",
+      "dimension": "color_tone",
+      "definition": "深红受光区与中性密黑形成较强色亮分离，红色来自光照或全局调色而非单件物体。",
+      "aliases": [
+        "红黑色域"
+      ],
+      "positive_cues": [
+        [
+          "深红光区",
+          "红色受光"
+        ],
+        [
+          "密黑",
+          "中性深黑"
+        ]
+      ],
+      "negative_cues": [
+        "单个红色物体",
+        "平均分布高调粉彩"
+      ],
+      "generation_phrase": "深红受光区域与中性密黑分离",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.emerald-amber",
+      "label": "翠绿琥珀分色",
+      "dimension": "color_tone",
+      "definition": "翠绿中暗部和琥珀受光区分别有连续灰阶，色相对照在空间内可读，不要求特定题材。",
+      "aliases": [
+        "绿金分离"
+      ],
+      "positive_cues": [
+        [
+          "翠绿",
+          "深绿"
+        ],
+        [
+          "琥珀",
+          "暖金"
+        ]
+      ],
+      "negative_cues": [
+        "单一绿色物体",
+        "全幅黄色染色"
+      ],
+      "generation_phrase": "翠绿中暗部与琥珀亮区分色",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.purple-gold",
+      "label": "紫灰金色分离",
+      "dimension": "color_tone",
+      "definition": "紫灰阴影与偏金亮部构成低到中彩度对照，亮部和暗部应有明确照明关系。",
+      "aliases": [
+        "紫金影调"
+      ],
+      "positive_cues": [
+        [
+          "紫灰",
+          "灰紫"
+        ],
+        [
+          "金色亮部",
+          "暖金受光"
+        ]
+      ],
+      "negative_cues": [
+        "独立紫金图案",
+        "全幅高饱和紫色"
+      ],
+      "generation_phrase": "紫灰阴影与暖金亮部柔和相接",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.green-gray",
+      "label": "灰绿低彩",
+      "dimension": "color_tone",
+      "definition": "绿色偏移主要留在中暗部，白色与亮部仍有校正感，低彩度让视觉显得收敛而不浑浊。",
+      "aliases": [
+        "绿灰低彩"
+      ],
+      "positive_cues": [
+        [
+          "灰绿",
+          "绿灰"
+        ],
+        [
+          "中暗部",
+          "阴影"
+        ]
+      ],
+      "negative_cues": [
+        "所有亮部偏荧光绿",
+        "仅有绿色物体"
+      ],
+      "generation_phrase": "灰绿中暗部配克制中性亮部",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.cream-white",
+      "label": "奶油暖白",
+      "dimension": "color_tone",
+      "definition": "近白区域呈细微暖奶油色，中灰接近中性且亮部层次完整，避免把曝光溢出当成奶油感。",
+      "aliases": [
+        "奶油白调"
+      ],
+      "positive_cues": [
+        [
+          "奶油白",
+          "暖白"
+        ],
+        [
+          "中性中灰",
+          "平衡灰阶"
+        ]
+      ],
+      "negative_cues": [
+        "白区全数截断",
+        "浓黄色覆盖"
+      ],
+      "generation_phrase": "温和奶油白与中性中灰衔接",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.cool-clean",
+      "label": "冷净白色域",
+      "dimension": "color_tone",
+      "definition": "白点轻度偏冷，浅灰和中灰清楚分离，饱和色克制而不发青，适合定义洁净数字冷调。",
+      "aliases": [
+        "冷净色域"
+      ],
+      "positive_cues": [
+        [
+          "冷白",
+          "微冷白点"
+        ],
+        [
+          "浅灰分离",
+          "中灰层次"
+        ]
+      ],
+      "negative_cues": [
+        "青色全面覆盖",
+        "暖黄白点主导"
+      ],
+      "generation_phrase": "冷白色域保持浅灰与中灰分离",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.warm-clean",
+      "label": "暖净色域",
+      "dimension": "color_tone",
+      "definition": "暖白点与中性暗部相配，饱和度不过强且表面颜色稳定，区别于褪色颗粒的复古暖调。",
+      "aliases": [
+        "暖净校色"
+      ],
+      "positive_cues": [
+        [
+          "暖白点",
+          "温暖白色"
+        ],
+        [
+          "中性暗部",
+          "平衡黑阶"
+        ]
+      ],
+      "negative_cues": [
+        "彩度褪失与扫描污点",
+        "浓橙全幅罩染"
+      ],
+      "generation_phrase": "暖净白点配稳定彩度与中性暗部",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.cool-shadow-neutral",
+      "label": "冷影中性亮部",
+      "dimension": "color_tone",
+      "definition": "阴影轻度偏冷而受光区域白点近中性，冷暖差以亮度区间分布，保有真实光照因果。",
+      "aliases": [
+        "冷影中性光"
+      ],
+      "positive_cues": [
+        [
+          "冷影",
+          "蓝灰阴影"
+        ],
+        [
+          "中性亮部",
+          "受光中性"
+        ]
+      ],
+      "negative_cues": [
+        "单个蓝色物体",
+        "全幅冷白均匀偏色"
+      ],
+      "generation_phrase": "轻冷阴影与中性受光区分层",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.blue-brown",
+      "label": "蓝褐低彩对照",
+      "dimension": "color_tone",
+      "definition": "低彩蓝灰与低彩褐色形成两个主要色域，亮暗组织仍连续，区别于常见的高饱和青橙调色。",
+      "aliases": [
+        "蓝褐影调"
+      ],
+      "positive_cues": [
+        [
+          "蓝灰",
+          "灰蓝"
+        ],
+        [
+          "褐色",
+          "灰褐"
+        ]
+      ],
+      "negative_cues": [
+        "高饱和青橙两色",
+        "蓝棕物品却无全局关系"
+      ],
+      "generation_phrase": "低彩蓝灰与灰褐维持色域对照",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.warm-shadow-cool-light",
+      "label": "暖影冷光",
+      "dimension": "color_tone",
+      "definition": "暖褐进入阴影而高光偏冷白，两端相反的色温分布清楚且中间调自然，不能凭局部白平衡误差成立。",
+      "aliases": [
+        "暖影冷亮"
+      ],
+      "positive_cues": [
+        [
+          "暖褐阴影",
+          "暖暗部"
+        ],
+        [
+          "冷白高光",
+          "冷色亮部"
+        ]
+      ],
+      "negative_cues": [
+        "典型冷影暖光",
+        "无亮度关系的局部杂色"
+      ],
+      "generation_phrase": "暖褐阴影与冷白亮部连续相接",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.copper-gray",
+      "label": "铜灰低彩",
+      "dimension": "color_tone",
+      "definition": "铜色留在受光中调，阴影和最亮处转向灰阶，使暖金属感来自调色关系而不依赖物体材质。",
+      "aliases": [
+        "铜灰影调"
+      ],
+      "positive_cues": [
+        [
+          "铜色中调",
+          "红褐受光"
+        ],
+        [
+          "灰色暗部",
+          "无彩阴影"
+        ]
+      ],
+      "negative_cues": [
+        "铜制物体本色主导",
+        "全幅鲜橙高彩"
+      ],
+      "generation_phrase": "铜色中调融入低彩灰阶两端",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.dense-sepia",
+      "label": "厚重棕褐单色",
+      "dimension": "color_tone",
+      "definition": "棕褐贯穿多个亮度区间并带明显黑阶密度，保留局部层次，区别于淡黄色或奶油白处理。",
+      "aliases": [
+        "深褐单色"
+      ],
+      "positive_cues": [
+        [
+          "棕褐单色",
+          "深褐染色"
+        ],
+        [
+          "厚重黑阶",
+          "深色密度"
+        ]
+      ],
+      "negative_cues": [
+        "浅白奶油高调",
+        "仅物体本色为棕褐"
+      ],
+      "generation_phrase": "厚重棕褐单色保留黑阶层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.cross-color",
+      "label": "交叉色偏外观",
+      "dimension": "color_tone",
+      "definition": "高光与暗部呈非自然相反色偏，中调彩度和反差同时提高，描述效果而不宣称化学冲洗工艺。",
+      "aliases": [
+        "交叉冲洗外观"
+      ],
+      "positive_cues": [
+        [
+          "异色高光",
+          "偏色亮部"
+        ],
+        [
+          "反向暗色",
+          "异色阴影"
+        ]
+      ],
+      "negative_cues": [
+        "正常中性白点",
+        "仅一处彩光照明"
+      ],
+      "generation_phrase": "异色两端与增强中调构成交叉色偏",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.tungsten-daylight",
+      "label": "钨光日光色温并置",
+      "dimension": "color_tone",
+      "definition": "暖橙与冷白光区同时存在并可追溯到不同光源方向，保留未完全统一的区域白平衡。",
+      "aliases": [
+        "冷暖实景光"
+      ],
+      "positive_cues": [
+        [
+          "暖橙光区",
+          "钨暖色"
+        ],
+        [
+          "冷白光区",
+          "日光冷色"
+        ]
+      ],
+      "negative_cues": [
+        "全画面单一白平衡",
+        "仅两色物体并置"
+      ],
+      "generation_phrase": "保留暖橙与冷白光区的色温差",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.restrained-saturation",
+      "label": "克制色相保真",
+      "dimension": "color_tone",
+      "definition": "各主要色相保持识别度但整体彩度降低，亮暗两端不过分偏色，区别于完全去色的银灰效果。",
+      "aliases": [
+        "色相保真低彩"
+      ],
+      "positive_cues": [
+        [
+          "色相保留",
+          "本色可辨"
+        ],
+        [
+          "降低饱和",
+          "克制彩度"
+        ]
+      ],
+      "negative_cues": [
+        "全画面完全无彩",
+        "大面积纯色发光"
+      ],
+      "generation_phrase": "克制饱和并保持主要色相可辨",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.low-key",
+      "label": "低调明暗占比",
+      "dimension": "lighting_shading",
+      "definition": "中暗部占据多数面积，少量受光区域承担视觉分离，低调不等于全图欠曝或物体颜色较黑。",
+      "aliases": [
+        "低调照明"
+      ],
+      "positive_cues": [
+        [
+          "中暗部占优",
+          "大面积阴影"
+        ],
+        [
+          "少量受光",
+          "局部亮区"
+        ]
+      ],
+      "negative_cues": [
+        "均匀明亮高调",
+        "整体欠曝无可读体积"
+      ],
+      "generation_phrase": "暗部占优并以少量亮区建立分离",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.hard-directional",
+      "label": "有方向硬光",
+      "dimension": "lighting_shading",
+      "definition": "光线在多个可见平面形成一致方向的明暗断界，阴影边缘较硬，区别于后期提高整体反差。",
+      "aliases": [
+        "硬方向光"
+      ],
+      "positive_cues": [
+        [
+          "硬影边",
+          "锐利阴影"
+        ],
+        [
+          "一致光向",
+          "方向光"
+        ]
+      ],
+      "negative_cues": [
+        "全向漫射柔影",
+        "仅调色造成对比增强"
+      ],
+      "generation_phrase": "有方向硬光塑造清楚明暗断界",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.soft-directional",
+      "label": "有方向柔光",
+      "dimension": "lighting_shading",
+      "definition": "大面积光源形成宽缓的明暗过渡，同时保有受光方向和背光层次，不能与无影平光混同。",
+      "aliases": [
+        "软方向光"
+      ],
+      "positive_cues": [
+        [
+          "宽缓过渡",
+          "柔和阴影"
+        ],
+        [
+          "受光方向",
+          "柔光方向"
+        ]
+      ],
+      "negative_cues": [
+        "均匀无影全亮",
+        "只有整体失焦"
+      ],
+      "generation_phrase": "柔和方向光保留背光体积",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.high-key",
+      "label": "高调层次照明",
+      "dimension": "lighting_shading",
+      "definition": "亮部和浅中调占据多数面积，暗部有限而可见，白阶仍有差别，区别于大范围曝光剪裁。",
+      "aliases": [
+        "高调布光"
+      ],
+      "positive_cues": [
+        [
+          "亮部占优",
+          "浅中调占优"
+        ],
+        [
+          "有限暗部",
+          "轻浅阴影"
+        ]
+      ],
+      "negative_cues": [
+        "白区全部过曝",
+        "深黑占优低调"
+      ],
+      "generation_phrase": "明亮高调保留白阶与轻浅阴影",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.negative-fill",
+      "label": "负补光式暗侧",
+      "dimension": "lighting_shading",
+      "definition": "受光面旁的背光区域明显吸暗，体积渐变与主光方向一致，描述可见暗侧而不推断使用黑旗。",
+      "aliases": [
+        "负补光外观"
+      ],
+      "positive_cues": [
+        [
+          "暗侧吸暗",
+          "背光加深"
+        ],
+        [
+          "主光方向",
+          "侧向受光"
+        ]
+      ],
+      "negative_cues": [
+        "等亮双侧填光",
+        "随机局部黑块"
+      ],
+      "generation_phrase": "主光方向旁保留明确吸暗暗侧",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.window-soft",
+      "label": "窗光式宽面柔照",
+      "dimension": "lighting_shading",
+      "definition": "单侧宽面亮区与逐渐下降的室内明度形成自然过渡，适用于可见光关系，不要求窗口入画。",
+      "aliases": [
+        "窗光外观"
+      ],
+      "positive_cues": [
+        [
+          "单侧宽面亮区",
+          "窗向软亮"
+        ],
+        [
+          "向内衰减",
+          "明度递减"
+        ]
+      ],
+      "negative_cues": [
+        "四周等强均匀补光",
+        "窄束硬射光"
+      ],
+      "generation_phrase": "单侧宽面柔照随空间逐渐衰减",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.overcast-diffuse",
+      "label": "阴天式漫射",
+      "dimension": "lighting_shading",
+      "definition": "整体光向较弱但仍有接触阴影，亮面与暗面差值小且高光宽散，区别于取消阴影的平面填色。",
+      "aliases": [
+        "阴天漫射"
+      ],
+      "positive_cues": [
+        [
+          "弱光向",
+          "漫射日光"
+        ],
+        [
+          "接触阴影",
+          "局部暗接触"
+        ]
+      ],
+      "negative_cues": [
+        "尖锐强方向投影",
+        "无任何接触明暗"
+      ],
+      "generation_phrase": "弱方向漫射光保留接触阴影",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.sun-hard",
+      "label": "日光式高照度硬照",
+      "dimension": "lighting_shading",
+      "definition": "主光清楚且亮面较高，阴影边界硬并有自然环境回光，区别于单独硬主光的暗室效果。",
+      "aliases": [
+        "日光硬照"
+      ],
+      "positive_cues": [
+        [
+          "高照度亮面",
+          "强受光"
+        ],
+        [
+          "硬投影",
+          "锐利影边"
+        ]
+      ],
+      "negative_cues": [
+        "无方向灰平光",
+        "全黑背光无回光"
+      ],
+      "generation_phrase": "强方向日光配自然环境回光",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.golden-low-angle",
+      "label": "低角度暖光",
+      "dimension": "lighting_shading",
+      "definition": "偏暖方向光擦过可见体积，较长投影和暖亮部共存，描述可见关系而不从颜色推断具体时段。",
+      "aliases": [
+        "低角暖照"
+      ],
+      "positive_cues": [
+        [
+          "暖方向光",
+          "低角度暖照"
+        ],
+        [
+          "长投影",
+          "延展投影"
+        ]
+      ],
+      "negative_cues": [
+        "暖色均匀顶光",
+        "仅整体橙色滤镜"
+      ],
+      "generation_phrase": "低角度暖照拉长投影并塑造体积",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.cool-ambient",
+      "label": "冷色环境填光",
+      "dimension": "lighting_shading",
+      "definition": "冷色漫射光进入未被主光直接照射的暗部，使背光面仍可读，区别于全画面统一偏蓝。",
+      "aliases": [
+        "冷环境填充"
+      ],
+      "positive_cues": [
+        [
+          "冷色填光",
+          "冷环境光"
+        ],
+        [
+          "背光可读",
+          "暗部回光"
+        ]
+      ],
+      "negative_cues": [
+        "全幅统一蓝色罩染",
+        "背光完全纯黑"
+      ],
+      "generation_phrase": "冷环境光轻度托起背光层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.practical-motivation",
+      "label": "实景光照明依据",
+      "dimension": "lighting_shading",
+      "definition": "可见或明确局部的实景亮源与附近明度衰减和色温相对应，光源内容本身不构成风格。",
+      "aliases": [
+        "实景光依据"
+      ],
+      "positive_cues": [
+        [
+          "实景亮源",
+          "可用光源"
+        ],
+        [
+          "近亮远暗",
+          "照度衰减"
+        ]
+      ],
+      "negative_cues": [
+        "亮源与周边完全无光影关系",
+        "全域同色等亮"
+      ],
+      "generation_phrase": "让实景光源解释邻域明度与色温",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.mixed-practical",
+      "label": "多实景光竞争",
+      "dimension": "lighting_shading",
+      "definition": "不同实景光在邻域形成不均曝光与色温交叠，仍能分辨主要光向，区别于整幅随机杂色。",
+      "aliases": [
+        "多源实景光"
+      ],
+      "positive_cues": [
+        [
+          "多光色",
+          "混合色温"
+        ],
+        [
+          "局部明暗差",
+          "区域曝光差"
+        ]
+      ],
+      "negative_cues": [
+        "单一均匀白光",
+        "没有光照依据的彩斑"
+      ],
+      "generation_phrase": "保留多实景光的局部曝光和色温竞争",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.fluorescent-flat",
+      "label": "荧光式偏绿平照",
+      "dimension": "lighting_shading",
+      "definition": "偏绿或冷白的宽域照明与较弱塑形同时成立，表面仍有接触层次，不能凭场所名称识别。",
+      "aliases": [
+        "荧光平照外观"
+      ],
+      "positive_cues": [
+        [
+          "偏绿冷白",
+          "青白光"
+        ],
+        [
+          "宽域平照",
+          "弱方向光"
+        ]
+      ],
+      "negative_cues": [
+        "暖侧向硬光",
+        "仅出现绿色物品"
+      ],
+      "generation_phrase": "偏绿冷白宽域平照保留接触层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.tungsten-pool",
+      "label": "钨暖局部光池",
+      "dimension": "lighting_shading",
+      "definition": "暖色光只支配局部受光区域，向外围明显衰减并保有更冷或更暗的环境层次。",
+      "aliases": [
+        "钨暖光池"
+      ],
+      "positive_cues": [
+        [
+          "暖色光池",
+          "钨暖亮区"
+        ],
+        [
+          "向外衰减",
+          "外围变暗"
+        ]
+      ],
+      "negative_cues": [
+        "全画面平均染黄",
+        "高调全域均匀暖光"
+      ],
+      "generation_phrase": "局部钨暖光池向暗环境衰减",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.candle-low-level",
+      "label": "低照度暖点光",
+      "dimension": "lighting_shading",
+      "definition": "小尺度暖光产生迅速衰减和较深背景暗部，亮度分层强，描述光学效果而不强制加入蜡烛。",
+      "aliases": [
+        "低照暖点光"
+      ],
+      "positive_cues": [
+        [
+          "暖点光",
+          "小型暖源"
+        ],
+        [
+          "快速衰减",
+          "近亮远暗"
+        ]
+      ],
+      "negative_cues": [
+        "均匀亮暖面光",
+        "全域柔和白光"
+      ],
+      "generation_phrase": "小型暖源快速衰减到深暗环境",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.rim-dark-separation",
+      "label": "暗底轮廓分离",
+      "dimension": "lighting_shading",
+      "definition": "细窄受光边缘从深暗背景中分离出体积，边缘亮度和方向一致，不要求全身描边。",
+      "aliases": [
+        "暗底轮廓光"
+      ],
+      "positive_cues": [
+        [
+          "细窄亮缘",
+          "局部轮廓光"
+        ],
+        [
+          "深暗背景",
+          "暗底"
+        ]
+      ],
+      "negative_cues": [
+        "全物体人工白描边",
+        "平均发亮背景"
+      ],
+      "generation_phrase": "深暗背景上保留少量有方向亮缘",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.backlit-transmission",
+      "label": "逆光透射层次",
+      "dimension": "lighting_shading",
+      "definition": "逆向亮光在半透明区域产生局部透射并与暗侧轮廓相连，不能把所有边缘都处理成发光线。",
+      "aliases": [
+        "逆光透射"
+      ],
+      "positive_cues": [
+        [
+          "逆向强光",
+          "背后亮源"
+        ],
+        [
+          "局部透射",
+          "透光层次"
+        ]
+      ],
+      "negative_cues": [
+        "全轮廓均匀荧光",
+        "没有透射的纯白外框"
+      ],
+      "generation_phrase": "逆向亮光呈现局部透射和暗侧体积",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.silhouette-exposure",
+      "label": "剪影曝光关系",
+      "dimension": "lighting_shading",
+      "definition": "前景明度显著低于更亮的后层，外轮廓可辨但内部细节被压低，区别于黑色物体本色。",
+      "aliases": [
+        "剪影曝光"
+      ],
+      "positive_cues": [
+        [
+          "暗前层",
+          "低曝前景"
+        ],
+        [
+          "亮后层",
+          "高亮背景"
+        ]
+      ],
+      "negative_cues": [
+        "前后层等亮",
+        "仅有黑色材质"
+      ],
+      "generation_phrase": "保留亮后层与压暗前层的剪影关系",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.top-hard",
+      "label": "硬顶光塑形",
+      "dimension": "lighting_shading",
+      "definition": "光从较高方向落下，上缘亮面与下方遮蔽阴影对应，明暗关系应在多个体积上同时成立。",
+      "aliases": [
+        "硬顶光"
+      ],
+      "positive_cues": [
+        [
+          "上缘受光",
+          "顶部亮面"
+        ],
+        [
+          "向下遮影",
+          "下方硬影"
+        ]
+      ],
+      "negative_cues": [
+        "低角度侧照",
+        "均匀无影平光"
+      ],
+      "generation_phrase": "高方向硬照形成上亮下暗塑形",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.soft-top",
+      "label": "柔顶光层次",
+      "dimension": "lighting_shading",
+      "definition": "上部受光较明亮，下部阴影宽缓且被少量环境光托起，区别于方向不明的高调填平。",
+      "aliases": [
+        "柔顶照"
+      ],
+      "positive_cues": [
+        [
+          "上部软亮",
+          "柔顶照"
+        ],
+        [
+          "下部宽缓阴影",
+          "向下渐暗"
+        ]
+      ],
+      "negative_cues": [
+        "锐利深黑顶影",
+        "全方向平均补光"
+      ],
+      "generation_phrase": "柔顶照配宽缓向下阴影",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.split-exposure",
+      "label": "亮暗分半塑形",
+      "dimension": "lighting_shading",
+      "definition": "主要体积两侧存在强烈曝光差，明暗交界由方向光形成，不能仅凭画面两边物体颜色不同成立。",
+      "aliases": [
+        "分侧明暗"
+      ],
+      "positive_cues": [
+        [
+          "两侧曝光差",
+          "明暗分侧"
+        ],
+        [
+          "方向光交界",
+          "侧光断界"
+        ]
+      ],
+      "negative_cues": [
+        "两边物体本色不同",
+        "均匀正面平光"
+      ],
+      "generation_phrase": "方向侧照建立清楚的亮暗分侧",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.broad-soft-wrap",
+      "label": "宽面包裹柔光",
+      "dimension": "lighting_shading",
+      "definition": "受光面向侧面平滑包裹，阴影较浅但仍有渐变，表面细节均匀可读，不等于磨皮消除纹理。",
+      "aliases": [
+        "包裹柔光"
+      ],
+      "positive_cues": [
+        [
+          "宽面包裹",
+          "柔光环绕"
+        ],
+        [
+          "浅阴影渐变",
+          "温和暗侧"
+        ]
+      ],
+      "negative_cues": [
+        "全域无体积磨平",
+        "硬光小面高亮"
+      ],
+      "generation_phrase": "宽面柔光包裹体积且保留浅暗侧",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.specular-controlled",
+      "label": "受控镜面高光",
+      "dimension": "lighting_shading",
+      "definition": "镜面亮区形状和亮度稳定，内部保有渐变且与反射逻辑一致，区别于全部亮面压成白块。",
+      "aliases": [
+        "受控反光"
+      ],
+      "positive_cues": [
+        [
+          "高光形状受控",
+          "反射边界整理"
+        ],
+        [
+          "高光渐变",
+          "亮区层次"
+        ]
+      ],
+      "negative_cues": [
+        "反射亮面全面截白",
+        "随机破碎亮斑"
+      ],
+      "generation_phrase": "整理镜面高光形状并保留内部渐变",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.diffuse-specular-balance",
+      "label": "漫反射镜反射平衡",
+      "dimension": "lighting_shading",
+      "definition": "漫反射塑形与镜面亮区均有可读层次，高光不过度吞没本色，不能据此推断具体表面材质。",
+      "aliases": [
+        "反射平衡"
+      ],
+      "positive_cues": [
+        [
+          "漫反射层次",
+          "本色明暗"
+        ],
+        [
+          "镜反射层次",
+          "高光可读"
+        ]
+      ],
+      "negative_cues": [
+        "所有表面同一塑料亮度",
+        "高光完全吃掉本色"
+      ],
+      "generation_phrase": "平衡漫反射塑形与镜面亮部",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.shadow-detail",
+      "label": "暗部细节保留",
+      "dimension": "lighting_shading",
+      "definition": "深暗区仍有可区分的微弱明度差和表面响应，整体保持暗感，区别于把所有阴影拉到中灰。",
+      "aliases": [
+        "暗细节保留"
+      ],
+      "positive_cues": [
+        [
+          "深暗层次",
+          "黑阶可分"
+        ],
+        [
+          "微弱细节",
+          "暗部纹理"
+        ]
+      ],
+      "negative_cues": [
+        "全域阴影抬成中灰",
+        "纯黑块吞没纹理"
+      ],
+      "generation_phrase": "在深暗亮度中保留细微层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.highlight-rolloff",
+      "label": "亮部柔和肩部",
+      "dimension": "lighting_shading",
+      "definition": "接近最高亮度时仍有连续压缩而非突然截白，高光边缘与邻域平滑相接，效果可以由数字调色产生。",
+      "aliases": [
+        "高光滚降"
+      ],
+      "positive_cues": [
+        [
+          "高光渐压",
+          "亮部肩部"
+        ],
+        [
+          "接近白仍有层次",
+          "白阶渐变"
+        ]
+      ],
+      "negative_cues": [
+        "亮区突然纯白截断",
+        "描边式硬高光"
+      ],
+      "generation_phrase": "以柔和肩部压缩亮部并保留白阶",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.high-contrast-mid",
+      "label": "中调强反差",
+      "dimension": "lighting_shading",
+      "definition": "中灰附近的亮暗分离被强化而两端仍有层次，区别于直接压黑和截白产生的二值高反差。",
+      "aliases": [
+        "中调强反差"
+      ],
+      "positive_cues": [
+        [
+          "中调分离",
+          "中灰强反差"
+        ],
+        [
+          "亮暗两端层次",
+          "黑白两端保留"
+        ]
+      ],
+      "negative_cues": [
+        "纯黑白二值化",
+        "全幅均匀灰平"
+      ],
+      "generation_phrase": "增强中调反差并保留亮暗两端",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.flat-mid",
+      "label": "中调温和反差",
+      "dimension": "lighting_shading",
+      "definition": "中间亮度区间过渡缓和，颜色与接触阴影仍负责分离，温和反差不等于没有体积或层次。",
+      "aliases": [
+        "平缓中调"
+      ],
+      "positive_cues": [
+        [
+          "中调缓和",
+          "低中调反差"
+        ],
+        [
+          "接触层次",
+          "浅阴影"
+        ]
+      ],
+      "negative_cues": [
+        "明暗完全等值",
+        "锐利高反差中调"
+      ],
+      "generation_phrase": "温和中调过渡配细微接触层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.stark-monochrome",
+      "label": "硬朗黑白塑形",
+      "dimension": "lighting_shading",
+      "definition": "大面积深黑和少量亮白之间存在有方向的硬边塑形，中灰有限但并非消失，区别于普通去色。",
+      "aliases": [
+        "硬朗黑白"
+      ],
+      "positive_cues": [
+        [
+          "深黑亮白",
+          "黑白反差"
+        ],
+        [
+          "硬光方向",
+          "锐利投影"
+        ]
+      ],
+      "negative_cues": [
+        "柔灰高调无方向",
+        "黑白二值图形"
+      ],
+      "generation_phrase": "有方向硬照组织深黑和有限中灰",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.underexposed-natural",
+      "label": "保留欠曝的自然光",
+      "dimension": "lighting_shading",
+      "definition": "自然光方向明确但整体落在较低亮度，少量亮面保有细节，允许暗部信息缺失而不添加戏剧性补光。",
+      "aliases": [
+        "自然低曝"
+      ],
+      "positive_cues": [
+        [
+          "自然光方向",
+          "环境光依据"
+        ],
+        [
+          "整体低曝",
+          "低亮度中调"
+        ]
+      ],
+      "negative_cues": [
+        "无光向纯黑图像",
+        "造型化多彩补光"
+      ],
+      "generation_phrase": "自然光下保留低曝光与有限亮部细节",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.sunless-cold",
+      "label": "无直射冷漫照",
+      "dimension": "lighting_shading",
+      "definition": "低彩冷色漫射光覆盖体积，接触阴影轻而可见，亮部不形成明显太阳硬斑。",
+      "aliases": [
+        "冷漫照"
+      ],
+      "positive_cues": [
+        [
+          "冷漫射",
+          "冷灰光"
+        ],
+        [
+          "轻接触阴影",
+          "柔暗接触"
+        ]
+      ],
+      "negative_cues": [
+        "强暖硬日照",
+        "单一蓝色滤色"
+      ],
+      "generation_phrase": "冷灰漫照保留轻浅接触阴影",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.warm-interior-ambient",
+      "label": "暖环境软照",
+      "dimension": "lighting_shading",
+      "definition": "暖色光在较大范围缓和分布，局部仍存在明度衰减和暗侧，不依赖室内物品或装修风格。",
+      "aliases": [
+        "暖环境柔照"
+      ],
+      "positive_cues": [
+        [
+          "暖环境光",
+          "温暖软照"
+        ],
+        [
+          "局部衰减",
+          "明暗缓变"
+        ]
+      ],
+      "negative_cues": [
+        "全幅黄色无层次",
+        "高反差彩色轮廓光"
+      ],
+      "generation_phrase": "暖环境软照保持局部衰减和暗侧",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.bright-shadow-open",
+      "label": "明亮开放阴影",
+      "dimension": "lighting_shading",
+      "definition": "受光区域明亮，阴影被较强环境回光托起且保留色相，整体高可读但仍有方向和接触层次。",
+      "aliases": [
+        "开放暗部"
+      ],
+      "positive_cues": [
+        [
+          "明亮受光",
+          "高亮面"
+        ],
+        [
+          "开放阴影",
+          "阴影回光"
+        ]
+      ],
+      "negative_cues": [
+        "所有阴影完全消失",
+        "深黑低调"
+      ],
+      "generation_phrase": "明亮受光配有颜色的开放阴影",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.dark-ambient-punctuated",
+      "label": "暗环境稀疏亮点",
+      "dimension": "lighting_shading",
+      "definition": "连续暗环境由少量局部亮点切开，亮点周围有曝光衰减，不能以孤立发光图案替代摄影关系。",
+      "aliases": [
+        "稀疏亮照"
+      ],
+      "positive_cues": [
+        [
+          "连续暗环境",
+          "深暗基底"
+        ],
+        [
+          "稀疏亮点",
+          "少量局部亮源"
+        ]
+      ],
+      "negative_cues": [
+        "全画面等亮彩点",
+        "均匀高调照明"
+      ],
+      "generation_phrase": "连续暗环境中以稀疏亮区建立层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.color-light-separation",
+      "label": "彩光空间分离",
+      "dimension": "lighting_shading",
+      "definition": "不同方向的有色照明在体积上形成可分的受光面，交界保有灰阶，区别于整体套彩色滤镜。",
+      "aliases": [
+        "彩光分区"
+      ],
+      "positive_cues": [
+        [
+          "异色方向光",
+          "多方向彩照"
+        ],
+        [
+          "受光面分区",
+          "彩色亮面"
+        ]
+      ],
+      "negative_cues": [
+        "全幅单色罩染",
+        "只出现多色物体"
+      ],
+      "generation_phrase": "异色方向光分区塑形并保留交界",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.flash-ambient",
+      "label": "直闪环境光并存",
+      "dimension": "lighting_shading",
+      "definition": "短程正向硬亮与较暗的环境层次共同出现，近远曝光差清楚，描述直闪外观而不确认设备。",
+      "aliases": [
+        "直闪外观"
+      ],
+      "positive_cues": [
+        [
+          "正向硬亮",
+          "近轴亮照"
+        ],
+        [
+          "近远曝光差",
+          "近亮远暗"
+        ]
+      ],
+      "negative_cues": [
+        "均匀包裹柔光",
+        "所有层面同亮度"
+      ],
+      "generation_phrase": "正向短程硬照保留较暗环境层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.fine-grain",
+      "label": "细随机颗粒",
+      "dimension": "texture_material",
+      "definition": "细小不规则明度颗粒在多个中间亮度区域可见，颗粒不沿轮廓排列，区别于压缩块或锐化纹。",
+      "aliases": [
+        "细胶片颗粒"
+      ],
+      "positive_cues": [
+        [
+          "细颗粒",
+          "微细噪粒"
+        ],
+        [
+          "随机分布",
+          "非规则颗粒"
+        ]
+      ],
+      "negative_cues": [
+        "规则网格马赛克",
+        "边缘白色锐化线"
+      ],
+      "generation_phrase": "保留中调细小随机明度颗粒",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.coarse-grain",
+      "label": "粗随机颗粒",
+      "dimension": "texture_material",
+      "definition": "较大的随机明度颗粒跨越平坦区域和暗部，局部细节受到影响但摄影体积仍可读。",
+      "aliases": [
+        "粗胶片颗粒"
+      ],
+      "positive_cues": [
+        [
+          "粗颗粒",
+          "大噪粒"
+        ],
+        [
+          "随机明度",
+          "不规则灰粒"
+        ]
+      ],
+      "negative_cues": [
+        "规则像素块",
+        "细节完全洁净"
+      ],
+      "generation_phrase": "粗随机颗粒保留可读摄影体积",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.shadow-chroma-noise",
+      "label": "暗部彩噪",
+      "dimension": "texture_material",
+      "definition": "低亮度区域出现不规则细小彩色噪点，亮部明显较干净，区别于整个画面随机彩色装饰。",
+      "aliases": [
+        "低照彩噪"
+      ],
+      "positive_cues": [
+        [
+          "暗部彩噪",
+          "阴影彩点"
+        ],
+        [
+          "不规则细点",
+          "随机噪点"
+        ]
+      ],
+      "negative_cues": [
+        "整幅等强彩色颗粒",
+        "规则彩色网点"
+      ],
+      "generation_phrase": "有限暗部彩噪并保持亮部相对洁净",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.luma-noise",
+      "label": "数字明度噪声",
+      "dimension": "texture_material",
+      "definition": "低照度区域可见随机明度波动而颜色偏移较小，细节和噪声尺度应一致，不能误作乳剂证明。",
+      "aliases": [
+        "灰度数字噪声"
+      ],
+      "positive_cues": [
+        [
+          "明度噪声",
+          "灰度噪点"
+        ],
+        [
+          "低照区域",
+          "深色区域"
+        ]
+      ],
+      "negative_cues": [
+        "周期扫描线",
+        "轮廓白边"
+      ],
+      "generation_phrase": "低照暗部保留轻度随机明度噪声",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.clean-black",
+      "label": "洁净黑阶",
+      "dimension": "texture_material",
+      "definition": "暗部保持平滑且仍有微弱明度分离，不带明显噪粒、扫描损伤或色块断层。",
+      "aliases": [
+        "洁净暗部"
+      ],
+      "positive_cues": [
+        [
+          "平滑暗部",
+          "低噪黑阶"
+        ],
+        [
+          "黑阶分离",
+          "微弱灰差"
+        ]
+      ],
+      "negative_cues": [
+        "暗部强彩噪",
+        "压缩方块主导"
+      ],
+      "generation_phrase": "洁净黑阶维持微弱明度分离",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.microcontrast-crisp",
+      "label": "清楚微反差",
+      "dimension": "texture_material",
+      "definition": "细小纹理与近邻边缘的反差清楚，宏观明暗依然连续，区别于粗暴锐化形成的亮暗双边。",
+      "aliases": [
+        "微反差清晰"
+      ],
+      "positive_cues": [
+        [
+          "微纹理清楚",
+          "细节分离"
+        ],
+        [
+          "邻域反差",
+          "微反差"
+        ]
+      ],
+      "negative_cues": [
+        "明显锐化双边",
+        "纹理全部磨平"
+      ],
+      "generation_phrase": "增强可见微反差并保持连续体积",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.low-microcontrast",
+      "label": "低微反差",
+      "dimension": "texture_material",
+      "definition": "细微纹理的亮暗差降低而大轮廓和焦点保持可读，柔和感应来自局部反差而非严重失焦。",
+      "aliases": [
+        "柔化微反差"
+      ],
+      "positive_cues": [
+        [
+          "微反差降低",
+          "细纹柔化"
+        ],
+        [
+          "大轮廓可读",
+          "焦点保留"
+        ]
+      ],
+      "negative_cues": [
+        "整幅失焦无法辨形",
+        "所有纹理被涂抹"
+      ],
+      "generation_phrase": "降低细纹反差而保留焦点和大层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.highlight-halation",
+      "label": "亮部暖晕",
+      "dimension": "texture_material",
+      "definition": "高亮边界向邻近暗区形成薄暖色晕层，扩散范围小且受亮度驱动，区别于整体光晕或画面染红。",
+      "aliases": [
+        "暖晕染"
+      ],
+      "positive_cues": [
+        [
+          "高亮边界",
+          "亮暗交界"
+        ],
+        [
+          "薄暖晕",
+          "红暖边晕"
+        ]
+      ],
+      "negative_cues": [
+        "全幅暖色染层",
+        "每个轮廓均匀描边"
+      ],
+      "generation_phrase": "高亮交界保留薄层暖色晕散",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.gentle-bloom",
+      "label": "温和亮部扩散",
+      "dimension": "texture_material",
+      "definition": "最亮区域向邻域缓慢扩散但核心细节与黑位仍可读，区别于雾化所有区域的低反差处理。",
+      "aliases": [
+        "柔光晕"
+      ],
+      "positive_cues": [
+        [
+          "亮部扩散",
+          "柔散高光"
+        ],
+        [
+          "核心可读",
+          "高光细节"
+        ]
+      ],
+      "negative_cues": [
+        "全幅白雾覆盖",
+        "失焦亮团吞没全部细节"
+      ],
+      "generation_phrase": "最亮区域轻度扩散且维持黑位",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.diffusion-veil",
+      "label": "光学扩散薄纱",
+      "dimension": "texture_material",
+      "definition": "亮部邻域出现薄纱般轻微雾化并降低微反差，暗部仍有较深底色，效果不限于某滤镜型号。",
+      "aliases": [
+        "柔焦薄纱"
+      ],
+      "positive_cues": [
+        [
+          "薄纱雾化",
+          "轻度散射"
+        ],
+        [
+          "亮部邻域",
+          "高光周围"
+        ]
+      ],
+      "negative_cues": [
+        "真实浓雾吞没空间",
+        "全图均匀模糊"
+      ],
+      "generation_phrase": "薄层光学散射配保留的深色底部",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.highlight-clipping",
+      "label": "局部白阶截断",
+      "dimension": "texture_material",
+      "definition": "少量最高亮度区缺少内部纹理且边界陡峭，周围曝光和体积仍可信，不能当成高调风格充分证据。",
+      "aliases": [
+        "局部过曝"
+      ],
+      "positive_cues": [
+        [
+          "局部纯白",
+          "白阶截断"
+        ],
+        [
+          "边界陡峭",
+          "高光硬断"
+        ]
+      ],
+      "negative_cues": [
+        "柔和肩部连续压缩",
+        "整幅白区完全溢出"
+      ],
+      "generation_phrase": "保留少量可用光产生的局部白阶截断",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.subtle-digital-sharpen",
+      "label": "轻度数字边缘增强",
+      "dimension": "texture_material",
+      "definition": "对焦边缘有轻微邻域反差提升且深景深细节较均衡，不以单条清晰轮廓判断手机设备。",
+      "aliases": [
+        "数码轻锐化"
+      ],
+      "positive_cues": [
+        [
+          "边缘增强",
+          "邻域锐化"
+        ],
+        [
+          "深景深细节",
+          "多层清楚"
+        ]
+      ],
+      "negative_cues": [
+        "浅焦纯光学层次",
+        "严重白边光圈"
+      ],
+      "generation_phrase": "轻度边缘增强与深景深细节均衡",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.aggressive-sharpen",
+      "label": "明显锐化痕迹",
+      "dimension": "texture_material",
+      "definition": "高反差边缘可见细窄亮暗双边，纹理显得硬脆，区别于真实光学解析和正常微反差。",
+      "aliases": [
+        "锐化硬脆"
+      ],
+      "positive_cues": [
+        [
+          "亮暗双边",
+          "锐化白边"
+        ],
+        [
+          "高反差边缘",
+          "轮廓邻域"
+        ]
+      ],
+      "negative_cues": [
+        "自然单边光学轮廓",
+        "低微反差柔化"
+      ],
+      "generation_phrase": "仅在复现现有影像时保留轻窄锐化痕迹",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.compression-blocks",
+      "label": "编码块状痕迹",
+      "dimension": "texture_material",
+      "definition": "色彩或明度出现规则方块边界且细节按块损失，属于技术退化描述，不应作为全局审美目标。",
+      "aliases": [
+        "压缩块"
+      ],
+      "positive_cues": [
+        [
+          "规则方块",
+          "块边界"
+        ],
+        [
+          "细节按块损失",
+          "色块断层"
+        ]
+      ],
+      "negative_cues": [
+        "不规则银盐颗粒",
+        "人为像素轮廓"
+      ],
+      "generation_phrase": "技术复现时限定局部编码块痕迹",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.scan-wear",
+      "label": "扫描磨损层",
+      "dimension": "texture_material",
+      "definition": "轻微划痕、尘点与密度不匀叠加在连续摄影画面上，划痕形态不同于环境中物体的边缘。",
+      "aliases": [
+        "扫描损伤"
+      ],
+      "positive_cues": [
+        [
+          "细划痕",
+          "扫描线损"
+        ],
+        [
+          "尘点",
+          "转录污点"
+        ]
+      ],
+      "negative_cues": [
+        "环境物体划纹",
+        "洁净平滑数码面"
+      ],
+      "generation_phrase": "有限扫描磨损不掩盖摄影层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.fine-color-grain",
+      "label": "细彩颗粒",
+      "dimension": "texture_material",
+      "definition": "微细不规则色彩颗粒与明度颗粒在中间调共存，色点不聚集为暗部强噪，描述质感而非感光度。",
+      "aliases": [
+        "微彩颗粒"
+      ],
+      "positive_cues": [
+        [
+          "细彩粒",
+          "彩色细颗粒"
+        ],
+        [
+          "中调随机",
+          "不规则分布"
+        ]
+      ],
+      "negative_cues": [
+        "暗部大彩斑",
+        "周期印刷网点"
+      ],
+      "generation_phrase": "细小色粒与明度颗粒均匀相容",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.waxy-denoise",
+      "label": "降噪蜡化痕迹",
+      "dimension": "texture_material",
+      "definition": "细纹理被压成平滑片区而大边缘仍较锐利，表面不自然均质，仅为技术复现不默认美化。",
+      "aliases": [
+        "降噪涂抹"
+      ],
+      "positive_cues": [
+        [
+          "纹理被抹",
+          "细纹消失"
+        ],
+        [
+          "大边缘仍锐",
+          "轮廓清楚"
+        ]
+      ],
+      "negative_cues": [
+        "真实柔光仍有细纹",
+        "光学整体失焦"
+      ],
+      "generation_phrase": "复现时仅保留有限降噪蜡化",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.matte-detail",
+      "label": "哑光细节可读",
+      "dimension": "texture_material",
+      "definition": "高光较宽而弱，细小表面纹理在漫反射亮度中保持可读，描述已有表面响应不替换对象材质。",
+      "aliases": [
+        "哑光可读"
+      ],
+      "positive_cues": [
+        [
+          "宽弱高光",
+          "低镜面反光"
+        ],
+        [
+          "细纹可读",
+          "表面微纹"
+        ]
+      ],
+      "negative_cues": [
+        "尖锐镜面高光主导",
+        "所有表面被磨平"
+      ],
+      "generation_phrase": "保留已有哑光响应和细微表面层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.specular-detail",
+      "label": "反射细节可读",
+      "dimension": "texture_material",
+      "definition": "高亮反射区域内部仍有渐变和环境映射，暗反射不过分抬灰，不自动把普通表面改成金属。",
+      "aliases": [
+        "反光细节"
+      ],
+      "positive_cues": [
+        [
+          "反射渐变",
+          "高光内部层次"
+        ],
+        [
+          "环境映射",
+          "方向反射"
+        ]
+      ],
+      "negative_cues": [
+        "均匀白塑料亮面",
+        "反射全数截白"
+      ],
+      "generation_phrase": "保留已有反射的内部渐变与深色层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.organic-surface-variation",
+      "label": "自然表面微变化",
+      "dimension": "texture_material",
+      "definition": "摄影表面具有不均匀但连续的色亮微变化，变化随光照与尺度成立，避免生成重复贴图的均质外观。",
+      "aliases": [
+        "自然微变化"
+      ],
+      "positive_cues": [
+        [
+          "微色差",
+          "细微明度差"
+        ],
+        [
+          "非重复分布",
+          "不规则细纹"
+        ]
+      ],
+      "negative_cues": [
+        "周期重复纹理",
+        "所有表面统一平滑"
+      ],
+      "generation_phrase": "保留与光照相容的自然表面微变化",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.fine-soft-grain",
+      "label": "柔性细颗粒",
+      "dimension": "texture_material",
+      "definition": "细颗粒可辨但边缘不尖硬，配合低微反差和连续灰阶形成温和乳剂外观，不能只添加均匀噪点。",
+      "aliases": [
+        "柔细颗粒"
+      ],
+      "positive_cues": [
+        [
+          "柔性细颗粒",
+          "软边噪粒"
+        ],
+        [
+          "低微反差",
+          "细纹柔化"
+        ]
+      ],
+      "negative_cues": [
+        "锐利数字噪点",
+        "规则彩色纹样"
+      ],
+      "generation_phrase": "柔性细颗粒融入温和灰阶过渡",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.dense-shadow-grain",
+      "label": "深暗颗粒密度",
+      "dimension": "texture_material",
+      "definition": "深暗区保有随机颗粒和少量密度差，中间调相对稳定，暗感来自曝光与纹理共同作用。",
+      "aliases": [
+        "暗粒密度"
+      ],
+      "positive_cues": [
+        [
+          "深暗颗粒",
+          "阴影噪粒"
+        ],
+        [
+          "密度差",
+          "暗部起伏"
+        ]
+      ],
+      "negative_cues": [
+        "全幅等强噪点",
+        "平滑无粒纯黑"
+      ],
+      "generation_phrase": "深暗中保留有限颗粒与密度起伏",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.sensor-lowlight-soft",
+      "label": "低照数字细节变软",
+      "dimension": "texture_material",
+      "definition": "低照区的细纹弱化与随机噪声同时存在，较亮区解析更清楚，描述曝光依赖而非全面低画质。",
+      "aliases": [
+        "低照软解析"
+      ],
+      "positive_cues": [
+        [
+          "暗部细纹弱化",
+          "低照解析软化"
+        ],
+        [
+          "随机噪声",
+          "低照噪点"
+        ]
+      ],
+      "negative_cues": [
+        "全域统一失焦",
+        "完全洁净且各区同锐"
+      ],
+      "generation_phrase": "低照细纹略软而亮区保持更清楚解析",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.crisp-no-grain",
+      "label": "无粒清楚解析",
+      "dimension": "texture_material",
+      "definition": "对焦区域细节清楚且平坦区没有可辨颗粒，高光和阴影连续，数字洁净不等于人工超锐。",
+      "aliases": [
+        "无粒解析"
+      ],
+      "positive_cues": [
+        [
+          "对焦细节清楚",
+          "真实解析"
+        ],
+        [
+          "平坦区无粒",
+          "洁净灰面"
+        ]
+      ],
+      "negative_cues": [
+        "明显乳剂颗粒",
+        "锐化双边遍布"
+      ],
+      "generation_phrase": "清楚解析与无粒灰面保持自然边缘",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.gentle-color-bleed",
+      "label": "轻度色彩漫染",
+      "dimension": "texture_material",
+      "definition": "高彩亮区颜色向邻接低彩区域轻微外溢且亮度过渡连续，区别于几何套印错位和整体染色。",
+      "aliases": [
+        "轻色漫染"
+      ],
+      "positive_cues": [
+        [
+          "高彩亮区",
+          "彩色高光"
+        ],
+        [
+          "邻域色溢",
+          "轻度漫染"
+        ]
+      ],
+      "negative_cues": [
+        "整幅统一色罩",
+        "硬边套印错位"
+      ],
+      "generation_phrase": "彩色亮区轻度漫染到邻域",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.intermediate-resolution",
+      "label": "中等解析摄影",
+      "dimension": "texture_material",
+      "definition": "细节精度适中且边缘自然，大尺度体积和小尺度纹理有明确区分，不通过加入压缩损伤制造年代感。",
+      "aliases": [
+        "克制解析"
+      ],
+      "positive_cues": [
+        [
+          "适中解析",
+          "细节克制"
+        ],
+        [
+          "自然边缘",
+          "无锐化双边"
+        ]
+      ],
+      "negative_cues": [
+        "极端超锐细纹",
+        "块状压缩主导"
+      ],
+      "generation_phrase": "适中解析保留自然边缘与纹理尺度",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.continuous-volume",
+      "label": "连续摄影体积",
+      "dimension": "form_language",
+      "definition": "受光、背光与反射共同塑造连续体积，轮廓不靠描边分隔，保留真实对象比例与遮挡关系。",
+      "aliases": [
+        "摄影塑形"
+      ],
+      "positive_cues": [
+        [
+          "连续体积",
+          "真实塑形"
+        ],
+        [
+          "无描边轮廓",
+          "摄影边缘"
+        ]
+      ],
+      "negative_cues": [
+        "赛璐璐硬分色",
+        "全对象轮廓描边"
+      ],
+      "generation_phrase": "连续摄影体积与自然边缘相容",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.optical-depth-layering",
+      "label": "光学深度层次",
+      "dimension": "form_language",
+      "definition": "远近区域通过解析、对比与光学散射差共同分层，适用于整体空间呈现，不规定具体景别和布局。",
+      "aliases": [
+        "光学层次"
+      ],
+      "positive_cues": [
+        [
+          "远近解析差",
+          "深度清晰差"
+        ],
+        [
+          "对比递减",
+          "距离反差差"
+        ]
+      ],
+      "negative_cues": [
+        "纯平面色块无深度",
+        "各层人为白描边"
+      ],
+      "generation_phrase": "依距离组织解析与反差的光学层次",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.even-depth-readability",
+      "label": "均衡空间可读",
+      "dimension": "form_language",
+      "definition": "多个距离层级细节较清楚，接触阴影和遮挡仍说明深度，区别于无空间的二维平铺。",
+      "aliases": [
+        "多层可读"
+      ],
+      "positive_cues": [
+        [
+          "多层清楚",
+          "宽景深可读"
+        ],
+        [
+          "遮挡层次",
+          "接触阴影"
+        ]
+      ],
+      "negative_cues": [
+        "单点极浅焦主导",
+        "二维图形平铺"
+      ],
+      "generation_phrase": "多距离层级清楚且保留遮挡深度",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.restrained-geometry",
+      "label": "摄影几何克制",
+      "dimension": "form_language",
+      "definition": "对象的既有几何通过连续透视和明暗呈现，形状不额外夸张，不把方形或对称题材当成风格。",
+      "aliases": [
+        "克制几何"
+      ],
+      "positive_cues": [
+        [
+          "真实透视",
+          "连续几何"
+        ],
+        [
+          "比例克制",
+          "自然形变"
+        ]
+      ],
+      "negative_cues": [
+        "夸张卡通比例",
+        "低多边形棱面显露"
+      ],
+      "generation_phrase": "保留既有几何的真实透视和自然比例",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.luminous-plane-order",
+      "label": "亮面层级组织",
+      "dimension": "form_language",
+      "definition": "受光平面依明度与色温形成清楚层级，暗面为体积提供连接，不依赖画面中心或具体物体位置。",
+      "aliases": [
+        "亮面组织"
+      ],
+      "positive_cues": [
+        [
+          "受光面分层",
+          "亮面级差"
+        ],
+        [
+          "暗面连接",
+          "体积连续"
+        ]
+      ],
+      "negative_cues": [
+        "每个平面等亮",
+        "独立图形拼贴"
+      ],
+      "generation_phrase": "以亮面级差和暗面连接建立体积",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.natural-irregularity",
+      "label": "自然不均质组织",
+      "dimension": "form_language",
+      "definition": "明度与解析存在可信的局部不均匀，整体仍在同一摄影体系中，区别于每一处都被修饰成一致质感。",
+      "aliases": [
+        "自然不均质"
+      ],
+      "positive_cues": [
+        [
+          "局部不均",
+          "自然差异"
+        ],
+        [
+          "摄影统一",
+          "光影相容"
+        ]
+      ],
+      "negative_cues": [
+        "所有区域同锐同亮",
+        "任意杂乱拼贴"
+      ],
+      "generation_phrase": "保留相容的局部曝光与解析差异",
+      "scope": "global",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.deep-focus",
+      "label": "深景深焦点关系",
+      "dimension": "photography",
+      "definition": "同一镜头中多个距离层级保持足够清楚，同时透视和遮挡解释深度，不能仅凭一张平面纹理推断。",
+      "aliases": [
+        "深焦"
+      ],
+      "positive_cues": [
+        [
+          "近层清楚",
+          "前层可读"
+        ],
+        [
+          "远层清楚",
+          "后层可读"
+        ],
+        [
+          "距离层级",
+          "遮挡深度"
+        ]
+      ],
+      "negative_cues": [
+        "只有单一平面",
+        "后层明显虚化"
+      ],
+      "generation_phrase": "在该镜头保留近远层级的清楚焦点",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.selective-focus",
+      "label": "选择性浅焦",
+      "dimension": "photography",
+      "definition": "一个距离层保持焦点而前后层逐渐虚化，虚化强度随距离变化，区别于人为涂抹背景。",
+      "aliases": [
+        "浅焦选择"
+      ],
+      "positive_cues": [
+        [
+          "焦点层清楚",
+          "局部合焦"
+        ],
+        [
+          "前后虚化",
+          "距离虚化"
+        ],
+        [
+          "渐变散焦",
+          "光学过渡"
+        ]
+      ],
+      "negative_cues": [
+        "全画面均匀模糊",
+        "蒙版硬切虚化"
+      ],
+      "generation_phrase": "该镜头用渐变散焦分离焦点层",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.wide-perspective",
+      "label": "近距离广角透视",
+      "dimension": "photography",
+      "definition": "近处尺寸相对远处明显放大且纵深扩展，边缘可能有透视拉伸，不能从宽画幅直接认定广角。",
+      "aliases": [
+        "广角近透视"
+      ],
+      "positive_cues": [
+        [
+          "近大远小强化",
+          "纵深扩展"
+        ],
+        [
+          "近距透视",
+          "边缘拉伸"
+        ],
+        [
+          "摄影空间",
+          "距离可辨"
+        ]
+      ],
+      "negative_cues": [
+        "只因宽画幅",
+        "远近平行压缩"
+      ],
+      "generation_phrase": "该镜头保留近距离广角透视关系",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.compressed-perspective",
+      "label": "较远视点压缩透视",
+      "dimension": "photography",
+      "definition": "多个纵深层之间尺寸差较小并显得相近，焦点关系另行说明，不通过裁切长宽比判断镜头。",
+      "aliases": [
+        "长焦压缩外观"
+      ],
+      "positive_cues": [
+        [
+          "纵深压缩",
+          "层间距离显近"
+        ],
+        [
+          "尺寸差较小",
+          "远近比收敛"
+        ],
+        [
+          "多距离层",
+          "空间遮挡"
+        ]
+      ],
+      "negative_cues": [
+        "仅有平面背景",
+        "近距广角夸大"
+      ],
+      "generation_phrase": "该镜头以较远视点压缩纵深关系",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.level-horizon",
+      "label": "水平基准稳定",
+      "dimension": "photography",
+      "definition": "画面可辨水平线或竖直线保持稳定参照，用于镜头构图控制，不能作为全局影调与媒介风格。",
+      "aliases": [
+        "平稳水平"
+      ],
+      "positive_cues": [
+        [
+          "水平参照",
+          "竖直参照"
+        ],
+        [
+          "基准稳定",
+          "几何平衡"
+        ],
+        [
+          "画面可辨",
+          "线向一致"
+        ]
+      ],
+      "negative_cues": [
+        "主动倾斜基准",
+        "无任何可辨参照"
+      ],
+      "generation_phrase": "该镜头维持可辨水平基准",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.tilted-axis",
+      "label": "倾斜画面轴线",
+      "dimension": "photography",
+      "definition": "主要环境轴线相对画幅边界明显倾斜且具有一致几何依据，属于局部构图，不证明摄影机运动。",
+      "aliases": [
+        "荷兰角外观"
+      ],
+      "positive_cues": [
+        [
+          "轴线倾斜",
+          "水平斜置"
+        ],
+        [
+          "一致几何",
+          "线向可辨"
+        ],
+        [
+          "画幅参照",
+          "边界相对角度"
+        ]
+      ],
+      "negative_cues": [
+        "物体本身倾斜",
+        "无可辨环境基准"
+      ],
+      "generation_phrase": "仅在该镜头使用明确倾斜轴线",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.offcenter-space",
+      "label": "偏置与空域",
+      "dimension": "photography",
+      "definition": "焦点体积偏向一侧且另一侧保有可读空域，空域参与画面关系，不能用单个物体位置认定全局风格。",
+      "aliases": [
+        "偏置留空"
+      ],
+      "positive_cues": [
+        [
+          "焦点偏置",
+          "重心偏侧"
+        ],
+        [
+          "空域可读",
+          "负空间"
+        ],
+        [
+          "比例关系",
+          "局部构图"
+        ]
+      ],
+      "negative_cues": [
+        "平均铺满各侧",
+        "只有无意义裁切"
+      ],
+      "generation_phrase": "该镜头保留偏置重心与可读空域",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.centered-axis",
+      "label": "轴向居中关系",
+      "dimension": "photography",
+      "definition": "主体积与明确轴线或层级中心互相对应，周围几何支撑居中关系，区别于碰巧处于画面中央。",
+      "aliases": [
+        "轴向居中"
+      ],
+      "positive_cues": [
+        [
+          "主体积居中",
+          "重心居中"
+        ],
+        [
+          "明确轴线",
+          "两侧关系"
+        ],
+        [
+          "几何支撑",
+          "空间对照"
+        ]
+      ],
+      "negative_cues": [
+        "只有中心单点",
+        "周围几何明显冲突"
+      ],
+      "generation_phrase": "该镜头使用有空间依据的轴向居中",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.foreground-layer",
+      "label": "近前层遮挡",
+      "dimension": "photography",
+      "definition": "近距离体积部分遮住更远焦点层并产生真实边缘或虚化差，属于镜头空间组织，不添加具体道具。",
+      "aliases": [
+        "前景层"
+      ],
+      "positive_cues": [
+        [
+          "近前层遮挡",
+          "前层压叠"
+        ],
+        [
+          "后层可读",
+          "焦点层可辨"
+        ],
+        [
+          "距离差",
+          "虚实差"
+        ]
+      ],
+      "negative_cues": [
+        "二维装饰边框",
+        "完全无遮挡深度"
+      ],
+      "generation_phrase": "该镜头保留已有前层遮挡与远层关系",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.environmental-distance",
+      "label": "环境尺度关系",
+      "dimension": "photography",
+      "definition": "对象与周围空间占比让尺度和距离可读，曝光与深度维持连续，不依赖指定地点或故事内容。",
+      "aliases": [
+        "环境尺度"
+      ],
+      "positive_cues": [
+        [
+          "对象空间占比",
+          "尺度可读"
+        ],
+        [
+          "周围层次",
+          "环境纵深"
+        ],
+        [
+          "曝光连续",
+          "摄影关系"
+        ]
+      ],
+      "negative_cues": [
+        "只有孤立裁切特写",
+        "无参照抽象平面"
+      ],
+      "generation_phrase": "该镜头保留对象与周围空间的尺度参照",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.close-detail",
+      "label": "近距细节镜头",
+      "dimension": "photography",
+      "definition": "单个局部占较大画幅且微观细节可读，焦点和比例说明近距观察，不自动等同于广告或微距设备。",
+      "aliases": [
+        "近距观察"
+      ],
+      "positive_cues": [
+        [
+          "局部占幅大",
+          "细节近观"
+        ],
+        [
+          "微纹可读",
+          "表面细节"
+        ],
+        [
+          "局部焦点",
+          "近距比例"
+        ]
+      ],
+      "negative_cues": [
+        "只是低清裁切放大",
+        "无细节的抽象色面"
+      ],
+      "generation_phrase": "该镜头近距呈现已有局部细节",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.macro-depth",
+      "label": "微距式浅深度",
+      "dimension": "photography",
+      "definition": "细小尺度信息被放大且焦点带很窄，前后表面迅速散焦，描述可见结果而不鉴定镜头设备。",
+      "aliases": [
+        "微距浅深度"
+      ],
+      "positive_cues": [
+        [
+          "微小尺度放大",
+          "细纹显大"
+        ],
+        [
+          "窄焦点带",
+          "浅深度"
+        ],
+        [
+          "快速散焦",
+          "前后虚化"
+        ]
+      ],
+      "negative_cues": [
+        "普通大对象浅焦",
+        "全域同锐二维纹样"
+      ],
+      "generation_phrase": "该镜头以窄焦带呈现微小尺度信息",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.vertical-lines",
+      "label": "垂直线关系",
+      "dimension": "photography",
+      "definition": "多个可辨竖向边缘以连贯透视保持竖直或明确汇聚，属于局部几何控制，不改变原有场景结构。",
+      "aliases": [
+        "竖向几何"
+      ],
+      "positive_cues": [
+        [
+          "多个竖向边",
+          "竖直参照"
+        ],
+        [
+          "连贯透视",
+          "一致汇聚"
+        ],
+        [
+          "局部几何",
+          "线向可辨"
+        ]
+      ],
+      "negative_cues": [
+        "任意单条直线",
+        "每条边独立变形"
+      ],
+      "generation_phrase": "该镜头保持已有竖向线的连贯透视",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.reflection-framing",
+      "label": "反射层镜头关系",
+      "dimension": "photography",
+      "definition": "反射像与直接像具有可解释的空间和光向对应，反射边缘、焦点与曝光另行控制，不添加新镜面。",
+      "aliases": [
+        "反射构图"
+      ],
+      "positive_cues": [
+        [
+          "反射像",
+          "映射层"
+        ],
+        [
+          "直接像对应",
+          "空间对应"
+        ],
+        [
+          "光向相容",
+          "焦点相容"
+        ]
+      ],
+      "negative_cues": [
+        "随意复制图像",
+        "反射方向互相矛盾"
+      ],
+      "generation_phrase": "该镜头保留已有反射层的空间对应",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.occluded-view",
+      "label": "部分遮挡视点",
+      "dimension": "photography",
+      "definition": "局部可见范围被已有近层遮蔽而后层仍可读，遮挡参与观察距离，不以偷拍叙事推断技术方式。",
+      "aliases": [
+        "局部遮挡视点"
+      ],
+      "positive_cues": [
+        [
+          "近层遮蔽",
+          "局部阻挡"
+        ],
+        [
+          "后层可读",
+          "视域有限"
+        ],
+        [
+          "真实遮挡",
+          "距离连续"
+        ]
+      ],
+      "negative_cues": [
+        "后期黑框遮罩",
+        "全部信息不可辨"
+      ],
+      "generation_phrase": "该镜头通过已有遮挡限定可见范围",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.optical-bokeh",
+      "label": "光学散焦亮斑",
+      "dimension": "photography",
+      "definition": "焦外高亮形成有限形状的散焦斑且随距离和曝光变化，只描述该镜头局部效果，不加不存在的亮源。",
+      "aliases": [
+        "焦外光斑"
+      ],
+      "positive_cues": [
+        [
+          "焦外高亮",
+          "散焦亮斑"
+        ],
+        [
+          "有限边界",
+          "光学斑形"
+        ],
+        [
+          "距离变化",
+          "焦点层分离"
+        ]
+      ],
+      "negative_cues": [
+        "全幅装饰圆点",
+        "每条轮廓均匀发光"
+      ],
+      "generation_phrase": "该镜头保留已有焦外亮源的散焦形态",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.focus-transition",
+      "label": "焦点层转移",
+      "dimension": "photography",
+      "definition": "连续视频中合焦从一个距离层移向另一层，需前后帧证明，静帧只描述当下焦点关系。",
+      "aliases": [
+        "移焦"
+      ],
+      "positive_cues": [
+        [
+          "前层转清",
+          "焦点变化"
+        ],
+        [
+          "后层转虚",
+          "距离层转移"
+        ],
+        [
+          "连续帧证据",
+          "时间可见"
+        ]
+      ],
+      "negative_cues": [
+        "只有单张静帧",
+        "整幅统一模糊变化"
+      ],
+      "generation_phrase": "仅在该镜头执行有目标距离层的移焦",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.observational-framing",
+      "label": "观察距离构图",
+      "dimension": "photography",
+      "definition": "构图保留足够空间说明对象之间的关系且裁切不过分强调单个细节，描述单镜头组织而非纪录身份。",
+      "aliases": [
+        "观察式构图"
+      ],
+      "positive_cues": [
+        [
+          "关系空间可读",
+          "周围信息保留"
+        ],
+        [
+          "克制裁切",
+          "对象关系"
+        ],
+        [
+          "距离参照",
+          "空间连续"
+        ]
+      ],
+      "negative_cues": [
+        "孤立符号式裁切",
+        "只因纪实题材"
+      ],
+      "generation_phrase": "该镜头保留可解释关系的观察距离",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.handheld-drift",
+      "label": "细微手持式漂移",
+      "dimension": "motion_signature",
+      "definition": "连续帧中画幅位置有低幅不规则漂移而对象动作可分，须时间证据，不因纪实内容自动添加。",
+      "aliases": [
+        "手持漂移"
+      ],
+      "positive_cues": [
+        [
+          "低幅漂移",
+          "轻微画幅摇移"
+        ],
+        [
+          "不规则节律",
+          "细小位置波动"
+        ],
+        [
+          "连续帧",
+          "时间证据"
+        ]
+      ],
+      "negative_cues": [
+        "单帧倾斜",
+        "稳定匀速轨道移动"
+      ],
+      "generation_phrase": "该镜头仅保留低幅不规则画幅漂移",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.static-frame",
+      "label": "固定画幅观察",
+      "dimension": "motion_signature",
+      "definition": "连续视频中环境参照保持位置稳定，变化主要来自画内动作，静帧无法证明固定拍摄。",
+      "aliases": [
+        "固定观察"
+      ],
+      "positive_cues": [
+        [
+          "环境参照稳定",
+          "画幅位置稳定"
+        ],
+        [
+          "画内变化",
+          "对象动作"
+        ],
+        [
+          "连续帧证据",
+          "时序可见"
+        ]
+      ],
+      "negative_cues": [
+        "只有一张静图",
+        "持续视点位移"
+      ],
+      "generation_phrase": "该镜头固定画幅并由画内变化推进",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.smooth-tracking",
+      "label": "平滑视点跟随",
+      "dimension": "motion_signature",
+      "definition": "连续帧中视点与对象关系平滑变化且背景产生连贯视差，不能只凭动作姿态或运动模糊判定。",
+      "aliases": [
+        "平滑跟随"
+      ],
+      "positive_cues": [
+        [
+          "平滑视点变化",
+          "连续跟随"
+        ],
+        [
+          "背景视差",
+          "层间位移"
+        ],
+        [
+          "对象关系稳定",
+          "时序证据"
+        ]
+      ],
+      "negative_cues": [
+        "只有静态姿势",
+        "随机高频抖动"
+      ],
+      "generation_phrase": "该镜头平滑跟随并保留连贯背景视差",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.slow-push",
+      "label": "缓慢推进视点",
+      "dimension": "motion_signature",
+      "definition": "连续帧中对象相对尺度渐增并伴随合理视差，区别于单纯数字裁切放大，需有时间依据。",
+      "aliases": [
+        "慢推进"
+      ],
+      "positive_cues": [
+        [
+          "尺度渐增",
+          "距离渐近"
+        ],
+        [
+          "背景视差",
+          "透视变化"
+        ],
+        [
+          "慢速连续",
+          "时序证据"
+        ]
+      ],
+      "negative_cues": [
+        "单帧特写",
+        "只有无视差数字放大"
+      ],
+      "generation_phrase": "该镜头缓慢推进并保留真实透视变化",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.lateral-parallax",
+      "label": "横向视差移动",
+      "dimension": "motion_signature",
+      "definition": "连续帧中近远层出现不同速度的横向位移，方向连续并可解释视点变化，不代表某种全局美学。",
+      "aliases": [
+        "横移视差"
+      ],
+      "positive_cues": [
+        [
+          "近远异速",
+          "层间位移差"
+        ],
+        [
+          "横向连续",
+          "侧向位移"
+        ],
+        [
+          "连续帧",
+          "视点证据"
+        ]
+      ],
+      "negative_cues": [
+        "单帧横向模糊",
+        "全图同速二维平移"
+      ],
+      "generation_phrase": "该镜头横向移动以呈现已有层间视差",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.pan-follow",
+      "label": "转向跟随",
+      "dimension": "motion_signature",
+      "definition": "连续帧中环境线索随转向移出或进入画幅而目标位置较稳定，描述局部运动，不补造画内动作。",
+      "aliases": [
+        "摇摄跟随"
+      ],
+      "positive_cues": [
+        [
+          "环境线索转移",
+          "画幅转向"
+        ],
+        [
+          "目标位置稳定",
+          "跟随关系"
+        ],
+        [
+          "时序连续",
+          "前后帧依据"
+        ]
+      ],
+      "negative_cues": [
+        "单张目标居中",
+        "目标自身左右移动"
+      ],
+      "generation_phrase": "该镜头按已有动作转向跟随",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.irregular-cadence",
+      "label": "不均匀运动节律",
+      "dimension": "motion_signature",
+      "definition": "连续视频中的位移间隔或方向出现不均变化，需区别对象动作、机位变化和播放问题，静帧不能识别。",
+      "aliases": [
+        "不规则节律"
+      ],
+      "positive_cues": [
+        [
+          "位移不均",
+          "时间节律变化"
+        ],
+        [
+          "连续视频证据",
+          "多帧对照"
+        ],
+        [
+          "方向间断",
+          "速度起伏"
+        ]
+      ],
+      "negative_cues": [
+        "单帧噪点",
+        "平滑恒速位移"
+      ],
+      "generation_phrase": "该镜头按可见证据保留有限不均节律",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.natural-motion-blur",
+      "label": "自然曝光运动模糊",
+      "dimension": "motion_signature",
+      "definition": "运动边缘在连续帧中产生与速度和方向相容的拖影，静图可描述拖影但不能反推帧率与快门数值。",
+      "aliases": [
+        "曝光拖影"
+      ],
+      "positive_cues": [
+        [
+          "方向拖影",
+          "运动边缘模糊"
+        ],
+        [
+          "速度相容",
+          "位移相容"
+        ],
+        [
+          "清楚静区",
+          "局部运动区"
+        ]
+      ],
+      "negative_cues": [
+        "全画面失焦",
+        "规则复制残像"
+      ],
+      "generation_phrase": "该镜头保持与运动方向相容的有限拖影",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.local-lens-flare",
+      "label": "局部镜头耀光",
+      "dimension": "local_effects",
+      "definition": "高亮入射处有局部光带或鬼影且与亮源方向相容，仅描述该镜头光学效果，不作为全局媒介标签。",
+      "aliases": [
+        "镜头耀光"
+      ],
+      "positive_cues": [
+        [
+          "高亮入射",
+          "强亮边缘"
+        ],
+        [
+          "局部光带",
+          "光学鬼影"
+        ],
+        [
+          "亮源相容",
+          "方向可解释"
+        ]
+      ],
+      "negative_cues": [
+        "无亮源装饰光带",
+        "所有镜头固定同样光斑"
+      ],
+      "generation_phrase": "该镜头仅保留亮源驱动的局部耀光",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.edge-chromatic",
+      "label": "边缘色差",
+      "dimension": "local_effects",
+      "definition": "高反差边缘出现细窄异色线且随画面位置变化，范围有限，区别于整体套印错位或刻意霓虹轮廓。",
+      "aliases": [
+        "光学彩边"
+      ],
+      "positive_cues": [
+        [
+          "高反差边",
+          "明暗边界"
+        ],
+        [
+          "细窄异色线",
+          "局部彩边"
+        ],
+        [
+          "位置变化",
+          "边缘局限"
+        ]
+      ],
+      "negative_cues": [
+        "全物体均匀彩色描边",
+        "整层图像大幅错位"
+      ],
+      "generation_phrase": "复现时仅保留有限光学边缘色差",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.local-haze",
+      "label": "局部空气散射",
+      "dimension": "local_effects",
+      "definition": "远层或亮源附近存在降低对比的空气层且遮挡仍连续，描述可见散射，不自动改变全场天气。",
+      "aliases": [
+        "空气薄层"
+      ],
+      "positive_cues": [
+        [
+          "空气层",
+          "局部薄雾"
+        ],
+        [
+          "远层反差降低",
+          "亮源散射"
+        ],
+        [
+          "遮挡连续",
+          "距离相关"
+        ]
+      ],
+      "negative_cues": [
+        "整体抬黑滤镜",
+        "均匀模糊整个画面"
+      ],
+      "generation_phrase": "该镜头保留距离相关的局部空气散射",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.anamorphic-streak",
+      "label": "横向耀光外观",
+      "dimension": "local_effects",
+      "definition": "亮源产生较细的横向光带且核心曝光可解释，可描述外观但单条光带不能鉴定变形宽银幕镜头。",
+      "aliases": [
+        "横向光带"
+      ],
+      "positive_cues": [
+        [
+          "亮源横向光带",
+          "水平耀光"
+        ],
+        [
+          "核心曝光",
+          "高亮来源"
+        ],
+        [
+          "局部受限",
+          "方向一致"
+        ]
+      ],
+      "negative_cues": [
+        "后期任意水平线",
+        "全幅多条无源光带"
+      ],
+      "generation_phrase": "该镜头仅保留有亮源依据的横向耀光",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.vignette",
+      "label": "局部边缘压暗",
+      "dimension": "local_effects",
+      "definition": "画幅外围比中部逐渐变暗且过渡连续，属于该镜头的局部响应，区别于场景本身的阴影分布。",
+      "aliases": [
+        "暗角"
+      ],
+      "positive_cues": [
+        [
+          "外围渐暗",
+          "边缘压暗"
+        ],
+        [
+          "连续过渡",
+          "缓慢衰减"
+        ],
+        [
+          "画幅相关",
+          "四周关系"
+        ]
+      ],
+      "negative_cues": [
+        "物体遮挡硬黑边",
+        "只因某侧场景较暗"
+      ],
+      "generation_phrase": "该镜头轻度压暗外围并保持连续过渡",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.highlight-star",
+      "label": "高亮星芒外观",
+      "dimension": "local_effects",
+      "definition": "少量点状高亮出现放射细线且中心与亮源一致，描述局部现象而不推断光圈叶片数量或镜头型号。",
+      "aliases": [
+        "高光星芒"
+      ],
+      "positive_cues": [
+        [
+          "点状高亮",
+          "小亮源"
+        ],
+        [
+          "放射细线",
+          "局部星芒"
+        ],
+        [
+          "中心对应",
+          "曝光相容"
+        ]
+      ],
+      "negative_cues": [
+        "所有边缘发光",
+        "无亮源星形贴图"
+      ],
+      "generation_phrase": "该镜头对已有点亮源保留有限星芒",
+      "scope": "shot",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.film-stock-uncertain",
+      "label": "胶片型号不可帧证",
+      "dimension": "technical_knowledge",
+      "definition": "颗粒和影调可由扫描、调色与数字模拟改变，单帧通常只支持可见质感描述而不确认具体胶片型号。",
+      "aliases": [
+        "胶片鉴定边界"
+      ],
+      "positive_cues": [
+        [
+          "颗粒可见",
+          "影调可见"
+        ],
+        [
+          "工艺不明",
+          "型号未知"
+        ],
+        [
+          "模拟可能",
+          "扫描影响"
+        ]
+      ],
+      "negative_cues": [
+        "有可核验拍摄记录明确型号"
+      ],
+      "generation_phrase": "描述可见响应并将具体型号留空",
+      "scope": "knowledge",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.device-uncertain",
+      "label": "设备型号不可帧证",
+      "dimension": "technical_knowledge",
+      "definition": "深景深和边缘增强并非手机专属特征，设备归因需要元数据或拍摄记录，风格命名只描述视觉语言。",
+      "aliases": [
+        "设备鉴定边界"
+      ],
+      "positive_cues": [
+        [
+          "深景深",
+          "宽景深"
+        ],
+        [
+          "边缘增强",
+          "数字细节"
+        ],
+        [
+          "设备未知",
+          "元数据缺失"
+        ]
+      ],
+      "negative_cues": [
+        "可信原始元数据确认设备"
+      ],
+      "generation_phrase": "描述手机式视觉但不填写设备型号",
+      "scope": "knowledge",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.motion-needs-time",
+      "label": "运动证据需要时间",
+      "dimension": "technical_knowledge",
+      "definition": "运镜、抖动、移焦与帧间节律都涉及时间变化，静帧仅支持当前曝光、构图和模糊形态的观察。",
+      "aliases": [
+        "时序证据边界"
+      ],
+      "positive_cues": [
+        [
+          "单帧",
+          "静态画面"
+        ],
+        [
+          "运动待证",
+          "时序缺失"
+        ],
+        [
+          "构图可见",
+          "模糊可见"
+        ]
+      ],
+      "negative_cues": [
+        "有连续帧清楚呈现该运动"
+      ],
+      "generation_phrase": "静帧不写未经时序证明的运镜",
+      "scope": "knowledge",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.vfx-provenance-uncertain",
+      "label": "VFX来源不可外观直断",
+      "dimension": "technical_knowledge",
+      "definition": "连续光学与真实表面响应只说明写实整合程度，无法自动区分全CG、局部特效与实拍，来源需外部证据。",
+      "aliases": [
+        "VFX归因边界"
+      ],
+      "positive_cues": [
+        [
+          "摄影一致",
+          "真实光学"
+        ],
+        [
+          "来源未知",
+          "制作待证"
+        ],
+        [
+          "合成可能",
+          "实拍可能"
+        ]
+      ],
+      "negative_cues": [
+        "可信制作说明明确全CG来源"
+      ],
+      "generation_phrase": "写实成像与制作来源分开描述",
+      "scope": "knowledge",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.creator-not-style",
+      "label": "创作者并非单一风格",
+      "dimension": "technical_knowledge",
+      "definition": "导演、摄影师和工作室作品跨越多个影调分支，使用名称必须绑定具体可见组合，不能代替视觉证据。",
+      "aliases": [
+        "创作者名称边界"
+      ],
+      "positive_cues": [
+        [
+          "创作者名称",
+          "工作室名称"
+        ],
+        [
+          "多作品",
+          "多视觉分支"
+        ],
+        [
+          "可见组合",
+          "视觉依据"
+        ]
+      ],
+      "negative_cues": [
+        "名称绑定具体作品且全部线索成立"
+      ],
+      "generation_phrase": "先写可见组合再使用有限参考名称",
+      "scope": "knowledge",
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.shot-not-global",
+      "label": "镜头属性不升全局",
+      "dimension": "technical_knowledge",
+      "definition": "景别、构图、焦点与运镜可以随镜头变化，只有重复可见的媒介影调或纹理关系才能进入全局风格。",
+      "aliases": [
+        "镜头与全局边界"
+      ],
+      "positive_cues": [
+        [
+          "构图焦点",
+          "镜头属性"
+        ],
+        [
+          "局部变化",
+          "随镜变化"
+        ],
+        [
+          "全局待证",
+          "重复证据缺失"
+        ]
+      ],
+      "negative_cues": [
+        "跨镜头重复且属于影调媒介关系"
+      ],
+      "generation_phrase": "将构图焦点与运镜限定在该镜头",
+      "scope": "knowledge",
+      "source_ids": [
+        "internal-authored"
+      ]
+    }
+  ]
+}

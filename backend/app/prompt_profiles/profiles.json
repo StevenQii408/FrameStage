@@ -1,0 +1,86 @@
+{
+  "schema_version": "prompt-profile.v1",
+  "profiles": [
+    {"id": "first-frame-v7", "version": 7, "platform": "generic-image", "prompt_type": "first_frame", "purpose": "紧凑静态首帧；可用视觉字段与原样全局画风，过程说明保留在合同", "required_contract_fields": ["first_frame_state", "observed_style"], "forbid_invented_unknowns": true, "first_frame_only": true},
+    {"id": "seedance-video-v8", "version": 8, "platform": "seedance", "prompt_type": "video", "purpose": "紧凑动作与按需语义时序；起终状态、参数和声音护栏不重复", "required_contract_fields": ["first_frame_state", "primary_action", "end_state", "observed_style"], "forbid_invented_unknowns": true},
+    {"id": "script-first-frame-v2", "version": 2, "platform": "generic-image", "prompt_type": "first_frame", "purpose": "紧凑剧本首帧；导演意图、连续性检查与参考建议保留在合同", "required_contract_fields": ["first_frame_state", "shot_size", "lens", "lighting", "composition"], "forbid_invented_unknowns": true, "first_frame_only": true},
+    {"id": "seedance-script-v2", "version": 2, "platform": "seedance", "prompt_type": "video", "purpose": "紧凑剧本动作时序；保留原对白与声音语义，去除重复过程说明", "required_contract_fields": ["first_frame_state", "primary_action", "end_state", "continuity_anchors"], "forbid_invented_unknowns": true},
+    {"id": "seedance-video-v7", "version": 7, "platform": "seedance", "prompt_type": "video", "purpose": "动作链与证据化语义阶段，按需生成时序约束，不均分动作步骤", "required_contract_fields": ["first_frame_state", "primary_action", "end_state", "observed_style"], "forbid_invented_unknowns": true},
+    {"id": "first-frame-v6", "version": 6, "platform": "generic-image", "prompt_type": "first_frame", "purpose": "前置基础画风、证据锚点与即时首帧交付", "required_contract_fields": ["first_frame_state", "observed_style"], "forbid_invented_unknowns": true, "first_frame_only": true},
+    {"id": "seedance-video-v6", "version": 6, "platform": "seedance", "prompt_type": "video", "purpose": "逐镜完整画风与可追溯动作时间线", "required_contract_fields": ["first_frame_state", "primary_action", "end_state", "observed_style"], "forbid_invented_unknowns": true},
+    {"id": "first-frame-v5", "version": 5, "platform": "generic-image", "prompt_type": "first_frame", "purpose": "非向量高密度参考画风与忠实首帧状态", "required_contract_fields": ["first_frame_state", "observed_style"], "forbid_invented_unknowns": true, "first_frame_only": true},
+    {"id": "seedance-video-v5", "version": 5, "platform": "seedance", "prompt_type": "video", "purpose": "证据化专业画风与独立动作时间线", "required_contract_fields": ["first_frame_state", "primary_action", "end_state", "observed_style"], "forbid_invented_unknowns": true},
+    {"id": "first-frame-v4", "version": 4, "platform": "generic-image", "prompt_type": "first_frame", "purpose": "Visual Bible v2全局、场次和静态镜头风格", "required_contract_fields": ["first_frame_state", "observed_style", "style_profile_hash"], "forbid_invented_unknowns": true, "first_frame_only": true},
+    {"id": "seedance-video-v4", "version": 4, "platform": "seedance", "prompt_type": "video", "purpose": "Visual Bible v2继承、动作和局部效果", "required_contract_fields": ["first_frame_state", "primary_action", "end_state", "style_profile_hash"], "forbid_invented_unknowns": true},
+    {"id": "first-frame-v3", "version": 3, "platform": "generic-image", "prompt_type": "first_frame", "purpose": "确认后的项目级高密度画风与首帧起点", "required_contract_fields": ["first_frame_state", "observed_style", "style_profile_hash"], "forbid_invented_unknowns": true, "first_frame_only": true},
+    {"id": "seedance-video-v3", "version": 3, "platform": "seedance", "prompt_type": "video", "purpose": "确认后的项目级高密度画风与单镜局部效果", "required_contract_fields": ["first_frame_state", "primary_action", "end_state", "style_profile_hash"], "forbid_invented_unknowns": true},
+    {
+      "id": "first-frame-v2", "version": 2, "platform": "generic-image", "prompt_type": "first_frame",
+      "purpose": "中文主体、场景、0秒状态、整体画风及生成建议分离",
+      "required_contract_fields": ["first_frame_state", "observed_style", "aspect_ratio"],
+      "forbid_invented_unknowns": true, "first_frame_only": true
+    },
+    {
+      "id": "seedance-video-v2", "version": 2, "platform": "seedance", "prompt_type": "video",
+      "purpose": "中文连续动作、具体时间线、整体画风与结构化交付",
+      "required_contract_fields": ["first_frame_state", "primary_action", "end_state", "observed_style"],
+      "forbid_invented_unknowns": true
+    },
+    {
+      "id": "first-frame-v1",
+      "version": 1,
+      "platform": "generic-image",
+      "prompt_type": "first_frame",
+      "purpose": "只渲染 0 秒可见状态，不提前完成动作",
+      "required_contract_fields": ["first_frame_state", "shot_size", "lens", "lighting", "composition"],
+      "forbid_invented_unknowns": true,
+      "first_frame_only": true
+    },
+    {
+      "id": "generic-image-v1",
+      "version": 1,
+      "platform": "generic-image",
+      "prompt_type": "image",
+      "purpose": "渲染主体、场景、构图、光线、风格和负面约束",
+      "required_contract_fields": ["first_frame_state", "shot_size", "lens", "lighting", "composition"],
+      "forbid_invented_unknowns": true
+    },
+    {
+      "id": "seedance-video-v1",
+      "version": 1,
+      "platform": "seedance",
+      "prompt_type": "video",
+      "purpose": "渲染起点、动作时间线、单一运镜、结束状态和连续性",
+      "required_contract_fields": ["first_frame_state", "primary_action", "end_state", "continuity_anchors"],
+      "forbid_invented_unknowns": true
+    },
+    {
+      "id": "kling-video-v1",
+      "version": 1,
+      "platform": "kling",
+      "prompt_type": "video",
+      "purpose": "渲染首帧延续、主体一致性、动作和运镜",
+      "required_contract_fields": ["first_frame_state", "primary_action", "end_state", "continuity_anchors"],
+      "forbid_invented_unknowns": true
+    },
+    {
+      "id": "script-first-frame-v1",
+      "version": 1,
+      "platform": "generic-image",
+      "prompt_type": "first_frame",
+      "purpose": "剧本导演首帧；继承人物设定，不提前完成动作",
+      "required_contract_fields": ["first_frame_state", "shot_size", "lens", "lighting", "composition"],
+      "forbid_invented_unknowns": true,
+      "first_frame_only": true
+    },
+    {
+      "id": "seedance-script-v1",
+      "version": 1,
+      "platform": "seedance",
+      "prompt_type": "video",
+      "purpose": "剧本事件、表演时序与原对白独立声音层",
+      "required_contract_fields": ["first_frame_state", "primary_action", "end_state", "continuity_anchors"],
+      "forbid_invented_unknowns": true
+    }
+  ]
+}

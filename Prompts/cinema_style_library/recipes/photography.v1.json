@@ -1,0 +1,3727 @@
+{
+  "version": "cinema-style-library.v1",
+  "recipes": [
+    {
+      "id": "noir-cinema",
+      "label": "黑色电影：密黑硬照黑白",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "无彩摄影中由大面积深黑与方向性硬照塑形，少量白阶强调边缘和体积，中灰仍有有限连接。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.silver-monochrome",
+            "photo.dense-neutral"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.hard-directional"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.monochrome-photographic",
+        "photo.stark-monochrome"
+      ],
+      "insufficient_evidence": [
+        "只有黑色物体或夜景",
+        "普通去色且明暗平均"
+      ],
+      "confusable_with": [
+        "photo.neo-noir-neutral",
+        "photo.monochrome-soft-dark"
+      ],
+      "distinction": "黑白、密黑与有方向硬照必须同时成立，彩光夜景无法替代。",
+      "compact_prompt": "采用连续黑白摄影灰阶，以中性密黑占据较大面积，少量冷银亮部由有方向硬照分离体积；保留有限中灰与真实阴影边界，细节服从明暗结构。",
+      "detailed_description": "此分支将低调占比和硬光方向视为核心关系。深黑并非把曝光整体拉低，而是在受光面仍可读时组织较大的暗域。普通黑白纪实可能拥有颗粒，却缺少这种硬照分离；彩色夜景也可能很暗，但不能满足无彩灰阶条件。",
+      "generation_constraints": [
+        "保留有限中灰而非二值化",
+        "硬影方向需统一",
+        "不从剧情或服饰推断黑色电影"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ],
+      "aliases": [
+        "黑色电影式高反差摄影"
+      ]
+    },
+    {
+      "id": "natural-cinema",
+      "label": "自然主义电影：柔照中性层次",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "中性摄影色彩与柔和方向光保持可信体积，暗部可读而亮部逐渐压缩，视觉修饰隐藏在自然光关系中。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.neutral-color",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.soft-directional",
+            "photo.highlight-rolloff"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.continuous-volume",
+        "photo.organic-surface-variation"
+      ],
+      "insufficient_evidence": [
+        "题材真实但布光高度图形化",
+        "仅有自然光字样或单个柔影"
+      ],
+      "confusable_with": [
+        "phone-daylight",
+        "photo.natural-warm-interior"
+      ],
+      "distinction": "中性低彩与有方向柔照及亮部肩部共同成立，手机式锐化不是必需线索。",
+      "compact_prompt": "采用中性且克制的摄影色彩，用柔和方向光维持受光面与暗侧的连续体积；亮部缓慢压缩，保留自然表面微差与暗部层次，让整体曝光可信而不过分修饰。",
+      "detailed_description": "自然主义在这里指光照和表面响应具有可解释的因果，并不保证使用天然光或某类器材。柔照仍需要方向与背光层次。手机式日常影像可以同样真实，却更常依赖深景深和局部细节整理；仅有真实题材不能越过这组影调证据。",
+      "generation_constraints": [
+        "不加入未经观察的胶片颗粒",
+        "保持已有光源依据",
+        "构图和机位独立于此配方"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ],
+      "aliases": [
+        "自然主义写实电影摄影"
+      ]
+    },
+    {
+      "id": "cool-thriller",
+      "label": "冷调悬疑：低彩青灰暗侧",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "低彩青灰覆盖中暗部，低调光比配合明确暗侧吸收，亮部克制并保有少量近中性色，形成收敛冷感。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cool-gray",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.negative-fill"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.shadow-detail"
+      ],
+      "insufficient_evidence": [
+        "只有情节悬疑或表情紧张",
+        "单个蓝色表面或整体欠曝"
+      ],
+      "confusable_with": [
+        "photo.neutral-hard-thriller",
+        "photo.cold-fluorescent"
+      ],
+      "distinction": "冷青灰与吸暗侧的组合是依据，恐惧情节和均匀蓝滤镜都不足。",
+      "compact_prompt": "以低彩青灰组织中暗部，保持少量克制亮区与近中性白阶；方向光旁留出明确吸暗侧，在深暗中保存必要密度差，使冷感来自色温与明暗共同作用。",
+      "detailed_description": "该分支的压迫感由彩度降低、冷中暗部与局部吸暗共同形成。若光线四面均匀，即使全幅偏蓝也缺少暗侧结构；若所有亮度都丢失，则只能描述欠曝。荧光平照的灰绿冷感与它不同，前者以宽域弱方向光为主。",
+      "generation_constraints": [
+        "不全幅等量染蓝",
+        "深暗仍有最低限度层次",
+        "不按叙事情绪自动选择配方"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ],
+      "aliases": [
+        "冷调悬疑电影摄影"
+      ]
+    },
+    {
+      "id": "warm-retro-film",
+      "label": "暖复古：褪彩柔颗粒",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "暖褐中调、轻度抬黑与褪彩共同作用，柔性细颗粒和低微反差构成乳剂式外观，白阶仍可区分。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.warm-faded",
+            "photo.muted-warm"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.fine-soft-grain",
+            "photo.low-microcontrast"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.film-response",
+        "photo.highlight-rolloff"
+      ],
+      "insufficient_evidence": [
+        "只有暖光或橙色滤镜",
+        "只有噪点而色彩黑位不变"
+      ],
+      "confusable_with": [
+        "photo.warm-shoulder-film",
+        "photo.blue-fade-archive"
+      ],
+      "distinction": "暖褪彩、浅黑位和柔颗粒共同成立，具体胶片型号保持未知。",
+      "compact_prompt": "暖褐中调轻度褪彩并适当上移黑位，让柔性细颗粒融入低微反差的摄影细节；高光保有渐变，暗部仍能分层，以色彩和响应曲线建立温和复古感。",
+      "detailed_description": "复古是本配方的可见外观名称，并非年代判定。暖灯照明可能保有洁净数字黑位，不能因此进入此分支。颗粒也可能来自后期；只有当褪彩、浅黑位与柔化细节相互支持时，才采用这一组合，而不推断乳剂型号或冲洗方式。",
+      "generation_constraints": [
+        "颗粒不覆盖成规则纹样",
+        "抬黑不消灭中调反差",
+        "不写具体胶片品牌"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ],
+      "aliases": [
+        "暖调复古颗粒电影视觉"
+      ]
+    },
+    {
+      "id": "neon-cinema",
+      "label": "霓虹混色：青品光区深暗",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "青蓝与品红光区在连续摄影体积上形成方向分色，深暗环境托住亮区，交界可见混合而非全幅紫罩。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cyan-magenta",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.color-light-separation"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.dark-ambient-punctuated"
+      ],
+      "insufficient_evidence": [
+        "只有霓虹文字或招牌",
+        "仅有青色与红色物体"
+      ],
+      "confusable_with": [
+        "photo.cyan-amber-thriller",
+        "photo.neon-sodium-green"
+      ],
+      "distinction": "青品色来自受光分区且暗环境连续，单一高饱和灯牌不是充分依据。",
+      "compact_prompt": "以青蓝与品红方向光区分受光面，深暗环境连续托住局部亮区，交界保留灰阶与有限混色；颜色集中在照明区域而不全幅覆盖，保持曝光与表面反射可信。",
+      "detailed_description": "此分支要求彩色照明参与塑形，画面中出现彩色标志并不等同于混色摄影。低调基底使青品光区有强弱层级，受光交界仍须可读。若只有暖亮部和青暗部而没有品红光区，应转向青影琥珀分支，避免用霓虹一词包揽所有夜色。",
+      "generation_constraints": [
+        "不新增招牌或夜景地点",
+        "彩光需与方向光对应",
+        "避免所有边缘均匀彩色描边"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ],
+      "aliases": [
+        "霓虹混色电影摄影"
+      ]
+    },
+    {
+      "id": "photo.neo-noir-neutral",
+      "label": "新黑色电影：冷影中性硬亮",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "彩色摄影保留中性亮部和轻冷阴影，密黑与有方向硬光造成明暗切分，色彩存在但不以霓虹混色为核心。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cool-shadow-neutral",
+            "photo.dense-neutral"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.hard-directional"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.high-contrast-mid"
+      ],
+      "insufficient_evidence": [
+        "仅为暗色夜景",
+        "只有少量冷白灯光"
+      ],
+      "confusable_with": [
+        "noir-cinema",
+        "neon-cinema"
+      ],
+      "distinction": "彩色冷影与中性硬亮构成新黑色分支，不要求青品霓虹光区。",
+      "compact_prompt": "保留彩色摄影的近中性亮部与轻冷阴影，以中性密黑和有方向硬照建立清楚切分；压低整体杂色而保持受光面色相，深暗基底仍有少量层次与真实体积。",
+      "detailed_description": "新黑色电影是多种现代摄影分支的集合，这条配方仅覆盖克制彩色硬照的一支。它与经典黑白分支共享密黑和硬光，但不删除全部颜色。它也能发生在非夜景中；单纯霓虹蓝紫或悬疑剧情都不能证明中性硬亮与冷影关系。",
+      "generation_constraints": [
+        "保留有限本色而非完全去色",
+        "不默认加入霓虹灯",
+        "硬光与阴影方向需一致"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.daylight-hard-earth",
+      "label": "日光电影：低彩土色硬影",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "高照度方向日光与自然回光形成硬影，低彩赭棕灰绿稳定整体色域，明暗两端保有摄影层次。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.muted-earth",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.sun-hard",
+            "photo.shadow-detail"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.organic-surface-variation"
+      ],
+      "insufficient_evidence": [
+        "仅有土色物体或土地题材",
+        "只有曝光明亮而没有硬影"
+      ],
+      "confusable_with": [
+        "photo.overcast-earth",
+        "photo.documentary-harsh-top"
+      ],
+      "distinction": "低彩土色是全局关系，硬日光与自然回光区别于阴天漫照。",
+      "compact_prompt": "以低彩赭棕和灰绿维持稳定色域，强方向日光形成清楚硬影并保留环境回光；亮面层次完整，暗部仍有少量纹理，使连续摄影体积与自然表面差异同时可读。",
+      "detailed_description": "该分支不要求任何地域或年代元素。土色必须覆盖多个受光与背光区域，单个褐色物体不能提供全局依据。硬日光中阴影仍被周围环境托住，和暗室单硬光不同；若影边宽缓、光向很弱，则更接近低彩阴天分支。",
+      "generation_constraints": [
+        "不更换对象本色为统一棕色",
+        "自然回光不能变成等亮填充",
+        "不绑定地域题材"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.overcast-earth",
+      "label": "阴天电影：土色低反差漫照",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "低彩土色与弱方向漫射共同保留自然表面，接触阴影提供体积，整体中调温和而并非无层次。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.muted-earth",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.overcast-diffuse",
+            "photo.flat-mid"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.organic-surface-variation"
+      ],
+      "insufficient_evidence": [
+        "只有灰色天空或阴天文字",
+        "低反差来自严重失焦"
+      ],
+      "confusable_with": [
+        "photo.daylight-hard-earth",
+        "natural-cinema"
+      ],
+      "distinction": "宽域弱光向与低彩土色共同成立，硬日照和全域平涂均不适用。",
+      "compact_prompt": "低彩赭棕灰绿色域由弱方向漫射光覆盖，保留轻浅接触阴影与连续表面变化；中间调过渡温和而白阶不溢出，以局部明度差说明体积，不把画面统一磨成灰平。",
+      "detailed_description": "阴天名称只概括照明外观，观察重点是宽散高光、较小照度差和接触阴影。画面中存在云层不能证明这些关系。与自然主义柔方向分支相比，此处光向更弱且土色色域更稳定；失焦或雾遮造成的低反差也不能替代漫射证据。",
+      "generation_constraints": [
+        "接触阴影必须保留",
+        "不自动加入云层或天气变化",
+        "避免全域同灰无体积"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.natural-warm-interior",
+      "label": "自然主义电影：暖环境柔照",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "克制暖中调与较宽域暖环境光保持局部衰减，暗部细节可见，表面响应连续而不制造复古颗粒。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.muted-warm",
+            "photo.warm-clean"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.warm-interior-ambient",
+            "photo.shadow-detail"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.organic-surface-variation"
+      ],
+      "insufficient_evidence": [
+        "只有室内地点或暖色物体",
+        "暖滤镜且无照明衰减"
+      ],
+      "confusable_with": [
+        "natural-cinema",
+        "photo.warm-tungsten-pool"
+      ],
+      "distinction": "宽域暖柔照与局部衰减是依据，不以装修风格或室内地点命名。",
+      "compact_prompt": "保持暖净白点和克制暖中调，让暖环境光柔和覆盖既有体积并在局部自然衰减；暗侧仍有细微表面层次，高光不过度发黄，连续摄影细节保持可信的局部差异。",
+      "detailed_description": "此处的环境软照描述光在较大范围的分布，而不是场所类型。暖点光的急剧衰减与它不同；全幅黄滤镜也没有局部光照因果。自然主义特征来自明暗、反射和表面色相相互解释，若需要褪色与颗粒，应选择独立的暖复古配方。",
+      "generation_constraints": [
+        "不增加室内物品或装修",
+        "不默认胶片颗粒",
+        "暖白与暗侧仍应分离"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.natural-underexposed",
+      "label": "自然主义电影：低曝可用光",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "可用光方向保持可信但中调整体偏低，少量亮面维持细节，低彩色相仍可辨而允许有限暗部损失。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.restrained-saturation",
+            "photo.dense-neutral"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.underexposed-natural",
+            "photo.practical-motivation"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.available-light-response",
+        "photo.natural-irregularity"
+      ],
+      "insufficient_evidence": [
+        "全幅纯黑没有光影依据",
+        "低调来自多彩舞台布光"
+      ],
+      "confusable_with": [
+        "cool-thriller",
+        "photo.documentary-underexposed"
+      ],
+      "distinction": "低曝光服从可用光因果，不能把所有深暗都称为悬疑低调。",
+      "compact_prompt": "让既有可用光解释光向与邻域亮度，以偏低中调和中性深暗保留有限曝光差；少量亮面仍可读，色相克制且不全部消失，接受局部暗细节缺失而保持体积连贯。",
+      "detailed_description": "低曝是一种曝光分配，不是任意压黑。亮部和可见光源需要证明当前亮度关系，否则只能报告画面信息不足。此分支允许不均匀曝光，与精密控制的冷调悬疑吸暗不同；也不以人物动作、情节或地点推断是否采用可用光拍摄。",
+      "generation_constraints": [
+        "不补造戏剧性轮廓光",
+        "可用光需有空间依据",
+        "不可把全黑误作密度层次"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.mixed-temperature-natural",
+      "label": "自然主义电影：冷暖可用光",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "暖橙和冷白光区维持不同白平衡，实景亮源解释色温与明度衰减，整体克制而保留自然区域差。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.tungsten-daylight",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.practical-motivation",
+            "photo.mixed-practical"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.documentary-integration",
+        "photo.shadow-detail"
+      ],
+      "insufficient_evidence": [
+        "仅有冷暖物体并置",
+        "所有区域统一橙蓝调色"
+      ],
+      "confusable_with": [
+        "photo.phone-mixed-light",
+        "photo.cyan-amber-thriller"
+      ],
+      "distinction": "区域白平衡差须由光源和邻域解释，区别于按明暗统一分色。",
+      "compact_prompt": "保留暖橙与冷白实景光的区域白平衡差，让局部亮源解释附近明度衰减与光向；整体彩度克制，交叠处仍有摄影灰阶，暗部维持有限可读性而不强行全场统一。",
+      "detailed_description": "它和青影琥珀调色不同，冷暖分区来自不同光源邻域，而不必严格跟随亮度区间。自然主义容许这些未被完全校正的色温差，但仍要求表面反射相容。单个暖色与蓝色对象、或者没有光源方向的双色滤镜都不足以识别。",
+      "generation_constraints": [
+        "不将冷暖分色写成物体本色",
+        "保留局部光源衰减",
+        "不强行添加夜景元素"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.low-angle-warm-film",
+      "label": "低角暖光：柔肩细颗粒",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "低角暖方向光与延展投影形成暖照层次，中调偏琥珀，细颗粒和柔亮部肩部提供胶片式响应。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.amber-warm",
+            "photo.muted-warm"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.golden-low-angle",
+            "photo.highlight-rolloff"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.fine-grain",
+            "photo.low-microcontrast"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.film-response"
+      ],
+      "insufficient_evidence": [
+        "只有整体橙色或时段标签",
+        "只有长影而色温中性"
+      ],
+      "confusable_with": [
+        "photo.daylight-hard-earth",
+        "photo.warm-shoulder-film"
+      ],
+      "distinction": "暖低角光与投影必须同时可见，颗粒不能证明日落或胶片型号。",
+      "compact_prompt": "低角度暖方向光擦过既有体积并拉长投影，琥珀中调保持低彩层次；亮部用柔和肩部压缩，细随机颗粒融入低微反差细节，暗部仍保留自然回光与密度区分。",
+      "detailed_description": "低角暖光可以出现在人工光条件下，因此不从该外观推断具体时刻。长投影提供几何依据，暖亮部提供色温依据，两者缺一只能作较弱描述。颗粒和柔肩是附加成像关系，不等于真实胶片；若只是柔暖面光而没有延展投影，应使用暖肩分支。",
+      "generation_constraints": [
+        "不指定日出日落时间",
+        "颗粒保持细随机",
+        "长影方向与主光一致"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.deep-blue-lowlight",
+      "label": "深蓝低照：异温稀疏亮部",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "深蓝阴影在低照基底内仍有黑阶分层，少量异温亮部向周围衰减，细节服从曝光而非均匀发蓝。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.deep-blue-night",
+            "photo.cool-shadow-neutral"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.dark-ambient-punctuated"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.shadow-detail",
+        "photo.photographic-continuity"
+      ],
+      "insufficient_evidence": [
+        "只是夜晚题材",
+        "全幅等亮深蓝或单个蓝灯"
+      ],
+      "confusable_with": [
+        "photo.phone-lowlight-blue",
+        "neon-cinema"
+      ],
+      "distinction": "深蓝黑阶与稀疏异温亮部组成曝光关系，青品混光不必成立。",
+      "compact_prompt": "深蓝支配连续暗部并保留细微黑阶分离，少量近中性或异温亮区由局部光源向外衰减；彩度与反射保持克制，让摄影体积在低照中可读而不把全幅均匀染蓝。",
+      "detailed_description": "此分支只描述夜蓝外观，低照与深蓝不是对实际拍摄时刻的确认。相比手机低照，它不要求暗部彩噪、局部锐化或区域解析变软。相比青品霓虹，它不要求品红方向光区；若整图只是同明度浓蓝，就缺少稀疏亮部和黑阶层次。",
+      "generation_constraints": [
+        "不添加夜景地点",
+        "深蓝区仍需明度级差",
+        "稀疏亮部不扩展成全域照明"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.neon-sodium-green",
+      "label": "混光电影：钠黄偏绿暗照",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "黄橙和偏绿实景光产生可读区域色温差，暗环境保有稀疏亮点与邻域衰减，不靠青品霓虹代称。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.sodium-green",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.mixed-practical",
+            "photo.dark-ambient-punctuated"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.shadow-detail"
+      ],
+      "insufficient_evidence": [
+        "仅有黄色与绿色物品",
+        "普通青品彩光而无黄绿区域差"
+      ],
+      "confusable_with": [
+        "neon-cinema",
+        "photo.phone-mixed-light"
+      ],
+      "distinction": "黄橙与偏绿光源邻域是具体组合，霓虹名称不能覆盖所有混光。",
+      "compact_prompt": "暗环境中保留黄橙与偏绿实景光的区域色温差，使稀疏亮点周围存在真实明度衰减；压低多余杂彩，交界仍有连续体积与黑阶，不将不同光区抹成均匀黄绿色。",
+      "detailed_description": "这一分支以光源色的竞争而非图案内容为证据。偏绿可能来自白平衡或光源谱外观，但不能据此鉴定灯具。若只有物体本色呈黄绿而其亮暗无区域差，则不应成立。青品霓虹与它有不同的主色关系，不能仅以夜景统一归类。",
+      "generation_constraints": [
+        "不确认灯具型号",
+        "黄绿偏差保留空间依据",
+        "暗部不完全丢失连续层次"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.cyan-amber-thriller",
+      "label": "冷暖悬疑：青影琥珀硬亮",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "青蓝阴影与琥珀亮部按亮度分区，低调方向硬照加强体积交界，整体密度较高但仍有中性过渡。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cyan-shadow-amber"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.hard-directional"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.high-contrast-mid",
+        "photo.dense-neutral"
+      ],
+      "insufficient_evidence": [
+        "两个冷暖物体并置",
+        "霓虹彩光却不按亮暗分区"
+      ],
+      "confusable_with": [
+        "neon-cinema",
+        "photo.neo-noir-neutral"
+      ],
+      "distinction": "按亮度区间分色并以硬照塑形，区别于青品方向混光。",
+      "compact_prompt": "将青蓝留在阴影、琥珀集中于硬照亮部，低调密黑托住二者之间的中性过渡；增强中调分离但保持真实灰阶，高光不全面截白，色温差随体积而非物体类别变化。",
+      "detailed_description": "青橙关系是两端色温分离的描述，不保证来自任何特定调色流程。硬光和低调占比使它区别于柔和商业冷暖分色。若两个颜色仅来自对象本色，则不能满足按亮度分区的条件；青品霓虹虽然也有双色，亮暗分配并不相同。",
+      "generation_constraints": [
+        "不把对象本色统一改成青橙",
+        "亮暗之间保留中性灰阶",
+        "不新增光源或布景"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.cold-fluorescent",
+      "label": "冷漫平照：灰绿洁净中调",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "灰绿低彩与偏绿冷白宽域平照相容，温和中调保留接触体积，洁净数字黑阶避免颗粒主导。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.green-gray",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.fluorescent-flat",
+            "photo.flat-mid"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.clean-black",
+            "photo.crisp-no-grain"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.clean-digital"
+      ],
+      "insufficient_evidence": [
+        "只因地点类似办公空间",
+        "冷滤镜加高反差侧光"
+      ],
+      "confusable_with": [
+        "cool-thriller",
+        "photo.phone-cold-diffuse"
+      ],
+      "distinction": "灰绿弱方向平照是依据，不以场所或冷情绪归类。",
+      "compact_prompt": "以灰绿低彩中暗部衔接偏绿冷白宽域照明，中调温和而保留浅接触阴影；洁净数字细节与平滑黑阶统一响应，让冷感来自色温和弱塑形而非大幅压暗。",
+      "detailed_description": "荧光式仅描述偏绿冷白与平照外观，无法鉴定实际光源。此分支的照度分布较宽、阴影较浅，与吸暗侧形成的冷调悬疑不同。环境中出现绿色表面或特定场所不构成依据；若灰绿只是统一滤镜且体积全无，也应降低匹配置信度。",
+      "generation_constraints": [
+        "不鉴定灯管或地点",
+        "接触阴影不可消失",
+        "不附加胶片损伤"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.bleach-hard",
+      "label": "银灰脱色：强中调硬照",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "保留少量色相的银灰低彩配合强中调反差与方向硬光，暗部密度较高，区别于彻底黑白或仅去饱和。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.bleach-bypass",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.high-contrast-mid",
+            "photo.hard-directional"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.dense-shadow-grain"
+      ],
+      "insufficient_evidence": [
+        "普通低饱和但光比平缓",
+        "完全黑白且无残余色相"
+      ],
+      "confusable_with": [
+        "noir-cinema",
+        "photo.copper-gray-cinema"
+      ],
+      "distinction": "残余色、银灰中调和硬照须并存，不能断言化学漂白工艺。",
+      "compact_prompt": "压低彩度并保留少量色相，以银灰密度和强中调反差配合有方向硬照；黑阶有重量而白阶仍渐变，表面微差随光向成立，使脱色外观保有连续摄影体积。",
+      "detailed_description": "银灰脱色并不等于完全去色，残余颜色是重要边界。硬光强化明暗交界，但不能把中间层次剪成二值。数字调色也可产生相似密度，所以配方只命名外观；若影调只是柔灰而缺少中调密度，不能仅凭低饱和进入此分支。",
+      "generation_constraints": [
+        "只描述脱色外观不确认工艺",
+        "保留残余色相",
+        "避免全部白阶硬截断"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.copper-gray-cinema",
+      "label": "铜灰电影：低彩硬面密度",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "铜色中调与灰色两端形成克制色域，方向硬光和增强中调反差让已有表面出现密度而不替换材质。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.copper-gray",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.hard-directional",
+            "photo.high-contrast-mid"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.organic-surface-variation"
+      ],
+      "insufficient_evidence": [
+        "仅有铜制物体",
+        "统一橙色罩染或柔灰无塑形"
+      ],
+      "confusable_with": [
+        "photo.bleach-hard",
+        "photo.commercial-copper"
+      ],
+      "distinction": "铜色存在于影调中段并由硬照塑形，不代表把所有对象金属化。",
+      "compact_prompt": "铜色留在低彩受光中调，最亮处和暗部向灰阶收敛；方向硬照增强中调分離而保持连续表面响应，黑阶与高光均有细微层次，以克制密度构成铜灰摄影外观。",
+      "detailed_description": "铜灰配方只改变既有成像关系，不改写对象材质。色彩在中调集中，和通幅棕褐单色的分布不同。商业铜灰分支更强调反射整理，这条以方向硬照和中调密度为核心；单个铜色物体即使反射漂亮，也不能证明全局铜灰调色。",
+      "generation_constraints": [
+        "不把普通表面转成金属",
+        "铜色不覆盖所有亮度",
+        "保留已有纹理尺度"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.pastel-diffuse-film",
+      "label": "浅粉彩电影：漫照细颗粒",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "高明度浅彩与温和漫射共同保留连续体积，细随机颗粒和光学柔化参与成像，白阶层次优先于过曝。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.pastel-low-chroma",
+            "photo.cream-white"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.overcast-diffuse",
+            "photo.high-key"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.fine-grain",
+            "photo.low-microcontrast"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.film-response"
+      ],
+      "insufficient_evidence": [
+        "只有浅色物品或明亮背景",
+        "全域白阶截断并无色相分离"
+      ],
+      "confusable_with": [
+        "photo.highkey-cream-cinema",
+        "photo.commercial-pastel"
+      ],
+      "distinction": "浅彩分离、漫照与细颗粒共同成立，题材柔美不是依据。",
+      "compact_prompt": "浅粉彩和奶油暖白形成高明度低彩色域，宽域漫照保留轻接触阴影与白阶差别；细随机颗粒融入低微反差，连续摄影体积仍清楚，让明亮感来自层次而非大面积过曝。",
+      "detailed_description": "浅彩必须彼此可分，曝光溢出的灰白不符合这项条件。细颗粒与光学柔化使本分支区别于洁净商业粉彩，但不能确定胶片来源。若只有柔和色彩而照明仍是深暗硬光，应优先报告色域，而不套用本配方的高调漫照结构。",
+      "generation_constraints": [
+        "白阶不可大面积截断",
+        "颗粒只作细微响应",
+        "不增加花卉服装等题材元素"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.primary-hard-film",
+      "label": "厚实原色电影：硬照细彩粒",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "多种厚实原色在连续摄影塑形中保持分离，方向硬光增强受光差，细彩颗粒支持非洁净数字响应。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.dense-primary",
+            "photo.neutral-color"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.hard-directional",
+            "photo.high-contrast-mid"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.fine-color-grain",
+            "photo.organic-surface-variation"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.film-response"
+      ],
+      "insufficient_evidence": [
+        "只有单件高饱和物体",
+        "平面矢量原色而无摄影体积"
+      ],
+      "confusable_with": [
+        "photo.commercial-hard-primary",
+        "photo.cross-color-film"
+      ],
+      "distinction": "原色必须覆盖多个可见色域且有硬照塑形，原色图形不是摄影配方。",
+      "compact_prompt": "厚实红黄蓝等主要色相彼此分离，保持中性白点与方向硬照的连续体积；增强中调反差而不截断两端，细彩颗粒与自然表面微变化相容，让颜色具有密度但不发光。",
+      "detailed_description": "本分支保留摄影的渐变与反射，而非将原色改成平面填色。多个色相的密度是必要关系，单个鲜亮物体不够。与商业硬照原色相比，它强调细彩颗粒和自然微差，表面整理较少；若亮暗两端呈异色偏移，应考虑交叉色偏分支。",
+      "generation_constraints": [
+        "不更换原对象为彩色道具",
+        "颜色不转成自发光",
+        "颗粒不得变成印刷网点"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.warm-shoulder-film",
+      "label": "暖柔电影：琥珀肩部与细粒",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "琥珀亮中调在柔和方向光内形成连续体积，柔亮部肩部与细颗粒共同成立，黑位不必抬起或褪染。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.amber-warm",
+            "photo.muted-warm"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.soft-directional",
+            "photo.highlight-rolloff"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.fine-grain",
+            "photo.low-microcontrast"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.film-response"
+      ],
+      "insufficient_evidence": [
+        "仅有暖灯但高光硬截",
+        "褪色明显却无柔方向光"
+      ],
+      "confusable_with": [
+        "warm-retro-film",
+        "photo.low-angle-warm-film"
+      ],
+      "distinction": "柔方向暖照和亮部肩部是核心，复古褪彩与浅黑位不是必要条件。",
+      "compact_prompt": "以克制琥珀中调承接柔和方向光，让亮部逐渐压缩并保留受光面色相；细随机颗粒与低微反差融入连续摄影细节，暗部仍有深色底部，暖感无需依赖全面褪色。",
+      "detailed_description": "这一暖柔分支保留相对完整的黑阶，和暖褪彩复古的浅黑位不同。柔方向光需要暗侧过渡，不应以全画面黄罩代替。颗粒只是可见纹理而非胶片型号证明；若主要证据是低角暖照和长投影，则应选择更具体的低角光配方。",
+      "generation_constraints": [
+        "暖色主要进入中亮部",
+        "不自动抬黑或添加扫描划痕",
+        "保留柔光方向与暗侧"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.blue-fade-archive",
+      "label": "蓝灰转录：褪色与扫描柔化",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "蓝灰褪色、浅黑位和低彩高光与扫描柔化相互支持，轻度磨损说明转录外观，摄影体积仍连续。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.faded-blue",
+            "photo.lifted-neutral-black"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.scan-wear",
+            "photo.intermediate-resolution"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.archive-transfer",
+        "photo.photographic-continuity"
+      ],
+      "insufficient_evidence": [
+        "只有蓝色滤镜",
+        "只加均匀噪点而无密度变化"
+      ],
+      "confusable_with": [
+        "warm-retro-film",
+        "photo.sepia-transfer"
+      ],
+      "distinction": "蓝灰浅黑与转录细节共同成立，扫描外观不能直接证明年代。",
+      "compact_prompt": "以蓝灰褪色和轻度浅黑位保留摄影层次，适中解析的自然边缘伴随有限扫描磨损与密度起伏；高光低彩但白阶可分，转录痕迹只参与表面响应，不遮盖整体体积。",
+      "detailed_description": "转录外观由多个层面的损耗共同支撑：色彩变弱、最低密度上移、解析柔化和轻度扫描痕迹。任意一项都可能来自其他处理，不能单独推断档案年代。暖复古主要依赖颗粒与暖褐中调，本分支则以偏蓝灰和转录磨损为边界。",
+      "generation_constraints": [
+        "磨损只占有限范围",
+        "不写真实拍摄年份",
+        "蓝灰色不得均匀淹没所有层次"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.sepia-transfer",
+      "label": "棕褐档案：密度与细转录痕",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "厚重棕褐单色贯穿连续摄影灰阶，细扫描痕与中等解析相容，亮部保有渐变而黑阶密度明显。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.dense-sepia",
+            "photo.dense-neutral"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.scan-wear",
+            "photo.intermediate-resolution"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.archive-transfer",
+        "photo.highlight-rolloff"
+      ],
+      "insufficient_evidence": [
+        "只有棕色物体或古旧题材",
+        "均匀浅黄色滤镜"
+      ],
+      "confusable_with": [
+        "photo.blue-fade-archive",
+        "photo.monochrome-soft-dark"
+      ],
+      "distinction": "棕褐密度跨越多个亮度区间，转录痕不能仅由旧物题材代替。",
+      "compact_prompt": "以厚重棕褐单色组织连续摄影灰阶，中性密黑与渐变白阶维持清楚层次；适中解析伴随少量细扫描痕，褪密度保持局部而不过度污染，使档案转录感来自响应关系。",
+      "detailed_description": "棕褐的全亮度分布区别于暖中调，它需要从暗部到亮部的一致单色倾向。扫描痕应位于成像层而非对象表面，不能把已有物体划痕直接当作胶片损伤。此组合只能描述档案般外观，无法确认媒介年代、保存方式或实际染色工艺。",
+      "generation_constraints": [
+        "不确认原始档案年代",
+        "扫描痕不替换物体材质",
+        "保持棕褐单色的灰阶分离"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.coarse-dark-film",
+      "label": "粗粒电影：密黑低照纹理",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "低调密黑与深暗随机颗粒共同组织低照摄影，粗粒影响细节但高光和体积仍连贯，避免压缩块化。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.dense-neutral",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.shadow-detail"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.coarse-grain",
+            "photo.dense-shadow-grain"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity"
+      ],
+      "insufficient_evidence": [
+        "只有粗噪点覆盖",
+        "规则编码方块或全图不可辨"
+      ],
+      "confusable_with": [
+        "photo.natural-underexposed",
+        "photo.documentary-color-grain"
+      ],
+      "distinction": "粗随机颗粒须与低照密度结合，块状压缩损伤不属于乳剂式颗粒。",
+      "compact_prompt": "中性密黑承担低调基底，保留深暗中的少量密度差和随机粗颗粒；亮面仍有连续摄影灰阶，粗粒只适度降低细节解析，整体彩度克制而不过度抹去真实空间体积。",
+      "detailed_description": "粗粒并不自动意味着高感光度、某种胶片或历史年代。必要关系是随机颗粒跨过平坦区域，并与暗部密度相容。规则编码方块有不同空间结构，不能混称颗粒；如果亮暗信息完全不可辨，就不足以建立低调摄影配方，只能描述退化。",
+      "generation_constraints": [
+        "颗粒必须非周期随机",
+        "不要加入压缩马赛克",
+        "粗粒不得吞没全部体积"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.monochrome-fine-bright",
+      "label": "银灰电影：明亮柔照细粒",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "冷银无彩灰阶在明亮柔方向照明中维持白阶和浅暗侧，細颗粒参与密度组织，区别于低调黑色电影。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.silver-monochrome",
+            "photo.lifted-neutral-black"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.high-key",
+            "photo.soft-directional"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.fine-grain",
+            "photo.low-microcontrast"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.monochrome-photographic"
+      ],
+      "insufficient_evidence": [
+        "普通黑白滤镜且照度不明",
+        "深黑硬照占据大部分画面"
+      ],
+      "confusable_with": [
+        "noir-cinema",
+        "photo.monochrome-soft-dark"
+      ],
+      "distinction": "明亮柔照和细粒银灰共同成立，黑白不必等于黑色电影。",
+      "compact_prompt": "冷银黑白灰阶由明亮柔方向光塑造，白阶保留细微层次，浅黑位与柔暗侧平滑相接；细颗粒融入低微反差响应，维持摄影体积而不让亮部成为纯白平面。",
+      "detailed_description": "该分支用高调占比区分经典低调黑色电影，同时保留方向性而非无影平光。细颗粒增添密度外观，不能证明银盐实际来源。只将色彩删除但没有柔光和白阶层次的影像不应匹配；完全二值化的黑白图形也不在摄影式转换范围内。",
+      "generation_constraints": [
+        "白阶必须连续",
+        "保留柔光暗侧",
+        "不从黑白推断年代或胶片"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.monochrome-soft-dark",
+      "label": "黑白柔暗：银盐密度与柔侧照",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "银灰无彩中调与厚实暗部在低调柔方向光中连续过渡，细随机颗粒可见，阴影不采用硬断界主导。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.silver-monochrome",
+            "photo.dense-neutral"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.soft-directional"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.fine-grain",
+            "photo.low-microcontrast"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.silver-density"
+      ],
+      "insufficient_evidence": [
+        "只有黑白和深暗",
+        "硬影边主导且中灰有限"
+      ],
+      "confusable_with": [
+        "noir-cinema",
+        "photo.monochrome-fine-bright"
+      ],
+      "distinction": "柔侧照在密黑中保留长灰阶过渡，区别于硬照黑色电影。",
+      "compact_prompt": "冷银黑白保持厚实暗部和连续中灰，低调柔方向光使受光面缓慢转入暗侧；细随机颗粒与低微反差相容，亮部不截白，深黑仍有少量密度变化与可信摄影塑形。",
+      "detailed_description": "它共享黑色电影的深暗比例，但边界由宽缓柔影控制而非硬照切分。仅有黑白深暗不足以区分二者，应观察过渡宽度与中灰是否连续。银盐密度也是外观术语，数字转换可以模仿；若照度整体明亮则更接近高调细粒银灰分支。",
+      "generation_constraints": [
+        "不把柔影改成硬切",
+        "深暗保持最低层次",
+        "不确认银盐媒介来源"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.monochrome-hard-day",
+      "label": "黑白日光：硬影与开放灰阶",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "连续黑白摄影在强方向日光中形成硬投影，环境回光托住阴影，较强中调反差同时保留明暗两端。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.monochrome-photographic",
+            "photo.photographic-continuity"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.sun-hard",
+            "photo.bright-shadow-open"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.high-contrast-mid",
+        "photo.organic-surface-variation"
+      ],
+      "insufficient_evidence": [
+        "仅把彩色删掉",
+        "黑室硬光且背光完全纯黑"
+      ],
+      "confusable_with": [
+        "noir-cinema",
+        "photo.documentary-monochrome"
+      ],
+      "distinction": "硬日照与开放阴影让灰阶可读，区别于深黑占优的经典黑色电影。",
+      "compact_prompt": "连续黑白灰阶保留强方向日光的硬投影和环境回光，受光区域明亮而阴影仍开放可读；增强中调分离并维护白阶和黑阶差别，表面纹理跟随真实光向而不过分锐化。",
+      "detailed_description": "强方向硬光不等于低调摄影，开放阴影是这里的重要分界。环境回光应在背光面留下可辨灰阶，不能把阴影全部剪黑。普通黑白纪实也可能有日光，但若没有较高受光亮度和硬影结构，只能使用较宽泛的中性灰阶描述。",
+      "generation_constraints": [
+        "不要把开放阴影压纯黑",
+        "硬影方向统一",
+        "不推断拍摄时段"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.cross-color-film",
+      "label": "交叉色偏电影：异色两端强中调",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "亮暗两端有相反的非自然色偏，增强中调反差与细彩颗粒共同产生高密度摄影外观，而非只由彩灯照明。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cross-color",
+            "photo.dense-primary"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.high-contrast-mid",
+            "photo.highlight-rolloff"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.fine-color-grain",
+            "photo.organic-surface-variation"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.film-response"
+      ],
+      "insufficient_evidence": [
+        "只有多种彩灯或艳色物品",
+        "一层统一彩色覆盖"
+      ],
+      "confusable_with": [
+        "photo.primary-hard-film",
+        "neon-cinema"
+      ],
+      "distinction": "异色响应跟随亮度两端，混光依光源分区的关系与其不同。",
+      "compact_prompt": "亮部与暗部采用相反且可读的异色响应，增强中调反差与主要色相密度；细彩颗粒和自然微差融入连续摄影塑形，高光保留柔和压缩，使交叉色偏不退化为统一色罩。",
+      "detailed_description": "配方描述交叉冲洗般的外观，不能确认化学流程。色偏跨越多个表面并随亮度分布，是区别局部彩灯的关键。若色彩只在一块受光邻域中变化，更适合混光配方；仅提高饱和度而亮暗两端仍中性，则属于厚实原色而非交叉色偏。",
+      "generation_constraints": [
+        "不确认冲洗工艺",
+        "亮暗异色需跨表面成立",
+        "保留高光灰阶而非硬白块"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.warm-tungsten-pool",
+      "label": "暖光池电影：琥珀局部衰减",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "琥珀暖中调由局部光池向暗环境衰减，低调占比与实景光依据共同成立，不将整个画面均匀染暖。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.amber-warm",
+            "photo.muted-warm"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.tungsten-pool",
+            "photo.low-key"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.practical-motivation",
+        "photo.photographic-continuity"
+      ],
+      "insufficient_evidence": [
+        "仅有暖色背景",
+        "暖灯入画但邻域没有衰减"
+      ],
+      "confusable_with": [
+        "photo.natural-warm-interior",
+        "photo.warm-point-lowlight"
+      ],
+      "distinction": "暖光集中局部且向外衰减，宽域暖柔照不属于光池分支。",
+      "compact_prompt": "局部琥珀暖光形成可读光池并向连续暗环境逐渐衰减，克制暖中调与较中性暗部保持分離；实景光解释附近体积和反射，亮部有渐变，低调关系无需全幅黄色覆盖。",
+      "detailed_description": "光池意味着较明显的照度范围，而不是看到一盏暖灯。受光邻域和外围暗部要提供衰减依据。它与暖点光分支的尺度和速度不同，后者通常更急剧；和宽域暖柔照相比，此处明亮区域更有限，暗环境承担更多面积。",
+      "generation_constraints": [
+        "不新增灯具道具",
+        "暖光只在有依据邻域分布",
+        "周边暗部保持连续"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.warm-point-lowlight",
+      "label": "低照电影：暖点光快速衰减",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "小尺度暖点照明在低照基底内产生迅速明度下降，暗部保有有限细节，暖色集中近源区域而不铺满全幅。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.amber-warm",
+            "photo.dense-neutral"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.candle-low-level",
+            "photo.low-key"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.available-light-response",
+        "photo.shadow-detail"
+      ],
+      "insufficient_evidence": [
+        "只有烛光题材或暖色名称",
+        "全域平均暖亮无近远差"
+      ],
+      "confusable_with": [
+        "photo.warm-tungsten-pool",
+        "photo.phone-warm-lowlight"
+      ],
+      "distinction": "小暖源与快速衰减是可见关系，不能以某种灯具或道具名称替代。",
+      "compact_prompt": "小尺度暖照在近源区域保留琥珀亮中调，向深暗环境快速衰减；暗部仅保留必要密度差和连续体积，白阶不过度截断，色温与曝光共同说明局部光照而不全幅染黄。",
+      "detailed_description": "此分支可以来自多种小型暖源，不需要添加蜡烛。快速衰减和较低整体照度比灯具名称更可靠。手机低照分支额外要求数字噪声和区域解析变化；若这些技术特征不明，则应保留为较纯粹的摄影照明外观，而不推断设备。",
+      "generation_constraints": [
+        "不自动加入蜡烛或火焰",
+        "保持快速衰减与暗环境",
+        "暗部不可全无体积"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.silhouette-cool-warm",
+      "label": "逆光剪影：冷影暖后层",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "前层被压暗而后层暖亮，冷影和琥珀亮部形成亮度分区，轮廓有依据但内部细节不被额外补出。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cyan-shadow-amber"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.silhouette-exposure",
+            "photo.low-key"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.restrained-saturation"
+      ],
+      "insufficient_evidence": [
+        "只是黑色物体",
+        "全局青橙调色却前后曝光相同"
+      ],
+      "confusable_with": [
+        "photo.backlit-soft-film",
+        "photo.cyan-amber-thriller"
+      ],
+      "distinction": "前暗后亮的剪影曝光须成立，不能只凭青橙色彩或黑色本色。",
+      "compact_prompt": "较暖后层保持可读亮度，前层冷暗并压低内部细节，以真实遮挡和外轮廓建立剪影关系；青影琥珀随曝光分区而不过度饱和，保留后层白阶与必要空间连续性。",
+      "detailed_description": "剪影是前后曝光差，不是对象本色较深。这里没有要求添加轮廓灯，外轮廓可以直接由后层对比显现。若前层内部被完整柔光照亮，则偏向逆光柔化分支；若只是左右明暗分侧而没有亮后层，应使用硬照冷暖配方。",
+      "generation_constraints": [
+        "不补出前层全部细节",
+        "后层亮度仍有层次",
+        "不新增光源或场所"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.backlit-soft-film",
+      "label": "逆光电影：透射柔晕低微反差",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "逆向亮光产生已有局部透射，克制暖亮部与低微反差及温和扩散相容，暗侧仍有连续摄影体积。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.amber-warm",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.backlit-transmission",
+            "photo.highlight-rolloff"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.gentle-bloom",
+            "photo.low-microcontrast"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.optical-softness"
+      ],
+      "insufficient_evidence": [
+        "只有明亮背景",
+        "全部轮廓均匀白描边"
+      ],
+      "confusable_with": [
+        "photo.silhouette-cool-warm",
+        "photo.warm-shoulder-film"
+      ],
+      "distinction": "局部透射与亮部柔散需共同出现，纯剪影不证明透射成像。",
+      "compact_prompt": "逆向暖亮光在已有可透区域形成局部透射与温和高光扩散，亮部肩部缓慢压缩，低微反差保留可读焦点；暗侧仍有连续体积与克制色相，不将所有轮廓变为发光线。",
+      "detailed_description": "透射是观察到的表面响应，不允许把不透明对象改为透明。温和扩散围绕高亮而非全图模糊，暗侧应保留可读焦点。它与剪影分支不同，后者主要压低前层细节；单有背后亮面却没有透射与扩散证据，不能完整采用这组关系。",
+      "generation_constraints": [
+        "只保留已有局部透射",
+        "不改变对象材质透明度",
+        "光晕不得覆盖所有区域"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.neutral-hard-thriller",
+      "label": "中性悬疑：洁净数字吸暗硬照",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "近中性色域在低调硬照与明确暗侧中保持密度，洁净无粒解析加强分离，冷感不靠青灰滤色承担。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.neutral-color",
+            "photo.dense-neutral"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.hard-directional",
+            "photo.negative-fill"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.clean-black",
+            "photo.crisp-no-grain"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.clean-digital"
+      ],
+      "insufficient_evidence": [
+        "只有悬疑叙事",
+        "青灰低彩但阴影宽缓均匀"
+      ],
+      "confusable_with": [
+        "cool-thriller",
+        "photo.neo-noir-neutral"
+      ],
+      "distinction": "中性无粒与硬照吸暗是组合，悬疑只是分支名称而不是视觉证据。",
+      "compact_prompt": "中性色域与密黑保持稳定，以方向硬照和明确吸暗侧切分体积；对焦区域清楚且黑阶洁净无粒，高光留出渐变，连续摄影塑形形成收紧明暗而不依赖整体青灰染色。",
+      "detailed_description": "它区别于冷调悬疑的首要条件是白点和主要亮部较中性，并且数字解析洁净。硬照与负补光式暗侧需要在多个体积上相互解释，不能靠压黑调色孤立制造。若出现明显青灰中暗部则可考虑冷调配方，若全图无彩则转向黑白密黑分支。",
+      "generation_constraints": [
+        "不添加未经观察的蓝滤色",
+        "清楚解析不产生锐化双边",
+        "吸暗侧服从主光方向"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.highkey-cream-cinema",
+      "label": "明亮电影：奶油白与柔肩洁净",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "奶油暖白与高调柔方向光共同保留白阶差，低微反差但无明显颗粒，温和暗侧保证摄影体积。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cream-white",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.high-key",
+            "photo.highlight-rolloff"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.low-microcontrast",
+            "photo.crisp-no-grain"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.soft-directional",
+        "photo.clean-digital"
+      ],
+      "insufficient_evidence": [
+        "只有白色对象或浅背景",
+        "大面积白阶截断"
+      ],
+      "confusable_with": [
+        "photo.pastel-diffuse-film",
+        "clean-commercial"
+      ],
+      "distinction": "奶油暖白和柔肩无粒是边界，商业整理与颗粒粉彩并非自动成立。",
+      "compact_prompt": "奶油暖白衔接低彩中调，以明亮高调和柔和亮部肩部保留白阶分离；低微反差细节保持可读焦点，洁净无粒的暗侧温和而有体积，使通透明亮感仍服从摄影曝光。",
+      "detailed_description": "奶油白是白点和浅灰的细微暖偏，不是黄色统一滤镜，也不是曝光过量。该分支不要求商业反射整理，因而可保留自然表面差异。与颗粒粉彩相比，它更洁净并且色相更克制；只因画面里白物体很多不能证明全局高调照明。",
+      "generation_constraints": [
+        "保留浅暗侧和白阶差",
+        "不把奶油白变成黄色覆盖",
+        "不默认商业道具"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.purple-gold-lowkey",
+      "label": "低调电影：紫灰暖金柔照",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "紫灰阴影与暖金亮部在低调柔方向光中相接，暗部可读而高光克制，双色关系来自亮暗分区而非图案。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.purple-gold",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.soft-directional"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.shadow-detail"
+      ],
+      "insufficient_evidence": [
+        "只有紫金物品或配色文字",
+        "全幅均匀高饱和紫色"
+      ],
+      "confusable_with": [
+        "photo.emerald-amber-soft",
+        "neon-cinema"
+      ],
+      "distinction": "紫灰阴影与金色亮部随柔照体积分区，不能只看两种颜色出现。",
+      "compact_prompt": "紫灰阴影与克制暖金受光区由低调柔方向照明连续连接，深暗保有少量密度差，白阶不染成纯金；色温与明度共同塑造体积，整体低到中彩度避免均匀紫色覆盖。",
+      "detailed_description": "此配方不含特定奢华题材。柔照交界和亮暗色温分布共同限定它：若颜色只存在于对象本色，不应匹配。青品霓虹的色相和照明分区也不同；即使两者都有紫色，不能把紫灰阴影与高彩品红方向光等同。",
+      "generation_constraints": [
+        "紫灰主要位于暗部",
+        "暖金高光保持灰阶",
+        "不新增金属或服饰"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.emerald-amber-soft",
+      "label": "电影分色：翠绿琥珀柔暗",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "翠绿中暗部和琥珀亮区维持连续柔照灰阶，低调环境下暗部可读，色域关系不依赖物体材质或题材。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.emerald-amber",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.soft-directional"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.shadow-detail"
+      ],
+      "insufficient_evidence": [
+        "仅有绿金物品",
+        "单一绿色光覆盖所有亮度"
+      ],
+      "confusable_with": [
+        "photo.purple-gold-lowkey",
+        "photo.commercial-green-gold"
+      ],
+      "distinction": "绿金分色服从柔照亮暗且表面自然，商业高光整理另需证据。",
+      "compact_prompt": "翠绿中暗部与琥珀受光区保持克制分色，低调柔方向光让交界缓慢过渡；深暗仍有细微层次，高光保有白阶，连续摄影表面保持本身响应，绿金不被写成物体材质。",
+      "detailed_description": "绿金名称概括色域而非材质或场所。这里要求柔方向光支撑体积，颜色在多个表面上随明暗分区。商业绿金分支更强调受控反射与清楚细节；仅有绿色对象和金色对象同框，既不能证明光色关系，也不能证明全局配方。",
+      "generation_constraints": [
+        "不添加绿金道具",
+        "暗部保持连续分色",
+        "不默认商业反射整理"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.red-dense-hard",
+      "label": "深红电影：密黑硬面分离",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "深红受光区域与中性密黑由方向硬照切分，红色集中照明或影调范围，保留少量灰阶而不染红一切。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.red-black",
+            "photo.dense-neutral"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.hard-directional",
+            "photo.low-key"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity",
+        "photo.color-light-separation"
+      ],
+      "insufficient_evidence": [
+        "只有红色物体或黑色衣物",
+        "均匀红罩且无方向明暗"
+      ],
+      "confusable_with": [
+        "noir-cinema",
+        "neon-cinema"
+      ],
+      "distinction": "红光区与密黑存在有方向切分，红黑对象本色不能替代照明关系。",
+      "compact_prompt": "深红受光面从中性密黑中由方向硬照分离，低调基底保留少量灰阶与真实遮挡；红色集中在有依据的光区并保持亮度层次，高光不过分截断，让色域张力来自摄影塑形。",
+      "detailed_description": "此分支不是按题材危险性选择，必须观察红色如何参与受光与暗侧关系。红色对象本身可能在自然白光下发红，这种情形不满足分区照明。与青品霓虹不同，深红是主导亮区且中性密黑承担底部，不要求第二种高彩光色。",
+      "generation_constraints": [
+        "不按物体本色判红黑风格",
+        "密黑保持中性",
+        "不新增警示灯或情节"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.vfx-neutral-realism",
+      "label": "写实整合：中性柔照光学连续",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "中性色彩和柔照体积跨区域保持连续，反射与自然微纹理相容，若有特效区域则粒度和曝光衔接一致。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.photographic-continuity",
+            "photo.vfx-integration"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.soft-directional",
+            "photo.highlight-rolloff"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.organic-surface-variation",
+            "photo.specular-detail"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.neutral-color",
+        "photo.continuous-volume"
+      ],
+      "insufficient_evidence": [
+        "照片般清楚但无制作来源",
+        "单区写实而合成边缘独立发亮"
+      ],
+      "confusable_with": [
+        "natural-cinema",
+        "photo.vfx-dark-reflection"
+      ],
+      "distinction": "写实整合质量可以描述，是否全CG或局部VFX仍需外部来源证据。",
+      "compact_prompt": "中性色彩与柔和方向照明跨区域保持连续，亮部肩部、反射层次和自然表面微变化相互支持；对齐可能合成区域的曝光、焦点与粒度，让局部细节服从同一摄影体积和光学响应。",
+      "detailed_description": "这条配方评价摄影与新增区域是否相容，并不从逼真外观判定全CG。真实拍摄也可以完全满足相同可见关系，因此制作来源应单独记录。明显发亮的合成边缘、独立锐度或不一致阴影是反例；无法找到合成证据时可保留更宽的自然主义描述。",
+      "generation_constraints": [
+        "不推断对象由CG生成",
+        "跨区域粒度和曝光一致",
+        "保留真实对象比例与材质"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.vfx-dark-reflection",
+      "label": "写实整合：青影暖亮受控反射",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "青影琥珀低调关系与可读镜反射跨区域一致，暗部与高光保持同一曝光响应，兼容实拍和写实特效整合。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.photographic-continuity",
+            "photo.vfx-integration"
+          ]
+        },
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cyan-shadow-amber"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.specular-controlled",
+            "photo.low-key"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.specular-detail",
+        "photo.diffuse-specular-balance",
+        "photo.dense-neutral"
+      ],
+      "insufficient_evidence": [
+        "只有闪亮表面或科技题材",
+        "全幅光滑却反射方向矛盾"
+      ],
+      "confusable_with": [
+        "photo.cyan-amber-thriller",
+        "photo.commercial-dark-reflection"
+      ],
+      "distinction": "反射曝光和光学连续性是依据，不从科幻题材或金属高光认定3D。",
+      "compact_prompt": "青蓝阴影和琥珀亮部在低调密黑中保留过渡，整理已有镜面反射的形状与内部渐变；跨区域统一曝光、焦点和粒度，保持漫反射体积，使写实整合服从同一光学与表面响应。",
+      "detailed_description": "暗照和反射可以来自实拍、局部合成或全三维，来源不可由科幻内容推断。此处强调各区域使用相同光向、黑位和高光压缩方式。商业暗底反射也可能相似，但它额外依赖商业成像整理；独立发光边缘和无依据映射会降低整合可信度。",
+      "generation_constraints": [
+        "不把所有表面改成金属",
+        "光源与反射方向一致",
+        "不默认全CG制作"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.warm-shadow-cool-day",
+      "label": "电影日光：暖影冷白洁净响应",
+      "family": "photo",
+      "category": "cinema",
+      "definition": "暖褐阴影与冷白受光区形成反向色温关系，强日光与开放暗部共同保留体积，成像洁净且微反差清楚。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.warm-shadow-cool-light"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.sun-hard",
+            "photo.bright-shadow-open"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.crisp-no-grain",
+            "photo.microcontrast-crisp"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.photographic-continuity"
+      ],
+      "insufficient_evidence": [
+        "只是两个冷暖物体",
+        "典型青影暖光而无反向亮暗色温"
+      ],
+      "confusable_with": [
+        "photo.daylight-hard-earth",
+        "photo.cyan-amber-thriller"
+      ],
+      "distinction": "暖影冷亮必须随亮度分区，区别于常见冷影暖光和整体偏暖。",
+      "compact_prompt": "冷白受光区与暖褐阴影在洁净摄影中形成反向色温分层，强方向日光保留硬投影和开放回光；微反差清楚但不带锐化双边，亮暗两端有渐变，以真实体积连接这组色彩关系。",
+      "detailed_description": "此分支把相反的亮暗色温分配作为辨别条件，而不是用冷暖对比概括所有双色影像。暖褐需要进入阴影，冷白需要进入受光区，并在多个表面上重复。若仅由对象本色造成两种颜色，则不应匹配；洁净解析也不能被当作具体设备证明。",
+      "generation_constraints": [
+        "不把反向色温改成常规青橙",
+        "开放阴影保持可读",
+        "不确认镜头与设备型号"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "phone-daylight",
+      "label": "手机式日常：中性日光宽层次",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "中性色彩与自然日光曝光保持连续，计算摄影式局部整理和轻度边缘增强让多距离细节较均衡，设备型号不作判断。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.computational-detail",
+            "photo.clean-digital"
+          ]
+        },
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.neutral-color",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.bright-shadow-open",
+            "photo.practical-motivation"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.even-depth-readability",
+        "photo.subtle-digital-sharpen"
+      ],
+      "insufficient_evidence": [
+        "只有日常题材或竖屏",
+        "明显舞台彩照或极浅焦美化"
+      ],
+      "confusable_with": [
+        "natural-cinema",
+        "photo.phone-computational-hdr"
+      ],
+      "distinction": "宽层次数字可读性与自然曝光关系共同成立，不以画幅和设备名称判定。",
+      "compact_prompt": "中性色彩保留自然日光的亮面与开放暗部，轻度局部细节整理让多距离层级均衡可读；保持洁净数字灰阶和适度边缘增强，接触阴影与本色仍可信，日常感由曝光关系构成。",
+      "detailed_description": "手机式是视觉语言名称，并不确认真实拍摄设备。深景深的实际焦点关系按镜头记录，配方只使用跨区域细节较均衡和计算整理的全局响应。自然主义电影可能有类似光色，但不要求这类细节整理；日常行为或竖屏本身都不能提供足够依据。",
+      "generation_constraints": [
+        "不默认手持抖动",
+        "不添加低清压缩或设备品牌",
+        "具体景深另作镜头观察"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ],
+      "aliases": [
+        "手机式自然光日常纪实"
+      ]
+    },
+    {
+      "id": "phone-indoor",
+      "label": "手机式实景：暖冷区域数字纪实",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "实景光源解释局部色温和曝光差，洁净数字细节保留多层可读性，暖冷并置不被统一消除且不鉴定设备。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.computational-detail",
+            "photo.documentary-integration"
+          ]
+        },
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.tungsten-daylight",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.practical-motivation",
+            "photo.mixed-practical"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.subtle-digital-sharpen",
+        "photo.even-depth-readability"
+      ],
+      "insufficient_evidence": [
+        "只有室内地点",
+        "宽景深加精密舞台布光"
+      ],
+      "confusable_with": [
+        "photo.phone-mixed-light",
+        "photo.mixed-temperature-natural"
+      ],
+      "distinction": "实景色温差与数字整理须共同可见，地点不能代替照明和成像证据。",
+      "compact_prompt": "保留实景光的暖橙与冷白区域差，让邻域曝光服从既有光源方向和衰减；数字细节轻度整理并维持多层可读性，暗部不过分压黑，色相克制而不把全场白平衡强行统一。",
+      "detailed_description": "室内一词只是旧锚点的使用习惯，本配方真正依据是实景光与数字成像关系。暖冷光源可在不同场所同时存在，地点本身不参与辨别。与电影混温分支相比，此处要求较明显的跨区域细节整理；低照强噪和解析变软则属于其他手机分支。",
+      "generation_constraints": [
+        "不增加室内装饰或物品",
+        "不默认低画质",
+        "光源差不等于设备型号"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ],
+      "aliases": [
+        "手机式室内实景纪实"
+      ]
+    },
+    {
+      "id": "street-documentary",
+      "label": "观察纪实：中性可用光表面微差",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "中性克制色彩与可用光方向保持摄影连续，局部曝光和表面解析存在自然差异，观察距离不作为全局配方鉴别条件。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.documentary-integration",
+            "photo.available-light-response"
+          ]
+        },
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.neutral-color",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.organic-surface-variation",
+            "photo.intermediate-resolution"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.natural-irregularity",
+        "photo.continuous-volume"
+      ],
+      "insufficient_evidence": [
+        "只有街头地点或纪实主题",
+        "静帧看起来随意就推断抓拍"
+      ],
+      "confusable_with": [
+        "natural-cinema",
+        "photo.documentary-neutral-available"
+      ],
+      "distinction": "自然曝光与表面差异是依据，街道、抓拍和运镜都不能从题材推断。",
+      "compact_prompt": "中性且克制的本色在可用光下保留局部曝光差，适中解析呈现自然表面微变化；灰阶、遮挡和反射在同一摄影体系中连续，允许暗侧有限缺失，使观察纪实感来自真实响应。",
+      "detailed_description": "观察式纪实不保证某种拍摄方式，街道场景也可能是精密布光的剧情镜头。该分支要求局部曝光和表面细节服从可用光，保留相容的不均质。构图距离、焦点和是否手持需要单独证据，不应因旧锚点名称而自动补入全局风格。",
+      "generation_constraints": [
+        "不加入街头地点",
+        "不自动添加抓拍或手持",
+        "保留适中解析而非故意低清"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ],
+      "aliases": [
+        "街头观察式纪实摄影"
+      ]
+    },
+    {
+      "id": "photo.phone-overcast",
+      "label": "手机式漫照：中性浅影均衡细节",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "弱方向漫射与中性低彩保持浅接触体积，计算整理提高不同亮度区可读性，暗部平滑但没有影棚式全域填光。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.computational-detail",
+            "photo.clean-digital"
+          ]
+        },
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.neutral-color",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.overcast-diffuse",
+            "photo.flat-mid"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.subtle-digital-sharpen",
+        "photo.even-depth-readability"
+      ],
+      "insufficient_evidence": [
+        "只有云层或阴天文字",
+        "全域白平面没有接触阴影"
+      ],
+      "confusable_with": [
+        "phone-daylight",
+        "photo.phone-cold-diffuse"
+      ],
+      "distinction": "中性漫照与跨区域数字可读性共同成立，弱光向不等于没有体积。",
+      "compact_prompt": "中性低彩在弱方向漫照下保持轻浅接触阴影，温和中调由轻度计算整理维持可读；数字边缘与多层细节均衡而不过强锐化，白阶仍有差别，使明亮日常外观不变成无影平面。",
+      "detailed_description": "漫照主要由宽散高光和较小明暗差说明，是否真为阴天不作判断。手机式响应需要不同区域均衡细节的迹象，单个清晰边缘不够。与冷漫照相比本分支白点更中性；如果光线四周同强并彻底消灭阴影，应改用商业高调或平面描述。",
+      "generation_constraints": [
+        "不新增云或雨",
+        "接触阴影不可消除",
+        "不以深景深确认手机型号"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.phone-hard-day",
+      "label": "手机式硬日照：近中性亮暗细节",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "中性硬日光投影与自然回光同时成立，局部边缘整理维持数字细节，近远层级较均衡而不为暗侧追加戏剧性补光。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.computational-detail",
+            "photo.clean-digital"
+          ]
+        },
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.neutral-color",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.sun-hard",
+            "photo.bright-shadow-open"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.subtle-digital-sharpen",
+        "photo.organic-surface-variation"
+      ],
+      "insufficient_evidence": [
+        "只有很亮或竖屏",
+        "硬光但所有暗部完全纯黑"
+      ],
+      "confusable_with": [
+        "photo.daylight-hard-earth",
+        "photo.phone-open-shadows"
+      ],
+      "distinction": "硬日照和计算整理共同可见，土色电影与手机语言由色域及纹理响应区分。",
+      "compact_prompt": "中性本色保留强日光的硬投影与自然回光，计算整理让明暗区域细节较均衡；对焦边缘轻度增强而不形成白圈，亮部不过度截断，暗侧仍有真实接触层次和表面微差。",
+      "detailed_description": "自然硬光可以出现在多种设备影像中，配方不能以日照判断手机。这里的数字响应与中性本色共同区别于低彩土色电影。开放暗部应仍保持比受光面更低亮度；若局部提亮把影边完全消除，就与硬日照证据矛盾，需要缩减配方。",
+      "generation_constraints": [
+        "硬投影与回光并存",
+        "局部提亮不能消除所有阴影",
+        "不补造日常题材"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.phone-open-shadows",
+      "label": "手机式明亮曝光：开放暗部与轻锐化",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "亮面和暗部都较易读，局部提亮与轻度边缘增强保留连续摄影塑形，高光仍有有限渐变而不被当作商业反射整理。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.computational-detail",
+            "photo.clean-digital"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.bright-shadow-open",
+            "photo.shadow-detail"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.subtle-digital-sharpen",
+            "photo.clean-black"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.neutral-color",
+        "photo.even-depth-readability"
+      ],
+      "insufficient_evidence": [
+        "只是整体提高亮度",
+        "暗部均匀抬灰且无接触层次"
+      ],
+      "confusable_with": [
+        "phone-daylight",
+        "photo.phone-computational-hdr"
+      ],
+      "distinction": "开放暗部与细节整理应保留真实光比，全域等亮并非本分支。",
+      "compact_prompt": "亮面与开放暗部都保有可读细节，轻度局部提亮和边缘增强在连续灰阶中进行；暗部平滑且仍低于受光面，高光有有限渐变，摄影遮挡与接触层次保持，让均衡曝光不变成全域等亮。",
+      "detailed_description": "本分支强调较高可读性而不是过度HDR外观。不同区域仍需要合理曝光差，否则无法保持体积。商业高调也可能暗部洁净，但它更依赖受控反射和稳定色域；本配方允许自然局部差异。画幅形状、人物行为和场所不提供数字整理的证据。",
+      "generation_constraints": [
+        "不得抹去接触陰影",
+        "避免强烈HDR边缘光圈",
+        "不推断设备或算法名称"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.phone-cold-diffuse",
+      "label": "手机式冷漫照：冷白低彩数字层次",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "冷净白点与低彩色相在弱方向漫照中维持浅阴影，洁净数字成像和轻度局部细节整理共同出现。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.computational-detail",
+            "photo.clean-digital"
+          ]
+        },
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cool-clean",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.sunless-cold",
+            "photo.flat-mid"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.subtle-digital-sharpen",
+        "photo.even-depth-readability"
+      ],
+      "insufficient_evidence": [
+        "只有冷色物品",
+        "青灰强硬吸暗照明"
+      ],
+      "confusable_with": [
+        "photo.phone-overcast",
+        "photo.cold-fluorescent"
+      ],
+      "distinction": "冷净白与自然弱向漫照是依据，偏绿荧光平照另属一支。",
+      "compact_prompt": "冷净白点与克制彩度保留弱方向漫照的浅接触层次，计算整理让多区域细节可读；洁净数字黑阶与轻度边缘增强相容，不把所有暗部染成浓蓝，使冷白日常影像仍有真实体积。",
+      "detailed_description": "冷白可以来自校色或实际光照，配方只描述可见外观。与偏绿荧光式平照相比，这条不要求绿灰中暗部；与青灰悬疑相比，它的暗部较浅、光向较弱。手机式特征需要数字细节整理支持，单纯冷白滤镜不能满足跨维度组合。",
+      "generation_constraints": [
+        "白点冷偏保持轻度",
+        "不加入环境题材",
+        "不把浅影压成悬疑密黑"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.phone-mixed-light",
+      "label": "手机式混光：未统一白平衡细节",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "暖橙与偏绿实景光在多区域保留不同白平衡，计算整理让细节可读但自然曝光差仍在，不需艺术化霓虹色域。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.computational-detail",
+            "photo.documentary-integration"
+          ]
+        },
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.sodium-green",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.mixed-practical",
+            "photo.practical-motivation"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.subtle-digital-sharpen",
+        "photo.natural-irregularity"
+      ],
+      "insufficient_evidence": [
+        "只有不同颜色物体",
+        "青品霓虹且曝光高度造型化"
+      ],
+      "confusable_with": [
+        "phone-indoor",
+        "photo.neon-sodium-green"
+      ],
+      "distinction": "暖橙偏绿实景差与数字整理并存，不能把所有混光统称青品霓虹。",
+      "compact_prompt": "保留暖橙与偏绿实景光的区域白平衡差，局部曝光不完全均匀但光向有依据；计算细节轻度整理并维持自然色相，光区交叠仍有灰阶，不把普通混光改成均匀高彩霓虹。",
+      "detailed_description": "混光可能在各种环境出现，重点是光源邻域的色温和照度相互解释。手机式响应由局部细节可读性支持，而非灯具种类。与旧室内分支的暖冷白关系相比，这里突出黄橙偏绿竞争；与电影暗照黄绿相比，密黑和稀疏亮点不是必要条件。",
+      "generation_constraints": [
+        "不添加霓虹标志",
+        "保留真实区域曝光差",
+        "不确认自动白平衡算法"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.phone-lowlight-blue",
+      "label": "手机式低照：夜蓝彩噪与软解析",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "深蓝暗部与少量异温亮区有真实曝光差，暗部彩噪和细纹变软共同显示低照数字响应，亮区相对清楚。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.deep-blue-night",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.practical-motivation"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.shadow-chroma-noise",
+            "photo.sensor-lowlight-soft"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.available-light-response"
+      ],
+      "insufficient_evidence": [
+        "只是夜景题材或蓝色滤镜",
+        "全部区域都锐利洁净且无噪"
+      ],
+      "confusable_with": [
+        "photo.deep-blue-lowlight",
+        "photo.phone-warm-lowlight"
+      ],
+      "distinction": "彩噪和区域解析差是低照数字证据，深蓝本身不能确认手机。",
+      "compact_prompt": "深蓝暗部与异温实景亮区保持可解释的曝光差，低照区保留有限彩噪与略软细纹，较亮区域解析更清楚；整体低彩而体积仍连续，不通过全幅低清或压缩方块制造夜拍感。",
+      "detailed_description": "低照数字外观依赖噪声和解析对亮度的变化，而不是整个画面同时模糊。蓝色暗部为色域条件，实际是否夜晚不作确认。电影深蓝分支可以更洁净，没有这些技术响应；若仅看到规则编码块，则应描述压缩损伤，不能作为彩噪证明。",
+      "generation_constraints": [
+        "噪声只在合理低照区域",
+        "不加入压缩马赛克",
+        "不由低照判定设备型号"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.phone-warm-lowlight",
+      "label": "手机式低照：暖光池明度噪声",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "局部暖光池向暗环境衰减，数字明度噪声和低照解析变软在暗区较明显，亮区保有较清楚细节与暖色层次。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.amber-warm",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.tungsten-pool",
+            "photo.low-key"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.luma-noise",
+            "photo.sensor-lowlight-soft"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.available-light-response"
+      ],
+      "insufficient_evidence": [
+        "只有暖灯或蜡烛题材",
+        "全部区域均匀粗颗粒"
+      ],
+      "confusable_with": [
+        "photo.warm-tungsten-pool",
+        "photo.phone-lowlight-blue"
+      ],
+      "distinction": "暖光衰减与低照数字区域差同时成立，均匀胶片颗粒不是替代条件。",
+      "compact_prompt": "局部暖光池保留琥珀层次并向较暗环境衰减，暗区有有限明度噪声和轻度细纹软化，亮区保持相对清楚解析；色彩克制且灰阶连续，让低照数字响应服从既有曝光而非全幅降质。",
+      "detailed_description": "暖光本身常见于电影与纪实，只有暗部噪声和区域解析变化支持这个更具体的数字分支。明度噪声不同于均匀乳剂颗粒，也不同于彩色块化。光池需要近源区域和外围明度差证明；若画面均匀黄亮，则缺少低照衰减关系。",
+      "generation_constraints": [
+        "不添加暖灯道具",
+        "低照细纹变软不扩散到所有区域",
+        "不确认感光度数值"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.phone-direct-flash",
+      "label": "手机式直闪：硬近照与暗环境",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "正向短程硬亮造成清楚近远曝光差，环境仍有暗层次，洁净数字细节与局部高光截断可并存但不鉴定闪光设备。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.clean-digital",
+            "photo.available-light-response"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.flash-ambient",
+            "photo.hard-directional"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.crisp-no-grain",
+            "photo.highlight-clipping"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.neutral-color"
+      ],
+      "insufficient_evidence": [
+        "仅有白色强亮面",
+        "大面柔光且近远照度相同"
+      ],
+      "confusable_with": [
+        "photo.documentary-harsh-top",
+        "photo.commercial-hard-primary"
+      ],
+      "distinction": "近轴硬亮与快速近远曝光差构成直闪外观，不确认闪光器材来源。",
+      "compact_prompt": "正向短程硬照使近层较亮而远层保留较暗环境，洁净数字细节跟随这组曝光差；允许少量高亮局部截白，接触阴影和表面色相仍可读，让直闪外观不变成全域平均强亮。",
+      "detailed_description": "直闪式描述的是光向、距离衰减和较硬反射组合，可以由不同光源模拟。手机设备归因仍然未知。少量高光截断是容许响应，不应扩展到全部亮面；如果近远区域同亮且阴影宽软，核心条件不成立，应使用包裹柔光或商业高调分支。",
+      "generation_constraints": [
+        "不确认闪光器材型号",
+        "截断限定少量亮点",
+        "近远曝光差不可消失"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.phone-computational-hdr",
+      "label": "手机式局部整理：高可读灰阶",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "明暗区域经较明显局部整理而多层细节可读，暗部较开放且边缘轻度增强，白阶连续但允许与原始光比有所压缩。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.computational-detail",
+            "photo.clean-digital"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.bright-shadow-open",
+            "photo.highlight-rolloff"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.subtle-digital-sharpen",
+            "photo.clean-black"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.even-depth-readability",
+        "photo.neutral-color"
+      ],
+      "insufficient_evidence": [
+        "只是全幅均匀提亮",
+        "严重光圈边缘或所有体积被磨平"
+      ],
+      "confusable_with": [
+        "phone-daylight",
+        "photo.phone-open-shadows"
+      ],
+      "distinction": "局部灰阶整理与细节均衡是响应描述，不确认HDR算法或设备。",
+      "compact_prompt": "明暗区域保持较高可读性，局部整理压缩部分光比而保留接触阴影，亮部用连续肩部衔接；轻度边缘增强与洁净暗部统一数字响应，多层细节清楚但不出现强烈光圈或等亮平面。",
+      "detailed_description": "HDR名称只作常见视觉语言参考，不能证明某种计算流程。需要同时观察暗部开放、白阶保留和邻域细节整理，而非整体亮度。自然主义电影也可能动态范围宽，但未必带局部增强；明显白圈与纹理涂抹是过度处理的反例，不是本分支目标。",
+      "generation_constraints": [
+        "不确认HDR实现或手机品牌",
+        "不产生强光圈锐化边缘",
+        "仍保留原有照度方向"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.documentary-underexposed",
+      "label": "纪实低曝：可用光与自然缺失",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "克制色相在低曝光可用光中保持有限亮部，表面细节随曝光自然缺失，适中解析与局部不均响应保持连贯。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.available-light-response",
+            "photo.documentary-integration"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.underexposed-natural",
+            "photo.practical-motivation"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.intermediate-resolution",
+            "photo.organic-surface-variation"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.restrained-saturation",
+        "photo.natural-irregularity"
+      ],
+      "insufficient_evidence": [
+        "只有低清或黑暗画面",
+        "人工图形化硬照与均匀精修"
+      ],
+      "confusable_with": [
+        "photo.natural-underexposed",
+        "street-documentary"
+      ],
+      "distinction": "自然信息缺失要有可用光依据，不按模糊、题材或低画质判纪实。",
+      "compact_prompt": "让可用光解释偏低中调和局部信息缺失，有限亮面仍保有本色与白阶，适中解析留下自然表面微差；不同区域不过度统一提亮，遮挡和反射维持连续，使低曝纪实仍能读出体积。",
+      "detailed_description": "纪实标签不说明场景真假，也不保证无补光。此处的依据是曝光不均与表面细节变化服从可用光。和电影自然低曝相似但更强调适中解析与自然差异；严重失焦、无方向全黑或编码损伤无法提供照明因果，不能作为匹配条件。",
+      "generation_constraints": [
+        "不故意制造失焦低清",
+        "保持可见光源因果",
+        "不从场景内容判拍摄方式"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.documentary-warm-window",
+      "label": "纪实暖柔照：中性白阶局部衰减",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "克制暖中调和宽面柔照保持空间内明度递减，亮部连续且自然微纹理可见，允许局部曝光差而不附加复古处理。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.muted-warm",
+            "photo.neutral-color"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.window-soft",
+            "photo.shadow-detail"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.organic-surface-variation",
+            "photo.intermediate-resolution"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.documentary-integration"
+      ],
+      "insufficient_evidence": [
+        "只有窗户入画或室内地点",
+        "全面橙染与细节磨平"
+      ],
+      "confusable_with": [
+        "natural-cinema",
+        "photo.natural-warm-interior"
+      ],
+      "distinction": "宽面光衰减和暖中调需有实际关系，窗口或地点只提供内容。",
+      "compact_prompt": "克制暖中调与近中性白阶由单侧宽面柔照衔接，明度随空间自然递减，暗侧保有微纹理；适中解析和局部曝光差维持可用光的连续关系，不用褪色颗粒替代自然响应。",
+      "detailed_description": "窗光式不要求窗口出现在画面中，真正条件是单侧宽面亮区和向内衰减。窗口存在而各处被等强补亮时不满足。此分支保留中性白阶与自然解析变化，区别于暖复古的褪彩抬黑；观察式构图和是否手持仍需镜头独立记录。",
+      "generation_constraints": [
+        "不添加窗口或家具",
+        "不自动颗粒褪色",
+        "衰减与光向须一致"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.documentary-cold-window",
+      "label": "纪实冷柔照：冷影中性亮面",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "单侧宽面柔照形成递减明度，暗侧稍冷而亮面近中性，自然表面微变化和适中解析保持可用光的局部差异。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cool-shadow-neutral",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.window-soft",
+            "photo.shadow-detail"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.organic-surface-variation",
+            "photo.intermediate-resolution"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.documentary-integration"
+      ],
+      "insufficient_evidence": [
+        "只有冷色墙面或窗口",
+        "全幅均匀偏蓝无光向"
+      ],
+      "confusable_with": [
+        "photo.documentary-warm-window",
+        "cool-thriller"
+      ],
+      "distinction": "冷影与中性宽面亮照形成自然分区，不等于青灰低调吸暗摄影。",
+      "compact_prompt": "单侧宽面柔照保留向内递减的明度，亮面近中性而暗侧轻冷，适中解析呈现自然表面微差；色彩克制且黑阶可分，局部曝光不完全统一，让可用光关系在摄影体积内连续可读。",
+      "detailed_description": "冷影只是相对色温偏移，不能因为一个蓝色表面进入该分支。宽面柔照与自然衰减是照明依据，暗部应有细节。冷调悬疑更强调低调占比和吸暗侧，这条则更开放、解析更自然；窗口位置和器材名称都不是识别条件。",
+      "generation_constraints": [
+        "冷偏限定暗侧",
+        "不推断实际窗户位置",
+        "保留自然局部差异"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.documentary-monochrome",
+      "label": "纪实黑白：自然灰阶与适中解析",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "摄影式黑白保留多种表面的灰阶分离，可用光造成局部曝光不均，适中解析与自然微纹理维持观察外观。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.monochrome-photographic",
+            "photo.documentary-integration"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.shadow-detail",
+            "photo.flat-mid"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.intermediate-resolution",
+            "photo.organic-surface-variation"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.natural-irregularity"
+      ],
+      "insufficient_evidence": [
+        "只有黑白转换",
+        "硬照密黑主导且灰阶有限"
+      ],
+      "confusable_with": [
+        "noir-cinema",
+        "photo.monochrome-hard-day"
+      ],
+      "distinction": "自然灰阶和曝光差为依据，黑白本身不证明纪实或黑色电影。",
+      "compact_prompt": "连续黑白灰阶保留不同已有表面的明度分离，可用光造成的局部曝光差维持自然；温和中调和可读暗部承接适中解析的微纹理，保留接触阴影与遮挡，而不把黑白处理成硬边图形。",
+      "detailed_description": "黑白纪实是响应与观察组织的名称，不是历史年代或真实性认证。这里使用温和中调、自然微差与局部曝光关系，和低调硬照黑色电影不同。若日光硬投影是主导证据，可选择黑白日光分支；单纯删除颜色无法说明任何一种具体照明。",
+      "generation_constraints": [
+        "不从黑白推断年代",
+        "保留多表面灰阶差",
+        "不附加未经观察的粗颗粒"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.documentary-color-grain",
+      "label": "纪实彩粒：低彩本色与自然响应",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "低彩本色在可用光下维持连续摄影层次，细彩颗粒与自然微纹理相容，曝光和解析保留有限局部不均。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.documentary-integration",
+            "photo.available-light-response"
+          ]
+        },
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.restrained-saturation",
+            "photo.neutral-color"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.fine-color-grain",
+            "photo.organic-surface-variation"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.natural-irregularity"
+      ],
+      "insufficient_evidence": [
+        "只有颗粒滤镜",
+        "胶片品牌文字而无可见纹理"
+      ],
+      "confusable_with": [
+        "photo.coarse-dark-film",
+        "street-documentary"
+      ],
+      "distinction": "细彩粒与自然本色、可用光关系共同成立，胶片型号和纪实身份不作确认。",
+      "compact_prompt": "低彩本色在可用光下保留连续明暗与局部曝光差，细小随机彩粒融入自然表面微变化；中间调层次清楚，暗区不过度强拉，解析保持适度自然差异，让颗粒服从摄影响应而非均匀装饰。",
+      "detailed_description": "细彩粒可以来自实际成像或后期模拟，本分支不确定来源。它不要求低调密黑，也不以粗粒降低可辨细节。与观察纪实适中解析分支相比，随机色粒提供了更具体纹理条件；仅有品牌字样、旧物或历史题材不能代替可见颗粒关系。",
+      "generation_constraints": [
+        "颗粒保持微细非周期",
+        "不确认胶片型号",
+        "不要用低画质替代自然局部差异"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.documentary-neutral-available",
+      "label": "纪实中性：开放可用光洁净响应",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "中性低彩与可用光方向保持一致，开放暗部和洁净黑阶形成较高可读性，但仍保留自然曝光不均与表面微差。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.documentary-integration",
+            "photo.available-light-response"
+          ]
+        },
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.neutral-color",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.bright-shadow-open",
+            "photo.shadow-detail"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.clean-black",
+        "photo.organic-surface-variation"
+      ],
+      "insufficient_evidence": [
+        "真实题材但影棚无影照明",
+        "单靠暗部提亮形成全域等亮"
+      ],
+      "confusable_with": [
+        "street-documentary",
+        "phone-daylight"
+      ],
+      "distinction": "开放暗部不自动意味着计算摄影，需保留可用光的区域差和真实表面响应。",
+      "compact_prompt": "中性低彩在可用光下保持开放暗部与较清楚层次，洁净黑阶和自然表面微差相容；曝光仍有局部不均并服从光源方向，受光面与背光面不等亮，让纪实可读性保持连续摄影体积。",
+      "detailed_description": "高可读性可能来自曝光选择、光照或处理，不能自动归为手机计算摄影。此分支不要求边缘增强，只要求暗部开放与自然照明因果。观察纪实旧锚点更强调适中解析，这条偏向较洁净的开放曝光；所有表面同亮、同锐则缺少自然局部差异。",
+      "generation_constraints": [
+        "不由洁净画面确认数字设备",
+        "保持背光低于受光",
+        "不替换自然表面为均质平面"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.documentary-harsh-top",
+      "label": "纪实硬顶照：中性局部白阶截断",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "可用高方向硬照形成上亮下暗与较硬遮影，中性色域保留自然表面差，少量高光截白可存在而不是全域精修。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.documentary-integration",
+            "photo.available-light-response"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.top-hard",
+            "photo.hard-directional"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.highlight-clipping",
+            "photo.organic-surface-variation"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.neutral-color",
+        "photo.natural-irregularity"
+      ],
+      "insufficient_evidence": [
+        "仅有顶部灯具",
+        "无方向过曝白面或商业包裹柔光"
+      ],
+      "confusable_with": [
+        "photo.phone-direct-flash",
+        "photo.daylight-hard-earth"
+      ],
+      "distinction": "上亮下暗的光向与局部截白共同可见，顶灯对象不能代替实际投影。",
+      "compact_prompt": "中性可用硬顶照在上缘形成亮面并向下产生清楚遮影，局部高光允许有限截白；自然表面微差和曝光不均保留摄影连续性，暗部不被全部补平，使粗粝照明外观仍能解释体积。",
+      "detailed_description": "高方向照明需要多个体积上的上亮下暗关系证明，单盏顶灯入画不足。局部截白是成像容许而非美化目标，与商业整理高光的分支不同。正向直闪的阴影和近远差也有另一光向结构；若整体白区全面溢出，则无法完整观察摄影体积。",
+      "generation_constraints": [
+        "局部截白不得扩展全幅",
+        "保持顶照方向一致",
+        "不从光源形状确认器材"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.documentary-soft-detail",
+      "label": "纪实柔解析：温和灰阶自然微差",
+      "family": "photo",
+      "category": "documentary",
+      "definition": "近中性色彩和柔方向光保持连续灰阶，低微反差与适中解析让细纹温和而未被涂抹，自然局部差异仍可辨。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.neutral-color",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.soft-directional",
+            "photo.flat-mid"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.low-microcontrast",
+            "photo.intermediate-resolution"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.documentary-integration",
+        "photo.organic-surface-variation"
+      ],
+      "insufficient_evidence": [
+        "只有全图失焦",
+        "降噪蜡化且大边缘异常锐利"
+      ],
+      "confusable_with": [
+        "natural-cinema",
+        "photo.documentary-warm-window"
+      ],
+      "distinction": "温和细纹和方向灰阶共同成立，失焦与降噪涂抹不是自然柔解析。",
+      "compact_prompt": "中性低彩与柔方向光保持连续体积，温和中调承接适中解析的自然细纹；降低微反差但保留可读焦点和局部表面差异，暗侧仍有渐变，使纪实柔和来自响应而非失焦或全面磨平。",
+      "detailed_description": "柔解析要求大轮廓和焦点仍可读，不能把严重模糊称作风格。降噪涂抹常表现为细纹消失而大边缘很硬，与低微反差的自然边缘不同。相比自然主义电影柔照，这条更强调适中解析和未经全域整理的细节变化，具体构图仍单独记录。",
+      "generation_constraints": [
+        "不把细纹全部磨掉",
+        "柔化不等于整体失焦",
+        "不默认手持运动"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "clean-commercial",
+      "label": "商业高调：中性宽面受控高光",
+      "family": "photo",
+      "category": "commercial",
+      "definition": "中性洁净色域由高调宽面柔光塑形，受控镜面亮区和无粒解析保留白阶与细节，商业属性由整理程度而非对象品类判断。",
+      "signature_groups": [
+        {
+          "id": "medium",
+          "dimension": "medium_rendering",
+          "term_ids": [
+            "photo.commercial-control",
+            "photo.clean-digital"
+          ]
+        },
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.neutral-color",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.high-key",
+            "photo.specular-controlled"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.broad-soft-wrap",
+        "photo.crisp-no-grain"
+      ],
+      "insufficient_evidence": [
+        "只有商品或白色背景",
+        "全部亮面过曝且缺少内部层次"
+      ],
+      "confusable_with": [
+        "photo.highkey-cream-cinema",
+        "photo.commercial-cool-soft"
+      ],
+      "distinction": "中性色域、明亮层次与反射整理共现，商品题材无法单独成立。",
+      "compact_prompt": "中性洁净色域用明亮宽面柔光保留体积，浅阴影仍可辨，已有镜面高光的形状与内部渐变受控；无粒数字细节保持清楚，白阶不过度截断，让商业通透感来自曝光与反射整理。",
+      "detailed_description": "商业高调不要求改变对象或加入产品道具，依据是色域、亮度和反射被一致整理。白背景可能出现在很多非商业影像中，不能独立提供证据。与奶油白电影分支相比，此处更强调中性白点与受控镜面亮区；全幅过曝或无影平面不满足条件。",
+      "generation_constraints": [
+        "不得新增商品或道具",
+        "高光内部保持层次",
+        "高调仍保留浅暗侧"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ],
+      "aliases": [
+        "洁净高调商业摄影"
+      ]
+    },
+    {
+      "id": "photo.commercial-cool-soft",
+      "label": "商业冷净：冷白包裹光与反射细节",
+      "family": "photo",
+      "category": "commercial",
+      "definition": "冷净白点在宽面包裹柔光中保持浅灰分离，反射渐变和洁净解析被一致整理，亮暗仍有可信体积而非塑料式平滑。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cool-clean",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.broad-soft-wrap",
+            "photo.specular-controlled"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.specular-detail",
+            "photo.crisp-no-grain"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.commercial-control"
+      ],
+      "insufficient_evidence": [
+        "只因白色物体或冷色滤镜",
+        "反射全面截白且所有表面同亮"
+      ],
+      "confusable_with": [
+        "clean-commercial",
+        "photo.commercial-warm-soft"
+      ],
+      "distinction": "冷白浅灰与包裹光、反射整理共同成立，冷净不等于全幅染青。",
+      "compact_prompt": "冷净白点保持浅灰和中灰分离，宽面包裹柔光缓慢连接暗侧；整理已有反射的边界与内部渐变，洁净无粒细节自然可读，控制彩度与亮度，使商业冷感来自稳定白阶而非统一青色覆盖。",
+      "detailed_description": "冷净是细微白点与色域关系，不是强蓝滤镜。包裹柔光仍要保留侧面渐变，否则会失去体积。受控反射不允许改变对象材质：哑光区域仍保持哑光。相比中性高调，该分支更明确冷白倾向和镜面细节；商品品类不是判断依据。",
+      "generation_constraints": [
+        "不把所有表面改成镜面",
+        "冷白偏移保持轻微",
+        "保留浅灰与暗侧"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.commercial-warm-soft",
+      "label": "商业暖净：暖白柔照与本色稳定",
+      "family": "photo",
+      "category": "commercial",
+      "definition": "暖净白点和奶油亮部在包裹柔光中维持本色，光影两端连贯且无粒，反射强度受控而不制造复古褪色。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.warm-clean",
+            "photo.cream-white"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.broad-soft-wrap",
+            "photo.highlight-rolloff"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.crisp-no-grain",
+            "photo.organic-surface-variation"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.commercial-control",
+        "photo.specular-controlled"
+      ],
+      "insufficient_evidence": [
+        "仅有暖色物体",
+        "褪色抬黑颗粒主导"
+      ],
+      "confusable_with": [
+        "photo.commercial-cool-soft",
+        "warm-retro-film"
+      ],
+      "distinction": "暖净白阶和稳定本色区别于暖褪染复古，柔光不能消除所有表面变化。",
+      "compact_prompt": "暖净白点与奶油亮部保持稳定本色，包裹柔光与柔和肩部连接白阶和浅暗侧；洁净无粒解析保留有限自然表面微差，已有反射亮度受控，让温暖商业外观不依赖抬黑褪彩或颗粒。",
+      "detailed_description": "这一暖调建立在干净校色与受控曝光上，和复古暖褐的褪彩、浅黑位不同。包裹光让细节均衡但不应磨掉自然微纹理。仅有一个暖色对象或暖色背景无法证明全局白点；对已有反射的整理也不是把所有材质改成亮塑料。",
+      "generation_constraints": [
+        "不添加复古损傷",
+        "维持对象既有本色",
+        "柔光下仍有微纹与暗侧"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.commercial-dark-reflection",
+      "label": "商业暗底：中性密黑反射雕塑",
+      "family": "photo",
+      "category": "commercial",
+      "definition": "中性密黑承托少量受控反射亮区，低调曝光与镜面内部层次保持一致，清楚无粒解析强调已有表面而非商品类别。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.dense-neutral",
+            "photo.neutral-color"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.low-key",
+            "photo.specular-controlled"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.specular-detail",
+            "photo.crisp-no-grain"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.commercial-control",
+        "photo.diffuse-specular-balance"
+      ],
+      "insufficient_evidence": [
+        "只有黑色物体或暗背景",
+        "亮斑随机破碎且全面截白"
+      ],
+      "confusable_with": [
+        "photo.vfx-dark-reflection",
+        "photo.commercial-copper"
+      ],
+      "distinction": "暗底反射的形状与渐变须被受控整理，写实或金属本色都不足。",
+      "compact_prompt": "中性密黑为少量反射亮区提供低调基底，整理已有高光形状和内部渐变，漫反射体积仍可读；洁净无粒解析保持真实边缘，暗反射不一律抬灰，让商业层次来自精确亮度与表面响应。",
+      "detailed_description": "暗底商业摄影不以黑色道具或材质品类判定。反射亮区要同时有形状、渐变和一致光源方向，缺少任一项只适合更宽的低调描述。写实VFX暗照可能有类似外观，但制作来源未知；本配方强调商业整理，并不证明实拍或全CG。",
+      "generation_constraints": [
+        "不新增镜面或金属",
+        "保留漫反射本色层次",
+        "黑底不可吞没全部体积"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.commercial-hard-primary",
+      "label": "商业硬照：厚实原色与洁净边缘",
+      "family": "photo",
+      "category": "commercial",
+      "definition": "多种原色在中性校色下保持厚实分离，有方向硬照形成清楚体积，无粒微反差与受控亮部共同保证商业细节。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.dense-primary",
+            "photo.neutral-color"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.hard-directional",
+            "photo.specular-controlled"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.microcontrast-crisp",
+            "photo.crisp-no-grain"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.commercial-control"
+      ],
+      "insufficient_evidence": [
+        "单个高饱和物品",
+        "平面原色图形没有摄影渐变"
+      ],
+      "confusable_with": [
+        "photo.primary-hard-film",
+        "photo.phone-direct-flash"
+      ],
+      "distinction": "洁净原色、硬照与反射整理共同成立，非颗粒电影或普通直闪。",
+      "compact_prompt": "厚实原色在中性白点下保持色相分离，方向硬照清楚塑造既有体积并整理高光；无粒微反差呈现真实细节，不生成锐化双边，亮暗渐变连续，让高饱和商业外观仍是摄影成像。",
+      "detailed_description": "硬照商业分支不要求某种道具类别或鲜艳服装。原色密度必须跨多个可见区域，且摄影体积连续；二维原色设计不可混用。相比厚实原色电影，它强调无粒洁净解析和反射控制。正向直闪也有硬光，但通常缺少这种稳定色域和高光整理。",
+      "generation_constraints": [
+        "不新增原色道具",
+        "保持连续摄影渐变",
+        "高彩不等于自发光"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.commercial-pastel",
+      "label": "商业粉彩：高调无粒柔面层次",
+      "family": "photo",
+      "category": "commercial",
+      "definition": "浅粉彩和奶油白在高调包裹柔光中维持色相分离，无粒低微反差保留温和细节，白阶不被过曝吞没。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.pastel-low-chroma",
+            "photo.cream-white"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.high-key",
+            "photo.broad-soft-wrap"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.low-microcontrast",
+            "photo.crisp-no-grain"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.commercial-control"
+      ],
+      "insufficient_evidence": [
+        "只因浅色产品或背景",
+        "粉彩实际上是全面去色过曝"
+      ],
+      "confusable_with": [
+        "photo.pastel-diffuse-film",
+        "photo.highkey-cream-cinema"
+      ],
+      "distinction": "浅彩需彼此可分且成像洁净，无粒受控柔面区别于细颗粒电影漫照。",
+      "compact_prompt": "浅粉彩与奶油白在高调包裹柔光中保有细微色相分离，浅暗侧连接连续体积；无粒低微反差留住可读细节，白阶不全面截断，已有反射亮度均衡，让商业柔和感由稳定色域与曝光形成。",
+      "detailed_description": "商业粉彩需要浅彩彼此分离，若只是高曝光导致颜色消失则不成立。成像洁净与光线包裹区别于电影颗粒漫照。受控柔面仍保留接触层次和自然边缘，不以儿童、甜品等题材决定风格，也不自动修改对象为浅色新品类。",
+      "generation_constraints": [
+        "不改变对象品类或颜色意图",
+        "白阶保持细微差别",
+        "不自动追加颗粒"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.commercial-copper",
+      "label": "商业铜灰：受控反射与低彩密度",
+      "family": "photo",
+      "category": "commercial",
+      "definition": "铜色集中受光中调，灰阶两端维持克制密度，受控反射和可读细节共同整理已有表面，不把非金属对象替换为铜。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.copper-gray",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.specular-controlled",
+            "photo.high-contrast-mid"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.specular-detail",
+            "photo.crisp-no-grain"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.commercial-control"
+      ],
+      "insufficient_evidence": [
+        "仅有铜材质产品",
+        "通幅橙染且无反射内部层次"
+      ],
+      "confusable_with": [
+        "photo.copper-gray-cinema",
+        "photo.commercial-dark-reflection"
+      ],
+      "distinction": "铜色调色与商业反射整理为依据，材质本色不能证明全局配方。",
+      "compact_prompt": "铜色留在受光中調，灰阶两端保持低彩密度与清楚中调分离；整理已有镜面反射的形状和内部渐变，洁净无粒细节保留本身材质，商业铜灰外观来自成像关系而非对象全面金属化。",
+      "detailed_description": "铜灰分布按亮度而非材质类别形成，铜制物体在中性照明下的本色不足以证明该配方。商业整理要求反射内部可读和亮度稳定，与硬照电影铜灰的核心不同。若所有亮暗均匀橙染则更接近单色处理，应保留较低辨别置信度。",
+      "generation_constraints": [
+        "不把对象转换为铜金属",
+        "铜色主要位于中调",
+        "保留反射内部渐变"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.commercial-green-gold",
+      "label": "商业绿金：低调柔面与受控亮部",
+      "family": "photo",
+      "category": "commercial",
+      "definition": "翠绿中暗部和琥珀亮区在低调包裹柔光中形成清楚色域，受控镜反射与无粒细节维持商业整理但不依赖奢华题材。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.emerald-amber",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.broad-soft-wrap",
+            "photo.specular-controlled"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.specular-detail",
+            "photo.crisp-no-grain"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.commercial-control",
+        "photo.low-key"
+      ],
+      "insufficient_evidence": [
+        "只有绿金配色物品",
+        "全幅均匀绿色或金色滤层"
+      ],
+      "confusable_with": [
+        "photo.emerald-amber-soft",
+        "photo.commercial-dark-reflection"
+      ],
+      "distinction": "绿金亮暗分色与反射整理共同成立，题材和材质不代替照明。",
+      "compact_prompt": "翠绿中暗部和琥珀亮区保持克制分色，低调包裹柔光连接已有体积并整理反射渐变；无粒细节与受控白阶维持稳定本色，少量亮部有明確形状，让商业绿金关系不依赖装饰物或材质替换。",
+      "detailed_description": "绿金只是两端色温组织，不能自动加入贵金属或植物题材。相比电影绿金柔暗，本分支需要更明确的镜面亮区整理和洁净解析；已有哑光部分仍按漫反射呈现。若色域仅来自两个对象本色，而光照没有跨表面关系，就不应套用全局配方。",
+      "generation_constraints": [
+        "不添加奢华道具",
+        "保留既有哑光与反光差异",
+        "绿金只按已观察光区分布"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.commercial-color-gel",
+      "label": "商业彩光：青品方向分区洁净响应",
+      "family": "photo",
+      "category": "commercial",
+      "definition": "青蓝与品红方向光在连续体积上明确分区，亮部形状受控且解析无粒，色彩高低有序而非依赖霓虹环境题材。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.cyan-magenta",
+            "photo.dense-primary"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.color-light-separation",
+            "photo.specular-controlled"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.crisp-no-grain",
+            "photo.microcontrast-crisp"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.commercial-control"
+      ],
+      "insufficient_evidence": [
+        "只有青品背景图案",
+        "霓虹夜景但高光与边缘未被整理"
+      ],
+      "confusable_with": [
+        "neon-cinema",
+        "photo.commercial-hard-primary"
+      ],
+      "distinction": "青品方向分区和商业高光控制共现，不要求深暗夜景或标志文字。",
+      "compact_prompt": "青蓝与品红方向光在已有体积上形成可读分区，彩色交界仍有灰阶和稳定本色；整理亮部形状与反射渐变，洁净无粒解析保持自然微反差，让商业彩光有强弱次序而非全域均匀高彩。",
+      "detailed_description": "该分支可以在各种亮度基底上成立，不将夜景作为必要条件。青品必须参与照明塑形，不能只来自物品配色。相比电影霓虹混色，它更强调高光和细节受控而不要求大面积深暗；单个彩色背景或灯牌无法证明商业整合质量。",
+      "generation_constraints": [
+        "不添加霓虹地点或招牌",
+        "彩光保持方向与交界",
+        "高彩区域保留内部渐变"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    },
+    {
+      "id": "photo.commercial-neutral-texture",
+      "label": "商业质感：中性柔照与微纹可读",
+      "family": "photo",
+      "category": "commercial",
+      "definition": "中性稳定色域在柔方向照明中保留已有哑光微纹，微反差清楚且高光渐压，商业整理改善可读性而不改变对象材质。",
+      "signature_groups": [
+        {
+          "id": "tone",
+          "dimension": "color_tone",
+          "term_ids": [
+            "photo.neutral-color",
+            "photo.restrained-saturation"
+          ]
+        },
+        {
+          "id": "light",
+          "dimension": "lighting_shading",
+          "term_ids": [
+            "photo.soft-directional",
+            "photo.highlight-rolloff"
+          ]
+        },
+        {
+          "id": "texture",
+          "dimension": "texture_material",
+          "term_ids": [
+            "photo.matte-detail",
+            "photo.microcontrast-crisp"
+          ]
+        }
+      ],
+      "supporting_term_ids": [
+        "photo.commercial-control",
+        "photo.organic-surface-variation"
+      ],
+      "insufficient_evidence": [
+        "仅有质感丰富的物体",
+        "磨皮式平滑或全面镜面化"
+      ],
+      "confusable_with": [
+        "natural-cinema",
+        "clean-commercial"
+      ],
+      "distinction": "既有哑光纹理与受控柔照共同可读，不能用材质关键词替代响应。",
+      "compact_prompt": "中性低彩在柔方向光下保持本色与连续体积，柔和亮部肩部留住细微白阶；清楚微反差呈现已有哑光纹理和自然表面差异，细节被均衡整理而不变成锐化白边或统一镜面响应。",
+      "detailed_description": "商业质感不是新增纹理，也不允许替换材质。它要求已有微纹与漫反射层次在柔照中保持可读，并通过稳定校色和高光控制得到统一。自然主义摄影也有微纹，但未必具有这种商业整理程度；仅凭表面粗糙或出现某类产品不能匹配。",
+      "generation_constraints": [
+        "不生成额外材质花纹",
+        "保持哑光表面的已有响应",
+        "微反差不变成锐化双边"
+      ],
+      "source_ids": [
+        "internal-authored"
+      ]
+    }
+  ]
+}

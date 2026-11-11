@@ -1,0 +1,393 @@
+{
+  "version": "style-anchors.v1",
+  "source": "internally-authored",
+  "usage": "legacy-read-only; production uses cinema_library.v1.json compiled from Prompts/cinema_style_library",
+  "terms": [
+    {
+      "id": "disney-modern-3d",
+      "label": "迪士尼式现代三维角色动画",
+      "family": "3d",
+      "cues": [
+        "流线",
+        "曲线",
+        "夸张",
+        "表情",
+        "三维"
+      ],
+      "counter_cues": [
+        "写实摄影",
+        "平面剪纸"
+      ],
+      "distinction": "流线化造型与戏剧性表情形状需共同成立；圆润、大眼本身不足以区分工作室。"
+    },
+    {
+      "id": "pixar-character-3d",
+      "label": "皮克斯式角色三维动画",
+      "family": "3d",
+      "cues": [
+        "几何",
+        "块面",
+        "比例",
+        "材质",
+        "三维"
+      ],
+      "counter_cues": [
+        "写实摄影",
+        "赛璐璐"
+      ],
+      "distinction": "强调角色形状对比与经过组织的表面表现；不得仅凭三维、大眼或暖光命名。"
+    },
+    {
+      "id": "shinkai-anime",
+      "label": "新海诚式日系动画视觉",
+      "family": "2d",
+      "cues": [
+        "通透",
+        "天空",
+        "背景",
+        "逆光",
+        "光晕",
+        "二维"
+      ],
+      "counter_cues": [
+        "厚涂",
+        "平面色块"
+      ],
+      "distinction": "精细背景与简化人物、通透空气及鲜明光色层次的组合，不以单个蓝天或逆光认定。"
+    },
+    {
+      "id": "ghibli-painted-anime",
+      "label": "吉卜力式手绘动画视觉",
+      "family": "2d",
+      "cues": [
+        "手绘",
+        "水彩",
+        "背景",
+        "柔和",
+        "笔触"
+      ],
+      "counter_cues": [
+        "照片级",
+        "高光塑料"
+      ],
+      "distinction": "自然绘画背景、简洁手绘角色与柔和色块；仅凭田园题材不能成立。"
+    },
+    {
+      "id": "classic-cel",
+      "label": "经典赛璐璐动画",
+      "family": "2d",
+      "cues": [
+        "线稿",
+        "色块",
+        "分色",
+        "硬边",
+        "二维"
+      ],
+      "counter_cues": [
+        "连续写实阴影"
+      ],
+      "distinction": "清晰轮廓与少层硬边阴影共同构成二维语言。"
+    },
+    {
+      "id": "graphic-pop",
+      "label": "高对比波普图形动画",
+      "family": "2d",
+      "cues": [
+        "网点",
+        "粗黑",
+        "限定色",
+        "爆破",
+        "波普"
+      ],
+      "counter_cues": [
+        "柔和写实"
+      ],
+      "distinction": "限定高对比色、图形轮廓与网点语法；速度线不证明帧率。"
+    },
+    {
+      "id": "low-poly-3d",
+      "label": "低多边形几何三维风格",
+      "family": "3d",
+      "cues": [
+        "多边形",
+        "三角",
+        "棱面",
+        "几何",
+        "硬边"
+      ],
+      "counter_cues": [
+        "平滑曲面"
+      ],
+      "distinction": "显式几何棱面与简化体积，而不是普通尖锐造型。"
+    },
+    {
+      "id": "photoreal-cgi",
+      "label": "照片级写实 CG 视觉",
+      "family": "3d",
+      "cues": [
+        "照片级",
+        "写实CG",
+        "微观",
+        "反射",
+        "三维"
+      ],
+      "counter_cues": [
+        "简化五官",
+        "纸纤维"
+      ],
+      "distinction": "在已有明确CG证据时使用，不把难分辨的真人照片直接判为CG。"
+    },
+    {
+      "id": "paper-collage",
+      "label": "多层手工剪纸拼贴",
+      "family": "handmade",
+      "cues": [
+        "纸",
+        "纤维",
+        "拼贴",
+        "裁切",
+        "层叠"
+      ],
+      "counter_cues": [
+        "光滑数字"
+      ],
+      "distinction": "可见纸层边缘、纤维或投影，不凭几何造型猜纸媒介。"
+    },
+    {
+      "id": "clay-miniature",
+      "label": "黏土微缩定格质感",
+      "family": "handmade",
+      "cues": [
+        "黏土",
+        "压痕",
+        "手塑",
+        "微缩"
+      ],
+      "counter_cues": [
+        "光滑数字"
+      ],
+      "distinction": "手塑表面和微缩质感可见；静帧不能证明逐帧抖动。"
+    },
+    {
+      "id": "watercolor",
+      "label": "透明水彩插画",
+      "family": "painting",
+      "cues": [
+        "水彩",
+        "晕染",
+        "纸白",
+        "渗化"
+      ],
+      "counter_cues": [
+        "光滑三维"
+      ],
+      "distinction": "透明叠色、渗化边缘与纸面留白组织。"
+    },
+    {
+      "id": "oil-painting",
+      "label": "厚涂油画式视觉",
+      "family": "painting",
+      "cues": [
+        "厚涂",
+        "油画",
+        "笔触",
+        "颜料"
+      ],
+      "counter_cues": [
+        "洁净矢量"
+      ],
+      "distinction": "可见方向性笔触或颜料堆叠；普通噪点不等于笔触。"
+    },
+    {
+      "id": "ink-wash",
+      "label": "水墨渗化绘画",
+      "family": "painting",
+      "cues": [
+        "水墨",
+        "墨色",
+        "飞白",
+        "渗化",
+        "留白"
+      ],
+      "counter_cues": [
+        "金属高光"
+      ],
+      "distinction": "墨色浓淡、渗化边缘与留白，不凭中国题材判断。"
+    },
+    {
+      "id": "flat-vector",
+      "label": "扁平矢量设计",
+      "family": "design",
+      "cues": [
+        "扁平",
+        "矢量",
+        "无纹理",
+        "几何",
+        "色块"
+      ],
+      "counter_cues": [
+        "照片级"
+      ],
+      "distinction": "清晰几何边界与均匀色块，非单个平面物体。"
+    },
+    {
+      "id": "retro-pixel",
+      "label": "复古像素美术",
+      "family": "design",
+      "cues": [
+        "像素",
+        "低分辨率",
+        "调色板",
+        "阶梯"
+      ],
+      "counter_cues": [
+        "平滑曲线"
+      ],
+      "distinction": "人为离散像素轮廓与限定色，不把压缩马赛克当像素画。"
+    },
+    {
+      "id": "noir-cinema",
+      "label": "黑色电影式高反差摄影",
+      "family": "photo",
+      "cues": [
+        "低调",
+        "黑白",
+        "高反差",
+        "硬光",
+        "深黑"
+      ],
+      "counter_cues": [
+        "均匀高调"
+      ],
+      "distinction": "大面积深暗与有方向硬光、明显明暗组织，不以黑衣或夜景判定。"
+    },
+    {
+      "id": "natural-cinema",
+      "label": "自然主义写实电影摄影",
+      "family": "photo",
+      "cues": [
+        "自然",
+        "写实",
+        "层次",
+        "柔和",
+        "摄影"
+      ],
+      "counter_cues": [
+        "图形化分色"
+      ],
+      "distinction": "可信明暗与肤色、自然光层次；不自动添加胶片或机型。"
+    },
+    {
+      "id": "cool-thriller",
+      "label": "冷调悬疑电影摄影",
+      "family": "photo",
+      "cues": [
+        "冷调",
+        "青灰",
+        "低饱和",
+        "低调",
+        "摄影"
+      ],
+      "counter_cues": [
+        "高饱和暖色"
+      ],
+      "distinction": "低彩度冷色与克制明暗组织共同成立，不能仅凭恐怖情节判断。"
+    },
+    {
+      "id": "warm-retro-film",
+      "label": "暖调复古颗粒电影视觉",
+      "family": "photo",
+      "cues": [
+        "颗粒",
+        "暖调",
+        "褪色",
+        "柔化",
+        "摄影"
+      ],
+      "counter_cues": [
+        "数字洁净"
+      ],
+      "distinction": "颗粒与色彩/高光表现均有证据；不可推断具体胶片型号。"
+    },
+    {
+      "id": "neon-cinema",
+      "label": "霓虹混色电影摄影",
+      "family": "photo",
+      "cues": [
+        "霓虹",
+        "混色",
+        "青红",
+        "品红",
+        "实景光源"
+      ],
+      "counter_cues": [
+        "单一自然光"
+      ],
+      "distinction": "可见混合彩光与有组织的亮暗关系，不以招牌内容或城市题材判断。"
+    },
+    {
+      "id": "phone-daylight",
+      "label": "手机式自然光日常纪实",
+      "family": "photo",
+      "cues": [
+        "日常",
+        "宽景深",
+        "自然光",
+        "数字",
+        "摄影"
+      ],
+      "counter_cues": [
+        "舞台布光"
+      ],
+      "distinction": "宽景深、自然明暗与日常数字影像语言；不鉴定设备、不默认手持或低画质。"
+    },
+    {
+      "id": "phone-indoor",
+      "label": "手机式室内实景纪实",
+      "family": "photo",
+      "cues": [
+        "实景光源",
+        "室内",
+        "宽景深",
+        "数字",
+        "摄影"
+      ],
+      "counter_cues": [
+        "造型化硬光"
+      ],
+      "distinction": "可见实景照明与日常数字成像组织，不以地点本身作为风格依据。"
+    },
+    {
+      "id": "street-documentary",
+      "label": "街头观察式纪实摄影",
+      "family": "photo",
+      "cues": [
+        "纪实",
+        "自然",
+        "环境",
+        "层次",
+        "摄影"
+      ],
+      "counter_cues": [
+        "夸张五官"
+      ],
+      "distinction": "自然光与环境层次，不从静图臆测摄影机运动或拍摄方式。"
+    },
+    {
+      "id": "clean-commercial",
+      "label": "洁净高调商业摄影",
+      "family": "photo",
+      "cues": [
+        "高调",
+        "洁净",
+        "高光",
+        "中性",
+        "摄影"
+      ],
+      "counter_cues": [
+        "颗粒深暗"
+      ],
+      "distinction": "干净色域、受控高光与通透明暗，不以道具品类判断风格。"
+    }
+  ]
+}
