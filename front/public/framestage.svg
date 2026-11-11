@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="FrameForge">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="FrameStage">
   <defs>
     <linearGradient id="night" x2=".8" y2="1" gradientUnits="objectBoundingBox">
       <stop stop-color="#1b3146"/><stop offset="1" stop-color="#121827"/>

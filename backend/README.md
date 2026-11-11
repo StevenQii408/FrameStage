@@ -1,4 +1,4 @@
-# FrameForge Backend
+# FrameStage Backend
 
 FastAPI + SQLite + 单任务 Worker。FFmpeg／PySceneDetect 在本机处理媒体，百炼北京区域 `qwen3.8-flash` 执行视觉与文字推理；没有本地 MLX 推理入口，也没有自动升级模型。
 

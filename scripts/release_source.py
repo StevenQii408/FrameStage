@@ -20,8 +20,8 @@ import zipfile
 import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
-BRAND_SVG = "front/public/frameforge.svg"
-BRAND_PNG_SIZES = {"front/public/frameforge-32.png": (32, 32), "front/public/apple-touch-icon.png": (180, 180)}
+BRAND_SVG = "front/public/framestage.svg"
+BRAND_PNG_SIZES = {"front/public/framestage-32.png": (32, 32), "front/public/apple-touch-icon.png": (180, 180)}
 BRAND_ASSETS = {BRAND_SVG, *BRAND_PNG_SIZES}
 TOP_FILES = {"README.md", "LICENSE", "SECURITY.md", "CONTRIBUTING.md", "CHANGELOG.md",
              "PROJECT_STATUS.md", "DEVELOPMENT_ROADMAP.md", "THIRD_PARTY_REFERENCES.md",

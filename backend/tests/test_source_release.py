@@ -28,7 +28,8 @@ def test_release_never_bundles_credential_storage_media_or_diagnostics():
                  "backend/evals/results/report.json", "backend/.venv312/lib/code.py",
                  "系统展示/画布.png", "docs/history/old-fix.md", "Prompts/ai-shortfilm-prompts/README.md",
                  "front/node_modules/module/index.ts", "front/public/demo.png", "front/public/other.svg",
-                 "front/src/frameforge.svg", "front/public/frameforge-32.png.bak", "../private.txt", "/private/app.py"]:
+                 "front/public/frameforge.svg", "front/public/frameforge-32.png",
+                 "front/src/framestage.svg", "front/public/framestage-32.png.bak", "../private.txt", "/private/app.py"]:
         assert not release.distributable(path), path
 
 
@@ -39,7 +40,7 @@ def test_incomplete_source_without_git_is_rejected(tmp_path):
     assert [f["path"] for f in files] == ["README.md"]
     assert any(p["path"] == "backend/app/media_worker.py" for p in problems)
     assert {p["path"] for p in problems} >= {
-        "front/public/frameforge.svg", "front/public/frameforge-32.png", "front/public/apple-touch-icon.png",
+        "front/public/framestage.svg", "front/public/framestage-32.png", "front/public/apple-touch-icon.png",
     }
     assert not release.distributable("系统展示/README.md")
     assert not release.distributable("backend/tests/fixtures/private-cloud-output.json")
@@ -65,7 +66,7 @@ def test_verify_head_flags_drift_missing_private_and_uncommitted(tmp_path):
 
 def test_source_zip_ships_reviewed_icons(tmp_path):
     release = release_module()
-    icons = {"front/public/frameforge.svg", "front/public/frameforge-32.png", "front/public/apple-touch-icon.png"}
+    icons = {"front/public/framestage.svg", "front/public/framestage-32.png", "front/public/apple-touch-icon.png"}
     for name in release.REQUIRED | icons:
         path = tmp_path / name
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -91,8 +92,8 @@ def test_brand_assets_are_validated_and_scanned(tmp_path):
     release = release_module()
     public = tmp_path / "front/public"
     public.mkdir(parents=True)
-    svg = "front/public/frameforge.svg"
-    small = "front/public/frameforge-32.png"
+    svg = "front/public/framestage.svg"
+    small = "front/public/framestage-32.png"
     touch = "front/public/apple-touch-icon.png"
     (tmp_path / small).write_bytes((release.ROOT / touch).read_bytes())
     (tmp_path / touch).write_bytes(b"not a PNG")

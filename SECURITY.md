@@ -1,6 +1,6 @@
 # Security
 
-FrameForge is a **local, single-user developer preview**, not a hosted multi-tenant service. Keep the backend on loopback. Project ownership checks separate workspaces; they are not user authentication.
+FrameStage is a **local, single-user developer preview**. Keep the backend on loopback. Project ownership checks separate workspaces; they are not user authentication.
 
 ## Local API session
 

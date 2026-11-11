@@ -85,7 +85,7 @@ The root MIT license covers project-authored code and documentation. It does not
 ```bash
 python scripts/secret_scan.py --history
 python scripts/release_source.py --verify-head
-python scripts/release_source.py --output release-artifacts/frameforge-source.zip
+python scripts/release_source.py --output release-artifacts/framestage-source.zip
 ```
 
 不带参数时检查工作区候选文件；`--verify-head` 和 `--output` 要求公开源文件全部与当前提交一致，必需文件完整，提交中没有私有文件。ZIP 内清单记录提交和每个文件的 SHA-256。演示目录、原始云端响应、凭据、运行数据和本地历史文档不发布。只发布已检查的 main 分支，不镜像推送私有 refs。

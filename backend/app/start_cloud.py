@@ -27,7 +27,7 @@ def cloud_environment():
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="启动 FrameForge 云端 Flash 后端；不会加载本地模型")
+    parser = argparse.ArgumentParser(description="启动 FrameStage 云端 Flash 后端；不会加载本地模型")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8000)
     args = parser.parse_args(argv)

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, defineAsyncComponent, nextTick, onBeforeUnmount, onMounted, provide, ref, watch, type Ref } from 'vue'
+import { brandName } from './brand'
 import { Background } from '@vue-flow/background'
 import { SelectionMode, VueFlow, useVueFlow, type Connection, type Edge as FlowEdge, type Node as FlowNode, type NodeChange } from '@vue-flow/core'
 import { makeSceneGroups, semanticZoomLevel } from './graph'
@@ -1482,7 +1483,7 @@ onBeforeUnmount(() => {
 <template>
   <div ref="workbenchRoot" tabindex="-1" class="app-shell dark" :class="{ 'chrome-top-open': topbarOpen, 'chrome-left-open': leftRailOpen }">
     <div class="chrome-controls" aria-label="工作台面板控制"><button class="chrome-toggle" type="button" :aria-label="leftRailOpen ? '收起左侧栏' : '展开左侧栏'" :aria-expanded="leftRailOpen" title="左侧栏" @click="toggleChrome('left')"><Layers3 :size="18" /></button><button class="chrome-toggle" type="button" :aria-label="topbarOpen ? '收起顶栏' : '展开顶栏'" :aria-expanded="topbarOpen" title="顶栏与工作流" @click="toggleChrome('top')"><PanelRight :size="18" /></button></div>
-    <header class="topbar" :inert="!topbarOpen" :aria-hidden="!topbarOpen"><div class="brand"><div class="brand-mark"><Sparkles :size="16" /></div><span>FRAME<span class="brand-light">FORGE</span></span><em>STUDIO</em></div><div class="breadcrumb"><span>PROJECT</span><b>/</b><strong>{{ projectName || '多任务画布' }}</strong></div></header>
+    <header class="topbar" :inert="!topbarOpen" :aria-hidden="!topbarOpen"><div class="brand"><div class="brand-mark"><Sparkles :size="16" /></div><span>{{ brandName }}</span></div><div class="breadcrumb"><span>PROJECT</span><b>/</b><strong>{{ projectName || '多任务画布' }}</strong></div></header>
     <main class="workspace">
       <aside class="left-rail" :inert="!leftRailOpen" :aria-hidden="!leftRailOpen">
         <div class="rail-section"><span class="rail-label">WORKSPACE</span><button class="rail-item" :class="{ active: store.activeView === 'canvas' }" @click="store.selectView('canvas')"><Layers3 :size="16" />分镜拓扑</button><button class="rail-item" :class="{ active: store.activeView === 'shots' }" @click="store.selectView('shots')"><Table2 :size="16" />镜头列表 <b :title="`${store.shots.length} 个来源镜头 / ${generatedCount} 个生成片段`">{{ store.shots.length }} / {{ generatedCount }}</b></button><button class="rail-item" :class="{ active: store.activeView === 'timeline' }" @click="store.selectView('timeline')"><Clock3 :size="16" />时间轴</button></div>

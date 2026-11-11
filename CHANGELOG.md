@@ -1,6 +1,10 @@
 # Changelog
 
-## Unreleased — release hardening
+## v0.1.1 — FrameStage
+
+- Renamed FrameForge Studio to FrameStage. The video creation workbench supports AI-assisted storyboarding from reference videos and scripts.
+
+## v0.1.0 — release hardening
 
 - Image and video generation have optional cloud adapters, a persistent local queue, SSE progress and separate remote cancellation. Real generation is off by default.
 - Export only the verified commit; original cloud responses, local troubleshooting notes and the entire showcase directory are not source distribution assets.

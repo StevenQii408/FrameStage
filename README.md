@@ -1,6 +1,6 @@
-# FrameForge Studio
+# FrameStage
 
-本机运行的 AI 分镜与 Prompt 工作台。将参考视频或文字剧本组织为可追溯的来源镜头、连续事件和生成片段，并在可视化画布中检查、编辑和复用首帧图片／Seedance 视频提示词。
+FrameStage 是本机运行的视频创作工作台。AI 辅助分镜可以从参考视频提取镜头，也可以根据文字剧本规划分镜。你可以在项目画布上编排连续事件，编辑首帧图片和 Seedance 视频提示词，预览生成的素材。
 
 **当前为单用户开发预览版。**视觉和剧本分析默认使用百炼北京区域 `qwen3.8-flash`；本地负责媒体处理、证据工具和数据保存。图片／视频生成已提供千问 Image 3.0 Pro 与 Wan 3.0 官方接口适配器，默认关闭；配置和显式启用后才能提交真实生成。配置步骤见 [生成 API 指南](docs/GENERATION_API_SETUP.md)。
 
@@ -15,7 +15,14 @@
 
 ## 快速开始
 
-需要 Python 3.12+、Node.js 22，以及 PATH 中可运行的 `ffmpeg`／`ffprobe`。发行版 CI 使用 Python 3.12／3.13。以下命令从仓库根目录执行。
+需要 Python 3.12+、Node.js 22，以及 PATH 中可运行的 `ffmpeg`／`ffprobe`。发行版 CI 使用 Python 3.12／3.13。首次运行先获取源码；已有本地副本可直接使用原目录。
+
+```bash
+git clone https://github.com/StevenQii408/FrameStage.git
+cd FrameStage
+```
+
+以下命令从仓库根目录执行。
 
 安装 FFmpeg，例如 macOS 使用 `brew install ffmpeg`，Ubuntu 使用 `sudo apt-get install ffmpeg`。
 
