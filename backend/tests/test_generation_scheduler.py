@@ -1,5 +1,6 @@
 """Durable scheduling invariants with isolated files and no external calls."""
 import asyncio
+from contextlib import contextmanager
 from dataclasses import replace
 import json
 import os
@@ -119,6 +120,37 @@ def test_waiting_cloud_job_releases_network_lease_and_persists_remote_id(durable
     assert len(durable.provider.submitted) == 1 and len(durable.provider.polled) == 1
     assert durable.queue.peek(job["id"])["lease_owner"] is None
     assert durable.get(job["id"])["progress"] is None
+
+
+def test_terminal_status_and_queue_retirement_commit_together(durable, monkeypatch):
+    job_id = new(durable, 1)["id"]
+    step(durable)
+    assert durable.queue.peek(job_id)["phase"] == "poll"
+    remote_slot = durable.queue.remote_slot(job_id)
+    assert remote_slot
+
+    connect = durable.repository.db.connect
+
+    @contextmanager
+    def observe_commit():
+        with connect() as writer:
+            yield writer
+        # Inspect each committed state before advance can open another transaction.
+        with connect() as reader:
+            row = reader.execute(
+                "SELECT j.status, q.job_id FROM generation_jobs j "
+                "LEFT JOIN generation_queue q ON q.job_id=j.id WHERE j.id=?", (job_id,)
+            ).fetchone()
+            if row["status"] == "failed":
+                assert row["job_id"] is None
+
+    with monkeypatch.context() as patch:
+        patch.setattr(durable.repository.db, "connect", observe_commit)
+        assert durable.repository.advance(job_id, "failed")["status"] == "failed"
+
+    durable.queue.enqueue(job_id, "poll")
+    assert durable.queue.peek(job_id) is None
+    assert durable.queue.remote_slot(job_id) == remote_slot
 
 
 def test_recovery_queries_existing_remote_task_without_resubmitting(durable):

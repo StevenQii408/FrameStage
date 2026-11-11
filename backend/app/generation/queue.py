@@ -5,7 +5,12 @@ import json
 import os
 import time
 
+from app.generation.models import ACTIVE
 from app.generation.repository import encoded
+
+
+# Only fixed application states are interpolated; SQLite trigger definitions cannot bind parameters.
+_ACTIVE_SQL = "(" + ", ".join(repr(state) for state in sorted(ACTIVE)) + ")"
 
 
 class GenerationQueue:
@@ -15,13 +20,26 @@ class GenerationQueue:
             # The queue stays on the local filesystem. Network work never runs
             # inside a database transaction.
             conn.execute("PRAGMA journal_mode=WAL")
-            conn.executescript("""
+            conn.executescript(f"""
                 CREATE TABLE IF NOT EXISTS generation_queue (
                   job_id TEXT PRIMARY KEY, phase TEXT NOT NULL,
                   next_run_at REAL NOT NULL, deadline REAL,
                   polls INTEGER NOT NULL DEFAULT 0, failures INTEGER NOT NULL DEFAULT 0,
                   lease_owner TEXT, lease_until REAL NOT NULL DEFAULT 0,
                   output_json TEXT NOT NULL DEFAULT '[]'
+                );
+                -- Publish a terminal status, its SSE event and retirement of the
+                -- local checkpoint in the same transaction. Remote billing/slots
+                -- are tracked independently until upstream termination is known.
+                CREATE TRIGGER IF NOT EXISTS generation_queue_retire_terminal
+                AFTER UPDATE OF status ON generation_jobs
+                WHEN NEW.status NOT IN {_ACTIVE_SQL}
+                BEGIN
+                  DELETE FROM generation_queue WHERE job_id=NEW.id;
+                END;
+                DELETE FROM generation_queue WHERE NOT EXISTS (
+                  SELECT 1 FROM generation_jobs j WHERE j.id=generation_queue.job_id
+                  AND j.status IN {_ACTIVE_SQL}
                 );
                 CREATE INDEX IF NOT EXISTS generation_queue_due ON generation_queue(phase,next_run_at);
                 CREATE TABLE IF NOT EXISTS generation_submit_limits (
@@ -39,8 +57,10 @@ class GenerationQueue:
 
     def enqueue(self, job_id, phase="submit"):
         with self.db.connect() as conn:
-            conn.execute("INSERT OR IGNORE INTO generation_queue(job_id,phase,next_run_at) VALUES(?,?,?)",
-                         (job_id, phase, time.time()))
+            # A delayed create/recovery snapshot must not resurrect a finished job.
+            conn.execute("INSERT OR IGNORE INTO generation_queue(job_id,phase,next_run_at) "
+                         f"SELECT id,?,? FROM generation_jobs WHERE id=? AND status IN {_ACTIVE_SQL}",
+                         (phase, time.time(), job_id))
 
     def reconcile_phase(self, job_id, phase):
         self.db.execute("UPDATE generation_queue SET phase=? WHERE job_id=? AND lease_owner IS NULL", (phase, job_id))
